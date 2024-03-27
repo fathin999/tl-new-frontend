@@ -1,0 +1,92 @@
+:root {
+    /* COLORS */
+    --purple: #d47dff;
+    --darkBlue: #293d56;
+    --green: #6fd5d2;
+    --blue: #3fa2ff;
+    --yellow: #f5ec83;
+    --black: #070707;
+    --lightGreen: #d0efee;
+    --lightPurple: #eee2f9;
+    --lightBlue: #d4e8fa;
+
+    /* TEXT COLORS */
+    --textMedium: #606060;
+    --textLight: #8b8b8b;
+
+    /* DIMENSIONS */
+    --navbarHeight: 90px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* --color-background: var(--vt-c-black); */
+    }
+}
+
+@font-face {
+    font-family: "NTSomic";
+    font-weight: 400;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("NTSomic"), url("/fonts/NTSomic-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NTSomic";
+    font-weight: 500;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("NTSomic"), url("/fonts/NTSomic-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NTSomic";
+    font-weight: 600;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("NTSomic"), url("/fonts/NTSomic-Semibold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "NTSomic";
+    font-weight: 700;
+    font-style: normal;
+    font-display: auto;
+    unicode-range: U+000-5FF;
+    src: local("NTSomic"), url("/fonts/NTSomic-Bold.woff2") format("woff2");
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "NTSomic", "Helvetica Neue", sans-serif;
+}
+
+p {
+    font-size: 0.95rem;
+    line-height: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    min-height: 100vh;
+    /* color: var(--color-text); */
+    /* background: var(--color-background); */
+    /* transition: color 0.5s, background-color 0.5s; */
+    /* line-height: 1.6; */
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
