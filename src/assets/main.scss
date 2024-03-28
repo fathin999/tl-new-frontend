@@ -101,8 +101,6 @@ main {
     }
 
     &-title {
-        width: 50%;
-
         h2 {
             font-size: 2.7rem;
             line-height: 3.7rem;
@@ -116,6 +114,7 @@ main {
         p {
             margin-top: 20px;
             color: var(--textMedium);
+            width: 45%;
         }
     }
 }

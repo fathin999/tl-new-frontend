@@ -69,6 +69,8 @@ import IconHeroChart from "../icons/landingPage/IconHeroChart.vue";
                 <p>Average student placement rate</p>
             </div>
         </div>
+
+        <div id="hero-slider-screen" />
     </div>
 </template>
 
@@ -94,6 +96,7 @@ $borderRadius: 25px;
     position: relative;
     isolation: isolate;
     transform: translateZ(0);
+    user-select: none;
 
     &-first {
         left: $firstInitPos;
@@ -142,6 +145,13 @@ $borderRadius: 25px;
         margin-top: 7px;
         font-size: 0.9rem;
         line-height: 1.2rem;
+    }
+
+    &-screen {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 5;
     }
 }
 
@@ -208,14 +218,15 @@ $borderRadius: 25px;
     33.2% {
         opacity: 1;
     }
-    33.3% {
+    33.33% {
         left: $hiddenPos;
         opacity: 0;
     }
-    33.4% {
+    33.34% {
         left: $thirdInitPos;
+        opacity: 0;
     }
-    33.5% {
+    33.35% {
         opacity: 1;
     }
     66.6% {
@@ -233,17 +244,18 @@ $borderRadius: 25px;
     33.3% {
         left: $firstInitPos;
     }
-    66.5% {
+    66.65% {
         opacity: 1;
     }
-    66.6% {
+    66.66% {
         left: $hiddenPos;
         opacity: 0;
     }
-    66.7% {
+    66.67% {
         left: $thirdInitPos;
+        opacity: 0;
     }
-    66.8% {
+    66.68% {
         opacity: 1;
     }
     100% {
@@ -262,16 +274,19 @@ $borderRadius: 25px;
     66.7% {
         left: $firstInitPos;
     }
-    99.8% {
+    99.97% {
         opacity: 1;
     }
-    99.9% {
+    99.98% {
         left: $hiddenPos;
         opacity: 0;
     }
-    100% {
+    99.99% {
         left: $thirdInitPos;
         opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 </style>

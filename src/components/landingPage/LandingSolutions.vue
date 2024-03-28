@@ -7,8 +7,8 @@ import EndToEndSolutions from "./EndToEndSolutions.vue";
         <div class="container">
             <div class="section-title">
                 <h2>
-                    Elevate your tech career <br />
-                    with our <u>all-in-one</u> solution
+                    Maximise your potential <br />
+                    with our <u>all-in-one</u> career platform
                 </h2>
             </div>
 

@@ -10,8 +10,8 @@
             </div>
 
             <div id="trusted-list">
-                <div class="background" />
-                <div class="background" id="right" />
+                <div class="gradient" />
+                <div class="gradient" id="right" />
                 <img
                     class="trusted-logos"
                     id="trusted-logos-1"
@@ -30,6 +30,7 @@
                     alt="logo"
                     src="/src/assets/landing-page/trusted/logo-set-1.png"
                 />
+                <div id="trusted-screen" />
             </div>
         </div>
     </div>
@@ -77,9 +78,16 @@ $time: 50s;
             animation: slide3 $time linear infinite;
         }
     }
+
+    &-screen {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 5;
+    }
 }
 
-.background {
+.gradient {
     position: absolute;
     top: 0;
     left: 0;
@@ -106,14 +114,15 @@ $time: 50s;
     33.2% {
         opacity: 1;
     }
-    33.3% {
+    33.33% {
         left: $hiddenPos;
         opacity: 0;
     }
-    33.4% {
+    33.34% {
         left: $thirdInitPos;
+        opacity: 0;
     }
-    33.5% {
+    33.35% {
         opacity: 1;
     }
     66.6% {
@@ -131,17 +140,18 @@ $time: 50s;
     33.3% {
         left: $firstInitPos;
     }
-    66.5% {
+    66.65% {
         opacity: 1;
     }
-    66.6% {
+    66.66% {
         left: $hiddenPos;
         opacity: 0;
     }
-    66.7% {
+    66.67% {
         left: $thirdInitPos;
+        opacity: 0;
     }
-    66.8% {
+    66.68% {
         opacity: 1;
     }
     100% {
@@ -160,16 +170,19 @@ $time: 50s;
     66.7% {
         left: $firstInitPos;
     }
-    99.8% {
+    99.97% {
         opacity: 1;
     }
-    99.9% {
+    99.98% {
         left: $hiddenPos;
         opacity: 0;
     }
-    100% {
+    99.99% {
         left: $thirdInitPos;
         opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 </style>
