@@ -9,6 +9,7 @@
     --lightGreen: #d0efee;
     --lightPurple: #eee2f9;
     --lightBlue: #d4e8fa;
+    --bgMedium: #f3f6fb;
 
     /* TEXT COLORS */
     --textMedium: #606060;
@@ -25,39 +26,33 @@
 }
 
 @font-face {
-    font-family: "NTSomic";
+    font-family: "SFProDisplay";
     font-weight: 400;
     font-style: normal;
     font-display: auto;
     unicode-range: U+000-5FF;
-    src: local("NTSomic"), url("/fonts/NTSomic-Regular.woff2") format("woff2");
+    src: local("SFProDisplay"),
+        url("/fonts/SFProDisplay-Regular.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "NTSomic";
+    font-family: "SFProDisplay";
     font-weight: 500;
     font-style: normal;
     font-display: auto;
     unicode-range: U+000-5FF;
-    src: local("NTSomic"), url("/fonts/NTSomic-Medium.woff2") format("woff2");
+    src: local("SFProDisplay"),
+        url("/fonts/SFProDisplay-Semibold.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "NTSomic";
+    font-family: "SFProDisplay";
     font-weight: 600;
     font-style: normal;
     font-display: auto;
     unicode-range: U+000-5FF;
-    src: local("NTSomic"), url("/fonts/NTSomic-Semibold.woff2") format("woff2");
-}
-
-@font-face {
-    font-family: "NTSomic";
-    font-weight: 700;
-    font-style: normal;
-    font-display: auto;
-    unicode-range: U+000-5FF;
-    src: local("NTSomic"), url("/fonts/NTSomic-Bold.woff2") format("woff2");
+    src: local("SFProDisplay"),
+        url("/fonts/SFProDisplay-Bold.woff2") format("woff2");
 }
 
 *,
@@ -66,12 +61,20 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "NTSomic", "Helvetica Neue", sans-serif;
+    font-family: "SFProDisplay", "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
 }
 
 p {
-    font-size: 0.95rem;
-    line-height: 1.4rem;
+    line-height: 1.5rem;
 }
 
 a {

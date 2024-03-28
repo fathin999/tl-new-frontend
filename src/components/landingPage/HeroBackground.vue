@@ -208,16 +208,14 @@ export default {
 @keyframes blink {
     0% {
         opacity: 0;
-        /* transform: translateX(-20px) scale(0.8); */
         transform: scale(0.8) rotate(0);
     }
 
     50% {
-        opacity: 0.9;
+        opacity: 1;
     }
     100% {
         opacity: 0;
-        /* transform: translateX(20px) scale(1); */
         transform: scale(1) rotate(5deg);
     }
 }

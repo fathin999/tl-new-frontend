@@ -67,7 +67,7 @@ header {
     }
 
     a {
-        font-weight: 500;
+        font-weight: 400;
     }
 
     nav {
@@ -79,7 +79,7 @@ header {
             color: var(--darkBlue);
             display: block;
             position: relative;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
         }
 
         a::after {
@@ -102,8 +102,8 @@ header {
     }
 
     #authLinks a {
-        font-weight: 600;
-        font-size: 0.9rem;
+        font-weight: 500;
+        font-size: 0.95rem;
     }
 
     #loginButton {

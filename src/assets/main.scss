@@ -76,6 +76,11 @@ u::before {
     z-index: -1;
 }
 
+.clickable {
+    user-select: none;
+    cursor: pointer;
+}
+
 @media (hover: hover) {
 }
 
