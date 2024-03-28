@@ -81,6 +81,49 @@ u::before {
     cursor: pointer;
 }
 
+main {
+    padding-top: var(--navbarHeight);
+}
+
+.section {
+    $sectionMargin: 130px;
+
+    padding: $sectionMargin 0;
+
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        align-content: flex-end;
+
+        p {
+            width: 80%;
+        }
+    }
+
+    &-title {
+        width: 50%;
+
+        h2 {
+            font-size: 2.7rem;
+            line-height: 3.7rem;
+        }
+
+        h3 {
+            font-size: 2rem;
+            line-height: 2.7rem;
+        }
+
+        p {
+            margin-top: 20px;
+            color: var(--textMedium);
+        }
+    }
+}
+
+.blue {
+    background-color: var(--bgMedium);
+}
+
 @media (hover: hover) {
 }
 

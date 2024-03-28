@@ -17,6 +17,7 @@ import IconNavbarLogin from "../icons/IconNavbarLogin.vue";
                 <nav>
                     <a href="/">Home</a>
                     <a href="/">Courses</a>
+                    <a href="/">Programmes</a>
                     <a href="/">Jobs</a>
                     <a href="/">For Enterprise</a>
                     <a href="/">For Government</a>
@@ -26,12 +27,12 @@ import IconNavbarLogin from "../icons/IconNavbarLogin.vue";
                     <a id="loginButton" href="/">
                         <IconNavbarLogin />
 
-                        Login
+                        Sign In
                     </a>
 
-                    <a href="/" id="signupButton" class="button-primary"
+                    <!-- <a href="/" id="signupButton" class="button-primary"
                         >Sign Up</a
-                    >
+                    > -->
                 </div>
             </div>
 
@@ -43,7 +44,12 @@ import IconNavbarLogin from "../icons/IconNavbarLogin.vue";
 <style scoped lang="scss">
 header {
     height: var(--navbarHeight);
+    width: 100vw;
     background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .container {

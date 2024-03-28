@@ -84,8 +84,6 @@ $secondInitPos: calc($total + $gap);
 $thirdInitPos: calc($total * 2 + $gap * 2);
 $hiddenPos: calc($secondInitPos * -1);
 $time: 50s;
-$timeThird: $time * 1.33;
-$thirdDelay: $time * 0.333;
 $borderRadius: 25px;
 
 #hero-slider {
