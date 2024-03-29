@@ -95,6 +95,7 @@ u {
     text-decoration: none;
     display: inline-block;
     position: relative;
+    z-index: 5;
 }
 
 u::before {

@@ -2,11 +2,7 @@
     <div id="trusted" class="blue section">
         <div class="container">
             <div class="section-title">
-                <h3>Trusted by all</h3>
-                <p>
-                    From startups, government organizations, to global companies
-                    alike
-                </p>
+                <h3>Trusted by leading organizations</h3>
             </div>
 
             <div id="trusted-list">
@@ -47,8 +43,15 @@ $hiddenPos: calc($secondInitPos * -1);
 $time: 50s;
 
 #trusted {
+    padding: 90px 0 70px;
+
+    h3 {
+        font-size: 1.7rem;
+        text-align-last: center;
+    }
+
     &-list {
-        margin-top: 30px;
+        margin-top: 20px;
         position: relative;
         height: $height;
         overflow: hidden;
