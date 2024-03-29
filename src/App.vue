@@ -4,6 +4,7 @@ import LandingHero from "./components/landingPage/LandingHero.vue";
 import LandingTrusted from "./components/landingPage/LandingTrusted.vue";
 import LandingSolutions from "./components/landingPage/LandingSolutions.vue";
 import LandingCourses from "./components/landingPage/LandingCourses.vue";
+import LandingJobs from "./components/landingPage/LandingJobs.vue";
 </script>
 
 <template>
@@ -17,6 +18,8 @@ import LandingCourses from "./components/landingPage/LandingCourses.vue";
         <LandingSolutions />
 
         <LandingCourses />
+
+        <LandingJobs />
     </main>
 </template>
 

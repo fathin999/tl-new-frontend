@@ -1,5 +1,6 @@
 <script setup>
 import IconChevron from "../icons/IconChevron.vue";
+import IconArrow from "../icons/IconArrow.vue";
 </script>
 
 <template>
@@ -9,11 +10,10 @@ import IconChevron from "../icons/IconChevron.vue";
                 <h2>Check out our <u>top courses</u></h2>
 
                 <p>
-                    Explore the frontier of innovation with our tech courses,
-                    tailored for aspiring and seasoned professionals alike.
-                    Master the latest in software development, data science,
-                    cybersecurity, and more, with content crafted by leading
-                    experts in the field.
+                    Explore the frontier of tech with our courses, tailored for
+                    beginners and seasoned professionals alike. Master the
+                    latest in software development, data science, cybersecurity,
+                    and more.
                 </p>
 
                 <a class="btn-black btn-arrow">
@@ -105,65 +105,25 @@ import IconChevron from "../icons/IconChevron.vue";
 
                                 <div class="courses-item-badge">
                                     <img
-                                        src="/src/assets/courses/badge.png"
+                                        src="/src/assets/courses/badge-aws.png"
                                         alt="Badge"
                                     />
                                 </div>
                             </div>
 
                             <div class="courses-item-title">
-                                <h4>
-                                    Certified Associate in Software Engineering
-                                </h4>
+                                <h4>AWS DevOps Engineer</h4>
                             </div>
 
-                            <span
-                                >Intermediate <b>·</b> Certified Associate</span
-                            >
+                            <span>Advanced <b>·</b> AWS Professional</span>
 
                             <div class="courses-item-provider">
                                 <img
-                                    src="/src/assets/courses/course-provider-tl.png"
-                                    alt="Provider TL"
+                                    src="/src/assets/courses/course-provider-aws.png"
+                                    alt="Provider AWS"
                                 />
 
-                                <span>TalentLabs</span>
-                            </div>
-                        </div>
-
-                        <div class="courses-item">
-                            <div class="courses-item-img">
-                                <img
-                                    src="/src/assets/courses/course-case.png"
-                                    alt="CADA"
-                                    class="courses-item-banner"
-                                />
-
-                                <div class="courses-item-badge">
-                                    <img
-                                        src="/src/assets/courses/badge.png"
-                                        alt="Badge"
-                                    />
-                                </div>
-                            </div>
-
-                            <div class="courses-item-title">
-                                <h4>
-                                    Certified Associate in Software Engineering
-                                </h4>
-                            </div>
-
-                            <span
-                                >Intermediate <b>·</b> Certified Associate</span
-                            >
-
-                            <div class="courses-item-provider">
-                                <img
-                                    src="/src/assets/courses/course-provider-tl.png"
-                                    alt="Provider TL"
-                                />
-
-                                <span>TalentLabs</span>
+                                <span>Amazon Web Services (AWS)</span>
                             </div>
                         </div>
                     </div>
