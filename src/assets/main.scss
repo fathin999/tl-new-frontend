@@ -12,8 +12,6 @@
 }
 
 @mixin button($bg, $border, $color) {
-    padding: 8px 15px;
-    border-radius: 25px;
     font-weight: 500;
     transition: color 0.4s ease-out, background 0.4s ease-out,
         border 0.4s ease-out;
@@ -22,37 +20,74 @@
     border-width: 1px;
     border-style: solid;
     color: $color;
-}
+    display: inline-block;
+    user-select: none;
+    cursor: pointer;
 
-@mixin btnSmall {
-    padding: 8px 15px;
-}
-
-@mixin btnLarge {
-    padding: 8px 15px;
+    svg {
+        fill: $color;
+        transition: fill 0.4s ease-out, transform 0.4s ease-out;
+    }
 }
 
 @mixin buttonHover($bg, $border, $color) {
     background-color: $bg;
     border-color: $border;
     color: $color;
+
+    svg {
+        fill: $color;
+    }
 }
 
-.button {
+.btn {
     &-primary {
         @include button(var(--purple), var(--purple), white);
     }
 
     &-primary:hover {
-        @include buttonHover(white, var(--purple), var(--purple));
+        @include buttonHover(transparent, var(--purple), var(--purple));
+    }
+
+    &-black {
+        @include button(var(--black), var(--black), white);
+    }
+
+    &-black:hover {
+        @include buttonHover(transparent, var(--black), var(--black));
     }
 
     &-small {
-        @include btnSmall();
+        border-radius: 25px;
+        padding: 8px 15px;
     }
 
-    &-large {
-        @include btnSmall();
+    &-m {
+        border-radius: 25px;
+        padding: 15px 30px;
+    }
+
+    &-l {
+        border-radius: 25px;
+        padding: 8px 15px;
+    }
+
+    &-arrow {
+        border-radius: 30px;
+        padding: 15px 27px 15px 35px;
+
+        svg {
+            $size: 12px;
+            margin-left: 10px;
+            height: $size;
+            width: $size;
+        }
+    }
+
+    &-arrow:hover {
+        svg {
+            transform: translateX(4px);
+        }
     }
 }
 
@@ -101,6 +136,8 @@ main {
     }
 
     &-title {
+        position: relative;
+
         h2 {
             font-size: 2.7rem;
             line-height: 3.7rem;
@@ -114,8 +151,18 @@ main {
         p {
             margin-top: 20px;
             color: var(--textMedium);
-            width: 45%;
+            width: 500px;
         }
+
+        .btn-arrow {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+    .slider {
+        margin-top: 50px;
     }
 }
 
@@ -123,7 +170,164 @@ main {
     background-color: var(--bgMedium);
 }
 
+$itemGap: 20px;
+$itemWidth: calc((1200px - ($itemGap * 2)) / 3);
+$itemScroll: calc($itemWidth + $itemGap);
+
+.slider {
+    &-list {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &-inner {
+        display: flex;
+        gap: $itemGap;
+        // margin-left: calc($itemScroll * -1);
+        transition: margin 0.9s ease-in-out;
+    }
+
+    &-btns {
+        margin-top: 30px;
+        display: flex;
+
+        &-btn {
+            $size: 50px;
+
+            height: $size;
+            width: $size;
+            background-color: var(--bgMedium);
+            margin-right: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            cursor: pointer;
+            transition: background 0.4s ease-out;
+
+            svg {
+                $iconSize: 35%;
+
+                height: $iconSize;
+                width: $iconSize;
+                fill: #99a9b9;
+                transition: fill 0.4s ease-out;
+            }
+        }
+
+        .btn-prev {
+            transform: scaleX(-1);
+        }
+    }
+}
+
+.courses-item {
+    $padding: 30px;
+
+    border: 1px solid var(--borderMedium);
+    width: $itemWidth;
+    flex-shrink: 0;
+    border-radius: 20px;
+    padding: $padding;
+    padding-bottom: 90px;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+
+    &-img {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        height: 170px;
+        isolation: isolate;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease-out;
+        }
+    }
+
+    &-badge {
+        $size: 70px;
+        $margin: 10px;
+        border: 1px solid white;
+        border-radius: 10px;
+        position: absolute;
+        z-index: 5;
+        height: $size;
+        width: $size;
+        bottom: $margin;
+        left: $margin;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(8px);
+    }
+
+    &-title {
+        height: 3.9rem;
+        margin: 20px 0 7px;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        line-height: 1.8rem;
+        height: 3.7rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    span {
+        font-size: 0.95rem;
+        line-height: 1.4rem;
+        color: var(--textLight);
+
+        b {
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+
+    &-provider {
+        $size: 40px;
+
+        position: absolute;
+        bottom: $padding;
+        left: $padding;
+        right: $padding;
+        height: $size;
+        display: flex;
+        align-items: center;
+
+        img {
+            height: $size;
+            width: $size;
+            border: 1px solid var(--borderMedium);
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+    }
+}
+
 @media (hover: hover) {
+    .courses-item:hover {
+        .courses-item-banner {
+            transform: scale(1.1);
+        }
+    }
+
+    .slider-btns-btn:hover {
+        background-color: var(--lightBlue);
+
+        svg {
+            fill: var(--black);
+        }
+    }
 }
 
 @media (min-width: 1024px) {

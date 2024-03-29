@@ -3,6 +3,7 @@ import Navbar from "./components/layout/Navbar.vue";
 import LandingHero from "./components/landingPage/LandingHero.vue";
 import LandingTrusted from "./components/landingPage/LandingTrusted.vue";
 import LandingSolutions from "./components/landingPage/LandingSolutions.vue";
+import LandingCourses from "./components/landingPage/LandingCourses.vue";
 </script>
 
 <template>
@@ -14,6 +15,8 @@ import LandingSolutions from "./components/landingPage/LandingSolutions.vue";
         <LandingTrusted />
 
         <LandingSolutions />
+
+        <LandingCourses />
     </main>
 </template>
 

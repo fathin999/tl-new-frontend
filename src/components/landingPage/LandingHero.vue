@@ -18,8 +18,10 @@ import IconArrow from "../icons/IconArrow.vue";
             </div>
 
             <div id="hero-btns">
-                <a href="/" id="hero-btns-primary">Search Jobs <IconArrow /></a>
-                <a href="/" id="hero-btns-black"
+                <a href="/" class="btn-primary btn-arrow"
+                    >Search Jobs <IconArrow
+                /></a>
+                <a href="/" class="btn-black btn-arrow"
                     >Browse Tech Courses <IconArrow
                 /></a>
             </div>
@@ -57,30 +59,8 @@ import IconArrow from "../icons/IconArrow.vue";
         gap: 10px;
 
         a {
-            display: flex;
-            align-items: center;
-            gap: 20px;
             padding: 20px 32px 20px 37px;
             border-radius: 30px;
-            color: white;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: gap 0.3s ease-out;
-
-            svg {
-                height: 13px;
-                width: 13px;
-                opacity: 0.8;
-                fill: white;
-            }
-        }
-
-        &-primary {
-            background-color: var(--purple);
-        }
-
-        &-black {
-            background-color: var(--black);
         }
     }
 }

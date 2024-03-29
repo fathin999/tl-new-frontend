@@ -129,7 +129,7 @@ import IconArrow from "../icons/IconArrow.vue";
 
     .about-btn {
         transition: background 0.4s ease-out;
-        background-color: whitesmoke;
+        background-color: var(--bgMedium);
         padding: 10px;
         border-radius: 40px;
         display: flex;
@@ -144,10 +144,10 @@ import IconArrow from "../icons/IconArrow.vue";
             display: flex;
             align-content: center;
             justify-content: center;
-            padding-top: 11px;
+            padding-top: 13px;
 
             svg {
-                $svgSize: 20px;
+                $svgSize: 18px;
                 height: $svgSize;
                 widows: $svgSize;
             }
@@ -171,6 +171,7 @@ import IconArrow from "../icons/IconArrow.vue";
 
     .about-btn:hover {
         background-color: gainsboro;
+        background-color: var(--lightBlue);
     }
 
     .active:hover {

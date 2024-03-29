@@ -30,7 +30,7 @@ import IconNavbarLogin from "../icons/IconNavbarLogin.vue";
                         Sign In
                     </a>
 
-                    <!-- <a href="/" id="signupButton" class="button-primary"
+                    <!-- <a href="/" id="signupButton" class="btn-primary btn-small"
                         >Sign Up</a
                     > -->
                 </div>
