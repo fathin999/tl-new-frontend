@@ -17,7 +17,7 @@ import IconArrow from "../icons/IconArrow.vue";
                     <div class="about-btn-title">Learn skills</div>
                 </div>
 
-                <div class="about-item-description">
+                <!-- <div class="about-item-description">
                     <p>
                         From beginner-friendly courses to specialized training,
                         our offerings include a range of courses in key digital
@@ -29,7 +29,7 @@ import IconArrow from "../icons/IconArrow.vue";
                         View courses
                         <IconArrow />
                     </a>
-                </div>
+                </div> -->
             </div>
 
             <div class="about-item">
@@ -61,12 +61,40 @@ import IconArrow from "../icons/IconArrow.vue";
         </div>
 
         <div id="about-content-screen">
-            <img
-                src="/src/assets/landing-page/solutions/solutions-learn.png"
-                alt="Solutions - Learn"
-            />
+            <div id="about-content-screen-bg-container">
+                <img
+                    src="/src/assets/landing-page/solutions/solutions-screen.svg"
+                    alt="Solutions screen"
+                    id="about-content-screen-background"
+                />
 
-            <div id="about-content-screen-bg" />
+                <img
+                    src="/src/assets/landing-page/solutions/solutions-learn.png"
+                    alt="Solutions - Learn"
+                    id="about-content-screen-specific"
+                />
+            </div>
+
+            <div id="about-content-screen-description">
+                <div>
+                    <h3>Learn skills</h3>
+                    <p>
+                        From beginner-friendly courses to specialized training,
+                        our offerings include a range of courses in key digital
+                        fields like software development, data anlaysis, A.I.,
+                        machine learning and more.
+                    </p>
+                </div>
+
+                <div>
+                    <a class="btn-primary btn-arrow">
+                        View courses
+                        <IconArrow />
+                    </a>
+                </div>
+            </div>
+
+            <div id="about-content-screen-select-bg" />
         </div>
     </div>
 </template>
@@ -75,15 +103,17 @@ import IconArrow from "../icons/IconArrow.vue";
 #about-content {
     display: grid;
     grid-template-columns: 340px 1fr;
-    margin-top: 50px;
-    gap: 150px;
+    margin-top: 80px;
+    gap: 80px;
+    /* border: 1px solid red; */
 
     &-btns {
         padding-top: 30px;
     }
 
     .about-item {
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
+        margin-bottom: 20px;
 
         &-description {
             padding-top: 20px;
@@ -130,7 +160,7 @@ import IconArrow from "../icons/IconArrow.vue";
     .about-btn {
         transition: background 0.4s ease-out;
         background-color: var(--bgMedium);
-        padding: 10px;
+        padding: 13px;
         border-radius: 40px;
         display: flex;
         align-items: center;
@@ -161,7 +191,7 @@ import IconArrow from "../icons/IconArrow.vue";
     }
 
     .active {
-        margin-bottom: 50px;
+        /* margin-bottom: 50px; */
 
         .about-btn {
             background-color: var(--black);
@@ -182,17 +212,62 @@ import IconArrow from "../icons/IconArrow.vue";
 
     &-screen {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--bgMedium);
+        border-radius: 25px;
+        padding: 50px;
 
         img {
-            height: 100%;
-            width: 100%;
             object-fit: contain;
         }
 
-        &-bg {
+        $screenHeight: 300px;
+
+        &-background {
+            height: $screenHeight;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px -2px rgba(210, 214, 217, 0.5);
+            /* border: 1px solid rgb(237, 237, 237); */
+        }
+
+        &-bg-container {
+            position: relative;
+        }
+
+        &-specific {
             position: absolute;
-            height: 100%;
+            top: 50px;
+            left: 2.5%;
+            width: 95%;
+            height: 240px;
+        }
+
+        &-description {
             width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 190px;
+            margin-top: 70px;
+
+            h3 {
+                margin-bottom: 20px;
+            }
+
+            p {
+                margin-right: 80px;
+                color: var(--textMedium);
+            }
+
+            a {
+                margin-top: 20px;
+            }
+        }
+
+        &-select-bg {
+            height: $screenHeight;
+            width: 100%;
+            position: absolute;
             top: 0;
             left: 0;
         }
