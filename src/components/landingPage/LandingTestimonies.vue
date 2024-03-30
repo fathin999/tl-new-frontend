@@ -77,8 +77,8 @@ import IconChevron from "../icons/IconChevron.vue";
                                 <span>
                                     Foundation Certificate in Technology
                                     Management
+                                    <IconArrow />
                                 </span>
-                                <IconArrow />
                             </div>
                         </div>
 
@@ -274,27 +274,25 @@ import IconChevron from "../icons/IconChevron.vue";
     }
 
     &-course {
-        display: flex;
-        align-content: center !important;
+        /* display: flex; */
+        /* align-content: center !important; */
         user-select: none;
         cursor: pointer;
 
         span {
             color: var(--purple);
-            flex: 1;
             font-weight: 500;
-            font-size: 0.95rem;
-            line-height: 1.4rem;
+            font-size: 0.92rem;
+            line-height: 1.35rem;
             transition: color 0.4s ease-out;
         }
 
         svg {
-            $size: 13px;
+            $size: 10px;
             height: $size;
             width: $size;
-            margin: auto;
-            margin-left: 30px;
             fill: var(--purple);
+            margin-left: 7px;
             transition: transform 0.4s ease-out, fill 0.4s ease-out;
         }
     }

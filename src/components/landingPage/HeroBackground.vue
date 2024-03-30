@@ -11,99 +11,129 @@ export default {
 <template>
     <div id="hero-background">
         <img
-            src="/src/assets/landing-page/hero-bg/bg-1.png"
+            src="/src/assets/landing-page/hero/bg-1.png"
             alt="bg"
             id="hero-bg-1"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-2.png"
+            src="/src/assets/landing-page/hero/bg-2.png"
             alt="bg"
             id="hero-bg-2"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-3.png"
+            src="/src/assets/landing-page/hero/bg-3.png"
             alt="bg"
             id="hero-bg-3"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-4.png"
+            src="/src/assets/landing-page/hero/bg-4.png"
             alt="bg"
             id="hero-bg-4"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-5.png"
+            src="/src/assets/landing-page/hero/bg-5.png"
             alt="bg"
             id="hero-bg-5"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-6.png"
+            src="/src/assets/landing-page/hero/bg-6.png"
             alt="bg"
             id="hero-bg-6"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-7.png"
+            src="/src/assets/landing-page/hero/bg-7.png"
             alt="bg"
             id="hero-bg-7"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-8.png"
+            src="/src/assets/landing-page/hero/bg-8.png"
             alt="bg"
             id="hero-bg-8"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-9.png"
+            src="/src/assets/landing-page/hero/bg-9.png"
             alt="bg"
             id="hero-bg-9"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-10.png"
+            src="/src/assets/landing-page/hero/bg-10.png"
             alt="bg"
             id="hero-bg-10"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-11.png"
+            src="/src/assets/landing-page/hero/bg-11.png"
             alt="bg"
             id="hero-bg-11"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-12.png"
+            src="/src/assets/landing-page/hero/bg-12.png"
             alt="bg"
             id="hero-bg-12"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-13.png"
+            src="/src/assets/landing-page/hero/bg-13.png"
             alt="bg"
             id="hero-bg-13"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-14.png"
+            src="/src/assets/landing-page/hero/bg-14.png"
             alt="bg"
             id="hero-bg-14"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-15.png"
+            src="/src/assets/landing-page/hero/bg-15.png"
             alt="bg"
             id="hero-bg-15"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-16.png"
+            src="/src/assets/landing-page/hero/bg-16.png"
             alt="bg"
             id="hero-bg-16"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-17.png"
+            src="/src/assets/landing-page/hero/bg-17.png"
             alt="bg"
             id="hero-bg-17"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-18.png"
+            src="/src/assets/landing-page/hero/bg-18.png"
             alt="bg"
             id="hero-bg-18"
         />
         <img
-            src="/src/assets/landing-page/hero-bg/bg-19.png"
+            src="/src/assets/landing-page/hero/bg-19.png"
             alt="bg"
             id="hero-bg-19"
+        />
+        <img
+            src="/src/assets/landing-page/hero/bg-20.png"
+            alt="bg"
+            id="hero-bg-20"
+        />
+        <img
+            src="/src/assets/landing-page/hero/bg-21.png"
+            alt="bg"
+            id="hero-bg-21"
+        />
+        <img
+            src="/src/assets/landing-page/hero/bg-22.png"
+            alt="bg"
+            id="hero-bg-22"
+        />
+        <img
+            src="/src/assets/landing-page/hero/bg-23.png"
+            alt="bg"
+            id="hero-bg-23"
+        />
+        <img
+            src="/src/assets/landing-page/hero/bg-24.png"
+            alt="bg"
+            id="hero-bg-24"
+        />
+        <img
+            src="/src/assets/landing-page/hero/bg-25.png"
+            alt="bg"
+            id="hero-bg-25"
         />
     </div>
 </template>
@@ -129,79 +159,103 @@ export default {
     }
 
     &-1 {
-        @include img(3rem, 5%, 50%, 0);
+        @include img(4.2rem, 3%, 47%, 0);
     }
 
     &-2 {
-        @include img(1.8rem, 35%, 52%, 1.2s);
+        @include img(2.1rem, 4.5%, 61%, 1.2s);
     }
 
     &-3 {
-        @include img(2.7rem, 11%, 59%, 0.7s);
+        @include img(3.2rem, 3.3%, 72%, 0.7s);
     }
 
     &-4 {
-        @include img(2rem, 12%, 67%, 0.6s);
+        @include img(1.9rem, 6%, 81%, 0.6s);
     }
 
     &-5 {
-        @include img(3.8rem, 9%, 74.5%, 1.4s);
+        @include img(3.9rem, 2.2%, 93%, 1.4s);
     }
 
     &-6 {
-        @include img(3.5rem, 7%, 83%, 0.8s);
+        @include img(3.8rem, 10%, 53%, 0.8s);
     }
 
     &-7 {
-        @include img(2rem, 6%, 93%, 1.2s);
+        @include img(3.2rem, 11%, 67%, 1.2s);
     }
 
     &-8 {
-        @include img(1.6rem, 20%, 88%, 1.4s);
+        @include img(2.3rem, 15%, 77%, 1.4s);
     }
 
     &-9 {
-        @include img(2rem, 27%, 82%, 0.5);
+        @include img(4.1rem, 13%, 83%, 0.5);
     }
 
     &-10 {
-        @include img(1.7rem, 26%, 76%, 2s);
+        @include img(3.2rem, 16%, 93%, 2s);
     }
 
     &-11 {
-        @include img(1.9rem, 24%, 69%, 0.5s);
+        @include img(4rem, 22%, 49%, 0.5s);
     }
 
     &-12 {
-        @include img(3.6rem, 26%, 62%, 1.2s);
+        @include img(2.7rem, 23%, 56%, 1.2s);
     }
 
     &-13 {
-        @include img(2.3rem, 24%, 55%, 1.6s);
+        @include img(2.7rem, 17%, 61%, 1.6s);
     }
 
     &-14 {
-        @include img(2.2rem, 30%, 93%, 1.4s);
+        @include img(2.4rem, 25%, 70%, 1.4s);
     }
 
     &-15 {
-        @include img(2.2rem, 38%, 88%, 0.3s);
+        @include img(1.9rem, 25%, 79%, 0.3s);
     }
 
     &-16 {
-        @include img(2.2rem, 38%, 69%, 1.1s);
+        @include img(4rem, 28%, 85%, 1.1s);
     }
 
     &-17 {
-        @include img(3.5rem, 3%, 1%, 0.8s);
+        @include img(2.2rem, 28%, 96%, 0.8s);
     }
 
     &-18 {
-        @include img(2.2rem, 20%, 6%, 0.4s);
+        @include img(2.6rem, 35%, 49%, 0.4s);
     }
 
     &-19 {
-        @include img(2.8rem, 39%, 3%, 1.3s);
+        @include img(2.5rem, 33%, 58%, 1.3s);
+    }
+
+    &-20 {
+        @include img(2.1rem, 32%, 66%, 1.1s);
+    }
+
+    &-21 {
+        @include img(2.9rem, 35%, 75%, 0.8s);
+    }
+
+    &-22 {
+        @include img(2rem, 38%, 93%, 0.4s);
+    }
+
+    &-23 {
+        @include img(3.8rem, 6%, 1%, 1.3s);
+    }
+
+    &-24 {
+        @include img(2.2rem, 20%, 6%, 0.8s);
+    }
+
+    &-25 {
+        @include img(2.2rem, 35%, 3%, 1s);
     }
 }
 
@@ -212,7 +266,7 @@ export default {
     }
 
     50% {
-        opacity: 1;
+        opacity: 0.9;
     }
     100% {
         opacity: 0;
