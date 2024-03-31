@@ -73,28 +73,18 @@ import IconArrow from "../icons/IconArrow.vue";
                     alt="Solutions - Learn"
                     id="about-content-screen-specific"
                 />
+
+                <div id="about-content-screen-select-bg" />
             </div>
 
             <div id="about-content-screen-description">
-                <div>
-                    <h3>Learn skills</h3>
-                    <p>
-                        From beginner-friendly courses to specialized training,
-                        our offerings include a range of courses in key digital
-                        fields like software development, data anlaysis, A.I.,
-                        machine learning and more.
-                    </p>
-                </div>
+                <p>Learn in-demand skills and future-proof your career</p>
 
-                <div>
-                    <a class="btn-primary btn-arrow">
-                        View courses
-                        <IconArrow />
-                    </a>
-                </div>
+                <a class="btn-primary btn-arrow">
+                    View courses
+                    <IconArrow />
+                </a>
             </div>
-
-            <div id="about-content-screen-select-bg" />
         </div>
     </div>
 </template>
@@ -103,19 +93,17 @@ import IconArrow from "../icons/IconArrow.vue";
 #about-content {
     display: grid;
     grid-template-columns: 340px 1fr;
-    margin-top: 80px;
-    gap: 80px;
-    /* border: 1px solid red; */
+    margin-top: 100px;
+    gap: 160px;
 
     &-btns {
-        padding-top: 30px;
+        padding-top: 10px;
     }
 
     .about-item {
-        /* margin-bottom: 15px; */
         margin-bottom: 20px;
 
-        &-description {
+        /* &-description {
             padding-top: 20px;
             padding-left: 35px;
 
@@ -154,7 +142,7 @@ import IconArrow from "../icons/IconArrow.vue";
                     margin-left: 17px;
                 }
             }
-        }
+        } */
     }
 
     .about-btn {
@@ -191,8 +179,6 @@ import IconArrow from "../icons/IconArrow.vue";
     }
 
     .active {
-        /* margin-bottom: 50px; */
-
         .about-btn {
             background-color: var(--black);
             color: white;
@@ -215,9 +201,6 @@ import IconArrow from "../icons/IconArrow.vue";
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: var(--bgMedium);
-        border-radius: 25px;
-        padding: 50px;
 
         img {
             object-fit: contain;
@@ -225,47 +208,46 @@ import IconArrow from "../icons/IconArrow.vue";
 
         $screenHeight: 300px;
 
-        &-background {
-            height: $screenHeight;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px -2px rgba(210, 214, 217, 0.5);
-            /* border: 1px solid rgb(237, 237, 237); */
-        }
-
         &-bg-container {
             position: relative;
+            width: 90%;
+        }
+
+        &-background {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px -2px rgba(210, 214, 217, 0.5);
+            width: 100%;
         }
 
         &-specific {
             position: absolute;
-            top: 50px;
-            left: 2.5%;
-            width: 95%;
-            height: 240px;
+            top: 70px;
+            left: 1%;
+            width: 98%;
+            height: calc(100% - 100px);
+            border-radius: 20px;
         }
 
         &-description {
             width: 100%;
             display: grid;
-            grid-template-columns: 1fr 190px;
+            grid-template-columns: 300px 190px;
+            justify-content: space-between;
+            /* margin-top: 50px; */
             margin-top: 70px;
-
-            h3 {
-                margin-bottom: 20px;
-            }
+            align-items: center;
+            /* border: 1px solid var(--borderMedium); */
+            /* padding: 35px 40px; */
+            border-radius: 20px;
 
             p {
-                margin-right: 80px;
-                color: var(--textMedium);
-            }
-
-            a {
-                margin-top: 20px;
+                font-size: 1.3rem;
+                line-height: 1.8rem;
             }
         }
 
         &-select-bg {
-            height: $screenHeight;
+            height: 100%;
             width: 100%;
             position: absolute;
             top: 0;
