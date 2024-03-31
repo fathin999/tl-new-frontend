@@ -234,11 +234,11 @@ import IconArrow from "../icons/IconArrow.vue";
             display: grid;
             grid-template-columns: 300px 190px;
             justify-content: space-between;
-            /* margin-top: 50px; */
-            margin-top: 70px;
+            margin-top: 50px;
+            /* margin-top: 70px; */
             align-items: center;
-            /* border: 1px solid var(--borderMedium); */
-            /* padding: 35px 40px; */
+            border: 1px solid var(--borderMedium);
+            padding: 35px 40px;
             border-radius: 20px;
 
             p {
