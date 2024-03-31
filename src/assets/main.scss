@@ -1,5 +1,9 @@
 @import "./base.scss";
 
+// -------------------
+// LAYOUT
+// -------------------
+
 #app {
     min-height: 100dvh;
 }
@@ -10,6 +14,40 @@
     margin-left: auto;
     height: 100%;
 }
+
+u {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    z-index: 5;
+}
+
+u::before {
+    $margin-h: -7px;
+    $margin-v: -5px;
+
+    content: "";
+    position: absolute;
+    top: $margin-v;
+    bottom: $margin-v;
+    right: $margin-h;
+    left: $margin-h;
+    background-color: var(--yellow);
+    z-index: -1;
+}
+
+.clickable {
+    user-select: none;
+    cursor: pointer;
+}
+
+main {
+    padding-top: var(--navbarHeight);
+}
+
+// -------------------
+// BUTTONS
+// -------------------
 
 @mixin button($bg, $border, $color) {
     font-weight: 500;
@@ -68,8 +106,10 @@
     }
 
     &-l {
-        border-radius: 25px;
-        padding: 8px 15px;
+        border-radius: 40px;
+        padding: 18px 30px;
+        text-align: center;
+        min-width: 300px;
     }
 
     &-arrow {
@@ -91,35 +131,9 @@
     }
 }
 
-u {
-    text-decoration: none;
-    display: inline-block;
-    position: relative;
-    z-index: 5;
-}
-
-u::before {
-    $margin-h: -7px;
-    $margin-v: -5px;
-
-    content: "";
-    position: absolute;
-    top: $margin-v;
-    bottom: $margin-v;
-    right: $margin-h;
-    left: $margin-h;
-    background-color: var(--yellow);
-    z-index: -1;
-}
-
-.clickable {
-    user-select: none;
-    cursor: pointer;
-}
-
-main {
-    padding-top: var(--navbarHeight);
-}
+// -------------------
+// SECTIONS
+// -------------------
 
 .section {
     $sectionMargin: 130px;
@@ -170,6 +184,10 @@ main {
 .blue {
     background-color: var(--bgMedium);
 }
+
+// -------------------
+// SLIDER
+// -------------------
 
 $itemGap: 20px;
 $itemWidth: calc((1200px - ($itemGap * 2)) / 3);
@@ -224,6 +242,10 @@ $itemPadding: 30px;
         }
     }
 }
+
+// -------------------
+// COURSE CARD
+// -------------------
 
 @mixin item($pb) {
     border: 1px solid var(--borderMedium);
@@ -317,6 +339,10 @@ $itemPadding: 30px;
     }
 }
 
+// -------------------
+// JOB CARD
+// -------------------
+
 .job-item {
     @include item(140px);
     transition: border 0.4s ease-out;
@@ -386,6 +412,62 @@ $itemPadding: 30px;
     }
 }
 
+// -------------------
+// FORMS
+// -------------------
+
+.input {
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: block;
+    padding-bottom: 10px;
+    color: var(--textMedium);
+}
+
+input {
+    display: block;
+    height: 55px;
+    padding: 0 20px;
+    border: 1px solid var(--borderMedium);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: "SFProDisplay", "Helvetica Neue", sans-serif;
+    width: 100%;
+}
+
+// ---------------
+// AUTH
+// ---------------
+
+.auth-page {
+    margin: auto;
+    position: relative;
+    min-height: calc(100dvh - var(--navbarHeight));
+}
+
+.auth-page-bg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.7;
+    background-image: url("/src/assets/login/bg-floor.svg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+// ---------------
+// HOVER
+// ---------------
+
 @media (hover: hover) {
     .courses-item:hover {
         .courses-item-banner {
@@ -406,9 +488,24 @@ $itemPadding: 30px;
     }
 }
 
-@media (min-width: 1024px) {
+// ---------------
+// RESPONSIVE
+// ---------------
+
+@media (max-width: 1300px) {
+    .container {
+        $margin: 50px;
+        margin-right: $margin;
+        margin-left: $margin;
+        width: auto;
+    }
 }
 
-// ---------------
-// MIXINS
-// ---------------
+@media (max-width: 900px) {
+    .container {
+        $margin: 20px;
+        margin-right: $margin;
+        margin-left: $margin;
+        width: auto;
+    }
+}

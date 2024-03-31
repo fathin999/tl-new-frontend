@@ -1,13 +1,3 @@
-<script>
-export default {
-    data() {
-        return {
-            items: ["+", "-", "?", "/", "%", "~", "?", "+", "-", ":", ";"],
-        };
-    },
-};
-</script>
-
 <template>
     <div id="hero-background">
         <img
@@ -137,6 +127,16 @@ export default {
         />
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            items: ["+", "-", "?", "/", "%", "~", "?", "+", "-", ":", ";"],
+        };
+    },
+};
+</script>
 
 <style scoped lang="scss">
 #hero-bg {

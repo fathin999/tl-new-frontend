@@ -1,8 +1,8 @@
 <script setup>
-import IconArrow from "../icons/IconArrow.vue";
-import IconChevron from "../icons/IconChevron.vue";
-import IconLocation from "../icons/jobs/IconLocation.vue";
-import IconWork from "../icons/jobs/IconWork.vue";
+import IconArrow from "@/components/icons/IconArrow.vue";
+import IconChevron from "@/components/icons/IconChevron.vue";
+import IconLocation from "@/components/icons/jobs/IconLocation.vue";
+import IconWork from "@/components/icons/jobs/IconWork.vue";
 </script>
 
 <template>

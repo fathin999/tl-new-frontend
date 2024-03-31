@@ -1,6 +1,6 @@
 <script setup>
-import IconChevron from "../icons/IconChevron.vue";
-import IconArrow from "../icons/IconArrow.vue";
+import IconArrow from "@/components/icons/IconArrow.vue";
+import IconChevron from "@/components/icons/IconChevron.vue";
 </script>
 
 <template>

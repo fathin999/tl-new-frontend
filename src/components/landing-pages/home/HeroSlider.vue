@@ -1,6 +1,5 @@
 <script setup>
-import IconHeroBriefcase from "../icons/landingPage/IconHeroBriefcase.vue";
-import IconHeroChart from "../icons/landingPage/IconHeroChart.vue";
+import IconHeroChart from "@/components/icons/landingPage/IconHeroChart.vue";
 </script>
 
 <template>

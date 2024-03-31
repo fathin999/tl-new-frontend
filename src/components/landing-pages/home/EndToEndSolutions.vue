@@ -1,62 +1,40 @@
 <script setup>
-import IconSolAI from "../icons/landingPage/solutions/IconSolAI.vue";
-import IconSolStack from "../icons/landingPage/solutions/IconSolStack.vue";
-import IconSolBriefcase from "../icons/landingPage/solutions/IconSolBriefcase.vue";
-import IconSolPeople from "../icons/landingPage/solutions/IconSolPeople.vue";
-import IconArrow from "../icons/IconArrow.vue";
+import IconArrow from "@/components/icons/IconArrow.vue";
+import IconSolAI from "@/components/icons/landingPage/solutions/IconSolAI.vue";
+import IconSolStack from "@/components/icons/landingPage/solutions/IconSolStack.vue";
+import IconSolBriefcase from "@/components/icons/landingPage/solutions/IconSolBriefcase.vue";
+import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeople.vue";
 </script>
 
 <template>
     <div id="about-content">
         <div id="about-content-btns">
-            <div class="about-item active">
-                <div class="about-btn clickable">
-                    <div class="about-btn-icon">
-                        <IconSolAI />
-                    </div>
-                    <div class="about-btn-title">Learn skills</div>
+            <div class="about-btn active clickable">
+                <div class="about-btn-icon">
+                    <IconSolAI />
                 </div>
-
-                <!-- <div class="about-item-description">
-                    <p>
-                        From beginner-friendly courses to specialized training,
-                        our offerings include a range of courses in key digital
-                        fields like software development, data anlaysis, A.I.,
-                        machine learning and more.
-                    </p>
-
-                    <a class="about-content-link">
-                        View courses
-                        <IconArrow />
-                    </a>
-                </div> -->
+                <div class="about-btn-title">Learn skills</div>
             </div>
 
-            <div class="about-item">
-                <div class="about-btn clickable">
-                    <div class="about-btn-icon">
-                        <IconSolStack />
-                    </div>
-                    <div class="about-btn-title">Build portfolio</div>
+            <div class="about-btn clickable">
+                <div class="about-btn-icon">
+                    <IconSolStack />
                 </div>
+                <div class="about-btn-title">Build portfolio</div>
             </div>
 
-            <div class="about-item">
-                <div class="about-btn clickable">
-                    <div class="about-btn-icon">
-                        <IconSolBriefcase />
-                    </div>
-                    <div class="about-btn-title">Get hired</div>
+            <div class="about-btn clickable">
+                <div class="about-btn-icon">
+                    <IconSolBriefcase />
                 </div>
+                <div class="about-btn-title">Get hired</div>
             </div>
 
-            <div class="about-item">
-                <div class="about-btn clickable">
-                    <div class="about-btn-icon">
-                        <IconSolPeople />
-                    </div>
-                    <div class="about-btn-title">Network</div>
+            <div class="about-btn clickable">
+                <div class="about-btn-icon">
+                    <IconSolPeople />
                 </div>
+                <div class="about-btn-title">Network</div>
             </div>
         </div>
 
@@ -106,51 +84,6 @@ import IconArrow from "../icons/IconArrow.vue";
         padding-top: 10px;
     }
 
-    .about-item {
-        margin-bottom: 20px;
-
-        /* &-description {
-            padding-top: 20px;
-            padding-left: 35px;
-
-            p {
-                color: var(--textMedium);
-                margin-bottom: 30px;
-                padding-right: 30px;
-                font-size: 0.95rem;
-                line-height: 1.4rem;
-            }
-
-            a {
-                font-size: 1.05rem;
-                font-weight: 500;
-                color: var(--purple);
-                user-select: none;
-                cursor: pointer;
-                transition: color 0.4s ease-out;
-
-                svg {
-                    $size: 13px;
-
-                    fill: var(--purple);
-                    height: $size;
-                    width: $size;
-                    margin-left: 12px;
-                    transition: fill 0.4s ease-out, margin 0.4s ease-out;
-                }
-            }
-
-            a:hover {
-                color: var(--black);
-
-                svg {
-                    fill: var(--black);
-                    margin-left: 17px;
-                }
-            }
-        } */
-    }
-
     .about-btn {
         transition: background 0.4s ease-out;
         background-color: var(--bgMedium);
@@ -158,6 +91,7 @@ import IconArrow from "../icons/IconArrow.vue";
         border-radius: 40px;
         display: flex;
         align-items: center;
+        margin-bottom: 20px;
 
         &-icon {
             $size: 45px;
@@ -185,10 +119,8 @@ import IconArrow from "../icons/IconArrow.vue";
     }
 
     .active {
-        .about-btn {
-            background-color: var(--black);
-            color: white;
-        }
+        background-color: var(--black);
+        color: white;
     }
 
     .about-btn:hover {

@@ -1,7 +1,7 @@
 <script setup>
 import HeroSlider from "./HeroSlider.vue";
 import HeroBackground from "./HeroBackground.vue";
-import IconArrow from "../icons/IconArrow.vue";
+import IconArrow from "@/components/icons/IconArrow.vue";
 </script>
 
 <template>

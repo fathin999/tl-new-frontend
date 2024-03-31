@@ -16,15 +16,15 @@ import IconNavbarLogin from "../icons/IconNavbarLogin.vue";
             <div id="navContainer">
                 <nav>
                     <a href="/">Home</a>
-                    <a href="/">Courses</a>
-                    <a href="/">Programmes</a>
-                    <a href="/">Jobs</a>
-                    <a href="/">For Enterprise</a>
-                    <a href="/">For Government</a>
+                    <a href="/courses">Courses</a>
+                    <a href="/special-programmes">Programmes</a>
+                    <a href="/jobs">Jobs</a>
+                    <a href="/for-enterprise">For Enterprise</a>
+                    <a href="/for-government">For Government</a>
                 </nav>
 
                 <div id="authLinks">
-                    <a id="loginButton" href="/">
+                    <a id="loginButton" href="/login">
                         <IconNavbarLogin />
 
                         Sign In

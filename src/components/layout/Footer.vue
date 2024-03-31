@@ -39,38 +39,44 @@ import IconSocialsWs from "../icons/footer/IconSocialsWs.vue";
                 <div class="footer-links">
                     <h4>LINKS</h4>
 
-                    <a href="/">About us</a>
-                    <a href="/">Our team</a>
-                    <a href="/">Contact</a>
-                    <a href="/">ISA financing</a>
-                    <a href="/">Be an instructor</a>
+                    <a href="/about">About us</a>
+                    <a href="/teams">Our team</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/isa-financing">ISA financing</a>
+                    <a href="/be-an-instructor">Be an instructor</a>
                 </div>
 
                 <div class="footer-links">
                     <h4>SERVICES</h4>
 
-                    <a href="/">Courses</a>
-                    <a href="/">Jobs</a>
-                    <a href="/">Special programmes</a>
-                    <a href="/">For enterprise</a>
-                    <a href="/">For government</a>
+                    <a href="/courses">Courses</a>
+                    <a href="/jobs">Jobs</a>
+                    <a href="/special-programmes">Special programmes</a>
+                    <a href="/for-enterprise">For enterprise</a>
+                    <a href="/for-government">For government</a>
                 </div>
 
                 <div class="footer-links">
                     <h4>COMPANIES</h4>
 
-                    <a href="/">TalentLabs</a>
-                    <a href="/">TechJobAsia</a>
-                    <a href="/">Bridgespace</a>
+                    <a href="https://www.talentlabs.org" target="_blank">
+                        TalentLabs
+                    </a>
+                    <a href="https://www.techjobasia.com" target="_blank">
+                        TechJobAsia
+                    </a>
+                    <a href="https://www.bridgespace.com" target="_blank">
+                        Bridgespace
+                    </a>
                 </div>
             </div>
             <div id="footer-bottom">
                 <span>© 2024 TalentLabs</span>
 
                 <div>
-                    <a>Privacy Policy</a>
+                    <a href="/privacy-policy">Privacy Policy</a>
                     <b>|</b>
-                    <a>Terms & Condition</a>
+                    <a href="/terms-and-conditions">Terms & Conditions</a>
                 </div>
             </div>
         </div>
