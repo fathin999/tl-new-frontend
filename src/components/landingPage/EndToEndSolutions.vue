@@ -78,7 +78,13 @@ import IconArrow from "../icons/IconArrow.vue";
             </div>
 
             <div id="about-content-screen-description">
-                <p>Learn in-demand skills and future-proof your career</p>
+                <div>
+                    <h4>Learn skills</h4>
+                    <p>
+                        Learn in-demand digital skills and future-proof your
+                        career.
+                    </p>
+                </div>
 
                 <a class="btn-primary btn-arrow">
                     View courses
@@ -238,12 +244,18 @@ import IconArrow from "../icons/IconArrow.vue";
             /* margin-top: 70px; */
             align-items: center;
             border: 1px solid var(--borderMedium);
-            padding: 35px 40px;
+            padding: 30px 35px;
             border-radius: 20px;
 
+            h4 {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+
             p {
-                font-size: 1.3rem;
-                line-height: 1.8rem;
+                /* font-size: 1.3rem; */
+                /* line-height: 1.8rem; */
+                color: var(--textMedium);
             }
         }
 
