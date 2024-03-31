@@ -93,8 +93,8 @@ import IconArrow from "../icons/IconArrow.vue";
 #about-content {
     display: grid;
     grid-template-columns: 340px 1fr;
-    margin-top: 100px;
-    gap: 160px;
+    margin-top: 60px;
+    gap: 100px;
 
     &-btns {
         padding-top: 10px;
@@ -148,7 +148,7 @@ import IconArrow from "../icons/IconArrow.vue";
     .about-btn {
         transition: background 0.4s ease-out;
         background-color: var(--bgMedium);
-        padding: 13px;
+        padding: 12px;
         border-radius: 40px;
         display: flex;
         align-items: center;
@@ -201,16 +201,17 @@ import IconArrow from "../icons/IconArrow.vue";
         display: flex;
         flex-direction: column;
         align-items: center;
+        background: var(--bgMedium);
+        padding: 40px;
+        border-radius: 25px;
 
         img {
             object-fit: contain;
         }
 
-        $screenHeight: 300px;
-
         &-bg-container {
             position: relative;
-            width: 90%;
+            width: 70%;
         }
 
         &-background {
