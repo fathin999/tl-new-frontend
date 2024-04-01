@@ -15,7 +15,9 @@
                     dedicated to making a difference.
                 </p>
 
-                <a class="btn-primary btn-m">Apply now</a>
+                <a class="btn-primary btn-m" href="/be-an-instructor">
+                    Apply now
+                </a>
             </div>
 
             <img

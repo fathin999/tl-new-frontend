@@ -16,7 +16,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
                     and more.
                 </p>
 
-                <a class="btn-black btn-arrow">
+                <a class="btn-black btn-arrow" href="/courses">
                     View all courses
                     <IconArrow />
                 </a>

@@ -20,7 +20,7 @@ import IconWork from "@/components/icons/jobs/IconWork.vue";
                     for proven skills, not just pedigree.
                 </p>
 
-                <a class="btn-black btn-arrow">
+                <a class="btn-black btn-arrow" href="/jobs">
                     View more jobs
                     <IconArrow />
                 </a>

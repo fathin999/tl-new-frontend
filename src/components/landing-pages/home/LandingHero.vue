@@ -18,12 +18,14 @@ import IconArrow from "@/components/icons/IconArrow.vue";
             </div>
 
             <div id="hero-btns">
-                <a href="/" class="btn-primary btn-arrow"
-                    >Search Jobs <IconArrow
-                /></a>
-                <a href="/" class="btn-black btn-arrow"
-                    >Browse Tech Courses <IconArrow
-                /></a>
+                <a href="/jobs" class="btn-primary btn-arrow">
+                    Search Jobs
+                    <IconArrow />
+                </a>
+                <a href="/courses" class="btn-black btn-arrow">
+                    Browse Tech Courses
+                    <IconArrow />
+                </a>
             </div>
 
             <HeroSlider />

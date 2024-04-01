@@ -1,6 +1,7 @@
 import LandingPage from "./components/landing-pages/home/LandingPage.vue";
 import Login from "./components/auth/Login.vue";
 import Signup from "./components/auth/Signup.vue";
+import ChooseRole from "./components/auth/ChooseRole.vue";
 import CoursesPage from "./components/courses/CoursesPage.vue";
 import JobsPage from "./components/jobs/JobsPage.vue";
 import AboutPage from "./components/landing-pages/AboutPage.vue";
@@ -13,6 +14,7 @@ import ISAFinancingPage from "./components/landing-pages/ISAFinancingPage.vue";
 import PrivacyPolicyPage from "./components/landing-pages/PrivacyPolicyPage.vue";
 import TermsAndConditionsPage from "./components/landing-pages/TermsAndConditionsPage.vue";
 import TeamsPage from "./components/landing-pages/teams/TeamsPage.vue";
+
 import {createRouter, createWebHistory} from "vue-router";
 
 const routes = [
@@ -30,6 +32,11 @@ const routes = [
         name: "Signup",
         component: Signup,
         path: "/signup",
+    },
+    {
+        name: "Choose Role",
+        component: ChooseRole,
+        path: "/signup/choose-role",
     },
     {
         name: "Courses",
