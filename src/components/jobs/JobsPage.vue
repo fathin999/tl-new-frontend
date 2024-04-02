@@ -14,34 +14,14 @@ import IconSearch from "../icons/IconSearch.vue";
         <div id="jobs">
             <div id="jobs-header" class="container">
                 <h2>I'm searching for</h2>
-                <div class="jobs-dropdown">
-                    <span class="jobs-dropdown-placeholder">All roles</span>
-                    <IconChevron />
+                <div class="jobs-search">
+                    <input
+                        placeholder="Eg: Developer"
+                        type="text"
+                        name="search-keyword"
+                    />
 
-                    <div class="jobs-dropdown-options">
-                        <div class="jobs-dropdown-option">
-                            Software engineer
-                        </div>
-                        <div class="jobs-dropdown-option">
-                            Frontend developer
-                        </div>
-                        <div class="jobs-dropdown-option">
-                            Backend developer
-                        </div>
-                        <div class="jobs-dropdown-option">Mobile developer</div>
-                        <div class="jobs-dropdown-option">
-                            DevOps / Operations
-                        </div>
-                        <div class="jobs-dropdown-option">Data analyst</div>
-                        <div class="jobs-dropdown-option">Data engineer</div>
-                        <div class="jobs-dropdown-option">Designer</div>
-                        <div class="jobs-dropdown-option">Administration</div>
-                        <div class="jobs-dropdown-option">Cybersecurity</div>
-                        <div class="jobs-dropdown-option">Sales</div>
-                        <div class="jobs-dropdown-option">Consultant</div>
-                        <div class="jobs-dropdown-option">Business</div>
-                        <div class="jobs-dropdown-option">Other</div>
-                    </div>
+                    <IconSearch />
                 </div>
 
                 <h2>jobs, hiring in</h2>
@@ -135,31 +115,36 @@ import IconSearch from "../icons/IconSearch.vue";
 }
 
 .jobs {
-    &-dropdown {
-        $padding: 17px;
+    $padding: 17px;
+
+    @mixin input() {
+        padding: $padding 20px $padding 25px;
         display: inline-flex;
         border: 1px solid gainsboro;
-        width: 250px;
-        margin: 0 20px;
-        padding: $padding 20px $padding 25px;
         border-radius: 10px;
         user-select: none;
         cursor: pointer;
         text-align: left;
         align-items: center;
         position: relative;
+        width: 250px;
+        margin: 0 20px;
 
         span {
             flex: 1;
         }
+    }
+
+    &-dropdown {
+        @include input();
 
         svg {
             $size: 15px;
             height: $size;
             width: $size;
-            fill: var(--textLight);
             transform: rotate(90deg);
             margin-top: 3px;
+            fill: var(--textLight);
         }
 
         &-placeholder {
@@ -240,6 +225,28 @@ import IconSearch from "../icons/IconSearch.vue";
 
         .jobs-dropdown-options {
             display: block;
+        }
+    }
+
+    &-search {
+        display: inline-block;
+        position: relative;
+
+        input {
+            @include input();
+            padding-left: 55px;
+        }
+
+        svg {
+            $size: 20px;
+            height: $size;
+            width: $size;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            left: 40px;
+            fill: var(--textLight);
         }
     }
 }

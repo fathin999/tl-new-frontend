@@ -27,11 +27,13 @@ import IconChevron from "@/components/icons/IconChevron.vue";
                     <div class="slider-inner">
                         <div class="courses-item">
                             <div class="courses-item-img">
-                                <img
-                                    src="/src/assets/courses/course-cada.png"
-                                    alt="CADA"
-                                    class="courses-item-banner"
-                                />
+                                <div class="courses-item-banner-container">
+                                    <img
+                                        src="/src/assets/courses/course-cada.png"
+                                        alt="CADA"
+                                        class="courses-item-banner"
+                                    />
+                                </div>
 
                                 <div class="courses-item-badge">
                                     <img
@@ -61,11 +63,13 @@ import IconChevron from "@/components/icons/IconChevron.vue";
 
                         <div class="courses-item">
                             <div class="courses-item-img">
-                                <img
-                                    src="/src/assets/courses/course-cabed.png"
-                                    alt="CADA"
-                                    class="courses-item-banner"
-                                />
+                                <div class="courses-item-banner-container">
+                                    <img
+                                        src="/src/assets/courses/course-cabed.png"
+                                        alt="CADA"
+                                        class="courses-item-banner"
+                                    />
+                                </div>
 
                                 <div class="courses-item-badge">
                                     <img
@@ -97,11 +101,13 @@ import IconChevron from "@/components/icons/IconChevron.vue";
 
                         <div class="courses-item">
                             <div class="courses-item-img">
-                                <img
-                                    src="/src/assets/courses/course-case.png"
-                                    alt="CADA"
-                                    class="courses-item-banner"
-                                />
+                                <div class="courses-item-banner-container">
+                                    <img
+                                        src="/src/assets/courses/course-case.png"
+                                        alt="CADA"
+                                        class="courses-item-banner"
+                                    />
+                                </div>
 
                                 <div class="courses-item-badge">
                                     <img

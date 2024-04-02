@@ -2,11 +2,13 @@
     <div id="courses-list">
         <div class="courses-item">
             <div class="courses-item-img">
-                <img
-                    src="/src/assets/courses/course-cada.png"
-                    alt="CADA"
-                    class="courses-item-banner"
-                />
+                <div class="courses-item-banner-container">
+                    <img
+                        src="/src/assets/courses/course-cada.png"
+                        alt="CADA"
+                        class="courses-item-banner"
+                    />
+                </div>
 
                 <div class="courses-item-badge">
                     <img src="/src/assets/courses/badge.png" alt="Badge" />
@@ -17,7 +19,7 @@
                 <h4>Certified Associate in Data Analytics</h4>
             </div>
 
-            <span> Intermediate <b>·</b> Certified Associate </span>
+            <span>Intermediate <b>·</b> Certified Associate</span>
 
             <div class="courses-item-provider">
                 <img
@@ -31,11 +33,13 @@
 
         <div class="courses-item">
             <div class="courses-item-img">
-                <img
-                    src="/src/assets/courses/course-cabed.png"
-                    alt="CADA"
-                    class="courses-item-banner"
-                />
+                <div class="courses-item-banner-container">
+                    <img
+                        src="/src/assets/courses/course-cabed.png"
+                        alt="CADA"
+                        class="courses-item-banner"
+                    />
+                </div>
 
                 <div class="courses-item-badge">
                     <img src="/src/assets/courses/badge.png" alt="Badge" />
@@ -60,11 +64,13 @@
 
         <div class="courses-item">
             <div class="courses-item-img">
-                <img
-                    src="/src/assets/courses/course-case.png"
-                    alt="CADA"
-                    class="courses-item-banner"
-                />
+                <div class="courses-item-banner-container">
+                    <img
+                        src="/src/assets/courses/course-case.png"
+                        alt="CADA"
+                        class="courses-item-banner"
+                    />
+                </div>
 
                 <div class="courses-item-badge">
                     <img src="/src/assets/courses/badge-aws.png" alt="Badge" />
@@ -89,11 +95,13 @@
 
         <div class="courses-item">
             <div class="courses-item-img">
-                <img
-                    src="/src/assets/courses/course-cada.png"
-                    alt="CADA"
-                    class="courses-item-banner"
-                />
+                <div class="courses-item-banner-container">
+                    <img
+                        src="/src/assets/courses/course-cada.png"
+                        alt="CADA"
+                        class="courses-item-banner"
+                    />
+                </div>
 
                 <div class="courses-item-badge">
                     <img src="/src/assets/courses/badge.png" alt="Badge" />
@@ -104,7 +112,7 @@
                 <h4>Certified Associate in Data Analytics</h4>
             </div>
 
-            <span> Intermediate <b>·</b> Certified Associate </span>
+            <span>Intermediate <b>·</b> Certified Associate</span>
 
             <div class="courses-item-provider">
                 <img
@@ -118,11 +126,13 @@
 
         <div class="courses-item">
             <div class="courses-item-img">
-                <img
-                    src="/src/assets/courses/course-cabed.png"
-                    alt="CADA"
-                    class="courses-item-banner"
-                />
+                <div class="courses-item-banner-container">
+                    <img
+                        src="/src/assets/courses/course-cabed.png"
+                        alt="CADA"
+                        class="courses-item-banner"
+                    />
+                </div>
 
                 <div class="courses-item-badge">
                     <img src="/src/assets/courses/badge.png" alt="Badge" />
@@ -147,11 +157,13 @@
 
         <div class="courses-item">
             <div class="courses-item-img">
-                <img
-                    src="/src/assets/courses/course-case.png"
-                    alt="CADA"
-                    class="courses-item-banner"
-                />
+                <div class="courses-item-banner-container">
+                    <img
+                        src="/src/assets/courses/course-case.png"
+                        alt="CADA"
+                        class="courses-item-banner"
+                    />
+                </div>
 
                 <div class="courses-item-badge">
                     <img src="/src/assets/courses/badge-aws.png" alt="Badge" />
@@ -194,12 +206,10 @@
 }
 
 .courses-item {
-    $padding: 20px;
+    $padding: 22px;
     $imgMargin: calc(-1 * $padding);
     padding: $padding;
     padding-bottom: 110px;
-    border-radius: 15px;
-    transition: boxShadow 0.3s ease-out;
 
     h4 {
         font-size: 1.1rem;
@@ -217,17 +227,16 @@
     }
 
     &-img {
-        height: 80px;
         margin: $imgMargin $imgMargin 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        overflow: visible;
+    }
+
+    &-banner-container {
+        height: 80px;
     }
 
     &-badge {
         left: $padding;
         bottom: -30px;
-        border-color: rgb(229, 229, 229);
     }
 
     &-title {
@@ -246,20 +255,6 @@
             height: $size;
             width: $size;
             border-radius: 7px;
-        }
-    }
-}
-
-// ---------------
-// HOVER
-// ---------------
-
-@media (hover: hover) {
-    .courses-item:hover {
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-
-        .courses-item-banner {
-            transform: scale(1);
         }
     }
 }
