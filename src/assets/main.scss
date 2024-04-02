@@ -87,6 +87,14 @@ main {
         @include buttonHover(transparent, var(--purple), var(--purple));
     }
 
+    &-primary-outline {
+        @include button(transparent, var(--purple), var(--purple));
+    }
+
+    &-primary-outline:hover {
+        @include button(var(--purple), var(--purple), white);
+    }
+
     &-black {
         @include button(var(--black), var(--black), white);
     }
@@ -95,9 +103,9 @@ main {
         @include buttonHover(transparent, var(--black), var(--black));
     }
 
-    &-small {
+    &-s {
         border-radius: 25px;
-        padding: 8px 15px;
+        padding: 8px 20px;
     }
 
     &-m {
@@ -190,7 +198,7 @@ main {
 // -------------------
 
 $itemGap: 20px;
-$itemWidth: calc((1200px - ($itemGap * 2)) / 3);
+$itemWidth: calc((100% - ($itemGap * 2)) / 3);
 $itemScroll: calc($itemWidth + $itemGap);
 $itemPadding: 30px;
 
@@ -257,6 +265,7 @@ $itemPadding: 30px;
     position: relative;
     user-select: none;
     cursor: pointer;
+    overflow: hidden;
 
     h4 {
         font-size: 1.25rem;
@@ -284,6 +293,8 @@ $itemPadding: 30px;
 
 .courses-item {
     @include item(90px);
+    overflow: hidden;
+    isolation: isolate;
 
     &-img {
         position: relative;
@@ -313,6 +324,7 @@ $itemPadding: 30px;
         left: $margin;
         background-color: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
     &-title {

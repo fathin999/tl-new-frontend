@@ -40,25 +40,35 @@ import AuthBackground from "./AuthBackground.vue";
                     </div>
                 </div>
             </div>
-
-            <AuthBackground />
         </div>
     </main>
 </template>
 
 <style scoped lang="scss">
 .auth-page {
+    height: auto;
+
+    .container {
+        height: auto;
+    }
+
     h1 {
         margin-bottom: 30px;
     }
 
+    &-content {
+        width: 400px;
+        margin: auto;
+        padding: 50px 0 80px;
+    }
+
     .role-item {
         display: block;
-        padding: 30px;
+        padding: 40px;
         border: 1px solid var(--borderMedium);
         width: 100%;
         margin: 0;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         font-size: 1rem;
         border-radius: 15px;
         text-align: center;

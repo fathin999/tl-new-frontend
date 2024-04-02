@@ -89,8 +89,6 @@ import AuthBackground from "./AuthBackground.vue";
                     </form>
                 </div>
             </div>
-
-            <AuthBackground />
         </div>
     </main>
 </template>
@@ -116,3 +114,19 @@ export default {
     },
 };
 </script>
+
+<style scoped lang="scss">
+.auth-page {
+    height: auto;
+
+    .container {
+        height: auto;
+    }
+
+    &-content {
+        width: 400px;
+        margin: auto;
+        padding: 50px 0 80px;
+    }
+}
+</style>
