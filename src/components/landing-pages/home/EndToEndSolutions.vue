@@ -36,6 +36,13 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
                 </div>
                 <div class="about-btn-title">Network</div>
             </div>
+
+            <div class="about-btn clickable">
+                <div class="about-btn-icon">
+                    <IconSolPeople />
+                </div>
+                <div class="about-btn-title">Network</div>
+            </div>
         </div>
 
         <div id="about-content-screen">
@@ -60,7 +67,8 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
                     <h4>Learn skills</h4>
                     <p>
                         Learn in-demand digital skills and future-proof your
-                        career.
+                        career. Learn in-demand digital skills and future-proof
+                        your career.
                     </p>
                 </div>
 
@@ -75,26 +83,24 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
 
 <style scoped lang="scss">
 #about-content {
-    display: grid;
-    grid-template-columns: 340px 1fr;
     margin-top: 60px;
-    gap: 100px;
 
     &-btns {
-        padding-top: 10px;
+        display: flex;
+        gap: 10px;
     }
 
     .about-btn {
         transition: background 0.4s ease-out;
         background-color: var(--bgMedium);
         padding: 12px;
-        border-radius: 40px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
+        flex: 1;
 
         &-icon {
-            $size: 45px;
+            $size: 40px;
             height: $size;
             width: $size;
             border-radius: 50%;
@@ -102,19 +108,18 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
             display: flex;
             align-content: center;
             justify-content: center;
-            padding-top: 13px;
 
             svg {
-                $svgSize: 18px;
+                $svgSize: 40%;
                 height: $svgSize;
                 widows: $svgSize;
+                margin: auto;
             }
         }
 
         &-title {
-            padding-left: 20px;
+            padding-left: 15px;
             font-weight: 500;
-            font-size: 1.05rem;
         }
     }
 
@@ -129,19 +134,21 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
     }
 
     .active:hover {
-        .about-btn {
-            background-color: var(--black);
-        }
+        background-color: var(--black);
     }
 
     &-screen {
+        $padding: 60px;
+        $borderRadius: 20px;
+
+        margin-top: 10px;
         position: relative;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         flex-direction: column;
         align-items: center;
         background: var(--bgMedium);
-        padding: 40px;
-        border-radius: 25px;
+        border-radius: $borderRadius;
 
         img {
             object-fit: contain;
@@ -149,45 +156,37 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
 
         &-bg-container {
             position: relative;
-            width: 70%;
+            width: 100%;
+            padding: $padding;
         }
 
         &-background {
-            border-radius: 20px;
-            box-shadow: 0 20px 40px -2px rgba(210, 214, 217, 0.5);
+            border-radius: $borderRadius;
+            /* box-shadow: 0 20px 40px -2px rgba(210, 214, 217, 0.5); */
             width: 100%;
         }
 
         &-specific {
             position: absolute;
-            top: 70px;
-            left: 1%;
-            width: 98%;
-            height: calc(100% - 100px);
-            border-radius: 20px;
+            height: calc(100% - ($padding * 2) - 40px);
+            width: calc(100% - ($padding * 2));
+            bottom: $padding;
+            left: $padding;
+            border-radius: $borderRadius;
         }
 
         &-description {
+            padding-right: $padding;
+            padding-left: calc($padding / 2);
             width: 100%;
-            display: grid;
-            grid-template-columns: 300px 190px;
-            justify-content: space-between;
-            margin-top: 50px;
-            /* margin-top: 70px; */
-            align-items: center;
-            border: 1px solid var(--borderMedium);
-            padding: 30px 35px;
-            border-radius: 20px;
 
             h4 {
-                font-size: 1.1rem;
-                margin-bottom: 15px;
+                font-size: 1.3rem;
             }
 
             p {
-                /* font-size: 1.3rem; */
-                /* line-height: 1.8rem; */
                 color: var(--textMedium);
+                margin: 15px 0 30px;
             }
         }
 
