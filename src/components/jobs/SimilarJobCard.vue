@@ -9,7 +9,7 @@ const props = defineProps({
 });
 
 const getImageUrl = () => {
-    return `/src/assets/jobs/employer-logo-${props.logo}.png`;
+    return require(`/src/assets/jobs/employer-logo-${props.logo}.png`);
 };
 </script>
 

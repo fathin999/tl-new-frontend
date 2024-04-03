@@ -38,7 +38,7 @@ const getTime = () => {
 };
 
 const getImageUrl = () => {
-    return `/src/assets/jobs/employer-logo-${job.employer.logo}.png`;
+    return require(`/src/assets/jobs/employer-logo-${job.employer.logo}.png`);
 };
 </script>
 
