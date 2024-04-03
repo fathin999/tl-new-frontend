@@ -1,17 +1,21 @@
 <script setup>
 import IconLocation from "../icons/jobs/IconLocation.vue";
 
-defineProps({
+const props = defineProps({
     title: String,
     logo: String,
     employer: String,
     location: String,
 });
+
+const getImageUrl = () => {
+    return `/src/assets/jobs/employer-logo-${props.logo}.png`;
+};
 </script>
 
 <template>
     <div class="job-item">
-        <img :src="logo" :alt="title" class="job-item-logo" />
+        <img :src="getImageUrl()" :alt="employer" class="job-item-logo" />
 
         <div class="job-item-title">
             <a href="/jobs/1">

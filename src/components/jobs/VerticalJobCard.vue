@@ -16,11 +16,15 @@ const props = defineProps({
 const getClass = () => {
     return props.card ? "job-item job-card" : "job-item";
 };
+
+const getImageUrl = () => {
+    return `/src/assets/jobs/employer-logo-${props.logo}.png`;
+};
 </script>
 
 <template>
     <div :class="getClass()">
-        <img :src="logo" :alt="employer" class="job-item-logo" />
+        <img :src="getImageUrl()" :alt="employer" class="job-item-logo" />
 
         <div class="job-item-title">
             <a href="/jobs/1">

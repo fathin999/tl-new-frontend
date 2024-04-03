@@ -16,7 +16,7 @@ const job = {
     title: "Network Infrastructure Engineer",
     employer: {
         title: "Fave",
-        logo: "/src/assets/jobs/employer-logo-fave.png",
+        logo: "fave",
         industry: "Retail",
         size: "1000+ employees",
         location: "Eastern, Hong Kong",
@@ -36,6 +36,10 @@ const getTime = () => {
     const days = Math.floor(ms / (3600000 * 24)); // milliseconds to days
     return `${days} days ago`;
 };
+
+const getImageUrl = () => {
+    return `/src/assets/jobs/employer-logo-${job.employer.logo}.png`;
+};
 </script>
 
 <template>
@@ -47,7 +51,7 @@ const getTime = () => {
                 <h1>{{ job.title }}</h1>
 
                 <div id="job-overview-employer" class="clickable">
-                    <img :src="job.employer.logo" :alt="job.employer.title" />
+                    <img :src="getImageUrl()" :alt="job.employer.title" />
 
                     <span>{{ job.employer.title }}</span>
                 </div>
@@ -215,28 +219,28 @@ const getTime = () => {
 
                 <SimilarJobCard
                     title="Junior Software Engineer (Frontend)"
-                    logo="/src/assets/jobs/employer-logo-wristcheck.png"
+                    logo="wristcheck"
                     employer="WRISTCHECK"
                     location="Eastern, Hong Kong"
                 />
 
                 <SimilarJobCard
                     title="Junior Software Engineer (Frontend)"
-                    logo="/src/assets/jobs/employer-logo-dolphin.png"
+                    logo="dolphin"
                     employer="Dolphin Pharmaceuticals"
                     location="Western, Hong Kong"
                 />
 
                 <SimilarJobCard
                     title="Database Administrator"
-                    logo="/src/assets/jobs/employer-logo-fave.png"
+                    logo="fave"
                     employer="Fave"
                     location="Central, Hong Kong"
                 />
 
                 <SimilarJobCard
                     title="Junior Software Engineer (Frontend)"
-                    logo="/src/assets/jobs/employer-logo-dolphin.png"
+                    logo="dolphin"
                     employer="Dolphin Pharmaceuticals"
                     location="Western, Hong Kong"
                 />
@@ -248,7 +252,7 @@ const getTime = () => {
 
             <a id="job-company-card" href="/employers">
                 <div id="job-company-card-title">
-                    <img :src="job.employer.logo" :alt="job.employer.title" />
+                    <img :src="getImageUrl()" :alt="job.employer.title" />
 
                     <h1>{{ job.employer.title }}</h1>
                 </div>

@@ -13,7 +13,7 @@ const getId = () => {
 <template>
     <div :id="getId()">
         <VerticalJobCard
-            logo="/src/assets/jobs/employer-logo-wristcheck.png"
+            logo="wristcheck"
             title="Junior Software Engineer (Frontend)"
             employer="WRISTCHECK"
             location="Hong Kong"
@@ -24,7 +24,7 @@ const getId = () => {
         />
 
         <VerticalJobCard
-            logo="/src/assets/jobs/employer-logo-dolphin.png"
+            logo="dolphin"
             title="eCommerce Data Operations Specialist"
             employer="Dolphin Pharmaceuticals"
             location="Central, Hong Kong"
@@ -35,7 +35,7 @@ const getId = () => {
         />
 
         <VerticalJobCard
-            logo="/src/assets/jobs/employer-logo-fave.png"
+            logo="fave"
             title="Software Engineer (Backend)"
             employer="Fave"
             location="Kuala Lumpur, Malaysia"
@@ -46,7 +46,7 @@ const getId = () => {
         />
 
         <VerticalJobCard
-            logo="/src/assets/jobs/employer-logo-wristcheck.png"
+            logo="wristcheck"
             title="Junior Software Engineer (Frontend)"
             employer="WRISTCHECK"
             location="Hong Kong"
@@ -57,7 +57,7 @@ const getId = () => {
         />
 
         <VerticalJobCard
-            logo="/src/assets/jobs/employer-logo-dolphin.png"
+            logo="dolphin"
             title="eCommerce Data Operations Specialist"
             employer="Dolphin Pharmaceuticals"
             location="Central, Hong Kong"
@@ -68,7 +68,7 @@ const getId = () => {
         />
 
         <VerticalJobCard
-            logo="/src/assets/jobs/employer-logo-fave.png"
+            logo="fave"
             title="Software Engineer (Backend)"
             employer="Fave"
             location="Kuala Lumpur, Malaysia"
