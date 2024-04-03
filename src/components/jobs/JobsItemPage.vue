@@ -8,6 +8,9 @@ import IconBuilding from "../icons/jobs/IconBuilding.vue";
 import IconSpanner from "../icons/jobs/IconSpanner.vue";
 import IconTime from "../icons/jobs/IconTime.vue";
 import SimilarJobCard from "./SimilarJobCard.vue";
+import IconPeople from "../icons/jobs/IconPeople.vue";
+import IconArrow from "../icons/IconArrow.vue";
+import JobsList from "./JobsList.vue";
 
 const job = {
     title: "Network Infrastructure Engineer",
@@ -15,6 +18,8 @@ const job = {
         title: "Fave",
         logo: "/src/assets/jobs/employer-logo-fave.png",
         industry: "Retail",
+        size: "1000+ employees",
+        location: "Eastern, Hong Kong",
     },
     location: "Eastern, Hong Kong",
     type: "Full-time",
@@ -228,10 +233,51 @@ const getTime = () => {
                     employer="Fave"
                     location="Central, Hong Kong"
                 />
+
+                <SimilarJobCard
+                    title="Junior Software Engineer (Frontend)"
+                    logo="/src/assets/jobs/employer-logo-dolphin.png"
+                    employer="Dolphin Pharmaceuticals"
+                    location="Western, Hong Kong"
+                />
             </div>
         </div>
 
-        <div id="job-other-jobs"></div>
+        <div id="job-company">
+            <h2>More about {{ job.employer.title }}</h2>
+
+            <a id="job-company-card" href="/employers">
+                <div id="job-company-card-title">
+                    <img :src="job.employer.logo" :alt="job.employer.title" />
+
+                    <h1>{{ job.employer.title }}</h1>
+                </div>
+
+                <div class="job-company-detail">
+                    <IconLocationOutline />
+                    {{ job.employer.location }}
+                </div>
+
+                <div class="job-company-detail">
+                    <IconPeople />
+                    {{ job.employer.size }}
+                </div>
+
+                <div class="job-company-detail">
+                    <IconBuilding />
+                    {{ job.employer.industry }}
+                </div>
+
+                <div id="job-company-card-btn">
+                    More
+                    <IconArrow />
+                </div>
+            </a>
+
+            <h2>Other jobs from {{ job.employer.title }}</h2>
+
+            <JobsList />
+        </div>
     </main>
 
     <Footer />
@@ -239,6 +285,12 @@ const getTime = () => {
 
 <style scoped lang="scss">
 #job {
+    h2 {
+        font-size: 0.95rem;
+        color: var(--textMedium);
+        margin-bottom: 20px;
+    }
+
     width: 1000px;
 
     &-header {
@@ -372,17 +424,92 @@ const getTime = () => {
                 text-align: center;
             }
         }
-
-        &-similar {
-            h2 {
-                font-size: 0.95rem;
-                color: var(--textMedium);
-                margin-bottom: 20px;
-            }
-        }
     }
 
-    &-other-jobs {
+    &-company {
+        border-top: 1px solid var(--borderMedium);
+        padding: 50px 0;
+        width: 70%;
+
+        &-card {
+            $padding: 30px;
+
+            border: 1px solid var(--borderMedium);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            padding: $padding;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 50px;
+            row-gap: 30px;
+            transition: border 0.3s ease-out;
+            position: relative;
+
+            &-title {
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                img {
+                    $size: 60px;
+                    height: $size;
+                    width: $size;
+                    border-radius: 25%;
+                }
+
+                h1 {
+                    margin-left: 20px;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .job-company-detail {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    $size: 18px;
+                    height: $size;
+                    width: $size;
+                    fill: var(--textMedium);
+                    margin-right: 10px;
+                }
+            }
+
+            &-btn {
+                $margin: calc($padding + 5px);
+                position: absolute;
+                top: $margin;
+                right: $margin;
+                display: flex;
+                align-items: center;
+                color: var(--purple);
+                font-weight: 500;
+                transition: color 0.3s ease-out;
+
+                svg {
+                    $size: 15px;
+                    height: $size;
+                    width: $size;
+                    fill: var(--purple);
+                    margin-left: 10px;
+                    transition: fill 0.3s ease-out, transform 0.3s ease-out;
+                }
+            }
+        }
+
+        &-card:hover {
+            border-color: var(--purple);
+
+            #job-company-card-btn {
+                color: var(--black);
+
+                svg {
+                    fill: var(--black);
+                    transform: translateX(5px);
+                }
+            }
+        }
     }
 }
 </style>
