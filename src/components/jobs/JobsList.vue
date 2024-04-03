@@ -1,9 +1,17 @@
 <script setup>
 import VerticalJobCard from "./VerticalJobCard.vue";
+
+const props = defineProps({
+    card: Boolean,
+});
+
+const getId = () => {
+    return props.card ? "" : "jobs-list";
+};
 </script>
 
 <template>
-    <div id="jobs-list">
+    <div :id="getId()">
         <VerticalJobCard
             logo="/src/assets/jobs/employer-logo-wristcheck.png"
             title="Junior Software Engineer (Frontend)"
@@ -12,6 +20,7 @@ import VerticalJobCard from "./VerticalJobCard.vue";
             type="Full-time"
             remote="In office"
             :featured="true"
+            :card="card"
         />
 
         <VerticalJobCard
@@ -22,6 +31,7 @@ import VerticalJobCard from "./VerticalJobCard.vue";
             type="Full-time"
             remote="In office"
             :featured="true"
+            :card="card"
         />
 
         <VerticalJobCard
@@ -32,6 +42,7 @@ import VerticalJobCard from "./VerticalJobCard.vue";
             type="Contract"
             remote="Remote"
             :featured="false"
+            :card="card"
         />
 
         <VerticalJobCard
@@ -42,6 +53,7 @@ import VerticalJobCard from "./VerticalJobCard.vue";
             type="Full-time"
             remote="In office"
             :featured="false"
+            :card="card"
         />
 
         <VerticalJobCard
@@ -52,6 +64,7 @@ import VerticalJobCard from "./VerticalJobCard.vue";
             type="Full-time"
             remote="In office"
             :featured="false"
+            :card="card"
         />
 
         <VerticalJobCard
@@ -62,6 +75,7 @@ import VerticalJobCard from "./VerticalJobCard.vue";
             type="Contract"
             remote="Remote"
             :featured="false"
+            :card="card"
         />
     </div>
 </template>

@@ -2,7 +2,7 @@
 import IconStar from "../icons/IconStar.vue";
 import IconBookmark from "../icons/jobs/IconBookmark.vue";
 
-defineProps({
+const props = defineProps({
     logo: String,
     title: String,
     employer: String,
@@ -10,11 +10,16 @@ defineProps({
     type: String,
     remote: String,
     featured: Boolean,
+    card: Boolean,
 });
+
+const getClass = () => {
+    return props.card ? "job-item job-card" : "job-item";
+};
 </script>
 
 <template>
-    <div class="job-item">
+    <div :class="getClass()">
         <img :src="logo" :alt="employer" class="job-item-logo" />
 
         <div class="job-item-title">
@@ -51,8 +56,10 @@ defineProps({
 </template>
 
 <style scoped lang="scss">
+$padding: 25px;
+$btnsWidth: 160px;
+
 .job-item {
-    $padding: 25px;
     $imgSize: 60px;
     $leftPadding: calc($imgSize + 30px);
     $btnsWidth: 160px;
@@ -126,7 +133,6 @@ defineProps({
         width: $btnsWidth;
         display: flex;
         justify-content: flex-end;
-        /* align-items: center; */
         padding-top: 30px;
         gap: 10px;
     }
@@ -143,6 +149,22 @@ defineProps({
             width: $size;
             margin: auto;
         }
+    }
+}
+
+.job-card {
+    padding-left: 110px;
+    padding-right: calc($btnsWidth + $padding);
+    border-radius: 20px;
+    margin-bottom: 15px;
+    border: 1px solid var(--borderMedium);
+
+    img {
+        left: $padding;
+    }
+
+    .job-item-btns {
+        right: $padding;
     }
 }
 </style>

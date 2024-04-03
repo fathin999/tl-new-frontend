@@ -276,7 +276,7 @@ const getTime = () => {
 
             <h2>Other jobs from {{ job.employer.title }}</h2>
 
-            <JobsList />
+            <JobsList :card="true" />
         </div>
     </main>
 
@@ -436,7 +436,7 @@ const getTime = () => {
 
             border: 1px solid var(--borderMedium);
             border-radius: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             padding: $padding;
             display: flex;
             flex-wrap: wrap;

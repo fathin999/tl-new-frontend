@@ -76,7 +76,7 @@ import IconSearch from "../icons/IconSearch.vue";
                 <div>
                     <h1>All jobs</h1>
 
-                    <JobsList />
+                    <JobsList :card="false" />
                 </div>
             </div>
         </div>
