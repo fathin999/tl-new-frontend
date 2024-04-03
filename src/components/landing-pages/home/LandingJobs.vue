@@ -37,10 +37,14 @@ import IconWork from "@/components/icons/jobs/IconWork.vue";
                             />
 
                             <div class="job-item-title">
-                                <h4>Junior Software Engineer (Frontend)</h4>
+                                <a href="/jobs/1">
+                                    <h4>Junior Software Engineer (Frontend)</h4>
+                                </a>
                             </div>
 
-                            <p>WRISTCHECK</p>
+                            <a href="/employers">
+                                <p>WRISTCHECK</p>
+                            </a>
 
                             <div class="job-item-details">
                                 <div class="job-item-details-item">
@@ -68,10 +72,16 @@ import IconWork from "@/components/icons/jobs/IconWork.vue";
                             />
 
                             <div class="job-item-title">
-                                <h4>eCommerce Data Operations Specialist</h4>
+                                <a href="/jobs/1">
+                                    <h4>
+                                        eCommerce Data Operations Specialist
+                                    </h4>
+                                </a>
                             </div>
 
-                            <p>Dolphin Pharmaceuticals</p>
+                            <a href="/employers">
+                                <p>Dolphin Pharmaceuticals</p>
+                            </a>
 
                             <div class="job-item-details">
                                 <div class="job-item-details-item">
@@ -99,10 +109,14 @@ import IconWork from "@/components/icons/jobs/IconWork.vue";
                             />
 
                             <div class="job-item-title">
-                                <h4>Software Engineer (Backend)</h4>
+                                <a href="/jobs/1">
+                                    <h4>Software Engineer (Backend)</h4>
+                                </a>
                             </div>
 
-                            <p>Fave</p>
+                            <a href="/employers">
+                                <p>Fave</p>
+                            </a>
 
                             <div class="job-item-details">
                                 <div class="job-item-details-item">

@@ -14,6 +14,8 @@ import ISAFinancingPage from "./components/landing-pages/ISAFinancingPage.vue";
 import PrivacyPolicyPage from "./components/landing-pages/PrivacyPolicyPage.vue";
 import TermsAndConditionsPage from "./components/landing-pages/TermsAndConditionsPage.vue";
 import TeamsPage from "./components/landing-pages/teams/TeamsPage.vue";
+import EmployersPage from "./components/jobs/EmployersPage.vue";
+import JobsItemPage from "./components/jobs/JobsItemPage.vue";
 
 import {createRouter, createWebHistory} from "vue-router";
 
@@ -47,6 +49,16 @@ const routes = [
         name: "Jobs",
         component: JobsPage,
         path: "/jobs",
+    },
+    {
+        name: "Jobs Item Page",
+        component: JobsItemPage,
+        path: "/jobs/1",
+    },
+    {
+        name: "Employers",
+        component: EmployersPage,
+        path: "/employers",
     },
     {
         name: "About",

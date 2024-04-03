@@ -365,6 +365,7 @@ $itemPadding: 30px;
 .job-item {
     @include item(140px);
     transition: border 0.4s ease-out;
+    cursor: default;
 
     &-logo {
         $size: 70px;
@@ -377,12 +378,21 @@ $itemPadding: 30px;
     }
 
     &-title {
-        margin: 20px 0 10px;
+        margin: 20px 0 8px;
+
+        h4 {
+            cursor: pointer;
+            display: inline-block;
+            transition: color 0.3s ease-out;
+        }
     }
 
     p {
         color: var(--black);
         font-size: 0.95rem;
+        cursor: pointer;
+        display: inline-block;
+        transition: color 0.3s ease-out;
     }
 
     &-details {
@@ -577,8 +587,16 @@ input:-webkit-autofill:focus {
         }
     }
 
-    .job-item:hover {
-        border: 1px solid var(--purple);
+    .job-item {
+        &-title {
+            h4:hover {
+                color: var(--purple);
+            }
+        }
+
+        p:hover {
+            color: var(--purple);
+        }
     }
 }
 

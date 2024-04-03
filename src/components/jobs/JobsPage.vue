@@ -117,7 +117,7 @@ import IconSearch from "../icons/IconSearch.vue";
 .jobs {
     $padding: 17px;
 
-    @mixin input() {
+    @mixin input($width) {
         padding: $padding 20px $padding 25px;
         display: inline-flex;
         border: 1px solid gainsboro;
@@ -127,7 +127,7 @@ import IconSearch from "../icons/IconSearch.vue";
         text-align: left;
         align-items: center;
         position: relative;
-        width: 250px;
+        width: $width;
         margin: 0 20px;
 
         span {
@@ -136,7 +136,7 @@ import IconSearch from "../icons/IconSearch.vue";
     }
 
     &-dropdown {
-        @include input();
+        @include input(210px);
 
         svg {
             $size: 15px;
@@ -233,7 +233,7 @@ import IconSearch from "../icons/IconSearch.vue";
         position: relative;
 
         input {
-            @include input();
+            @include input(270px);
             padding-left: 55px;
         }
 
