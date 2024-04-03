@@ -18,7 +18,10 @@ const getClass = () => {
 };
 
 const getImageUrl = () => {
-    return require(`/src/assets/jobs/employer-logo-${props.logo}.png`);
+    return new URL(
+        `/src/assets/jobs/employer-logo-${props.logo}.png`,
+        import.meta.url
+    );
 };
 </script>
 
