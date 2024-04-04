@@ -75,7 +75,7 @@ const courses = [
                     </div>
                     <div id="courses-btns-link">
                         <a href="/courses/careers" class="clickable">
-                            More
+                            Explore more roles
                             <IconChevron />
                         </a>
                     </div>
@@ -140,7 +140,7 @@ const courses = [
         }
 
         .btn-active {
-            background-color: var(--lightBlue);
+            background-color: var(--bgMedium);
             /* background-color: var(--black); */
             /* color: white; */
         }

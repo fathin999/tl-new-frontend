@@ -66,7 +66,7 @@ import ArrowLink from "@/components/button/ArrowLink.vue";
 
     &-btns {
         display: inline-flex;
-        gap: 5px;
+        gap: 10px;
         margin: auto;
         padding: 7px;
         border: 1px solid rgba(0, 0, 0, 0.4);
