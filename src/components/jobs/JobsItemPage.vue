@@ -29,6 +29,70 @@ const job = {
     remote: "Remote",
 };
 
+const similarJobs = [
+    {
+        id: 1,
+        logo: "wristcheck",
+        title: "Junior Software Engineer (Frontend)",
+        location: "Hong Kong",
+        employer: "WRISTCHECK",
+    },
+    {
+        id: 2,
+        logo: "dolphin",
+        title: "eCommerce Data Operations Specialist",
+        location: "Central, Hong Kong",
+        employer: "Dolphin Pharmaceuticals",
+    },
+    {
+        id: 3,
+        logo: "fave",
+        title: "Software Engineer (Backend)",
+        location: "Kuala Lumpur, Malaysia",
+        employer: "Fave",
+    },
+    {
+        id: 4,
+        logo: "dolphin",
+        title: "eCommerce Data Operations Specialist",
+        location: "Central, Hong Kong",
+        employer: "Dolphin Pharmaceuticals",
+    },
+];
+
+const otherJobs = [
+    {
+        id: 1,
+        logo: "wristcheck",
+        title: "Junior Software Engineer (Frontend)",
+        location: "Hong Kong",
+        type: "Full-time",
+        remote: "In office",
+        featured: false,
+        employer: "WRISTCHECK",
+    },
+    {
+        id: 2,
+        logo: "dolphin",
+        title: "eCommerce Data Operations Specialist",
+        location: "Central, Hong Kong",
+        type: "Part-time",
+        remote: "Hybrid",
+        featured: false,
+        employer: "Dolphin Pharmaceuticals",
+    },
+    {
+        id: 3,
+        logo: "fave",
+        title: "Software Engineer (Backend)",
+        location: "Kuala Lumpur, Malaysia",
+        type: "Contract",
+        remote: "Remote",
+        featured: false,
+        employer: "Fave",
+    },
+];
+
 const getTime = () => {
     const today = new Date();
     const created = new Date(job.createdAt);
@@ -221,31 +285,12 @@ const getImageUrl = () => {
                 <h2>Similar jobs</h2>
 
                 <SimilarJobCard
-                    title="Junior Software Engineer (Frontend)"
-                    logo="wristcheck"
-                    employer="WRISTCHECK"
-                    location="Eastern, Hong Kong"
-                />
-
-                <SimilarJobCard
-                    title="Junior Software Engineer (Frontend)"
-                    logo="dolphin"
-                    employer="Dolphin Pharmaceuticals"
-                    location="Western, Hong Kong"
-                />
-
-                <SimilarJobCard
-                    title="Database Administrator"
-                    logo="fave"
-                    employer="Fave"
-                    location="Central, Hong Kong"
-                />
-
-                <SimilarJobCard
-                    title="Junior Software Engineer (Frontend)"
-                    logo="dolphin"
-                    employer="Dolphin Pharmaceuticals"
-                    location="Western, Hong Kong"
+                    v-for="job in similarJobs"
+                    :key="job.id"
+                    :title="job.title"
+                    :logo="job.logo"
+                    :employer="job.employer"
+                    :location="job.location"
                 />
             </div>
         </div>
@@ -283,7 +328,7 @@ const getImageUrl = () => {
 
             <h2>Other jobs from {{ job.employer.title }}</h2>
 
-            <JobsList :card="true" />
+            <JobsList :card="true" :jobs="otherJobs" />
         </div>
     </main>
 
@@ -461,7 +506,7 @@ const getImageUrl = () => {
                     $size: 60px;
                     height: $size;
                     width: $size;
-                    border-radius: 25%;
+                    border-radius: 50%;
                 }
 
                 h1 {

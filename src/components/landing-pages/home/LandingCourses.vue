@@ -29,7 +29,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
                             <div class="courses-item-img">
                                 <div class="courses-item-banner-container">
                                     <img
-                                        src="/src/assets/courses/course-cada.png"
+                                        src="/src/assets/courses/course-banner-cada.png"
                                         alt="CADA"
                                         class="courses-item-banner"
                                     />
@@ -37,7 +37,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
 
                                 <div class="courses-item-badge">
                                     <img
-                                        src="/src/assets/courses/badge.png"
+                                        src="/src/assets/courses/course-badge-cada.png"
                                         alt="Badge"
                                     />
                                 </div>
@@ -65,7 +65,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
                             <div class="courses-item-img">
                                 <div class="courses-item-banner-container">
                                     <img
-                                        src="/src/assets/courses/course-cabed.png"
+                                        src="/src/assets/courses/course-banner-cabed.png"
                                         alt="CADA"
                                         class="courses-item-banner"
                                     />
@@ -73,7 +73,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
 
                                 <div class="courses-item-badge">
                                     <img
-                                        src="/src/assets/courses/badge.png"
+                                        src="/src/assets/courses/course-badge-cada.png"
                                         alt="Badge"
                                     />
                                 </div>
@@ -103,7 +103,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
                             <div class="courses-item-img">
                                 <div class="courses-item-banner-container">
                                     <img
-                                        src="/src/assets/courses/course-case.png"
+                                        src="/src/assets/courses/course-banner-devops.png"
                                         alt="CADA"
                                         class="courses-item-banner"
                                     />
@@ -111,7 +111,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
 
                                 <div class="courses-item-badge">
                                     <img
-                                        src="/src/assets/courses/badge-aws.png"
+                                        src="/src/assets/courses/course-badge-devops.png"
                                         alt="Badge"
                                     />
                                 </div>
@@ -147,5 +147,3 @@ import IconChevron from "@/components/icons/IconChevron.vue";
         </div>
     </div>
 </template>
-
-<style scoped lang="scss"></style>

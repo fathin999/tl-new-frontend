@@ -2,7 +2,7 @@
 import LandingHero from "./LandingHero.vue";
 import LandingTrusted from "./LandingTrusted.vue";
 import LandingSolutions from "./LandingSolutions.vue";
-import LandingCourses from "./LandingCourses.vue";
+import LandingCoursesRole from "./LandingCoursesRole.vue";
 import LandingJobs from "./LandingJobs.vue";
 import LandingTestimonies from "./LandingTestimonies.vue";
 import LandingInstructor from "./LandingInstructor.vue";
@@ -20,7 +20,7 @@ import Footer from "@/components/layout/Footer.vue";
 
         <LandingSolutions />
 
-        <LandingCourses />
+        <LandingCoursesRole />
 
         <LandingTestimonies />
 

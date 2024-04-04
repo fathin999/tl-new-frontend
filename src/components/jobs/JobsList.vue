@@ -3,6 +3,7 @@ import VerticalJobCard from "./VerticalJobCard.vue";
 
 const props = defineProps({
     card: Boolean,
+    jobs: Array,
 });
 
 const getId = () => {
@@ -13,67 +14,14 @@ const getId = () => {
 <template>
     <div :id="getId()">
         <VerticalJobCard
-            logo="wristcheck"
-            title="Junior Software Engineer (Frontend)"
-            employer="WRISTCHECK"
-            location="Hong Kong"
-            type="Full-time"
-            remote="In office"
-            :featured="true"
-            :card="card"
-        />
-
-        <VerticalJobCard
-            logo="dolphin"
-            title="eCommerce Data Operations Specialist"
-            employer="Dolphin Pharmaceuticals"
-            location="Central, Hong Kong"
-            type="Full-time"
-            remote="In office"
-            :featured="true"
-            :card="card"
-        />
-
-        <VerticalJobCard
-            logo="fave"
-            title="Software Engineer (Backend)"
-            employer="Fave"
-            location="Kuala Lumpur, Malaysia"
-            type="Contract"
-            remote="Remote"
-            :featured="false"
-            :card="card"
-        />
-
-        <VerticalJobCard
-            logo="wristcheck"
-            title="Junior Software Engineer (Frontend)"
-            employer="WRISTCHECK"
-            location="Hong Kong"
-            type="Full-time"
-            remote="In office"
-            :featured="false"
-            :card="card"
-        />
-
-        <VerticalJobCard
-            logo="dolphin"
-            title="eCommerce Data Operations Specialist"
-            employer="Dolphin Pharmaceuticals"
-            location="Central, Hong Kong"
-            type="Full-time"
-            remote="In office"
-            :featured="false"
-            :card="card"
-        />
-
-        <VerticalJobCard
-            logo="fave"
-            title="Software Engineer (Backend)"
-            employer="Fave"
-            location="Kuala Lumpur, Malaysia"
-            type="Contract"
-            remote="Remote"
+            v-for="job in jobs"
+            :key="job.id"
+            :logo="job.logo"
+            :title="job.title"
+            :employer="job.employer"
+            :location="job.location"
+            :type="job.type"
+            :remote="job.remote"
             :featured="false"
             :card="card"
         />

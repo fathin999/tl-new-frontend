@@ -5,6 +5,69 @@ import FiltersList from "../browse/FiltersList.vue";
 import IconChevron from "../icons/IconChevron.vue";
 import JobsList from "./JobsList.vue";
 import IconSearch from "../icons/IconSearch.vue";
+
+const jobs = [
+    {
+        id: 1,
+        logo: "wristcheck",
+        title: "Junior Software Engineer (Frontend)",
+        location: "Hong Kong",
+        type: "Full-time",
+        remote: "In office",
+        featured: true,
+        employer: "WRISTCHECK",
+    },
+    {
+        id: 2,
+        logo: "dolphin",
+        title: "eCommerce Data Operations Specialist",
+        location: "Central, Hong Kong",
+        type: "Part-time",
+        remote: "Hybrid",
+        featured: true,
+        employer: "Dolphin Pharmaceuticals",
+    },
+    {
+        id: 3,
+        logo: "fave",
+        title: "Software Engineer (Backend)",
+        location: "Kuala Lumpur, Malaysia",
+        type: "Contract",
+        remote: "Remote",
+        featured: false,
+        employer: "Fave",
+    },
+    {
+        id: 4,
+        logo: "wristcheck",
+        title: "Junior Software Engineer (Frontend)",
+        location: "Hong Kong",
+        type: "Full-time",
+        remote: "In office",
+        featured: false,
+        employer: "WRISTCHECK",
+    },
+    {
+        id: 5,
+        logo: "dolphin",
+        title: "eCommerce Data Operations Specialist",
+        location: "Central, Hong Kong",
+        type: "Part-time",
+        remote: "Hybrid",
+        featured: false,
+        employer: "Dolphin Pharmaceuticals",
+    },
+    {
+        id: 6,
+        logo: "fave",
+        title: "Software Engineer (Backend)",
+        location: "Kuala Lumpur, Malaysia",
+        type: "Contract",
+        remote: "Remote",
+        featured: false,
+        employer: "Fave",
+    },
+];
 </script>
 
 <template>
@@ -76,7 +139,7 @@ import IconSearch from "../icons/IconSearch.vue";
                 <div>
                     <h1>All jobs</h1>
 
-                    <JobsList :card="false" />
+                    <JobsList :card="false" :jobs="jobs" />
                 </div>
             </div>
         </div>
