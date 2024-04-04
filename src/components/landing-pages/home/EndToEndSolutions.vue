@@ -4,45 +4,21 @@ import IconSolAI from "@/components/icons/landingPage/solutions/IconSolAI.vue";
 import IconSolStack from "@/components/icons/landingPage/solutions/IconSolStack.vue";
 import IconSolBriefcase from "@/components/icons/landingPage/solutions/IconSolBriefcase.vue";
 import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeople.vue";
+import ArrowLink from "@/components/button/ArrowLink.vue";
 </script>
 
 <template>
     <div id="about-content">
         <div id="about-content-btns">
-            <div class="about-btn active clickable">
-                <div class="about-btn-icon">
-                    <IconSolAI />
-                </div>
-                <div class="about-btn-title">Learn skills</div>
-            </div>
+            <div class="about-btn active clickable">Learn skills</div>
 
-            <div class="about-btn clickable">
-                <div class="about-btn-icon">
-                    <IconSolStack />
-                </div>
-                <div class="about-btn-title">Build portfolio</div>
-            </div>
+            <div class="about-btn clickable">Build portfolio</div>
 
-            <div class="about-btn clickable">
-                <div class="about-btn-icon">
-                    <IconSolBriefcase />
-                </div>
-                <div class="about-btn-title">Get hired</div>
-            </div>
+            <div class="about-btn clickable">Explore careers</div>
 
-            <div class="about-btn clickable">
-                <div class="about-btn-icon">
-                    <IconSolPeople />
-                </div>
-                <div class="about-btn-title">Network</div>
-            </div>
+            <div class="about-btn clickable">Get hired</div>
 
-            <div class="about-btn clickable">
-                <div class="about-btn-icon">
-                    <IconSolPeople />
-                </div>
-                <div class="about-btn-title">Network</div>
-            </div>
+            <div class="about-btn clickable">Network</div>
         </div>
 
         <div id="about-content-screen">
@@ -72,10 +48,12 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
                     </p>
                 </div>
 
-                <a class="btn-primary btn-arrow">
+                <!-- <a class="btn-primary btn-arrow">
                     View courses
                     <IconArrow />
-                </a>
+                </a> -->
+
+                <ArrowLink title="View courses" href="/courses" />
             </div>
         </div>
     </div>
@@ -83,44 +61,27 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
 
 <style scoped lang="scss">
 #about-content {
-    margin-top: 60px;
+    margin-top: 50px;
+    text-align: center;
 
     &-btns {
-        display: flex;
-        gap: 10px;
+        display: inline-flex;
+        gap: 5px;
+        margin: auto;
+        padding: 7px;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        border-radius: 50px;
     }
 
     .about-btn {
         transition: background 0.4s ease-out;
-        background-color: var(--bgMedium);
-        padding: 12px;
-        border-radius: 10px;
+        background-color: white;
+        padding: 15px 20px;
+        border-radius: 230px;
         display: flex;
         align-items: center;
-        flex: 1;
-
-        &-icon {
-            $size: 40px;
-            height: $size;
-            width: $size;
-            border-radius: 50%;
-            background-color: white;
-            display: flex;
-            align-content: center;
-            justify-content: center;
-
-            svg {
-                $svgSize: 40%;
-                height: $svgSize;
-                widows: $svgSize;
-                margin: auto;
-            }
-        }
-
-        &-title {
-            padding-left: 15px;
-            font-weight: 500;
-        }
+        font-weight: 500;
+        font-size: 0.95rem;
     }
 
     .active {
@@ -129,8 +90,7 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
     }
 
     .about-btn:hover {
-        background-color: gainsboro;
-        background-color: var(--lightBlue);
+        background-color: var(--bgMedium);
     }
 
     .active:hover {
@@ -141,7 +101,7 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
         $padding: 60px;
         $borderRadius: 20px;
 
-        margin-top: 10px;
+        margin-top: 30px;
         position: relative;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -149,6 +109,7 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
         align-items: center;
         background: var(--bgMedium);
         border-radius: $borderRadius;
+        text-align: left;
 
         img {
             object-fit: contain;
@@ -162,7 +123,6 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
 
         &-background {
             border-radius: $borderRadius;
-            /* box-shadow: 0 20px 40px -2px rgba(210, 214, 217, 0.5); */
             width: 100%;
         }
 
@@ -176,7 +136,7 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
         }
 
         &-description {
-            padding-right: $padding;
+            padding-right: calc($padding * 1.5);
             padding-left: calc($padding / 2);
             width: 100%;
 
@@ -186,7 +146,7 @@ import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeopl
 
             p {
                 color: var(--textMedium);
-                margin: 15px 0 30px;
+                margin: 15px 0 35px;
             }
         }
 

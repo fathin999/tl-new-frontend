@@ -140,7 +140,9 @@ const courses = [
         }
 
         .btn-active {
-            background-color: var(--bgMedium);
+            background-color: var(--lightBlue);
+            /* background-color: var(--black); */
+            /* color: white; */
         }
 
         &-link {
