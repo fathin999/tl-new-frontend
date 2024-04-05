@@ -1,4 +1,5 @@
 <script setup>
+import {getJobLogoUrl} from "@/composable/jobs/jobPages";
 import IconStar from "../icons/IconStar.vue";
 import IconBookmark from "../icons/jobs/IconBookmark.vue";
 
@@ -14,28 +15,24 @@ const props = defineProps({
 });
 
 const getClass = () => {
-    return props.card ? "job-item job-card" : "job-item";
+    const cls = "job-item ";
+    return props.card ? cls + "job-card" : cls;
 };
 
 const getRemoteClass = () => {
-    return props.remote === "Remote"
-        ? "job-item-details-style style-red"
-        : props.remote === "Onsite"
-        ? "job-item-details-style style-blue"
-        : "job-item-details-style style-orange";
-};
+    const cls = "job-item-details-style style-";
 
-const getImageUrl = () => {
-    return new URL(
-        `/src/assets/jobs/employer-logo-${props.logo}.png`,
-        import.meta.url
-    );
+    return props.remote === "Remote"
+        ? cls + "red"
+        : props.remote === "Onsite"
+        ? cls + "blue"
+        : cls + "orange";
 };
 </script>
 
 <template>
     <div :class="getClass()">
-        <img :src="getImageUrl()" :alt="employer" class="job-item-logo" />
+        <img :src="getJobLogoUrl(logo)" :alt="employer" class="job-item-logo" />
 
         <div class="job-item-title">
             <a href="/jobs/1">

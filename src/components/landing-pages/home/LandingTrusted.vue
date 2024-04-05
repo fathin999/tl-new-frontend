@@ -24,7 +24,7 @@
                     class="trusted-logos"
                     id="trusted-logos-3"
                     alt="logo"
-                    src="/src/assets/landing-page/trusted/logo-set-1.png"
+                    src="/src/assets/landing-page/trusted/logo-set-3.png"
                 />
                 <div id="trusted-screen" />
             </div>
@@ -33,12 +33,11 @@
 </template>
 
 <style scoped lang="scss">
-$height: 127px;
-$gap: 120px;
-$total: 700px;
+$height: 85px;
+$width: calc($height * 7.34);
 $firstInitPos: 0;
-$secondInitPos: $total;
-$thirdInitPos: calc($total * 2);
+$secondInitPos: $width;
+$thirdInitPos: calc($width * 2);
 $hiddenPos: calc($secondInitPos * -1);
 $time: 50s;
 
@@ -51,15 +50,16 @@ $time: 50s;
     }
 
     &-list {
-        margin-top: 20px;
+        margin-top: 40px;
         position: relative;
         height: $height;
         overflow: hidden;
 
         .trusted-logos {
             object-fit: contain;
+            object-position: center center;
             height: $height;
-            width: $total;
+            width: $width;
             position: absolute;
             top: 0;
         }

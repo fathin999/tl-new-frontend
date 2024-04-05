@@ -2,6 +2,7 @@
 import IconLocation from "@/components/icons/jobs/IconLocation.vue";
 import IconWork from "@/components/icons/jobs/IconWork.vue";
 import IconStar from "@/components/icons/IconStar.vue";
+import {getJobLogoUrl} from "@/composable/jobs/jobPages";
 
 const props = defineProps({
     logo: String,
@@ -11,18 +12,11 @@ const props = defineProps({
     type: String,
     remote: String,
 });
-
-const getImageUrl = () => {
-    return new URL(
-        `/src/assets/jobs/employer-logo-${props.logo}.png`,
-        import.meta.url
-    );
-};
 </script>
 
 <template>
     <div class="job-item">
-        <img :src="getImageUrl()" :alt="employer" class="job-item-logo" />
+        <img :src="getJobLogoUrl(logo)" :alt="employer" class="job-item-logo" />
 
         <div class="job-item-title">
             <a href="/jobs/1">

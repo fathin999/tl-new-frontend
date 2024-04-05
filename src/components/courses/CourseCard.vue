@@ -1,4 +1,10 @@
 <script setup>
+import {
+    getBannerUrl,
+    getBadgeUrl,
+    getLogoUrl,
+} from "../../composable/courses/coursePages";
+
 const props = defineProps({
     badge: String,
     banner: String,
@@ -8,27 +14,6 @@ const props = defineProps({
     provider: String,
     providerLogo: String,
 });
-
-const getBannerUrl = () => {
-    return new URL(
-        `/src/assets/courses/course-banner-${props.banner}.png`,
-        import.meta.url
-    );
-};
-
-const getBadgeUrl = () => {
-    return new URL(
-        `/src/assets/courses/course-badge-${props.badge}.png`,
-        import.meta.url
-    );
-};
-
-const getLogoUrl = () => {
-    return new URL(
-        `/src/assets/courses/course-provider-${props.providerLogo}.png`,
-        import.meta.url
-    );
-};
 </script>
 
 <template>
@@ -36,14 +21,14 @@ const getLogoUrl = () => {
         <div class="courses-item-img">
             <div class="courses-item-banner-container">
                 <img
-                    :src="getBannerUrl()"
+                    :src="getBannerUrl(banner)"
                     :alt="title"
                     class="courses-item-banner"
                 />
             </div>
 
             <div class="courses-item-badge">
-                <img :src="getBadgeUrl()" :alt="title" />
+                <img :src="getBadgeUrl(badge)" :alt="title" />
             </div>
         </div>
 
@@ -54,7 +39,7 @@ const getLogoUrl = () => {
         <span>{{ level }} <b>·</b> {{ type }}</span>
 
         <div class="courses-item-provider">
-            <img :src="getLogoUrl()" :alt="provider" />
+            <img :src="getLogoUrl(providerLogo)" :alt="provider" />
 
             <span>{{ provider }}</span>
         </div>
