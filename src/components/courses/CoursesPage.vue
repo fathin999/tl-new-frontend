@@ -72,7 +72,7 @@ const courses = [
 const filters = reactive([
     {
         title: "Topic",
-        open: true,
+        open: false,
         type: "checkbox",
         options: [
             {

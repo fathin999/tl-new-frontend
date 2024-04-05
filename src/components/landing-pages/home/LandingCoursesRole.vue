@@ -2,11 +2,13 @@
 import ArrowLink from "@/components/button/ArrowLink.vue";
 import CoursesList from "@/components/courses/CoursesList.vue";
 import IconChevron from "@/components/icons/IconChevron.vue";
-import IconSolAi from "@/components/icons/landingPage/solutions/IconSolAI.vue";
 import IconRoleCybersecurity from "@/components/icons/landingPage/roles/IconRoleCybersecurity.vue";
 import IconRoleDeveloper from "@/components/icons/landingPage/roles/IconRoleDeveloper.vue";
 import IconRoleMarketing from "@/components/icons/landingPage/roles/IconRoleMarketing.vue";
 import IconRoleData from "@/components/icons/landingPage/roles/IconRoleData.vue";
+import {ref} from "vue";
+
+const active = ref(0);
 
 const courses = [
     {
@@ -40,6 +42,31 @@ const courses = [
         providerLogo: "aws",
     },
 ];
+
+const roles = [
+    {
+        title: "Software Engineer",
+        icon: IconRoleDeveloper,
+    },
+    {
+        title: "Data Analyst",
+        icon: IconRoleData,
+    },
+    {
+        title: "Digital Marketer",
+        icon: IconRoleMarketing,
+    },
+    {
+        title: "Cybersecurity",
+        icon: IconRoleCybersecurity,
+    },
+];
+
+const getBtnClass = (index) => {
+    return index === active.value
+        ? "courses-btn clickable btn-active"
+        : "courses-btn clickable";
+};
 </script>
 
 <template>
@@ -60,22 +87,16 @@ const courses = [
 
             <div id="courses-content">
                 <div id="courses-btns">
-                    <div class="courses-btn clickable btn-active">
-                        <IconRoleDeveloper />
-                        Software Engineer
+                    <div
+                        v-for="(role, index) in roles"
+                        :class="getBtnClass(index)"
+                        :key="role.title"
+                        @click="active = index"
+                    >
+                        <component :is="role.icon" />
+                        {{ role.title }}
                     </div>
-                    <div class="courses-btn clickable">
-                        <IconRoleData />
-                        Data Analyst
-                    </div>
-                    <div class="courses-btn clickable">
-                        <IconRoleMarketing />
-                        Digital Marketer
-                    </div>
-                    <div class="courses-btn clickable">
-                        <IconRoleCybersecurity />
-                        Cybersecurity
-                    </div>
+
                     <div id="courses-btns-link">
                         <a href="/career-roles" class="clickable">
                             Explore more roles
