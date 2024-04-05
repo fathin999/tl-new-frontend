@@ -1,33 +1,64 @@
 <script setup>
 import IconSearch from "../icons/IconSearch.vue";
+import {ref, reactive} from "vue";
+
+const keyword = ref("");
+const suggestions = reactive([]);
+const specificSuggestions = reactive([]);
+
+const search = () => {
+    console.log(keyword.value);
+};
+
+const change = () => {
+    if (keyword.value === "") {
+        suggestions.splice(0);
+        specificSuggestions.splice(0);
+    } else {
+        suggestions.push(keyword.value);
+    }
+};
+
+const checkKeyword = () => {
+    return keyword.value !== "";
+};
 </script>
 
 <template>
     <div id="header">
         <div id="search">
-            <input type="text" v-model="keyword" placeholder="Search" />
+            <input
+                type="text"
+                v-model="keyword"
+                placeholder="Search"
+                @input="change"
+            />
+
             <div id="search-icon" @click="search">
                 <IconSearch />
+            </div>
+
+            <div v-if="checkKeyword()" id="search-suggestions">
+                <div class="suggestion-item clickable">
+                    <IconSearch />
+                    <span>
+                        {{ keyword }}
+                    </span>
+                </div>
+                <div
+                    class="suggestion-item clickable"
+                    v-for="suggestion in suggestions"
+                    :key="suggestion"
+                >
+                    <IconSearch />
+                    <span>
+                        {{ suggestion }}
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 </template>
-
-<script>
-export default {
-    name: "Search Bar",
-    data() {
-        return {
-            keyword: "",
-        };
-    },
-    methods: {
-        search() {
-            console.log(this.keyword);
-        },
-    },
-};
-</script>
 
 <style scoped lang="scss">
 #header {
@@ -44,8 +75,9 @@ export default {
         border-radius: calc($height / 2);
         padding: 0 $margin 0 35px;
         background-clip: white;
-        border: 1px solid var(--darkBlue);
+        border: 1px solid rgba(0, 0, 0, 0.5);
         height: $height;
+        position: relative;
 
         &-icon {
             height: calc($height - ($margin * 2));
@@ -58,7 +90,7 @@ export default {
             border: 1px solid var(--purple);
             user-select: none;
             cursor: pointer;
-            transition: background 0.3s ease-out;
+            transition: background 0.2s ease-out;
 
             svg {
                 $size: 22px;
@@ -67,7 +99,7 @@ export default {
                 fill: white;
                 display: block;
                 margin: auto;
-                transition: fill 0.3s ease-out;
+                transition: fill 0.2s ease-out;
             }
         }
 
@@ -86,6 +118,50 @@ export default {
             outline: none;
             border: none;
             padding: 0;
+        }
+    }
+
+    #search-suggestions {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        text-align: left;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        z-index: 5;
+        background-color: white;
+        border: 1px solid whitesmoke;
+        overflow: hidden;
+
+        .suggestion-item {
+            padding: 15px 35px;
+            display: flex;
+            align-items: center;
+
+            span {
+                color: var(--black);
+            }
+
+            svg {
+                $size: 15px;
+                height: $size;
+                width: $size;
+                margin-right: 20px;
+                fill: var(--black);
+            }
+        }
+
+        .suggestion-item:hover {
+            background-color: var(--black);
+
+            span {
+                color: white;
+            }
+
+            svg {
+                fill: white;
+            }
         }
     }
 }

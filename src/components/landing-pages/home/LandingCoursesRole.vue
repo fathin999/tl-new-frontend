@@ -1,9 +1,12 @@
 <script setup>
 import ArrowLink from "@/components/button/ArrowLink.vue";
 import CoursesList from "@/components/courses/CoursesList.vue";
-import IconArrow from "@/components/icons/IconArrow.vue";
 import IconChevron from "@/components/icons/IconChevron.vue";
 import IconSolAi from "@/components/icons/landingPage/solutions/IconSolAI.vue";
+import IconRoleCybersecurity from "@/components/icons/landingPage/roles/IconRoleCybersecurity.vue";
+import IconRoleDeveloper from "@/components/icons/landingPage/roles/IconRoleDeveloper.vue";
+import IconRoleMarketing from "@/components/icons/landingPage/roles/IconRoleMarketing.vue";
+import IconRoleData from "@/components/icons/landingPage/roles/IconRoleData.vue";
 
 const courses = [
     {
@@ -46,7 +49,7 @@ const courses = [
                 <h2>
                     Chart your career path
                     <br />
-                    with our <u>top courses</u>
+                    with our <u>courses</u>
                 </h2>
 
                 <p>
@@ -58,23 +61,23 @@ const courses = [
             <div id="courses-content">
                 <div id="courses-btns">
                     <div class="courses-btn clickable btn-active">
-                        <IconSolAi />
+                        <IconRoleDeveloper />
                         Software Engineer
                     </div>
                     <div class="courses-btn clickable">
-                        <IconSolAi />
+                        <IconRoleData />
                         Data Analyst
                     </div>
                     <div class="courses-btn clickable">
-                        <IconSolAi />
+                        <IconRoleMarketing />
                         Digital Marketer
                     </div>
                     <div class="courses-btn clickable">
-                        <IconSolAi />
+                        <IconRoleCybersecurity />
                         Cybersecurity
                     </div>
                     <div id="courses-btns-link">
-                        <a href="/courses/careers" class="clickable">
+                        <a href="/career-roles" class="clickable">
                             Explore more roles
                             <IconChevron />
                         </a>
@@ -89,11 +92,6 @@ const courses = [
                     </div>
                 </div>
             </div>
-
-            <!-- <a class="btn-primary btn-arrow" href="/courses">
-                View more
-                <IconArrow />
-            </a> -->
         </div>
     </div>
 </template>
@@ -111,27 +109,32 @@ const courses = [
     &-content {
         margin-top: 70px;
         display: grid;
-        grid-template-columns: 300px 1fr;
+        grid-template-columns: 310px 1fr;
     }
 
     &-btns {
         padding-right: 80px;
+        $paddingLeft: 27px;
 
         .courses-btn {
-            margin-bottom: 5px;
-            padding: 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 18px $paddingLeft;
+            font-size: 0.87rem;
             font-weight: 500;
             display: flex;
             align-items: center;
             background-color: white;
+            border-radius: 30px;
+            margin-bottom: 10px;
+            transition: background 0.3s ease-out;
 
             svg {
-                $size: 18px;
+                $size: 17px;
                 height: $size;
                 width: $size;
+                margin-top: auto;
+                margin-bottom: auto;
                 margin-right: 15px;
+                fill: var(--black);
             }
         }
 
@@ -140,15 +143,22 @@ const courses = [
         }
 
         .btn-active {
-            background-color: var(--bgMedium);
-            /* background-color: var(--black); */
-            /* color: white; */
+            background-color: var(--black);
+            color: white;
+
+            svg {
+                fill: var(--purple);
+            }
+        }
+
+        .btn-active:hover {
+            background-color: var(--black);
         }
 
         &-link {
-            margin-top: 25px;
+            margin-top: 30px;
             /* text-align: center; */
-            padding-left: 20px;
+            padding-left: $paddingLeft;
 
             a {
                 display: inline-flex;

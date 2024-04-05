@@ -5,6 +5,8 @@ import FiltersList from "../browse/FiltersList.vue";
 import IconChevron from "../icons/IconChevron.vue";
 import JobsList from "./JobsList.vue";
 import IconSearch from "../icons/IconSearch.vue";
+import SearchBar from "../browse/SearchBar.vue";
+import {reactive} from "vue";
 
 const jobs = [
     {
@@ -68,6 +70,194 @@ const jobs = [
         employer: "Fave",
     },
 ];
+
+const filters = reactive([
+    {
+        title: "Role",
+        open: true,
+        type: "checkbox",
+        options: [
+            {
+                title: "Software engineer",
+                selected: true,
+            },
+            {
+                title: "Frontend developer",
+                selected: false,
+            },
+            {
+                title: "Backend developer",
+                selected: false,
+            },
+            {
+                title: "UI / UX designer",
+                selected: false,
+            },
+            {
+                title: "Product manager",
+                selected: false,
+            },
+            {
+                title: "Data analyst",
+                selected: false,
+            },
+            {
+                title: "Database engineer",
+                selected: false,
+            },
+            {
+                title: "Network & systems administrator",
+                selected: false,
+            },
+            {
+                title: "Cybersecurity",
+                selected: false,
+            },
+            {
+                title: "IT Support",
+                selected: false,
+            },
+            {
+                title: "Digital marketer",
+                selected: false,
+            },
+            {
+                title: "Social media manager",
+                selected: false,
+            },
+            {
+                title: "Graphics design",
+                selected: false,
+            },
+            {
+                title: "Content & multimedia",
+                selected: false,
+            },
+            {
+                title: "Technical writing",
+                selected: false,
+            },
+            {
+                title: "Business & finance",
+                selected: false,
+            },
+            {
+                title: "Sales",
+                selected: false,
+            },
+            {
+                title: "Other",
+                selected: false,
+            },
+        ],
+    },
+    {
+        title: "Location",
+        open: false,
+        type: "checkbox",
+        options: [
+            {
+                title: "Hong Kong",
+                selected: true,
+            },
+            {
+                title: "Malaysia",
+                selected: false,
+            },
+            {
+                title: "Central, Hong Kong",
+                selected: false,
+            },
+            {
+                title: "Eastern, Hong Kong",
+                selected: false,
+            },
+            {
+                title: "Western, Hong Kong",
+                selected: false,
+            },
+            {
+                title: "Northern, Hong Kong",
+                selected: false,
+            },
+            {
+                title: "Southern, Hong Kong",
+                selected: false,
+            },
+            {
+                title: "Kuala Lumpur, Malaysia",
+                selected: false,
+            },
+            {
+                title: "Selangor, Malaysia",
+                selected: false,
+            },
+            {
+                title: "Putrajaya, Malaysia",
+                selected: false,
+            },
+        ],
+    },
+    {
+        title: "Type",
+        open: false,
+        type: "checkbox",
+        options: [
+            {
+                title: "Full-time",
+                selected: true,
+            },
+            {
+                title: "Part-time",
+                selected: false,
+            },
+            {
+                title: "Contract",
+                selected: false,
+            },
+            {
+                title: "Internship",
+                selected: false,
+            },
+        ],
+    },
+    {
+        title: "Remote",
+        open: false,
+        type: "radio",
+        options: [
+            {
+                title: "Remote",
+                selected: true,
+            },
+            {
+                title: "Onsite",
+                selected: false,
+            },
+            {
+                title: "Hybrid",
+                selected: false,
+            },
+        ],
+    },
+]);
+
+const toggleFilter = (index) => {
+    if (typeof index == "number") filters[index].open = !filters[index].open;
+};
+
+const selectOption = (index, option, type) => {
+    if (typeof index == "number" && typeof option == "number") {
+        if (type == "checkbox") {
+            filters[index].options[option].selected =
+                !filters[index].options[option].selected;
+        } else if (type == "radio") {
+            for (let i = 0; i < filters[index].options.length; i++) {
+                filters[index].options[i].selected = i === option;
+            }
+        }
+    }
+};
 </script>
 
 <template>
@@ -76,64 +266,18 @@ const jobs = [
     <main>
         <div id="jobs">
             <div id="jobs-header" class="container">
-                <h2>I'm searching for</h2>
-                <div class="jobs-search">
-                    <input
-                        placeholder="Eg: Developer"
-                        type="text"
-                        name="search-keyword"
-                    />
-
-                    <IconSearch />
-                </div>
-
-                <h2>jobs, hiring in</h2>
-
-                <div class="jobs-dropdown">
-                    <span class="jobs-dropdown-placeholder">Location</span>
-                    <IconChevron />
-
-                    <div class="jobs-dropdown-options">
-                        <div class="jobs-dropdown-search">
-                            <IconSearch />
-
-                            <input
-                                type="text"
-                                name="locationKeyword"
-                                placeholder="Search"
-                            />
-                        </div>
-                        <div class="jobs-dropdown-option">Remote</div>
-                        <div class="jobs-dropdown-option">Malaysia</div>
-                        <div class="jobs-dropdown-option">Hong Kong</div>
-                        <div class="jobs-dropdown-option">Singapore</div>
-                        <div class="jobs-dropdown-option">Indonesia</div>
-                        <div class="jobs-dropdown-option">Brunei</div>
-                        <div class="jobs-dropdown-option">Thailand</div>
-                        <div class="jobs-dropdown-option">Vietnam</div>
-                        <div class="jobs-dropdown-option">Philippines</div>
-                        <div class="jobs-dropdown-option">Cambodia</div>
-                        <div class="jobs-dropdown-option">Laos</div>
-                        <div class="jobs-dropdown-option">
-                            Kuala Lumpur, Malaysia
-                        </div>
-                        <div class="jobs-dropdown-option">
-                            Selangor, Malaysia
-                        </div>
-                        <div class="jobs-dropdown-option">
-                            Hong Kong (Central)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="btn-primary btn-m">Search</div>
+                <SearchBar />
             </div>
 
             <div id="jobs-content" class="container">
                 <div>
                     <h1>Filter by:</h1>
 
-                    <FiltersList />
+                    <FiltersList
+                        :filters="filters"
+                        @toggleFilter="toggleFilter"
+                        @selectOption="selectOption"
+                    />
                 </div>
 
                 <div>
@@ -165,7 +309,7 @@ const jobs = [
         padding: 0 0 90px;
         display: grid;
         grid-template-columns: 300px 1fr;
-        gap: 100px;
+        gap: 120px;
         justify-content: space-between;
         padding-top: 40px;
 
@@ -173,143 +317,6 @@ const jobs = [
             font-size: 0.95rem;
             color: var(--textLight);
             padding-bottom: 25px;
-        }
-    }
-}
-
-.jobs {
-    $padding: 17px;
-
-    @mixin input($width) {
-        padding: $padding 20px $padding 25px;
-        display: inline-flex;
-        border: 1px solid gainsboro;
-        border-radius: 10px;
-        user-select: none;
-        cursor: pointer;
-        text-align: left;
-        align-items: center;
-        position: relative;
-        width: $width;
-        margin: 0 20px;
-
-        span {
-            flex: 1;
-        }
-    }
-
-    &-dropdown {
-        @include input(210px);
-
-        svg {
-            $size: 15px;
-            height: $size;
-            width: $size;
-            transform: rotate(90deg);
-            margin-top: 3px;
-            fill: var(--textLight);
-        }
-
-        &-placeholder {
-            color: var(--textMedium);
-        }
-
-        &-options {
-            display: none;
-            border: 1px solid red;
-            position: absolute;
-            width: 100%;
-            left: 0;
-            top: 53px;
-            background-color: white;
-            border: 1px solid gainsboro;
-            border-radius: 10px;
-            z-index: 5;
-            max-height: 40vh;
-            overflow-y: scroll;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        &-option {
-            padding: 15px 20px;
-            border-bottom: 1px solid gainsboro;
-        }
-
-        &-option:last-of-type {
-            border-bottom: none;
-        }
-
-        &-option:hover {
-            background-color: var(--bgMedium);
-        }
-
-        &-search {
-            border-bottom: 1px solid gainsboro;
-            position: relative;
-
-            input {
-                $padding: 30px;
-                padding: $padding 20px $padding 50px;
-                outline: none;
-                border: none;
-                border-radius: 0;
-                background-color: transparent;
-            }
-
-            input:focus {
-                border: none;
-                outline: none;
-            }
-
-            svg {
-                $searchSize: 18px;
-                position: absolute;
-                left: 20px;
-                top: 0;
-                bottom: 0;
-                margin: auto;
-                height: $searchSize;
-                width: $searchSize;
-                fill: var(--textLight);
-            }
-        }
-    }
-
-    &-dropdown:hover {
-        border-color: var(--purple);
-
-        span {
-            color: var(--purple);
-        }
-
-        svg {
-            fill: var(--purple);
-        }
-
-        .jobs-dropdown-options {
-            display: block;
-        }
-    }
-
-    &-search {
-        display: inline-block;
-        position: relative;
-
-        input {
-            @include input(270px);
-            padding-left: 55px;
-        }
-
-        svg {
-            $size: 20px;
-            height: $size;
-            width: $size;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            left: 40px;
-            fill: var(--textLight);
         }
     }
 }

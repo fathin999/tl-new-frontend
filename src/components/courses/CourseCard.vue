@@ -32,7 +32,7 @@ const getLogoUrl = () => {
 </script>
 
 <template>
-    <div class="courses-item">
+    <a class="courses-item" href="/courses/1">
         <div class="courses-item-img">
             <div class="courses-item-banner-container">
                 <img
@@ -58,7 +58,7 @@ const getLogoUrl = () => {
 
             <span>{{ provider }}</span>
         </div>
-    </div>
+    </a>
 </template>
 
 <style scoped lang="scss">
@@ -67,6 +67,8 @@ const getLogoUrl = () => {
     $imgMargin: calc(-1 * $padding);
     padding: $padding;
     padding-bottom: 110px;
+    transition: boxShadow 0.3s ease-out;
+    border-radius: 17px;
 
     h4 {
         font-size: 1.1rem;
@@ -114,5 +116,9 @@ const getLogoUrl = () => {
             border-radius: 7px;
         }
     }
+}
+
+.courses-item:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 </style>
