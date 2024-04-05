@@ -17,6 +17,14 @@ const getClass = () => {
     return props.card ? "job-item job-card" : "job-item";
 };
 
+const getRemoteClass = () => {
+    return props.remote === "Remote"
+        ? "job-item-details-style style-red"
+        : props.remote === "Onsite"
+        ? "job-item-details-style style-blue"
+        : "job-item-details-style style-orange";
+};
+
 const getImageUrl = () => {
     return new URL(
         `/src/assets/jobs/employer-logo-${props.logo}.png`,
@@ -42,7 +50,7 @@ const getImageUrl = () => {
         <div class="job-item-details">
             <span> {{ location }} <b>·</b> {{ type }} </span>
 
-            <div class="job-item-details-style style-blue">{{ remote }}</div>
+            <div :class="getRemoteClass()">{{ remote }}</div>
 
             <br />
         </div>

@@ -1,8 +1,37 @@
 <script setup>
 import IconArrow from "@/components/icons/IconArrow.vue";
 import IconChevron from "@/components/icons/IconChevron.vue";
-import IconLocation from "@/components/icons/jobs/IconLocation.vue";
-import IconWork from "@/components/icons/jobs/IconWork.vue";
+import LandingJobCard from "@/components/jobs/LandingJobCard.vue";
+
+const jobs = [
+    {
+        id: 1,
+        logo: "wristcheck",
+        title: "Junior Software Engineer (Frontend)",
+        location: "Hong Kong",
+        type: "Full-time",
+        remote: "Onsite",
+        employer: "WRISTCHECK",
+    },
+    {
+        id: 2,
+        logo: "dolphin",
+        title: "eCommerce Data Operations Specialist",
+        location: "Central, Hong Kong",
+        type: "Part-time",
+        remote: "Hybrid",
+        employer: "Dolphin Pharmaceuticals",
+    },
+    {
+        id: 3,
+        logo: "fave",
+        title: "Software Engineer (Backend)",
+        location: "Kuala Lumpur, Malaysia",
+        type: "Contract",
+        remote: "Remote",
+        employer: "Fave",
+    },
+];
 </script>
 
 <template>
@@ -29,112 +58,16 @@ import IconWork from "@/components/icons/jobs/IconWork.vue";
             <div class="slider">
                 <div class="slider-list">
                     <div class="slider-inner">
-                        <div class="job-item">
-                            <img
-                                src="/src/assets/jobs/employer-logo-wristcheck.png"
-                                alt="Wristcheck"
-                                class="job-item-logo"
-                            />
-
-                            <div class="job-item-title">
-                                <a href="/jobs/1">
-                                    <h4>Junior Software Engineer (Frontend)</h4>
-                                </a>
-                            </div>
-
-                            <a href="/employers">
-                                <p>WRISTCHECK</p>
-                            </a>
-
-                            <div class="job-item-details">
-                                <div class="job-item-details-item">
-                                    <IconLocation />
-                                    <span> Hong Kong </span>
-                                </div>
-
-                                <div class="job-item-details-item">
-                                    <IconWork />
-                                    <span> Full-time </span>
-                                    <div
-                                        class="job-item-details-style style-blue"
-                                    >
-                                        In office
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="job-item">
-                            <img
-                                src="/src/assets/jobs/employer-logo-dolphin.png"
-                                alt="Dolphin Pharmaceuticals"
-                                class="job-item-logo"
-                            />
-
-                            <div class="job-item-title">
-                                <a href="/jobs/1">
-                                    <h4>
-                                        eCommerce Data Operations Specialist
-                                    </h4>
-                                </a>
-                            </div>
-
-                            <a href="/employers">
-                                <p>Dolphin Pharmaceuticals</p>
-                            </a>
-
-                            <div class="job-item-details">
-                                <div class="job-item-details-item">
-                                    <IconLocation />
-                                    <span>Hong Kong (Central)</span>
-                                </div>
-
-                                <div class="job-item-details-item">
-                                    <IconWork />
-                                    <span> Full-time </span>
-                                    <div
-                                        class="job-item-details-style style-blue"
-                                    >
-                                        In office
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="job-item">
-                            <img
-                                src="/src/assets/jobs/employer-logo-fave.png"
-                                alt="Fave"
-                                class="job-item-logo"
-                            />
-
-                            <div class="job-item-title">
-                                <a href="/jobs/1">
-                                    <h4>Software Engineer (Backend)</h4>
-                                </a>
-                            </div>
-
-                            <a href="/employers">
-                                <p>Fave</p>
-                            </a>
-
-                            <div class="job-item-details">
-                                <div class="job-item-details-item">
-                                    <IconLocation />
-                                    <span>Kuala Lumpur, Malaysia</span>
-                                </div>
-
-                                <div class="job-item-details-item">
-                                    <IconWork />
-                                    <span>Contract</span>
-                                    <div
-                                        class="job-item-details-style style-red"
-                                    >
-                                        Remote
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <LandingJobCard
+                            v-for="job in jobs"
+                            :key="job.id"
+                            :logo="job.logo"
+                            :title="job.title"
+                            :employer="job.employer"
+                            :location="job.location"
+                            :type="job.type"
+                            :remote="job.remote"
+                        />
                     </div>
                 </div>
 
@@ -150,5 +83,3 @@ import IconWork from "@/components/icons/jobs/IconWork.vue";
         </div>
     </div>
 </template>
-
-<style scoped lang="scss"></style>

@@ -1,24 +1,70 @@
 <script setup>
-import IconArrow from "@/components/icons/IconArrow.vue";
-import IconSolAI from "@/components/icons/landingPage/solutions/IconSolAI.vue";
-import IconSolStack from "@/components/icons/landingPage/solutions/IconSolStack.vue";
-import IconSolBriefcase from "@/components/icons/landingPage/solutions/IconSolBriefcase.vue";
-import IconSolPeople from "@/components/icons/landingPage/solutions/IconSolPeople.vue";
 import ArrowLink from "@/components/button/ArrowLink.vue";
+import {ref} from "vue";
+
+let active = ref(0);
+
+const solutions = [
+    {
+        title: "Learn skills",
+        screen: 0,
+        description:
+            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
+        link: "View courses",
+        href: "/courses",
+    },
+    {
+        title: "Build portfolio",
+        screen: 0,
+        description:
+            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
+        link: "View courses",
+        href: "/courses",
+    },
+    {
+        title: "Explore careers",
+        screen: 0,
+        description:
+            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
+        link: "See career paths",
+        href: "/courses",
+    },
+    {
+        title: "Get hired",
+        screen: 0,
+        description:
+            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
+        link: "Explore jobs",
+        href: "/jobs",
+    },
+    {
+        title: "Network",
+        screen: 0,
+        description:
+            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
+        link: "Join us now",
+        href: "/signup/choose-role",
+    },
+];
+
+const getBtnClass = (index) => {
+    return index === active.value
+        ? "about-btn active clickable"
+        : "about-btn clickable";
+};
 </script>
 
 <template>
     <div id="about-content">
         <div id="about-content-btns">
-            <div class="about-btn active clickable">Learn skills</div>
-
-            <div class="about-btn clickable">Build portfolio</div>
-
-            <div class="about-btn clickable">Explore careers</div>
-
-            <div class="about-btn clickable">Get hired</div>
-
-            <div class="about-btn clickable">Network</div>
+            <div
+                v-for="(solution, index) in solutions"
+                :key="solution.title"
+                :class="getBtnClass(index)"
+                @click="active = index"
+            >
+                {{ solution.title }}
+            </div>
         </div>
 
         <div id="about-content-screen">
@@ -40,20 +86,16 @@ import ArrowLink from "@/components/button/ArrowLink.vue";
 
             <div id="about-content-screen-description">
                 <div>
-                    <h4>Learn skills</h4>
+                    <h4>{{ solutions[active].title }}</h4>
                     <p>
-                        Learn in-demand digital skills and future-proof your
-                        career. Learn in-demand digital skills and future-proof
-                        your career.
+                        {{ solutions[active].description }}
                     </p>
                 </div>
 
-                <!-- <a class="btn-primary btn-arrow">
-                    View courses
-                    <IconArrow />
-                </a> -->
-
-                <ArrowLink title="View courses" href="/courses" />
+                <ArrowLink
+                    :title="solutions[active].link"
+                    :href="solutions[active].href"
+                />
             </div>
         </div>
     </div>

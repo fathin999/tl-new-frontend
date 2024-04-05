@@ -15,7 +15,7 @@ const jobs = [
         title: "Junior Software Engineer (Frontend)",
         location: "Hong Kong",
         type: "Full-time",
-        remote: "In office",
+        remote: "Onsite",
         featured: true,
         employer: "WRISTCHECK",
     },
@@ -45,7 +45,7 @@ const jobs = [
         title: "Junior Software Engineer (Frontend)",
         location: "Hong Kong",
         type: "Full-time",
-        remote: "In office",
+        remote: "Onsite",
         featured: false,
         employer: "WRISTCHECK",
     },
@@ -74,7 +74,7 @@ const jobs = [
 const filters = reactive([
     {
         title: "Role",
-        open: true,
+        open: false,
         type: "checkbox",
         options: [
             {
