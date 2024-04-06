@@ -54,15 +54,24 @@ const course = getCourseWithId(1);
 
 // static images
 const getLogo = () => {
-    return new URL(getLogoUrl(course.providerLogo), import.meta.url);
+    return new URL(
+        `/src/assets/courses/course-provider-${course.providerLogo}.png`,
+        import.meta.url
+    );
 };
 
 const getBadge = () => {
-    return new URL(getBadgeUrl(course.badge), import.meta.url);
+    return new URL(
+        `/src/assets/courses/course-badge-${course.badge}.png`,
+        import.meta.url
+    );
 };
 
 const getBanner = () => {
-    return new URL(getBannerUrl(course.banner), import.meta.url);
+    return new URL(
+        `/src/assets/courses/course-banner-${course.banner}.png`,
+        import.meta.url
+    );
 };
 
 // methods
