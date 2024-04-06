@@ -9,7 +9,6 @@ import IconOutcomes from "../icons/courses/IconOutcomes.vue";
 import {onMounted, onUnmounted, ref} from "vue";
 import {getCourseWithId} from "@/composable/courses/courses";
 import {
-    createURL,
     getBadgeUrl,
     getBannerUrl,
     getLogoUrl,
@@ -54,20 +53,11 @@ const sections = [
 const course = getCourseWithId(1);
 
 // static images
-const badgeUrl = new URL(
-    `/src/assets/courses/course-badge-${course.badge}.png`,
-    import.meta.url
-);
+const badgeUrl = new URL(getBadgeUrl(course.badge), import.meta.url);
 
-const bannerUrl = new URL(
-    `/src/assets/courses/course-banner-${course.banner}.png`,
-    import.meta.url
-);
+const bannerUrl = new URL(getBannerUrl(course.banner), import.meta.url);
 
-const logoUrl = new URL(
-    `/src/assets/courses/course-provider-${course.providerLogo}.png`,
-    import.meta.url
-);
+const logoUrl = new URL(getLogoUrl(course.providerLogo), import.meta.url);
 
 // methods
 

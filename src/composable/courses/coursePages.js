@@ -2,21 +2,14 @@
 // GET IMAGES
 // ---------------------------
 
-export const createURL = (url) => {
-    return new URL(url, import.meta.url);
-};
-
 export const getBadgeUrl = (badge) => {
-    const url = createURL(`/src/assets/courses/course-badge-${badge}.png`);
-
-    console.log(url);
-    return url;
+    return `/src/assets/courses/course-badge-${badge}.png`;
 };
 
 export const getBannerUrl = (banner) => {
-    return createURL(`/src/assets/courses/course-banner-${banner}.png`);
+    return `/src/assets/courses/course-banner-${banner}.png`;
 };
 
 export const getLogoUrl = (logo) => {
-    return createURL(`/src/assets/courses/course-provider-${logo}.png`);
+    return `/src/assets/courses/course-provider-${logo}.png`;
 };

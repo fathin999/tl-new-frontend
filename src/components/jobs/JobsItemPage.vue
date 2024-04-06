@@ -11,6 +11,7 @@ import SimilarJobCard from "./SimilarJobCard.vue";
 import IconPeople from "../icons/jobs/IconPeople.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import JobsList from "./JobsList.vue";
+import {getJobLogoUrl} from "@/composable/jobs/jobPages";
 
 const job = {
     title: "Network Infrastructure Engineer",
@@ -101,12 +102,8 @@ const getTime = () => {
     return `${days} days ago`;
 };
 
-const getImageUrl = () => {
-    return new URL(
-        `/src/assets/jobs/employer-logo-${job.employer.logo}.png`,
-        import.meta.url
-    );
-};
+// static images
+const logoUrl = new URL(getJobLogoUrl(job.employer.logo), import.meta.url);
 </script>
 
 <template>
@@ -118,7 +115,7 @@ const getImageUrl = () => {
                 <h1>{{ job.title }}</h1>
 
                 <div id="job-overview-employer" class="clickable">
-                    <img :src="getImageUrl()" :alt="job.employer.title" />
+                    <img :src="logoUrl" :alt="job.employer.title" />
 
                     <span>{{ job.employer.title }}</span>
                 </div>
@@ -300,7 +297,7 @@ const getImageUrl = () => {
 
             <a id="job-company-card" href="/employers">
                 <div id="job-company-card-title">
-                    <img :src="getImageUrl()" :alt="job.employer.title" />
+                    <img :src="logoUrl" :alt="job.employer.title" />
 
                     <h1>{{ job.employer.title }}</h1>
                 </div>

@@ -14,6 +14,11 @@ const props = defineProps({
     card: Boolean,
 });
 
+// static images
+const logoUrl = new URL(getJobLogoUrl(props.logo), import.meta.url);
+
+// methods
+
 const getClass = () => {
     const cls = "job-item ";
     return props.card ? cls + "job-card" : cls;
@@ -32,7 +37,7 @@ const getRemoteClass = () => {
 
 <template>
     <div :class="getClass()">
-        <img :src="getJobLogoUrl(logo)" :alt="employer" class="job-item-logo" />
+        <img :src="logoUrl" :alt="employer" class="job-item-logo" />
 
         <div class="job-item-title">
             <a href="/jobs/1">
