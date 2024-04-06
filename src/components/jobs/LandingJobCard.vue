@@ -2,7 +2,6 @@
 import IconLocation from "@/components/icons/jobs/IconLocation.vue";
 import IconWork from "@/components/icons/jobs/IconWork.vue";
 import IconStar from "@/components/icons/IconStar.vue";
-import {getJobLogoUrl} from "@/composable/jobs/jobPages";
 
 const props = defineProps({
     logo: String,

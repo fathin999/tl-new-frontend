@@ -1,5 +1,4 @@
 <script setup>
-import {getJobLogoUrl} from "@/composable/jobs/jobPages";
 import IconLocation from "../icons/jobs/IconLocation.vue";
 
 const props = defineProps({

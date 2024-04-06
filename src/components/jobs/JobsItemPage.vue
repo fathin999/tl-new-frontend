@@ -11,7 +11,6 @@ import SimilarJobCard from "./SimilarJobCard.vue";
 import IconPeople from "../icons/jobs/IconPeople.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import JobsList from "./JobsList.vue";
-import {getJobLogoUrl} from "@/composable/jobs/jobPages";
 
 const job = {
     title: "Network Infrastructure Engineer",

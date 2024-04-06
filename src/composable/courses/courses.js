@@ -17,5 +17,13 @@ export const getCourseWithId = (id) => {
         timeline: "3 - 6 months",
         delivery: "Instructor-led",
         medium: "Online",
+        details: {
+            learn: [
+                "Learn essential data analysis methods and tools",
+                "Master Machine Learning and Deep Learning",
+                "Create AI solutions and advanced predictive models",
+                "Build a solid portfolio and learn to work in a data team",
+            ],
+        },
     };
 };

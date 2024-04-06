@@ -1,10 +1,4 @@
 <script setup>
-import {
-    getBannerUrl,
-    getBadgeUrl,
-    getLogoUrl,
-} from "../../composable/courses/coursePages";
-
 const props = defineProps({
     badge: String,
     banner: String,

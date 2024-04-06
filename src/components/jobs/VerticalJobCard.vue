@@ -1,5 +1,4 @@
 <script setup>
-import {getJobLogoUrl} from "@/composable/jobs/jobPages";
 import IconStar from "../icons/IconStar.vue";
 import IconBookmark from "../icons/jobs/IconBookmark.vue";
 

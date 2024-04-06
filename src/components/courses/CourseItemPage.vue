@@ -8,15 +8,12 @@ import IconFees from "../icons/courses/IconFees.vue";
 import IconOutcomes from "../icons/courses/IconOutcomes.vue";
 import {onMounted, onUnmounted, ref} from "vue";
 import {getCourseWithId} from "@/composable/courses/courses";
-import {
-    getBadgeUrl,
-    getBannerUrl,
-    getLogoUrl,
-} from "@/composable/courses/coursePages";
 import IconLevel from "../icons/courses/IconLevel.vue";
 import IconOnline from "../icons/courses/IconOnline.vue";
 import IconCertificate from "../icons/courses/IconCertificate.vue";
 import IconInstructor from "../icons/courses/IconInstructor.vue";
+import IconCalendar from "../icons/courses/IconCalendar.vue";
+import IconCheck from "../icons/IconCheck.vue";
 
 // refs
 let active = ref(0);
@@ -170,7 +167,7 @@ onUnmounted(() => {
                     </div>
 
                     <div class="course-item-summary">
-                        <IconOnline />
+                        <IconCalendar />
                         <span>{{ course.timeline }}</span>
                     </div>
 
@@ -215,10 +212,159 @@ onUnmounted(() => {
             </aside>
 
             <div id="course-item-sections">
-                <div class="course-section" ref="zero">section 0</div>
-                <div class="course-section" ref="one">section 1</div>
-                <div class="course-section" ref="two">section 2</div>
-                <div class="course-section" ref="three">section 3</div>
+                <div class="course-section" ref="zero">
+                    <h6>Overview</h6>
+
+                    <h1>Become a Data Scientist in weeks</h1>
+
+                    <p>
+                        Acquire advanced data skills, master Machine Learning &
+                        AI, and launch your career as a Data Scientist, Analyst,
+                        AI Engineer, Data Manager, and more.
+                    </p>
+
+                    <h2>What you will learn</h2>
+                    <div
+                        class="course-section-check-point"
+                        v-for="learn in course.details.learn"
+                        :key="learn"
+                    >
+                        <IconCheck />
+                        {{ learn }}
+                    </div>
+
+                    <h2>Languages and tools covered</h2>
+                    <div id="course-section-tools">
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-sql.png"
+                                alt=""
+                            />
+                            SQL
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-python.png"
+                                alt=""
+                            />
+                            Python
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-matplotlib.png"
+                                alt=""
+                            />
+                            Matplotlib
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-seaborn.png"
+                                alt=""
+                            />
+                            Seaborn
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-pytorch.png"
+                                alt=""
+                            />
+                            PyTorch
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-pandas.png"
+                                alt=""
+                            />
+                            Pandas
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-numpy.png"
+                                alt=""
+                            />
+                            NumPy
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-scipy.png"
+                                alt=""
+                            />
+                            SciPy
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-tensorflow.png"
+                                alt=""
+                            />
+                            TensorFlow
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-scikitlearn.png"
+                                alt=""
+                            />
+                            Scikit-learn
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-tableau.png"
+                                alt=""
+                            />
+                            Tableau
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-powerbi.png"
+                                alt=""
+                            />
+                            Power BI
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-jupyter.png"
+                                alt=""
+                            />
+                            Jupyter Notebook
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-googleanalytics.png"
+                                alt=""
+                            />
+                            Google Analytics
+                        </div>
+
+                        <div class="course-section-tool">
+                            <img
+                                src="/src/assets/courses/tools/course-tool-googlecloud.png"
+                                alt=""
+                            />
+                            Google Cloud
+                        </div>
+                    </div>
+                </div>
+                <div class="course-section" ref="one">
+                    <h1>Modules</h1>
+                </div>
+                <div class="course-section" ref="two">
+                    <h1>Fees</h1>
+                </div>
+                <div class="course-section" ref="three">
+                    <h1>Outcomes</h1>
+                </div>
             </div>
         </div>
     </main>
@@ -279,8 +425,10 @@ onUnmounted(() => {
 
             p {
                 width: 70%;
-                font-size: 0.95rem;
-                line-height: 1.4rem;
+                /* font-size: 0.95rem; */
+                /* line-height: 1.4rem; */
+                font-size: 1.1rem;
+                line-height: 1.7rem;
             }
 
             &-provider {
@@ -309,7 +457,7 @@ onUnmounted(() => {
 
         &-btns {
             display: flex;
-            gap: 15px;
+            gap: 10px;
 
             a {
                 border-radius: 50px;
@@ -373,10 +521,10 @@ onUnmounted(() => {
                 font-size: 0.95rem;
 
                 svg {
-                    $size: 17px;
+                    $size: 15px;
                     height: $size;
                     width: $size;
-                    margin-right: 20px;
+                    margin-right: 25px;
                     fill: var(--textMedium);
                 }
             }
@@ -460,12 +608,62 @@ onUnmounted(() => {
 }
 
 .course-section {
-    height: 800px;
-    border: 1px solid gainsboro;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 800px;
     margin-bottom: 70px;
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+
+    h6 {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--purple);
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        margin: 55px 0 25px;
+    }
+
+    &-check-point {
+        margin-top: 15px;
+
+        svg {
+            $size: 15px;
+            height: $size;
+            width: $size;
+            fill: var(--green);
+            margin-right: 20px;
+        }
+    }
+
+    #course-section-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    &-tool {
+        border: 1px solid whitesmoke;
+        font-size: 0.9rem;
+        padding: 5px 15px;
+        border-radius: 10px;
+        display: inline-flex;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        align-items: center;
+
+        img {
+            $size: 20px;
+            height: $size;
+            width: $size;
+            margin-right: 10px;
+        }
+    }
 }
 
 .course-section:last-of-type {
