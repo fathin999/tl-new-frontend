@@ -54,14 +54,19 @@ const sections = [
 const course = getCourseWithId(1);
 
 // static images
-const badgeUrl = createURL(
-    `/src/assets/courses/course-badge-${course.badge}.png`
+const badgeUrl = new URL(
+    `/src/assets/courses/course-badge-${course.badge}.png`,
+    import.meta.url
 );
-const bannerUrl = createURL(
-    `/src/assets/courses/course-banner-${course.banner}.png`
+
+const bannerUrl = new URL(
+    `/src/assets/courses/course-banner-${course.banner}.png`,
+    import.meta.url
 );
-const logoUrl = createURL(
-    `/src/assets/courses/course-provider-${course.providerLogo}.png`
+
+const logoUrl = new URL(
+    `/src/assets/courses/course-provider-${course.providerLogo}.png`,
+    import.meta.url
 );
 
 // methods
