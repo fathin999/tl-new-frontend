@@ -16,9 +16,26 @@ const props = defineProps({
 });
 
 // static images
-const badgeUrl = new URL(getBadgeUrl(props.badge), import.meta.url);
-const logoUrl = new URL(getLogoUrl(props.providerLogo), import.meta.url);
-const bannerUrl = new URL(getBannerUrl(props.banner), import.meta.url);
+const getLogo = () => {
+    return new URL(
+        `/src/assets/courses/course-provider-${props.providerLogo}.png`,
+        import.meta.url
+    );
+};
+
+const getBadge = () => {
+    return new URL(
+        `/src/assets/courses/course-badge-${props.badge}.png`,
+        import.meta.url
+    );
+};
+
+const getBanner = () => {
+    return new URL(
+        `/src/assets/courses/course-banner-${props.banner}.png`,
+        import.meta.url
+    );
+};
 </script>
 
 <template>
@@ -26,14 +43,14 @@ const bannerUrl = new URL(getBannerUrl(props.banner), import.meta.url);
         <div class="courses-item-img">
             <div class="courses-item-banner-container">
                 <img
-                    :src="bannerUrl"
+                    :src="getBanner()"
                     :alt="title"
                     class="courses-item-banner"
                 />
             </div>
 
             <div class="courses-item-badge">
-                <img :src="badgeUrl" :alt="title" />
+                <img :src="getBadge()" :alt="title" />
             </div>
         </div>
 
@@ -44,7 +61,7 @@ const bannerUrl = new URL(getBannerUrl(props.banner), import.meta.url);
         <span>{{ level }} <b>·</b> {{ type }}</span>
 
         <div class="courses-item-provider">
-            <img :src="logoUrl" :alt="provider" />
+            <img :src="getLogo()" :alt="provider" />
 
             <span>{{ provider }}</span>
         </div>

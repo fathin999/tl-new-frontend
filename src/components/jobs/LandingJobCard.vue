@@ -14,12 +14,18 @@ const props = defineProps({
 });
 
 // static images
-const logoUrl = new URL(getJobLogoUrl(props.logo), import.meta.url);
+
+const getLogo = () => {
+    return new URL(
+        `/src/assets/jobs/employer-logo-${props.logo}.png`,
+        import.meta.url
+    );
+};
 </script>
 
 <template>
     <div class="job-item">
-        <img :src="logoUrl" :alt="employer" class="job-item-logo" />
+        <img :src="getLogo()" :alt="employer" class="job-item-logo" />
 
         <div class="job-item-title">
             <a href="/jobs/1">

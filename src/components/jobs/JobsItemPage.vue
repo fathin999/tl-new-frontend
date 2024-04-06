@@ -103,7 +103,12 @@ const getTime = () => {
 };
 
 // static images
-const logoUrl = new URL(getJobLogoUrl(job.employer.logo), import.meta.url);
+const getLogo = () => {
+    return new URL(
+        `/src/assets/jobs/employer-logo-${job.employer.logo}.png`,
+        import.meta.url
+    );
+};
 </script>
 
 <template>
@@ -115,7 +120,7 @@ const logoUrl = new URL(getJobLogoUrl(job.employer.logo), import.meta.url);
                 <h1>{{ job.title }}</h1>
 
                 <div id="job-overview-employer" class="clickable">
-                    <img :src="logoUrl" :alt="job.employer.title" />
+                    <img :src="getLogo()" :alt="job.employer.title" />
 
                     <span>{{ job.employer.title }}</span>
                 </div>
@@ -297,7 +302,7 @@ const logoUrl = new URL(getJobLogoUrl(job.employer.logo), import.meta.url);
 
             <a id="job-company-card" href="/employers">
                 <div id="job-company-card-title">
-                    <img :src="logoUrl" :alt="job.employer.title" />
+                    <img :src="getLogo()" :alt="job.employer.title" />
 
                     <h1>{{ job.employer.title }}</h1>
                 </div>
