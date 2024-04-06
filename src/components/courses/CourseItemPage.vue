@@ -53,11 +53,17 @@ const sections = [
 const course = getCourseWithId(1);
 
 // static images
-const badgeUrl = new URL(getBadgeUrl(course.badge), import.meta.url);
+const getLogo = () => {
+    return new URL(getLogoUrl(course.providerLogo), import.meta.url);
+};
 
-const bannerUrl = new URL(getBannerUrl(course.banner), import.meta.url);
+const getBadge = () => {
+    return new URL(getBadgeUrl(course.badge), import.meta.url);
+};
 
-const logoUrl = new URL(getLogoUrl(course.providerLogo), import.meta.url);
+const getBanner = () => {
+    return new URL(getBannerUrl(course.banner), import.meta.url);
+};
 
 // methods
 
@@ -116,7 +122,7 @@ onUnmounted(() => {
                     <p>{{ course.description }}</p>
 
                     <div id="course-item-header-texts-provider">
-                        <img :src="logoUrl" :alt="course.provider" />
+                        <img :src="getLogo()" :alt="course.provider" />
                         <span>
                             <b> {{ course.provider }} </b>
                             <br />
@@ -135,11 +141,11 @@ onUnmounted(() => {
 
                 <div id="course-item-header-card">
                     <div id="course-item-header-card-banner">
-                        <img :src="bannerUrl" :alt="course.title" />
+                        <img :src="getBanner()" :alt="course.title" />
                     </div>
 
                     <img
-                        :src="badgeUrl"
+                        :src="getBadge()"
                         :alt="course.title"
                         id="course-item-header-card-badge"
                     />
