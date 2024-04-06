@@ -8,6 +8,15 @@ import IconFees from "../icons/courses/IconFees.vue";
 import IconOutcomes from "../icons/courses/IconOutcomes.vue";
 import {onMounted, onUnmounted, ref} from "vue";
 import {getCourseWithId} from "@/composable/courses/courses";
+import {
+    getBadgeUrl,
+    getBannerUrl,
+    getLogoUrl,
+} from "@/composable/courses/coursePages";
+import IconLevel from "../icons/courses/IconLevel.vue";
+import IconOnline from "../icons/courses/IconOnline.vue";
+import IconCertificate from "../icons/courses/IconCertificate.vue";
+import IconInstructor from "../icons/courses/IconInstructor.vue";
 
 // refs
 let active = ref(0);
@@ -42,6 +51,11 @@ const sections = [
 
 // fetch course through Id
 const course = getCourseWithId(1);
+
+// static images
+const badgeUrl = getBadgeUrl(course.badge);
+const logoUrl = getLogoUrl(course.providerLogo);
+const bannerUrl = getBannerUrl(course.banner);
 
 // methods
 
@@ -83,15 +97,80 @@ onUnmounted(() => {
 <template>
     <Navbar />
 
-    <main class="container" id="course-item">
+    <main id="course-item">
         <div id="course-item-header">
-            <div id="course-item-header-texts">
-                <h1>{{ course.title }}</h1>
-                <p>{{ course.description }}</p>
+            <div class="container">
+                <div id="course-item-header-breadcrumbs">
+                    <a>Home </a>
+                    <b> > </b>
+                    <a>Courses</a>
+                    <b> > </b>
+                    <a>{{ course.topic }}</a>
+                </div>
+
+                <div id="course-item-header-texts">
+                    <h1>{{ course.title }}</h1>
+
+                    <p>{{ course.description }}</p>
+
+                    <div id="course-item-header-texts-provider">
+                        <img :src="logoUrl" :alt="course.provider" />
+                        <span>
+                            <b> {{ course.provider }} </b>
+                            <br />
+                            {{ course.type }}
+                        </span>
+                    </div>
+
+                    <div id="course-item-header-btns">
+                        <a class="btn-primary btn-l">Get brochure</a>
+                        <a class="btn-black btn-arrow">
+                            Apply now
+                            <IconArrow />
+                        </a>
+                    </div>
+                </div>
+
+                <div id="course-item-header-card">
+                    <div id="course-item-header-card-banner">
+                        <img :src="bannerUrl" :alt="course.title" />
+                    </div>
+
+                    <img
+                        :src="badgeUrl"
+                        :alt="course.title"
+                        id="course-item-header-card-badge"
+                    />
+
+                    <div class="course-item-summary">
+                        <IconOnline />
+                        <span>{{ course.medium }}</span>
+                    </div>
+
+                    <div class="course-item-summary">
+                        <IconInstructor />
+                        <span>{{ course.delivery }}</span>
+                    </div>
+
+                    <div class="course-item-summary">
+                        <IconOnline />
+                        <span>{{ course.timeline }}</span>
+                    </div>
+
+                    <div class="course-item-summary">
+                        <IconLevel />
+                        <span>{{ course.level }} level</span>
+                    </div>
+
+                    <div class="course-item-summary">
+                        <IconCertificate />
+                        <span>Certification</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="course-item-content">
+        <div id="course-item-content" class="container">
             <aside>
                 <div id="course-item-btns">
                     <div
@@ -132,16 +211,163 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 #course-item {
-    margin-top: 20px;
     padding-bottom: 90px;
 
     &-header {
         width: 100%;
-        height: 550px;
-        margin-bottom: 40px;
-        background-color: var(--bgMedium);
-        border-radius: 20px;
-        padding: 30px;
+        margin-bottom: 50px;
+        background-color: var(--bgLight);
+        padding: 50px 0 80px;
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &-breadcrumbs {
+            font-size: 0.8rem;
+            margin-bottom: 40px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            a {
+                font-weight: 500;
+                color: var(--textLight);
+            }
+
+            b {
+                font-weight: 600;
+                display: inline-block;
+                padding: 0 14px;
+                color: var(--purple);
+            }
+
+            a:hover {
+                color: var(--purple);
+            }
+        }
+
+        &-texts {
+            flex: 1;
+            padding-right: 100px;
+
+            h1 {
+                margin-bottom: 20px;
+                font-size: 2.9rem;
+                line-height: 3.6rem;
+            }
+
+            p {
+                width: 70%;
+                font-size: 0.95rem;
+                line-height: 1.4rem;
+            }
+
+            &-provider {
+                display: flex;
+                align-items: center;
+                user-select: none;
+                margin: 25px 0 55px;
+                font-size: 0.9rem;
+
+                img {
+                    $size: 60px;
+                    height: $size;
+                    width: $size;
+                    border-radius: 25%;
+                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    margin-right: 20px;
+                }
+
+                b {
+                    display: inline-block;
+                    font-size: 1rem;
+                    padding-bottom: 5px;
+                }
+            }
+        }
+
+        &-btns {
+            display: flex;
+            gap: 15px;
+
+            a {
+                border-radius: 50px;
+                min-width: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+        }
+
+        &-card {
+            $padding: 35px;
+            $margin: calc(-1 * $padding);
+
+            width: 290px;
+            position: relative;
+            background-color: white;
+            border-radius: 20px;
+            padding: $padding;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+
+            $height: 90px;
+            $size: 90px;
+            $top: calc($height - $size * 0.7);
+
+            &-banner {
+                height: $height;
+                overflow: hidden;
+                margin-top: $margin;
+                margin-left: $margin;
+                margin-right: $margin;
+                margin-bottom: calc($height - $size + $top + 25px);
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            &-badge {
+                border: 1px solid rgb(220, 220, 220);
+                height: $size;
+                width: $size;
+                position: absolute;
+                top: $top;
+                left: 0;
+                right: 0;
+                margin: auto;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 20%;
+                backdrop-filter: blur(7px);
+                -webkit-backdrop-filter: blur(7px);
+            }
+
+            .course-item-summary {
+                margin-bottom: 25px;
+                display: flex;
+                font-size: 0.95rem;
+
+                svg {
+                    $size: 17px;
+                    height: $size;
+                    width: $size;
+                    margin-right: 20px;
+                    fill: var(--textMedium);
+                }
+            }
+
+            .course-item-summary:last-of-type {
+                margin-bottom: 0px;
+            }
+        }
     }
 
     &-content {

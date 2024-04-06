@@ -7,7 +7,10 @@ export const createURL = (url) => {
 };
 
 export const getBadgeUrl = (badge) => {
-    return createURL(`/src/assets/courses/course-badge-${badge}.png`);
+    const url = createURL(`/src/assets/courses/course-badge-${badge}.png`);
+
+    console.log(url);
+    return url;
 };
 
 export const getBannerUrl = (banner) => {
