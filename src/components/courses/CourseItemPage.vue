@@ -13,7 +13,10 @@ import IconOnline from "../icons/courses/IconOnline.vue";
 import IconCertificate from "../icons/courses/IconCertificate.vue";
 import IconInstructor from "../icons/courses/IconInstructor.vue";
 import IconCalendar from "../icons/courses/IconCalendar.vue";
-import IconCheck from "../icons/IconCheck.vue";
+import CourseModules from "./CourseModules.vue";
+import CourseTool from "./CourseTool.vue";
+import CourseCheckpoint from "./CourseCheckpoint.vue";
+import CourseInstructor from "./CourseInstructor.vue";
 
 // refs
 let active = ref(0);
@@ -224,144 +227,44 @@ onUnmounted(() => {
                     </p>
 
                     <h2>What you will learn</h2>
-                    <div
-                        class="course-section-check-point"
-                        v-for="learn in course.details.learn"
-                        :key="learn"
-                    >
-                        <IconCheck />
-                        {{ learn }}
-                    </div>
+                    <CourseCheckpoint
+                        v-for="outcome in course.details.outcomes"
+                        :key="outcome"
+                        :title="outcome"
+                    />
 
                     <h2>Languages and tools covered</h2>
                     <div id="course-section-tools">
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-sql.png"
-                                alt=""
-                            />
-                            SQL
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-python.png"
-                                alt=""
-                            />
-                            Python
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-matplotlib.png"
-                                alt=""
-                            />
-                            Matplotlib
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-seaborn.png"
-                                alt=""
-                            />
-                            Seaborn
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-pytorch.png"
-                                alt=""
-                            />
-                            PyTorch
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-pandas.png"
-                                alt=""
-                            />
-                            Pandas
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-numpy.png"
-                                alt=""
-                            />
-                            NumPy
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-scipy.png"
-                                alt=""
-                            />
-                            SciPy
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-tensorflow.png"
-                                alt=""
-                            />
-                            TensorFlow
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-scikitlearn.png"
-                                alt=""
-                            />
-                            Scikit-learn
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-tableau.png"
-                                alt=""
-                            />
-                            Tableau
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-powerbi.png"
-                                alt=""
-                            />
-                            Power BI
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-jupyter.png"
-                                alt=""
-                            />
-                            Jupyter Notebook
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-googleanalytics.png"
-                                alt=""
-                            />
-                            Google Analytics
-                        </div>
-
-                        <div class="course-section-tool">
-                            <img
-                                src="/src/assets/courses/tools/course-tool-googlecloud.png"
-                                alt=""
-                            />
-                            Google Cloud
-                        </div>
+                        <CourseTool
+                            v-for="logo in course.details.tools"
+                            :key="logo"
+                            :logo="logo"
+                        />
                     </div>
                 </div>
+
                 <div class="course-section" ref="one">
-                    <h1>Modules</h1>
+                    <h6>Modules</h6>
+                    <h3>Explore our world-class curriculum</h3>
+
+                    <CourseModules :modules="course.details.modules" />
+
+                    <h2>Meet your instructors</h2>
+
+                    <div id="course-section-instructors">
+                        <CourseInstructor
+                            v-for="instructor in course.details.instructors"
+                            :key="instructor"
+                            :id="instructor"
+                        />
+                    </div>
                 </div>
+
                 <div class="course-section" ref="two">
-                    <h1>Fees</h1>
+                    <h6>Fees</h6>
+                    <h1>Study first, pay later</h1>
                 </div>
+
                 <div class="course-section" ref="three">
                     <h1>Outcomes</h1>
                 </div>
@@ -608,8 +511,10 @@ onUnmounted(() => {
 }
 
 .course-section {
-    min-height: 800px;
-    margin-bottom: 70px;
+    border-top: 1px solid var(--borderLight);
+    padding-top: 20px;
+    min-height: 300px;
+    margin-bottom: 90px;
     font-size: 1.1rem;
     line-height: 1.7rem;
 
@@ -621,47 +526,33 @@ onUnmounted(() => {
     }
 
     h1 {
-        font-size: 2.5rem;
-        line-height: 3rem;
-        margin-bottom: 20px;
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        margin-bottom: 15px;
     }
 
     h2 {
-        margin: 55px 0 25px;
+        margin: 65px 0 25px;
     }
 
-    &-check-point {
-        margin-top: 15px;
+    h2,
+    h3 {
+        font-size: 1.7rem;
+        line-height: 2.1rem;
+    }
 
-        svg {
-            $size: 15px;
-            height: $size;
-            width: $size;
-            fill: var(--green);
-            margin-right: 20px;
+    #course-section {
+        &-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
         }
-    }
 
-    #course-section-tools {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    &-tool {
-        border: 1px solid whitesmoke;
-        font-size: 0.9rem;
-        padding: 5px 15px;
-        border-radius: 10px;
-        display: inline-flex;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-        align-items: center;
-
-        img {
-            $size: 20px;
-            height: $size;
-            width: $size;
-            margin-right: 10px;
+        &-instructors {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            padding-top: 5px;
         }
     }
 }
