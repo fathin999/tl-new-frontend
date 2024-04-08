@@ -101,6 +101,20 @@ export const getCourseWithId = (id) => {
                     ],
                 },
             ],
+            approaches: [
+                {
+                    icon: "tool",
+                    title: "Become experts on using industry tools and frameworks",
+                },
+                {
+                    icon: "dataset",
+                    title: "Practice on real-life projects using real world datasets",
+                },
+                {
+                    icon: "resume",
+                    title: "Get resume advice and interview coaching to land your dream job",
+                },
+            ],
             instructors: ["darren", "anthony", "peter", "alvin"],
         },
     };
@@ -200,28 +214,153 @@ const instructors = [
         name: "Darren Chiu",
         img: "darren",
         position: "Academic Director",
-        description: "Programme Lead and technical consultant at Google",
+        description: "Technical consultant",
+        logo: "google",
     },
     {
         name: "Anthony Chiu",
         img: "anthony",
         position: "Instructor",
-        description: "Software engineer at Clover",
+        description: "Software engineer",
+        logo: "clover",
     },
     {
         name: "Peter Chow",
         img: "peter",
         position: "Instructor",
-        description: "Technical engineer at Google",
+        description: "Technical engineer",
+        logo: "google",
     },
     {
         name: "Alvin Chong",
         img: "alvin",
         position: "Instructor",
-        description: "Computer Science graduate from HKUST",
+        description: "BSc. Computer Science",
+        logo: "hkust",
     },
 ];
 
 export const getInstructor = (id) => {
     return instructors.find((instructor) => instructor.img === id);
+};
+
+// ---------------------------
+// GET COURSE FLAGS
+// ---------------------------
+
+const countries = [
+    {
+        name: "Malaysia",
+        img: "malaysia",
+    },
+    {
+        name: "Singapore",
+        img: "singapore",
+    },
+    {
+        name: "Hong Kong",
+        img: "hongkong",
+    },
+    {
+        name: "Taiwan",
+        img: "taiwan",
+    },
+    {
+        name: "Thailand",
+        img: "thailand",
+    },
+    {
+        name: "Indonesia",
+        img: "indonesia",
+    },
+    {
+        name: "Philippines",
+        img: "philippines",
+    },
+];
+
+export const getCountries = () => {
+    return countries;
+};
+
+// ---------------------------
+// GET COURSE FEES
+// ---------------------------
+
+const fees = [
+    {
+        title: "One-Time Upfront Payment",
+        description: "Pay the whole tuition fee upfront.",
+        price: {
+            old: "15K",
+            new: "12K",
+            currency: "MYR",
+            frequency: "",
+        },
+        points: [
+            "Enjoy a 25% discount by paying the tuition fee upfront.",
+            "If you don't secure a job within a year, you will get a 100% tuition refund.",
+        ],
+        mostPicked: false,
+    },
+    {
+        title: "Monthly Installment",
+        description: "Pay a small monthly instalment for 12 months.",
+        price: {
+            old: "1.3K",
+            new: "1K",
+            currency: "MYR",
+            frequency: "per month",
+        },
+        points: [
+            "Enjoy 25% discount by paying the tuition fee upfront in a 12 months instalment.",
+            "If you don't secure a job within a year, you will get a 100% tuition refund.",
+        ],
+        mostPicked: false,
+    },
+    {
+        title: "Income Sharing Agreement (ISA)",
+        description:
+            "Learn without any upfront cost, and start paying only when you get a job.",
+        price: {
+            old: "",
+            new: "0",
+            currency: "MYR",
+            frequency: "upfront cost",
+        },
+        points: [
+            "Pay 15% of your monthly salary until you reach a cap of MYR15,000.",
+            "If you don't secure a job within a year, your ISA will be waived.",
+        ],
+        mostPicked: true,
+    },
+];
+
+export const getCourseFees = () => {
+    return fees;
+};
+
+// ---------------------------
+// GET STUDENT TESTIMONIALS
+// ---------------------------
+
+const testimonials = [
+    {
+        name: "Cha Eun Woo",
+        img: "cha",
+        quote: "This was a really good course. I learnt a lot from TalentLabs.",
+        position: "Data analyst",
+        logo: "google",
+    },
+    {
+        name: "Kim Ji Soo",
+        img: "kim",
+        quote: "Overall experience is very good, cleared all fundamentals in data science!",
+        position: "Business associate",
+        logo: "google",
+    },
+];
+
+export const getTestimonials = () => {
+    return testimonials;
 };

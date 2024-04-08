@@ -7,7 +7,7 @@ import IconModules from "../icons/courses/IconModules.vue";
 import IconFees from "../icons/courses/IconFees.vue";
 import IconOutcomes from "../icons/courses/IconOutcomes.vue";
 import {onMounted, onUnmounted, ref} from "vue";
-import {getCourseWithId} from "@/composable/courses/courses";
+import {getCourseWithId, getTestimonials} from "@/composable/courses/courses";
 import IconLevel from "../icons/courses/IconLevel.vue";
 import IconOnline from "../icons/courses/IconOnline.vue";
 import IconCertificate from "../icons/courses/IconCertificate.vue";
@@ -17,6 +17,9 @@ import CourseModules from "./CourseModules.vue";
 import CourseTool from "./CourseTool.vue";
 import CourseCheckpoint from "./CourseCheckpoint.vue";
 import CourseInstructor from "./CourseInstructor.vue";
+import CourseIconDescription from "./CourseIconDescription.vue";
+import CourseFinancing from "./CourseFinancing.vue";
+import CourseStudentCard from "./CourseStudentCard.vue";
 
 // refs
 let active = ref(0);
@@ -38,12 +41,12 @@ const sections = [
         icon: IconModules,
     },
     {
-        title: "Fees",
+        title: "Financing",
         ref: two,
         icon: IconFees,
     },
     {
-        title: "Outcomes",
+        title: "Careers",
         ref: three,
         icon: IconOutcomes,
     },
@@ -51,6 +54,7 @@ const sections = [
 
 // fetch course through Id
 const course = getCourseWithId(1);
+const testimonials = getTestimonials();
 
 // static images
 const getLogo = () => {
@@ -243,13 +247,27 @@ onUnmounted(() => {
                     </div>
                 </div>
 
-                <div class="course-section" ref="one">
+                <div
+                    class="course-section"
+                    ref="one"
+                    id="course-section-modules"
+                >
                     <h6>Modules</h6>
                     <h3>Explore our world-class curriculum</h3>
 
                     <CourseModules :modules="course.details.modules" />
 
-                    <h2>Meet your instructors</h2>
+                    <h2>Our approach</h2>
+                    <div id="course-section-approach">
+                        <CourseIconDescription
+                            v-for="approach in course.details.approaches"
+                            :key="approach.title"
+                            :title="approach.title"
+                            :icon="approach.icon"
+                        />
+                    </div>
+
+                    <h2>Meet our course creators</h2>
 
                     <div id="course-section-instructors">
                         <CourseInstructor
@@ -260,13 +278,73 @@ onUnmounted(() => {
                     </div>
                 </div>
 
-                <div class="course-section" ref="two">
-                    <h6>Fees</h6>
-                    <h1>Study first, pay later</h1>
+                <div
+                    class="course-section"
+                    ref="two"
+                    id="course-section-financing"
+                >
+                    <h6>Financing</h6>
+                    <h3>Study first, pay later</h3>
+                    <p>
+                        pay nothing to join your immersive learning experience
+                        and pursue your career goals. Only after you have
+                        completed our program and are employed as a software
+                        engineer, you will pay 15% of your monthly salary to us
+                        until you reach the minimum payment cap (depending on
+                        country). Learn more about fees and financing from our
+                        FAQ page.
+                    </p>
+
+                    <h2>Our fee structure</h2>
+                    <CourseFinancing />
                 </div>
 
-                <div class="course-section" ref="three">
-                    <h1>Outcomes</h1>
+                <div
+                    class="course-section"
+                    ref="three"
+                    id="course-section-careers"
+                >
+                    <h6>Careers</h6>
+
+                    <h3>We will help you boost your career</h3>
+
+                    <p>
+                        Navigate tech career opportunities with the help of our
+                        Career Services team. After many years working with
+                        passionate students and helping them land fulfilling
+                        careers in tech, we have got a keen understanding of
+                        what goes into getting that first tech job.
+                        <br />
+                        <br />
+                        Get valuable insights on interview skills, CV
+                        preparation, and building a professional portfolio - we
+                        will be the bridge between you and your future
+                        employers. We have built relationships with hiring
+                        managers at top companies across the region, creating a
+                        robust employer pipeline for TalentLabs grads. Our team
+                        is constantly advocating for our graduates and helping
+                        you to secure your dream job.
+                    </p>
+
+                    <h2>Hear from our graduates</h2>
+
+                    <div id="course-section-testimonials">
+                        <CourseStudentCard
+                            v-for="testimony in testimonials"
+                            :key="testimony.name"
+                            :name="testimony.name"
+                            :logo="testimony.logo"
+                            :position="testimony.position"
+                            :img="testimony.img"
+                            :quote="testimony.quote"
+                        />
+                    </div>
+
+                    <h2>Still have questions?</h2>
+
+                    <a href="/courses-faq" class="btn-primary btn-m">
+                        Go to FAQ
+                    </a>
                 </div>
             </div>
         </div>
@@ -510,11 +588,56 @@ onUnmounted(() => {
     }
 }
 
+#course-section {
+    &-modules {
+        h2 {
+            margin-top: 80px;
+        }
+    }
+
+    &-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    &-instructors {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 15px;
+        padding-top: 5px;
+    }
+
+    &-approach {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 60px;
+        padding-top: 5px;
+    }
+
+    &-financing {
+        p {
+            margin-top: 15px;
+        }
+    }
+
+    &-careers {
+        p {
+            margin-top: 15px;
+        }
+    }
+
+    &-testimonials {
+        display: flex;
+        gap: 20px;
+    }
+}
+
 .course-section {
     border-top: 1px solid var(--borderLight);
     padding-top: 20px;
     min-height: 300px;
-    margin-bottom: 90px;
+    margin-bottom: 100px;
     font-size: 1.1rem;
     line-height: 1.7rem;
 
@@ -522,7 +645,7 @@ onUnmounted(() => {
         font-size: 0.9rem;
         font-weight: 600;
         color: var(--purple);
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     h1 {
@@ -539,21 +662,6 @@ onUnmounted(() => {
     h3 {
         font-size: 1.7rem;
         line-height: 2.1rem;
-    }
-
-    #course-section {
-        &-tools {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        &-instructors {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            padding-top: 5px;
-        }
     }
 }
 
