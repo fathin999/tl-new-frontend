@@ -655,7 +655,7 @@ onUnmounted(() => {
     }
 
     h2 {
-        margin: 65px 0 25px;
+        margin: 75px 0 25px;
     }
 
     h2,

@@ -6,6 +6,7 @@ import LandingCoursesRole from "./LandingCoursesRole.vue";
 import LandingJobs from "./LandingJobs.vue";
 import LandingTestimonies from "./LandingTestimonies.vue";
 import LandingInstructor from "./LandingInstructor.vue";
+import LandingCommunity from "./LandingCommunity.vue";
 import Navbar from "@/components/layout/Navbar.vue";
 import Footer from "@/components/layout/Footer.vue";
 </script>
@@ -25,6 +26,8 @@ import Footer from "@/components/layout/Footer.vue";
         <LandingTestimonies />
 
         <LandingJobs />
+
+        <LandingCommunity />
 
         <LandingInstructor />
     </main>
