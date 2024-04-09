@@ -471,17 +471,30 @@ label {
     color: var(--textMedium);
 }
 
-input {
+$inputPadding: 20px;
+
+@mixin input {
     display: block;
-    height: 55px;
-    padding: 0 20px;
     border: 1px solid var(--borderMedium);
+    padding: 0 $inputPadding;
     border-radius: 10px;
-    font-size: 1rem;
     font-family: "SFProDisplay", "Helvetica Neue", sans-serif;
+    font-size: 1rem;
     width: 100%;
 }
 
+input {
+    @include input();
+    height: 55px;
+}
+
+textarea {
+    @include input();
+    padding-top: $inputPadding;
+    min-height: 150px;
+}
+
+textarea:focus,
 input:focus {
     outline: none;
     border-color: var(--purple);
