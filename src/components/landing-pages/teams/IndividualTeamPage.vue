@@ -65,7 +65,7 @@ const getLogo = (logo) => {
     }
 
     &-header {
-        $margin: 50px;
+        $margin: 55px;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
@@ -74,7 +74,7 @@ const getLogo = (logo) => {
         border-bottom: 1px solid gainsboro;
 
         .breadcrumbs {
-            margin-bottom: 50px;
+            margin-bottom: $margin;
         }
 
         &-img {
@@ -112,7 +112,7 @@ const getLogo = (logo) => {
 
     p {
         font-size: 1.1rem;
-        line-height: 1.6rem;
+        line-height: 1.8rem;
     }
 }
 </style>

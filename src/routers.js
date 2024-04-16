@@ -1,6 +1,7 @@
 import LandingPage from "./components/landing-pages/home/LandingPage.vue";
 import Login from "./components/auth/Login.vue";
 import Signup from "./components/auth/Signup.vue";
+import ResetPassword from "./components/auth/ResetPassword.vue";
 import ChooseRole from "./components/auth/ChooseRole.vue";
 import CoursesPage from "./components/courses/CoursesPage.vue";
 import CareerRolesPage from "./components/courses/CareerRolesPage.vue";
@@ -38,6 +39,11 @@ const routes = [
         name: "Signup",
         component: Signup,
         path: "/signup",
+    },
+    {
+        name: "ResetPassword",
+        component: ResetPassword,
+        path: "/reset-password-request",
     },
     {
         name: "Choose Role",

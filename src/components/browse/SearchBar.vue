@@ -63,7 +63,7 @@ const checkKeyword = () => {
 <style scoped lang="scss">
 #header {
     background-color: white;
-    padding: 15px 0 25px;
+    padding: 55px 0 65px;
 
     #search {
         $height: 65px;

@@ -133,3 +133,11 @@ export const getTeam = () => {
 export const getTeamFromSlug = (slug) => {
     return teams.find((team) => team.img === slug);
 };
+
+const checkFounder = (img) => {
+    return img === "razin" || img === "terrance" || img === "darren";
+};
+
+export const getFounders = () => {
+    return teams.filter((team) => checkFounder(team.img));
+};

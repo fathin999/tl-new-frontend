@@ -1,18 +1,18 @@
 <script setup>
 import Navbar from "../layout/Navbar.vue";
-import AuthBackground from "./AuthBackground.vue";
+import Footer from "../layout/Footer.vue";
 </script>
 
 <template>
     <Navbar />
 
-    <main>
+    <main id="reset">
         <div class="auth-page">
             <div class="container">
                 <div class="auth-page-content">
-                    <h1>Login</h1>
+                    <h1>Reset password</h1>
 
-                    <p>Be part of the innovators of tomorrow</p>
+                    <p>Confirm yoru email and we will send the instructions</p>
 
                     <form>
                         <div class="input">
@@ -24,49 +24,34 @@ import AuthBackground from "./AuthBackground.vue";
                             />
                         </div>
 
-                        <div class="input">
-                            <label>Password</label>
-                            <input
-                                type="password"
-                                v-model="password"
-                                placeholder="******"
-                            />
-                            <div id="login-forgot">
-                                <a href="/reset-password-request">
-                                    Forgot password?
-                                </a>
-                            </div>
-                        </div>
-
                         <div class="btn-primary btn-l" @click="login">
-                            Login
+                            Reset password
                         </div>
 
                         <div class="auth-link">
-                            <span>Not registered?</span>
-                            <a href="/signup/choose-role">
-                                Create an account
-                            </a>
+                            <span>Changed your mind?</span>
+                            <a href="/login"> Back to login </a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
+
+    <Footer />
 </template>
 
 <script>
 export default {
-    name: "Login",
+    name: "Reset password",
     data() {
         return {
             email: "",
-            password: "",
         };
     },
     methods: {
-        login() {
-            console.log("Login", this.email, this.password);
+        reset() {
+            console.log("Reset password", this.email);
         },
     },
 };
@@ -85,10 +70,5 @@ export default {
         margin: auto;
         padding: 50px 0 80px;
     }
-}
-
-#login-forgot {
-    text-align: right;
-    padding-top: 10px;
 }
 </style>

@@ -265,9 +265,7 @@ const selectOption = (index, option, type) => {
 
     <main>
         <div id="jobs">
-            <div id="jobs-header" class="container">
-                <SearchBar />
-            </div>
+            <SearchBar />
 
             <div id="jobs-content" class="container">
                 <div>
@@ -294,17 +292,6 @@ const selectOption = (index, option, type) => {
 
 <style scoped lang="scss">
 #jobs {
-    &-header {
-        text-align: center;
-        padding: 45px 0 55px;
-
-        h2 {
-            display: inline-block;
-            margin: 0;
-            font-size: 1.6rem;
-        }
-    }
-
     &-content {
         padding: 0 0 90px;
         display: grid;
