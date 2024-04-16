@@ -121,10 +121,10 @@ onUnmounted(() => {
     <main id="course-item">
         <div id="course-item-header">
             <div class="container">
-                <div id="course-item-header-breadcrumbs">
-                    <a>Home </a>
+                <div class="breadcrumbs">
+                    <a href="/">Home </a>
                     <b> > </b>
-                    <a>Courses</a>
+                    <a href="/courses">Courses</a>
                     <b> > </b>
                     <a>{{ course.topic }}</a>
                 </div>
@@ -370,28 +370,8 @@ onUnmounted(() => {
             align-items: center;
         }
 
-        &-breadcrumbs {
-            font-size: 0.8rem;
+        .breadcrumbs {
             margin-bottom: 40px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-
-            a {
-                font-weight: 500;
-                color: var(--textLight);
-            }
-
-            b {
-                font-weight: 600;
-                display: inline-block;
-                padding: 0 14px;
-                color: var(--purple);
-            }
-
-            a:hover {
-                color: var(--purple);
-            }
         }
 
         &-texts {

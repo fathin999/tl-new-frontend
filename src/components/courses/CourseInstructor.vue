@@ -1,11 +1,11 @@
 <script setup>
-import {getInstructor} from "@/composable/courses/courses";
+import {getTeamFromSlug} from "@/composable/teams/teams";
 
 const props = defineProps({
     id: String,
 });
 
-const instructor = getInstructor(props.id);
+const instructor = getTeamFromSlug(props.id);
 
 const getLogo = () => {
     return new URL(
@@ -32,7 +32,7 @@ const getImg = () => {
 
         <h4>{{ instructor.name }}</h4>
 
-        <p>{{ instructor.description }}</p>
+        <p>{{ instructor.job }}</p>
 
         <img
             :src="getLogo()"
@@ -76,8 +76,8 @@ const getImg = () => {
     }
 
     &-logo {
-        width: 100%;
-        height: 22px;
+        width: 55%;
+        height: 25px;
         object-fit: contain;
         object-position: left bottom;
     }

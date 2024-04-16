@@ -115,6 +115,14 @@ const getLogo = () => {
 
     <main class="container" id="job">
         <div id="job-header">
+            <div class="breadcrumbs">
+                <a href="/">Home</a>
+                <b>></b>
+                <a href="/jobs">Jobs</a>
+                <b>></b>
+                <a>Software engineering </a>
+            </div>
+
             <div id="job-overview">
                 <h1>{{ job.title }}</h1>
 
@@ -348,9 +356,13 @@ const getLogo = () => {
 
     &-header {
         display: flex;
-        margin: 50px 0 0;
         padding-bottom: 50px;
         border-bottom: 1px solid var(--borderMedium);
+        flex-wrap: wrap;
+
+        .breadcrumbs {
+            margin: 10px 0 45px;
+        }
 
         &-btns {
             display: flex;

@@ -11,12 +11,12 @@ import IconPin from "../icons/contact/IconPin.vue";
 
     <main class="container">
         <div id="contacts-info">
-            <h1>Let's work together.</h1>
+            <h1>Drop us a line.</h1>
 
             <p>
-                Reach out to us,
+                Ready to work together?
                 <br />
-                we'd love to hear from you!
+                Reach out to us, we'd love to hear from you!
             </p>
 
             <div class="contacts-address">
@@ -95,24 +95,24 @@ import IconPin from "../icons/contact/IconPin.vue";
 <style scoped lang="scss">
 .container {
     display: grid;
-    grid-template-columns: 1fr 50%;
+    grid-template-columns: 1fr 500px;
     justify-content: space-between;
     align-items: center;
     gap: 90px;
     padding: 160px 0 90px;
     position: relative;
-    width: 1100px;
+    width: 1000px;
 }
 
 form {
     /* position: sticky;
     top: 140px;
     right: 0; */
-    border: 1px solid whitesmoke;
-    background-color: var(--bgLight);
-    padding: 50px;
-    border-radius: 20px;
-    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); */
+    /* border: 1px solid whitesmoke; */
+    /* background-color: var(--bgLight); */
+    /* padding: 50px; */
+    /* border-radius: 20px; */
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07); */
 
     #form-btn {
         text-align: center;

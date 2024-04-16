@@ -17,6 +17,7 @@ import ISAFinancingPage from "./components/landing-pages/ISAFinancingPage.vue";
 import PrivacyPolicyPage from "./components/landing-pages/PrivacyPolicyPage.vue";
 import TermsAndConditionsPage from "./components/landing-pages/TermsAndConditionsPage.vue";
 import TeamsPage from "./components/landing-pages/teams/TeamsPage.vue";
+import IndividualTeamPage from "./components/landing-pages/teams/IndividualTeamPage.vue";
 import EmployersPage from "./components/jobs/EmployersPage.vue";
 import JobsItemPage from "./components/jobs/JobsItemPage.vue";
 
@@ -127,6 +128,11 @@ const routes = [
         name: "Teams",
         component: TeamsPage,
         path: "/teams",
+    },
+    {
+        name: "Individual Team",
+        component: IndividualTeamPage,
+        path: "/teams/1",
     },
 ];
 
