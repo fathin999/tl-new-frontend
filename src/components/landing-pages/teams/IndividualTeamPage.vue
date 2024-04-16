@@ -7,13 +7,11 @@ import {getTeam} from "@/composable/teams/teams";
 const team = getTeam();
 
 const getImg = (img) => {
-    const url = `/src/assets/teams/team-${img}.png`;
-    return new URL(url, import.meta.url);
+    return new URL(`/src/assets/teams/team-${img}.png`, import.meta.url);
 };
 
 const getLogo = (logo) => {
-    const url = `/src/assets/teams/team-logo-${logo}.png`;
-    return new URL(url, import.meta.url);
+    return new URL(`/src/assets/teams/team-logo-${logo}.png`, import.meta.url);
 };
 </script>
 
