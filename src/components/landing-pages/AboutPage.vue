@@ -313,11 +313,15 @@ const values = [
     }
 
     &-values {
+        .container {
+            width: 900px;
+        }
+
         &-list {
-            margin-top: 60px;
+            margin-top: 50px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 20px;
 
             .about-values-item {
                 padding: 45px;

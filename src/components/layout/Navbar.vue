@@ -59,6 +59,11 @@ header {
 
     #navbarLogo {
         width: 115px;
+        transition: opacity 0.2s ease-out;
+    }
+
+    #navbarLogo:hover {
+        opacity: 0.5;
     }
 
     #navContainer {

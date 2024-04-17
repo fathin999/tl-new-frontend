@@ -622,6 +622,44 @@ input:-webkit-autofill:focus {
 }
 
 // ---------------
+// ARTICLE
+// ---------------
+
+.article {
+    width: 750px;
+    padding-bottom: 90px;
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+
+    h2 {
+        font-size: 1.8rem;
+        margin: 4rem 0 2.2rem;
+    }
+
+    .first {
+        margin-top: 0;
+    }
+
+    ul,
+    ol {
+        padding-left: 15px;
+
+        li {
+            padding-left: 20px;
+        }
+    }
+
+    a {
+        font-weight: 500;
+        color: var(--purple);
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+// ---------------
 // HOVER
 // ---------------
 

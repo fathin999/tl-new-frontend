@@ -40,7 +40,7 @@ const getLogo = (logo) => {
 
                     <h2>
                         {{ team.position }}
-                        <b>·</b>
+                        <b>|</b>
                         {{ team.job }}
                     </h2>
 
@@ -68,6 +68,8 @@ const getLogo = (logo) => {
         $margin: 55px;
         display: flex;
         align-items: center;
+        text-align: center;
+        flex-direction: column;
         flex-wrap: wrap;
         margin-bottom: $margin;
         padding-bottom: $margin;
@@ -78,27 +80,28 @@ const getLogo = (logo) => {
         }
 
         &-img {
-            $size: 170px;
+            $size: 130px;
             height: $size;
             width: $size;
             border-radius: 50%;
-            margin-right: 40px;
             object-fit: cover;
+            margin-bottom: 25px;
         }
 
         &-text {
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
             }
 
             h2 {
-                font-size: 1.05rem;
+                font-size: 1rem;
                 font-weight: 400;
-                margin: 15px 0 10px;
+                margin: 10px 0 15px;
 
                 b {
                     display: inline-block;
                     padding: 0 10px;
+                    font-weight: 400;
                 }
             }
 
