@@ -1,10 +1,12 @@
 <script setup>
+import IconTeamLi from "../../icons/teams/IconTeamLi.vue";
+import IconTeamFa from "../../icons/teams/IconTeamFa.vue";
+import IconTeamX from "../../icons/teams/IconTeamX.vue";
+
 const props = defineProps({
     name: String,
     img: String,
-    logo: String,
     position: String,
-    job: String,
 });
 
 const getImg = (img) => {
@@ -13,10 +15,6 @@ const getImg = (img) => {
 
 const getImgBw = (img) => {
     return new URL(`/src/assets/teams/team-${img}-bw.png`, import.meta.url);
-};
-
-const getLogo = (logo) => {
-    return new URL(`/src/assets/teams/team-logo-${logo}.png`, import.meta.url);
 };
 </script>
 
@@ -30,9 +28,11 @@ const getLogo = (logo) => {
         <h6>{{ position }}</h6>
         <h2>{{ name }}</h2>
 
-        <p>{{ job }}</p>
-
-        <img :src="getLogo(logo)" :alt="name" class="team-item-logo" />
+        <div class="team-item-socials">
+            <IconTeamFa />
+            <IconTeamLi />
+            <IconTeamX />
+        </div>
     </a>
 </template>
 
@@ -43,7 +43,7 @@ const getLogo = (logo) => {
     padding: 30px;
 
     &-img-container {
-        $size: 110px;
+        $size: 100px;
         width: $size;
         height: $size;
         border-radius: 50%;
@@ -73,20 +73,26 @@ const getLogo = (logo) => {
     }
 
     h2 {
-        margin: 10px 0 50px;
+        margin: 10px 0 40px;
         font-size: 1.3rem;
     }
 
-    p {
-        color: var(--textMedium);
-        margin-bottom: 15px;
-    }
+    &-socials {
+        display: flex;
+        gap: 5px;
 
-    &-logo {
-        width: 50%;
-        height: 30px;
-        object-fit: contain;
-        object-position: left center;
+        svg {
+            $size: 27px;
+            height: $size;
+            width: $size;
+            fill: var(--black);
+            transition: fill 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        svg:hover {
+            fill: var(--purple);
+            transform: translateY(-5px);
+        }
     }
 }
 

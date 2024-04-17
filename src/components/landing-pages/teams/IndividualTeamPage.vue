@@ -3,15 +3,14 @@ import Navbar from "../../layout/Navbar.vue";
 import Footer from "../../layout/Footer.vue";
 import {useRoute} from "vue-router";
 import {getTeam} from "@/composable/teams/teams";
+import IconTeamLi from "@/components/icons/teams/IconTeamLi.vue";
+import IconTeamFa from "@/components/icons/teams/IconTeamFa.vue";
+import IconTeamX from "@/components/icons/teams/IconTeamX.vue";
 
 const team = getTeam();
 
 const getImg = (img) => {
     return new URL(`/src/assets/teams/team-${img}.png`, import.meta.url);
-};
-
-const getLogo = (logo) => {
-    return new URL(`/src/assets/teams/team-logo-${logo}.png`, import.meta.url);
 };
 </script>
 
@@ -35,16 +34,16 @@ const getLogo = (logo) => {
                     id="team-header-img"
                 />
 
-                <div id="team-header-text">
-                    <h1>{{ team.name }}</h1>
+                <h1>{{ team.name }}</h1>
 
-                    <h2>
-                        {{ team.position }}
-                        <b>|</b>
-                        {{ team.job }}
-                    </h2>
+                <h2>
+                    {{ team.position }}
+                </h2>
 
-                    <img :src="getLogo(team.logo)" :alt="team.name" />
+                <div id="team-header-socials">
+                    <IconTeamFa />
+                    <IconTeamLi />
+                    <IconTeamX />
                 </div>
             </div>
 
@@ -88,27 +87,33 @@ const getLogo = (logo) => {
             margin-bottom: 25px;
         }
 
-        &-text {
-            h1 {
-                font-size: 1.9rem;
+        h1 {
+            font-size: 1.9rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+            font-weight: 400;
+            margin: 7px 0 30px;
+        }
+
+        &-socials {
+            display: flex;
+            gap: 7px;
+
+            svg {
+                $size: 30px;
+                height: $size;
+                width: $size;
+                fill: var(--black);
+                user-select: none;
+                cursor: pointer;
+                transition: fill 0.3s ease-out, transform 0.3s ease-out;
             }
 
-            h2 {
-                font-size: 1rem;
-                font-weight: 400;
-                margin: 10px 0 15px;
-
-                b {
-                    display: inline-block;
-                    padding: 0 10px;
-                    font-weight: 400;
-                }
-            }
-
-            img {
-                object-fit: contain;
-                height: 25px;
-                width: 120px;
+            svg:hover {
+                fill: var(--purple);
+                transform: translateY(-5px);
             }
         }
     }
