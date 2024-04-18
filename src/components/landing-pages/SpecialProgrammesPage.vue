@@ -66,20 +66,11 @@ const stats = [
             </div>
         </div>
 
-        <!-- <div id="programmes-partners">
-            <div class="container">
-                <h2>
-                    Work with our<br />
-                    top hiring partners
-                </h2>
-            </div>
-        </div> -->
-
         <ProgrammePartnersSlider />
 
         <div id="programmes-list">
             <div class="container">
-                <h2>Explore our programmes</h2>
+                <h2>Explore our career development <br />programmes</h2>
 
                 <div id="programmes-list-container">
                     <ProgrammeCard
@@ -105,7 +96,7 @@ const stats = [
     padding-bottom: 90px;
 
     &-header {
-        padding: 60px 0 70px;
+        padding: 60px 0 80px;
 
         .container {
             display: grid;
@@ -158,7 +149,7 @@ const stats = [
     }
 
     &-list {
-        margin-top: 140px;
+        margin-top: 150px;
 
         h2 {
             font-size: 2rem;

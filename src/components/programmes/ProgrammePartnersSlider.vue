@@ -29,13 +29,14 @@
 </template>
 
 <style scoped lang="scss">
-$height: 70px;
-$width: calc($height * 18.44);
+$height: 120px;
+$ratio: calc(960 / 200);
+$width: calc($height * $ratio);
 $firstInitPos: 0;
 $secondInitPos: $width;
 $thirdInitPos: calc($width * 2);
 $hiddenPos: calc($secondInitPos * -1);
-$time: 70s;
+$time: 50s;
 
 #programme-partners {
     padding: 0;
@@ -49,6 +50,7 @@ $time: 70s;
         position: relative;
         height: $height;
         overflow: hidden;
+        isolation: isolate;
 
         .programme-partners-logos {
             object-fit: contain;
@@ -57,6 +59,7 @@ $time: 70s;
             width: $width;
             position: absolute;
             top: 0;
+            isolation: isolate;
         }
     }
 
