@@ -129,7 +129,7 @@ const stats = [
         }
 
         a {
-            margin: 25px 0 45px;
+            margin: 25px 0 60px;
         }
 
         &-stats {
