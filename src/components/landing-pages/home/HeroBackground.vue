@@ -128,16 +128,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            items: ["+", "-", "?", "/", "%", "~", "?", "+", "-", ":", ";"],
-        };
-    },
-};
-</script>
-
 <style scoped lang="scss">
 #hero-bg {
     position: absolute;

@@ -27,6 +27,8 @@ const getClass = (index) => {
                 class="module-item-header clickable"
                 @click="opened[index] = !opened[index]"
             >
+                <h6>Module {{ index + 1 }}:</h6>
+
                 <span>
                     {{ mod.title }}
                 </span>
@@ -49,7 +51,7 @@ $padding: 40px;
 $border: 1px solid var(--borderMedium);
 
 #modules {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .module-item {
@@ -64,6 +66,12 @@ $border: 1px solid var(--borderMedium);
         font-size: 1.15rem;
         display: flex;
         align-items: center;
+
+        h6 {
+            color: var(--purple);
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
 
         span {
             flex: 1;

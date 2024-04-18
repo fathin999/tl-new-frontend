@@ -1,8 +1,8 @@
 <script setup>
 import Navbar from "../layout/Navbar.vue";
 import Footer from "../layout/Footer.vue";
-import ProgrammeCard from "../programmes/ProgrammeCard.vue";
-import ProgrammePartnersSlider from "../programmes/ProgrammePartnersSlider.vue";
+import ProgrammeCard from "./ProgrammeCard.vue";
+import ProgrammePartnersSlider from "./ProgrammePartnersSlider.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import {getProgrammes} from "../../composable/programmes/programmes";
 
@@ -96,7 +96,7 @@ const stats = [
     padding-bottom: 90px;
 
     &-header {
-        padding: 60px 0 80px;
+        padding: 60px 0 90px;
 
         .container {
             display: grid;

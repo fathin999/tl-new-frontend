@@ -1,6 +1,6 @@
 const programmes = [
     {
-        title: "K-Youth Development Programme",
+        title: "K-Youth Development Programme 2023",
         logo: "khazanah",
         img: "kyouth",
         partner: "Khazanah",
@@ -9,7 +9,7 @@ const programmes = [
         active: false,
     },
     {
-        title: "Career Accelerator Programme",
+        title: "Career Accelerator Programme 2023",
         logo: "mohe",
         img: "cap",
         partner: "Ministry of Higher Education (Malaysia)",
@@ -42,10 +42,10 @@ const programmes = [
         partner: "Ministry of Science, Technology and Innovation (Malaysia)",
         description:
             "Deeptech and Futureskills Upskilling and Reskilling is a strategic initiative by MOSTI under the National Employment Council (NEC). The main goals are job creation and placement programme that targets 5,000 Malaysians especially those affected by Covid-19 pandemic.",
-        active: true,
+        active: false,
     },
     {
-        title: "MySTEP Initiative",
+        title: "MySTEP 2022",
         logo: "mof",
         img: "mystep",
         partner: "Ministry of Finance (Malaysia)",

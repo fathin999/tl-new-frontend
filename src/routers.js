@@ -12,7 +12,8 @@ import AboutPage from "./components/landing-pages/AboutPage.vue";
 import ContactPage from "./components/landing-pages/ContactPage.vue";
 import ForEnterprisePage from "./components/landing-pages/ForEnterprisePage.vue";
 import ForGovernmentPage from "./components/landing-pages/ForGovernmentPage.vue";
-import SpecialProgrammesPage from "./components/landing-pages/SpecialProgrammesPage.vue";
+import SpecialProgrammesPage from "./components/programmes/SpecialProgrammesPage.vue";
+import IndividualProgrammePage from "./components/programmes/IndividualProgrammePage.vue";
 import BeAnInstructorPage from "./components/landing-pages/BeAnInstructorPage.vue";
 import ISAFinancingPage from "./components/landing-pages/ISAFinancingPage.vue";
 import PrivacyPolicyPage from "./components/landing-pages/PrivacyPolicyPage.vue";
@@ -109,6 +110,11 @@ const routes = [
         name: "Special Programmes",
         component: SpecialProgrammesPage,
         path: "/special-programmes",
+    },
+    {
+        name: "Individual Programme",
+        component: IndividualProgrammePage,
+        path: "/special-programmes/1",
     },
     {
         name: "Be an Instructor",

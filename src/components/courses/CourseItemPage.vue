@@ -120,6 +120,12 @@ onUnmounted(() => {
 
     <main id="course-item">
         <div id="course-item-header">
+            <img
+                src="/src/assets/courses/course-bg.png"
+                alt=""
+                id="course-item-header-bg"
+            />
+
             <div class="container">
                 <div class="breadcrumbs">
                     <a href="/">Home </a>
@@ -358,12 +364,22 @@ onUnmounted(() => {
     padding-bottom: 90px;
 
     &-header {
+        position: relative;
         width: 100%;
         margin-bottom: 50px;
         background-color: var(--bgLight);
         padding: 50px 0 80px;
 
+        &-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
         .container {
+            position: relative;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -371,7 +387,7 @@ onUnmounted(() => {
         }
 
         .breadcrumbs {
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         &-texts {
@@ -379,24 +395,20 @@ onUnmounted(() => {
             padding-right: 100px;
 
             h1 {
-                margin-bottom: 20px;
-                font-size: 2.9rem;
+                margin-bottom: 15px;
+                font-size: 2.7rem;
                 line-height: 3.6rem;
             }
 
             p {
                 width: 70%;
-                /* font-size: 0.95rem; */
-                /* line-height: 1.4rem; */
-                font-size: 1.1rem;
-                line-height: 1.7rem;
             }
 
             &-provider {
                 display: flex;
                 align-items: center;
                 user-select: none;
-                margin: 25px 0 55px;
+                margin: 25px 0 40px;
                 font-size: 0.9rem;
 
                 img {

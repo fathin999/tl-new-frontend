@@ -26,7 +26,7 @@ const getImg = (img) => {
 </script>
 
 <template>
-    <div class="pgm-item clickable">
+    <a class="pgm-item clickable" href="/special-programmes/1">
         <div class="pgm-item-img">
             <img :src="getImg(img)" :alt="title" />
         </div>
@@ -36,22 +36,11 @@ const getImg = (img) => {
             <img :src="getLogo(logo)" :alt="title" />
         </div>
 
-        <!-- <div class="pgm-item-partner">
-            <img :src="getLogo(logo)" :alt="title" />
-
-            <span>{{ partner }}</span>
-        </div> -->
-
         <div class="pgm-item-description">
             <p>
                 {{ description }}
             </p>
         </div>
-
-        <!-- <div class="pgm-item-arrow">
-            Apply now
-            <IconArrow />
-        </div> -->
 
         <a class="btn-primary-outline btn-arrow">
             Apply now
@@ -59,7 +48,7 @@ const getImg = (img) => {
         </a>
 
         <div class="pgm-item-open" v-if="active">Application open</div>
-    </div>
+    </a>
 </template>
 
 <style scoped lang="scss">
