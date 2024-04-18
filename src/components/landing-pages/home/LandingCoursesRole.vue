@@ -72,7 +72,7 @@ const getBtnClass = (index) => {
 <template>
     <div class="section" id="courses">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title-center">
                 <h2>
                     Chart your career path
                     <br />
@@ -119,14 +119,6 @@ const getBtnClass = (index) => {
 
 <style scoped lang="scss">
 #courses {
-    .section-title {
-        text-align: center;
-
-        p {
-            width: 100%;
-        }
-    }
-
     &-content {
         margin-top: 70px;
         display: grid;

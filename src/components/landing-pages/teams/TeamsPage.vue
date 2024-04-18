@@ -23,10 +23,8 @@ const teams = getAllTeams();
                     v-for="team in teams"
                     :key="team.name"
                     :name="team.name"
-                    :job="team.job"
                     :position="team.position"
                     :img="team.img"
-                    :logo="team.logo"
                 />
             </div>
         </div>

@@ -42,7 +42,6 @@ import IconSocialsWs from "../icons/footer/IconSocialsWs.vue";
                     <a href="/about">About us</a>
                     <a href="/teams">Our team</a>
                     <a href="/contact">Contact</a>
-                    <a href="/isa-financing">ISA financing</a>
                     <a href="/be-an-instructor">Be an instructor</a>
                 </div>
 
@@ -52,8 +51,8 @@ import IconSocialsWs from "../icons/footer/IconSocialsWs.vue";
                     <a href="/courses">Courses</a>
                     <a href="/jobs">Jobs</a>
                     <a href="/special-programmes">Special programmes</a>
-                    <a href="/for-enterprise">For enterprise</a>
-                    <a href="/for-government">For government</a>
+                    <!-- <a href="/for-enterprise">For enterprise</a> -->
+                    <!-- <a href="/for-government">For government</a> -->
                 </div>
 
                 <div class="footer-links">

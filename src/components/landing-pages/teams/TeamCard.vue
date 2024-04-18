@@ -40,7 +40,12 @@ const getImgBw = (img) => {
 .team-item {
     border: 1px solid var(--borderLight);
     border-radius: 20px;
-    padding: 30px;
+    padding: 35px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
     &-img-container {
         $size: 100px;
@@ -69,11 +74,11 @@ const getImgBw = (img) => {
         color: var(--textMedium);
         font-size: 0.9rem;
         font-weight: 400;
-        margin-top: 25px;
+        margin-top: 30px;
     }
 
     h2 {
-        margin: 10px 0 40px;
+        margin: 7px 0 45px;
         font-size: 1.3rem;
     }
 

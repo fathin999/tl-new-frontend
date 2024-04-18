@@ -5,7 +5,7 @@ import EndToEndSolutions from "./EndToEndSolutions.vue";
 <template>
     <div id="about" class="section">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title-center">
                 <h2>Explore our <u>all-in-one</u> platform</h2>
 
                 <p>The career lifecycle. We are with you at every step.</p>
@@ -15,14 +15,3 @@ import EndToEndSolutions from "./EndToEndSolutions.vue";
         </div>
     </div>
 </template>
-
-<style scoped lang="scss">
-h2 {
-    text-align: center;
-}
-
-p {
-    text-align: center;
-    width: 100%;
-}
-</style>

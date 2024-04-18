@@ -1,75 +1,21 @@
 <script setup>
 import Navbar from "../layout/Navbar.vue";
 import Footer from "../layout/Footer.vue";
-import IconInsImpact from "../icons/be-instructor/IconInsImpact.vue";
-import IconInsGrow from "../icons/be-instructor/IconInsGrow.vue";
-import IconInsIncome from "../icons/be-instructor/IconInsIncome.vue";
-import IconInsFuture from "../icons/be-instructor/IconInsFuture.vue";
+import CourseCheckpoint from "../courses/CourseCheckpoint.vue";
+import FaqList from "../faq/FaqList.vue";
+import {getInstructorFAQs} from "../../composable/faq/faq-instructor";
+import {
+    getBeInsDuties,
+    getBeInsSupports,
+    getBeInsWhyUs,
+} from "../../composable/view-models/be-instructor-page";
+import IconMail from "../icons/IconMail.vue";
 
-const whyUs = [
-    {
-        icon: IconInsImpact,
-        title: "Make an impact",
-        description:
-            "Share your expertises and help learners gain new skills for a better career.",
-    },
-    {
-        icon: IconInsGrow,
-        title: "Grow your career",
-        description:
-            "Build your brand and grow your career by creating courses and sharing your expertise.",
-    },
-    {
-        icon: IconInsFuture,
-        title: "Shape the future",
-        description:
-            "Being an educator is one of the best ways to create a better future for the world.",
-    },
-    {
-        icon: IconInsIncome,
-        title: "Earn an income",
-        description:
-            "With our revenue-sharing model, you will make continuous income after creating a course.",
-    },
-];
-
-const duties = [
-    {
-        img: "",
-        title: "Design a curriculum",
-        description:
-            "Start organising your knowledge and put it together as an educational framework. Our instructional design team will work with you and provide you necessary guidance.",
-        card: "s",
-    },
-    {
-        img: "",
-        title: "Record your teaching videos",
-        description:
-            "Use a good microphone and a camera with clear resolution, then you're ready to start. Our instructional design team will review your first video and give you feedback.",
-        card: "m",
-    },
-    {
-        img: "",
-        title: "Create tests & exercises",
-        description:
-            "Hands-on practices and assessments are important for learners. Our experienced team would work with you on designing hands-on assessments for students, ensuring successful outcomes.",
-        card: "m",
-    },
-    {
-        img: "",
-        title: "Launch your course",
-        description:
-            "We will launch your course on TalentLabs Platform. We will sell your course through our B2C and B2B network, saving you the efforts of promoting your course.",
-        card: "s",
-    },
-    {
-        img: "",
-        title: "Students support",
-        description:
-            "TalentLabs is different from other online training platforms where we are not only selling courses, but also providing comprehensive student services. These included mentoring, assignment reviews and career coaching. These are all on us.",
-        card: "l",
-    },
-];
+const whyUs = getBeInsWhyUs();
+const duties = getBeInsDuties();
+const supports = getBeInsSupports();
+const faqs = getInstructorFAQs();
+const email = "teach@talentlabs.org";
 
 const getDutyImg = (i) => {
     return new URL(
@@ -106,12 +52,32 @@ const getDutyImg = (i) => {
                         job opportunities.
                     </p>
                 </div>
+
+                <div id="instructor-header-img">
+                    <img
+                        src="/src/assets/be-instructor/beinst-header-s.png"
+                        alt=""
+                        id="instructor-header-img-s"
+                    />
+
+                    <img
+                        src="/src/assets/be-instructor/beinst-header-m.png"
+                        alt=""
+                        id="instructor-header-img-m"
+                    />
+
+                    <img
+                        src="/src/assets/be-instructor/beinst-header-tall.png"
+                        alt=""
+                        id="instructor-header-img-tall"
+                    />
+                </div>
             </div>
         </div>
 
         <div class="section" id="instructor-duties">
             <div class="container">
-                <div class="section-title">
+                <div class="section-title-center">
                     <h2>Your teaching duties <u>explained</u></h2>
                 </div>
 
@@ -134,12 +100,8 @@ const getDutyImg = (i) => {
 
         <div class="section blue" id="instructor-why">
             <div class="container">
-                <div class="section-title">
-                    <h2>
-                        Why you should be
-                        <br />
-                        teaching with us
-                    </h2>
+                <div class="section-title-center">
+                    <h2>Why TalentLabs?</h2>
                 </div>
 
                 <div id="instructor-why-list">
@@ -160,6 +122,64 @@ const getDutyImg = (i) => {
                 </div>
             </div>
         </div>
+
+        <div class="section" id="instructor-support">
+            <div class="container">
+                <div class="section-title-center">
+                    <h2>We are in this <u>together</u></h2>
+                    <p>
+                        TalentLabs' team of educators, instructional designers
+                        and editors would help you throughout the journey. We
+                        are here to provide support in curriculum design,
+                        hardware equipment, assignments design, and student
+                        assessments.
+                    </p>
+                </div>
+
+                <div id="instructor-support-list">
+                    <div
+                        class="instructor-support-item"
+                        v-for="support in supports"
+                        :key="support.title"
+                    >
+                        <component :is="support.icon" />
+
+                        <h2>{{ support.title }}</h2>
+
+                        <p>
+                            {{ support.description }}
+                        </p>
+
+                        <CourseCheckpoint
+                            v-for="point in support.points"
+                            :key="support.title + point"
+                            :title="point"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="instructor-faq">
+            <div class="container">
+                <div class="section-title-center">
+                    <h2>Frequently asked questions</h2>
+                </div>
+
+                <FaqList :faqs="faqs" />
+            </div>
+        </div>
+
+        <div class="section blue" id="instructor-contact">
+            <div class="container">
+                <h1>Let's create a better future, together</h1>
+
+                <a class="btn-l btn-primary" :href="`mailto:${email}`">
+                    <IconMail />
+                    {{ email }}
+                </a>
+            </div>
+        </div>
     </main>
 
     <Footer />
@@ -172,6 +192,47 @@ const getDutyImg = (i) => {
             margin-top: 30px;
             width: 100%;
         }
+
+        .container {
+            display: grid;
+            grid-template-columns: 45% 40%;
+            justify-content: space-between;
+        }
+
+        &-img {
+            $gap: 20px;
+            $width: calc((100% - $gap) * 0.37);
+            $right: calc($gap + $width);
+            $height: calc((100% - $gap) * 0.4);
+            position: relative;
+
+            img {
+                position: absolute;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+
+            &-s {
+                width: $width;
+                right: $right;
+                top: 0;
+                height: $height;
+            }
+
+            &-m {
+                width: calc(100% - $gap - $width);
+                right: $right;
+                top: calc($height + $gap);
+                height: calc(100% - $height - $gap);
+            }
+
+            &-tall {
+                width: $width;
+                height: 85%;
+                top: 7%;
+                right: 0;
+            }
+        }
     }
 
     &-why {
@@ -182,7 +243,6 @@ const getDutyImg = (i) => {
             gap: 20px;
 
             .instructor-why-item {
-                /* border: 1px solid gainsboro; */
                 background: white;
                 border-radius: 20px;
                 padding: 35px;
@@ -211,10 +271,6 @@ const getDutyImg = (i) => {
     &-duties {
         .container {
             width: 1000px;
-
-            .section-title {
-                text-align: center;
-            }
         }
 
         &-list {
@@ -223,20 +279,19 @@ const getDutyImg = (i) => {
             .instructor-duties-item {
                 background-color: var(--bgLight);
                 border-radius: 25px;
-                padding: 70px 60px;
+                padding: 60px;
                 margin-bottom: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 140px;
+                gap: 100px;
 
                 img {
                     flex-shrink: 0;
-                    width: 300px;
-                    height: 190px;
-                    object-fit: cover;
-                    border-radius: 17px;
-                    box-shadow: 0 5px 20px rgba(152, 167, 179, 0.1);
+                    width: 350px;
+                    height: 250px;
+                    object-fit: contain;
+                    object-position: center;
                 }
 
                 h3 {
@@ -249,6 +304,66 @@ const getDutyImg = (i) => {
                     line-height: 1.6rem;
                     color: var(--textMedium);
                 }
+            }
+        }
+    }
+
+    &-support {
+        &-list {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+
+            .instructor-support-item {
+                border: 1px solid gainsboro;
+                padding: 45px;
+                border-radius: 20px;
+
+                svg {
+                    $size: 80px;
+                    height: $size;
+                    width: $size;
+                }
+
+                h2 {
+                    margin-top: 15px;
+                }
+
+                p {
+                    margin: 10px 0 40px;
+                }
+            }
+        }
+    }
+
+    &-faq {
+        padding-top: 50px;
+    }
+
+    &-contact {
+        padding: 90px 0;
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 330px;
+            min-width: none;
+
+            svg {
+                $size: 22px;
+                height: $size;
+                width: $size;
+                margin-right: 15px;
             }
         }
     }

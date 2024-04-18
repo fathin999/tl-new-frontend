@@ -6,7 +6,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
 <template>
     <div class="section" id="courses">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title-center">
                 <h2>Check out our <u>top courses</u></h2>
 
                 <p>

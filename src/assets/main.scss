@@ -4,6 +4,12 @@
 // LAYOUT
 // -------------------
 
+body,
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
 #app {
     min-height: 100dvh;
 }
@@ -166,6 +172,7 @@ main {
         }
     }
 
+    &-title-center,
     &-title {
         position: relative;
 
@@ -189,6 +196,16 @@ main {
             position: absolute;
             bottom: 0;
             right: 0;
+        }
+    }
+
+    &-title-center {
+        text-align: center;
+
+        p {
+            margin-right: auto;
+            margin-left: auto;
+            width: 60%;
         }
     }
 
