@@ -1,11 +1,5 @@
 <template>
-    <div class="programme-header-bg">
-        <img
-            src="/src/assets/programmes/programme-bg.png"
-            alt=""
-            class="programme-header-bg"
-        />
-
+    <div id="programme-header-bg">
         <div id="programme-bg-icons">
             <img
                 src="/src/assets/landing-page/hero/bg-1.png"
@@ -137,18 +131,19 @@
 </template>
 
 <style scoped lang="scss">
-@mixin img($size, $top, $left, $anim: blink1) {
+@mixin img($size, $top, $left, $delay) {
     position: absolute;
     height: $size;
     width: $size;
     top: $top;
     left: $left;
     object-fit: contain;
-    animation: $anim 3s ease-in infinite;
     opacity: 0;
+    animation: blink 3s ease-in infinite;
+    animation-delay: $delay;
 }
 
-.programme-header-bg {
+#programme-header-bg {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -164,225 +159,120 @@
     right: 0;
 
     &-1 {
-        @include img(4.2rem, 7.5%, 47%, blink5);
+        @include img(4.2rem, 7.5%, 47%, 0);
     }
 
     &-2 {
-        @include img(2.1rem, 11.3%, 61%, blink7);
+        @include img(2.1rem, 11.3%, 61%, 1.2s);
     }
 
     &-3 {
-        @include img(3.2rem, 8.3%, 72%, blink8);
+        @include img(3.2rem, 8.3%, 72%, 0.7s);
     }
 
     &-4 {
-        @include img(1.9rem, 15%, 81%, blink9);
+        @include img(1.9rem, 15%, 81%, 0.6s);
     }
 
     &-5 {
-        @include img(3.9rem, 5.5%, 93%, blink10);
+        @include img(3.9rem, 5.5%, 93%, 1.4s);
     }
 
     &-6 {
-        @include img(3.8rem, 25%, 53%, blink5);
+        @include img(3.8rem, 25%, 53%, 0.8s);
     }
 
     &-7 {
-        @include img(3.2rem, 27.5%, 67%, blink7);
+        @include img(3.2rem, 27.5%, 67%, 1.2s);
     }
 
     &-8 {
-        @include img(2.3rem, 37.5%, 77%, blink8);
+        @include img(2.3rem, 37.5%, 77%, 1.4s);
     }
 
     &-9 {
-        @include img(4.1rem, 32.5%, 83%, blink9);
+        @include img(4.1rem, 32.5%, 83%, 0.5s);
     }
 
     &-10 {
-        @include img(3.2rem, 40%, 93%, blink10);
+        @include img(3.2rem, 40%, 93%, 2s);
     }
 
     &-11 {
-        @include img(4rem, 55%, 49%, blink5);
+        @include img(4rem, 55%, 49%, 0.5s);
     }
 
     &-12 {
-        @include img(2.7rem, 57.5%, 56%, blink6);
+        @include img(2.7rem, 57.5%, 56%, 1.2s);
     }
 
     &-13 {
-        @include img(2.7rem, 42.5%, 61%, blink7);
+        @include img(2.7rem, 42.5%, 61%, 1.6s);
     }
 
     &-14 {
-        @include img(2.4rem, 62.5%, 70%, blink8);
+        @include img(2.4rem, 62.5%, 70%, 1.4s);
     }
 
     &-15 {
-        @include img(1.9rem, 62.5%, 79%, blink8);
+        @include img(1.9rem, 62.5%, 79%, 0.3s);
     }
 
     &-16 {
-        @include img(4rem, 70%, 85%, blink9);
+        @include img(4rem, 70%, 85%, 1.1s);
     }
 
     &-17 {
-        @include img(2.2rem, 70%, 96%, blink10);
+        @include img(2.2rem, 70%, 96%, 0.8s);
     }
 
     &-18 {
-        @include img(2.6rem, 87.5%, 49%, blink5);
+        @include img(2.6rem, 87.5%, 49%, 0.4s);
     }
 
     &-19 {
-        @include img(2.5rem, 82.5%, 58%, blink6);
+        @include img(2.5rem, 82.5%, 58%, 1.3s);
     }
 
     &-20 {
-        @include img(2.1rem, 80%, 66%, blink7);
+        @include img(2.1rem, 80%, 66%, 1.1s);
     }
 
     &-21 {
-        @include img(2.9rem, 87.5%, 75%, blink8);
+        @include img(2.9rem, 87.5%, 75%, 0.8s);
     }
 
     &-22 {
-        @include img(2rem, 95%, 93%, blink10);
+        @include img(2rem, 95%, 93%, 0.4s);
     }
 
     &-23 {
-        @include img(3.8rem, 15%, 1%);
+        @include img(3.8rem, 15%, 1%, 1.3s);
     }
 
     &-24 {
-        @include img(2.2rem, 50%, 6%);
+        @include img(2.2rem, 50%, 6%, 0.8s);
     }
 
     &-25 {
-        @include img(2.2rem, 87.5%, 3%);
+        @include img(2.2rem, 87.5%, 3%, 1s);
     }
 }
 
-$opacity: 0.7;
+$opacity: 0.9;
 
-@keyframes blink1 {
+@keyframes blink {
     0% {
-        opacity: $opacity;
-    }
-    5% {
         opacity: 0;
+        transform: scale(0.8) rotate(0);
     }
-    10% {
-        opacity: $opacity;
-    }
-    100% {
-        opacity: $opacity;
-    }
-}
 
-@keyframes blink5 {
-    0% {
-        opacity: $opacity;
-    }
-    40% {
-        opacity: $opacity;
-    }
-    45% {
-        opacity: 0;
-    }
     50% {
         opacity: $opacity;
     }
     100% {
-        opacity: $opacity;
-    }
-}
-
-@keyframes blink6 {
-    0% {
-        opacity: $opacity;
-    }
-    50% {
-        opacity: $opacity;
-    }
-    55% {
         opacity: 0;
-    }
-    60% {
-        opacity: $opacity;
-    }
-    100% {
-        opacity: $opacity;
-    }
-}
-
-@keyframes blink7 {
-    0% {
-        opacity: $opacity;
-    }
-    60% {
-        opacity: $opacity;
-    }
-    65% {
-        opacity: 0;
-    }
-    70% {
-        opacity: $opacity;
-    }
-    100% {
-        opacity: $opacity;
-    }
-}
-
-@keyframes blink8 {
-    0% {
-        opacity: $opacity;
-    }
-    70% {
-        opacity: $opacity;
-    }
-    75% {
-        opacity: 0;
-    }
-    80% {
-        opacity: $opacity;
-    }
-    100% {
-        opacity: $opacity;
-    }
-}
-
-@keyframes blink9 {
-    0% {
-        opacity: $opacity;
-    }
-    80% {
-        opacity: $opacity;
-    }
-    85% {
-        opacity: 0;
-    }
-    90% {
-        opacity: $opacity;
-    }
-    100% {
-        opacity: $opacity;
-    }
-}
-
-@keyframes blink10 {
-    0% {
-        opacity: $opacity;
-    }
-    90% {
-        opacity: $opacity;
-    }
-    95% {
-        opacity: 0;
-    }
-    100% {
-        opacity: $opacity;
+        transform: scale(1) rotate(5deg);
     }
 }
 </style>
