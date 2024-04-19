@@ -49,7 +49,8 @@ const programmes = [
                     title: "Foundation certificate",
                     img: "comp",
                     level: 1,
-                    for: "Beginners",
+                    for: "Beginners in tech",
+                    accreditation: "Google Cloud",
                     description:
                         "Tailored for IT beginners, this pathway equips candidates with fundamental skills and technical knowledge to thrive in the dynamic tech field. Whether your goal is to become a developer, data analyst, or digital marketing expert, this foundation sets you up for success in the ever-evolving IT industry.",
                     requirements: [
@@ -84,7 +85,8 @@ const programmes = [
                     title: "Certified associate",
                     img: "prof",
                     level: 3,
-                    for: "Professionals",
+                    for: "STEM graduates, tech professionals",
+                    accreditation: "Google Cloud",
                     description:
                         "Open to IT or STEM degree holders, this pathway provides advanced skills and expertise. Explore your chosen field, gain practical knowledge, and tackle real-world challenges. With experienced instructors, hands-on projects, and a supportive community, you'll excel in the competitive tech industry.",
                     requirements: [

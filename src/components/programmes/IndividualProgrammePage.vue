@@ -211,7 +211,7 @@ onUnmounted(() => {
 
             <div class="section" ref="one" id="programme-pathways">
                 <div class="container">
-                    <div class="section-title">
+                    <div class="section-title-center">
                         <h2>Choose your <u>career pathways</u></h2>
                     </div>
                 </div>
@@ -224,6 +224,12 @@ onUnmounted(() => {
                             :title="pathway.title"
                             :description="pathway.description"
                             :img="pathway.img"
+                            :level="pathway.level"
+                            :whoFor="pathway.for"
+                            :cred="pathway.accreditation"
+                            :careers="pathway.careers"
+                            :requirements="pathway.requirements"
+                            :courses="pathway.courses"
                         />
                     </div>
                 </div>
@@ -482,18 +488,6 @@ onUnmounted(() => {
                 height: 0;
             }
         }
-
-        &-list::before {
-            /* position: absolute;
-            content: "";
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            margin: auto;
-            width: 2px;
-            background-color: red; */
-        }
     }
 
     &-pathways {
@@ -501,9 +495,10 @@ onUnmounted(() => {
             margin-top: 50px;
 
             .container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 20px;
+                /* display: grid; */
+                /* grid-template-columns: 1fr 1fr; */
+                /* gap: 20px; */
+                width: 900px;
             }
         }
     }
