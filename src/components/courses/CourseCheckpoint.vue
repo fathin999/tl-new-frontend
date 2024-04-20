@@ -28,6 +28,7 @@ defineProps({
         fill: var(--green);
         margin-right: 20px;
         margin-top: 5px;
+        flex-shrink: 0;
     }
 }
 

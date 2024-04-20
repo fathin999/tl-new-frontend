@@ -2,7 +2,11 @@
 import Navbar from "../layout/Navbar.vue";
 import Footer from "../layout/Footer.vue";
 import ProgrammeHeader from "./ProgrammeHeader.vue";
-import ProgrammePathwayCard from "./ProgrammePathwayCard.vue";
+import PgmSectOverview from "./PgmSectOverview.vue";
+import PgmSectTimeline from "./PgmSectTimeline.vue";
+import PgmSectPathways from "./PgmSectPathways.vue";
+import PgmSectCourses from "./PgmSectCourses.vue";
+import CourseCheckpoint from "../courses/CourseCheckpoint.vue";
 import {getProgramme} from "@/composable/programmes/programmes";
 import IconArrow from "../icons/IconArrow.vue";
 import {onMounted, onUnmounted, ref} from "vue";
@@ -11,59 +15,59 @@ const programme = getProgramme();
 
 // REFS LIST
 
-let active = ref(0);
-const zero = ref();
-const one = ref();
-const two = ref();
-const three = ref();
-const four = ref();
+let active = ref("overview");
+const overview = ref();
+const timeline = ref();
+const pathways = ref();
+const coursesRef = ref();
+const requirements = ref();
+const outcomes = ref();
 
 const sections = [
     {
         title: "Overview",
         key: "overview",
-        ref: zero,
+        ref: overview,
+    },
+    {
+        title: "Timeline",
+        key: "timeline",
+        ref: timeline,
     },
     {
         title: "Career pathways",
         key: "pathways",
-        ref: one,
+        ref: pathways,
+    },
+    {
+        title: "Courses",
+        key: "courses",
+        ref: coursesRef,
     },
     {
         title: "Requirements",
         key: "requirements",
-        ref: two,
-    },
-    {
-        title: "Steps",
-        key: "steps",
-        ref: three,
+        ref: requirements,
     },
     {
         title: "Outcomes",
         key: "outcomes",
-        ref: four,
+        ref: outcomes,
     },
 ];
 
-const getPartners = () => {
-    return new URL(
-        `/src/assets/programmes/programme-partner-logos-${programme.img}.png`,
-        import.meta.url
-    );
-};
+const checkEmpty = (key) => {
+    if (programme.details.hasOwnProperty(key)) {
+        const section = programme.details[key];
+        const length =
+            section instanceof Array
+                ? section.length
+                : Object.keys(section).length;
+        return length !== 0;
+        å;
+    }
 
-const getTimelineIcon = (icon) => {
-    return new URL(
-        `/src/assets/programmes/programme-icon-${icon}.svg`,
-        import.meta.url
-    );
-};
-
-const checkEmpty = (section) => {
-    const length =
-        section instanceof Array ? section.length : Object.keys(section).length;
-    return length !== 0;
+    return false;
 };
 
 // SCROLLING METHODS
@@ -75,20 +79,28 @@ const scrollTo = (el) => {
     });
 };
 
-const scrollToPathways = () => scrollTo(one.value);
+const scrollToPathways = () => {
+    if (checkEmpty("pathways")) scrollTo(pathways.value);
+    else scrollTo(coursesRef.value);
+};
 
-const getOffset = (el) => {
-    return el.offsetTop - el.getBoundingClientRect().height / 2;
+const checkOffset = (y, el) => {
+    if (!el) return false;
+    else {
+        const offset = el.offsetTop - 250;
+        return y > offset;
+    }
 };
 
 const handleScroll = () => {
     const y = window.scrollY;
 
-    if (y > getOffset(four.value)) active.value = 4;
-    else if (y > getOffset(three.value)) active.value = 3;
-    else if (y > getOffset(two.value)) active.value = 2;
-    else if (y > getOffset(one.value)) active.value = 1;
-    else active.value = 0;
+    if (checkOffset(y, outcomes.value)) active.value = "outcomes";
+    else if (checkOffset(y, requirements.value)) active.value = "requirements";
+    else if (checkOffset(y, coursesRef.value)) active.value = "courses";
+    else if (checkOffset(y, pathways.value)) active.value = "pathways";
+    else if (checkOffset(y, timeline.value)) active.value = "timeline";
+    else active.value = "overview";
 };
 
 onMounted(() => {
@@ -116,15 +128,15 @@ onUnmounted(() => {
         <div id="programme-bar">
             <div class="container">
                 <div
-                    v-for="(section, i) in sections"
+                    v-for="section in sections"
                     class="bar-item"
                     :key="section"
                 >
                     <div
                         :class="`bar-item-inner clickable ${
-                            i === active ? 'active' : ''
+                            section.key === active ? 'active' : ''
                         }`"
-                        v-if="checkEmpty(programme.details[section.key])"
+                        v-if="checkEmpty(section.key)"
                         @click="scrollTo(section.ref.value)"
                     >
                         {{ section.title }}
@@ -134,120 +146,62 @@ onUnmounted(() => {
         </div>
 
         <div id="programme-content">
-            <div class="section blue" ref="zero" id="programme-overview">
-                <div class="container">
-                    <div class="section-title">
-                        <img :src="getPartners()" alt="" />
-
-                        <h2>
-                            Embark upon your
-                            <br />
-                            <u>tech journey</u>
-                        </h2>
-
-                        <p>
-                            {{ programme.details.overview.paragraph }}
-                        </p>
-
-                        <a
-                            class="btn-arrow btn-primary"
-                            @click="scrollToPathways"
-                        >
-                            Explore career pathways
-                            <IconArrow />
-                        </a>
-                    </div>
-
-                    <div id="programme-overview-img">
-                        <img
-                            src="/src/assets/programmes/programme-overview.png"
-                            alt=""
-                        />
-                    </div>
-                </div>
+            <div ref="overview">
+                <PgmSectOverview
+                    :img="programme.img"
+                    :paragraph="programme.details.overview.paragraph"
+                    @scrollToPathways="scrollToPathways"
+                />
             </div>
 
-            <div
-                class="section"
-                id="programme-timeline"
-                v-if="checkEmpty(programme.details.overview.timeline)"
-            >
-                <div class="container">
-                    <div class="section-title-center">
-                        <h2>Programme <u>timeline</u></h2>
-                    </div>
+            <div ref="timeline" v-if="checkEmpty('timeline')">
+                <PgmSectTimeline :timeline="programme.details.timeline" />
+            </div>
 
-                    <div id="programme-timeline-list">
-                        <div
-                            v-for="(item, i) in programme.details.overview
-                                .timeline"
-                            :class="`programme-timeline-item ${
-                                i % 2 === 0 ? 'reverse' : ''
-                            }`"
-                            :key="item.title"
-                        >
-                            <div class="programme-timeline-item-text">
-                                <h4>{{ item.time }}</h4>
-                                <h3>{{ item.title }}</h3>
-                                <p>{{ item.description }}</p>
-                            </div>
+            <div ref="pathways" v-if="checkEmpty('pathways')">
+                <PgmSectPathways :pathways="programme.details.pathways" />
+            </div>
 
-                            <div class="programme-timeline-item-dot"></div>
+            <div ref="coursesRef" v-if="checkEmpty('courses')">
+                <PgmSectCourses
+                    :courseTitles="programme.details.courses.courses"
+                    :roles="programme.details.courses.roles"
+                />
+            </div>
 
-                            <div class="programme-timeline-item-img">
-                                <div
-                                    class="programme-timeline-item-img-outline"
-                                >
-                                    <img
-                                        :src="getTimelineIcon(item.icon)"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
+            <div ref="requirements" v-if="checkEmpty('requirements')">
+                <div class="section blue" id="programme-requirements">
+                    <div class="container">
+                        <div class="section-title">
+                            <h3><u>Who</u> we are looking for?</h3>
+                        </div>
+
+                        <div id="programme-requirements-list">
+                            <CourseCheckpoint
+                                v-for="req in programme.details.requirements
+                                    .requirements"
+                                :key="req"
+                                :title="req"
+                            />
+                        </div>
+
+                        <div class="section-title">
+                            <h3>Our assessment process</h3>
+                        </div>
+
+                        <div id="programme-requirements-process">
+                            <CourseCheckpoint
+                                v-for="pro in programme.details.requirements
+                                    .processes"
+                                :key="pro"
+                                :title="pro"
+                            />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="section" ref="one" id="programme-pathways">
-                <div class="container">
-                    <div class="section-title-center">
-                        <h2>Choose your <u>career pathways</u></h2>
-                    </div>
-                </div>
-
-                <div id="programme-pathways-list">
-                    <div class="container">
-                        <ProgrammePathwayCard
-                            v-for="pathway in programme.details.pathways"
-                            :key="pathway.title"
-                            :title="pathway.title"
-                            :description="pathway.description"
-                            :img="pathway.img"
-                            :level="pathway.level"
-                            :whoFor="pathway.for"
-                            :cred="pathway.accreditation"
-                            :careers="pathway.careers"
-                            :requirements="pathway.requirements"
-                            :courses="pathway.courses"
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <div class="section" ref="two" id="programme-requirements">
-                <div class="container">
-                    <h1>Requirements</h1>
-                </div>
-            </div>
-
-            <div class="section" ref="three" id="programme-steps">
-                <div class="container">
-                    <h1>Steps</h1>
-                </div>
-            </div>
-
-            <div class="section" ref="four" id="programme-outcomes">
+            <div class="section" ref="outcomes" id="programme-outcomes">
                 <div class="container">
                     <h1>Outcomes</h1>
                 </div>
@@ -317,189 +271,29 @@ onUnmounted(() => {
         }
     }
 
-    @mixin font() {
-        font-size: 1.1rem;
-        line-height: 1.7rem;
-    }
-
     &-content {
         .section {
             min-height: 500px;
 
             span,
             p {
-                @include font();
+                font-size: 1.1rem;
+                line-height: 1.7rem;
             }
         }
     }
 
-    &-overview {
+    &-requirements {
         .container {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            justify-content: space-between;
-            gap: 200px;
+            width: 900px;
         }
-
-        .section-title {
-            img {
-                width: 100%;
-                height: 35px;
-                object-fit: contain;
-                object-position: center left;
-                margin-bottom: 40px;
-            }
-
-            p {
-                width: 100%;
-                margin: 40px 0 65px;
-                color: var(--black);
-                @include font();
-            }
-
-            a {
-                position: relative;
-            }
-        }
-
-        &-img {
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
-        }
-    }
-
-    &-timeline {
-        padding-bottom: 30px;
 
         &-list {
-            margin-top: 60px;
-            position: relative;
-
-            $margin: 100px;
-
-            .programme-timeline-item {
-                display: flex;
-                gap: 30px;
-                margin-bottom: $margin;
-                position: relative;
-
-                &-text {
-                    border: 1px solid white;
-                    flex: 1;
-                    text-align: right;
-                    flex-shrink: 0;
-
-                    h4 {
-                        font-size: 1rem;
-                        color: var(--purple);
-                    }
-
-                    h3 {
-                        font-size: 1.7rem;
-                        margin: 10px 0 15px;
-                    }
-
-                    p {
-                        padding-left: 50%;
-                        color: var(--textMedium);
-                    }
-                }
-
-                &-dot {
-                    $size: 17px;
-                    width: $size;
-                    height: $size;
-                    background-color: var(--purple);
-                    border-radius: 50%;
-                }
-
-                &-img {
-                    flex: 1;
-                    border: 1px solid whitesmoke;
-                    flex-shrink: 0;
-                    border: 1px solid white;
-
-                    &-outline {
-                        $size: 70px;
-                        height: $size;
-                        width: $size;
-                        border-radius: 30%;
-                        border: 1px solid var(--darkBlue);
-                        display: inline-flex;
-                        align-items: center;
-                        justify-content: center;
-                        /* box-shadow: 0 10px 20px rgba(184, 192, 204, 0.5); */
-                    }
-
-                    img {
-                        $size: 50%;
-                        object-fit: contain;
-                        height: $size;
-                        width: $size;
-                    }
-                }
-            }
-
-            .reverse {
-                flex-direction: row-reverse;
-
-                .programme-timeline-item {
-                    &-text {
-                        text-align: left;
-
-                        p {
-                            padding: 0;
-                            padding-right: 50%;
-                        }
-                    }
-
-                    &-img {
-                        text-align: right;
-
-                        img {
-                            display: inline-block;
-                        }
-                    }
-                }
-            }
-
-            .programme-timeline-item::before {
-                position: absolute;
-                content: "";
-                top: 0;
-                bottom: calc($margin * -1);
-                right: 0;
-                left: 0;
-                margin: auto;
-                width: 1px;
-                background-color: var(--purple);
-                z-index: -1;
-                opacity: 0.5;
-            }
-
-            .programme-timeline-item::last-of-type {
-                margin-bottom: 0;
-            }
-
-            .programme-timeline-item:last-of-type::before {
-                height: 0;
-            }
+            margin: 30px 0 70px;
         }
-    }
 
-    &-pathways {
-        &-list {
-            margin-top: 50px;
-
-            .container {
-                /* display: grid; */
-                /* grid-template-columns: 1fr 1fr; */
-                /* gap: 20px; */
-                width: 900px;
-            }
+        &-process {
+            margin-top: 30px;
         }
     }
 }

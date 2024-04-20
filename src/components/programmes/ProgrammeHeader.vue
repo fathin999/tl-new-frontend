@@ -68,7 +68,10 @@ const getLogo = (logo) => {
                             Explore career pathways
                             <IconArrow />
                         </div>
-                        <a class="btn-primary btn-arrow">
+                        <a
+                            class="btn-primary btn-arrow"
+                            @click="$emit('scrollToRef')"
+                        >
                             Apply now
                             <IconArrow />
                         </a>

@@ -14,45 +14,59 @@ const programmes = [
             overview: {
                 paragraph:
                     "With a shared dedication to tackling unemployment, enhancing career prospects, and driving domestic economic recovery, Khazanah Nasional, in collaboration with TalentLabs and GKK Consultants, wholeheartedly commits to training and placing participants as part of the K-Youth Development Programme 2023, an initiative by the Ministry of Finance (MoF). Leveraging our vertical career platform, we are resolute in advancing your career aspirations and offering a robust trajectory towards a thriving technology career.",
-                timeline: [
-                    {
-                        title: "Onboarding",
-                        time: "July 5",
-                        description: "Screening and interview",
-                        icon: "resume",
-                    },
-                    {
-                        title: "Online training",
-                        time: "Month 1",
-                        description:
-                            "Online practical training on Web Development or Data Analytics",
-                        icon: "learn",
-                    },
-                    {
-                        title: "Part-time apprenticeship",
-                        time: "Month 2-3",
-                        description:
-                            "Guaranteed part-time apprenticeship to build actual working experiences",
-                        icon: "part-time",
-                    },
-                    {
-                        title: "Placement",
-                        time: "Month 4",
-                        description:
-                            "Full-time position offer for students before graduation",
-                        icon: "career",
-                    },
-                ],
+                offer: [""],
             },
+            timeline: [
+                {
+                    title: "Applications",
+                    time: "July",
+                    description:
+                        "Fill in the application form and choose your career path. Make sure that you upload all the relevant documents such as your resume and academic transcript.",
+                    icon: "resume",
+                },
+                {
+                    title: "Tests & interview",
+                    time: "August Week 1-2",
+                    description:
+                        "It's time to complete our online technical and aptitude tests. Then, you will be called to join our virtual interview.",
+                    icon: "chat",
+                },
+                {
+                    title: "Offers",
+                    time: "August Week 3",
+                    description:
+                        "Congratulations! Now all's that left is your employment paperwork, which sets our agreement details and important policies regarding your programme and employment.",
+                    icon: "trophy",
+                },
+                {
+                    title: "Online learning",
+                    time: "August - September",
+                    description:
+                        "Kick-start your skills-based training by learning with our industry-leading instructors and mentors. Complete practical work assignments and projects to enhance your skills.",
+                    icon: "learn",
+                },
+                {
+                    title: "Employability workshop",
+                    time: "September",
+                    description:
+                        "Get an exclusive and detailed career management and employability support to help you hone your interview skills, improve your resume and portfolio, as well as help you transition into your apprenticeship.",
+                    icon: "skill",
+                },
+                {
+                    title: "Work placement",
+                    time: "October-December",
+                    description:
+                        "Start your 3-months apprenticeship with our top hiring partners. Get valuable, first-hand work experience at your designated company!",
+                    icon: "career",
+                },
+            ],
             pathways: [
                 {
                     title: "Foundation certificate",
                     img: "comp",
                     level: 1,
                     for: "Beginners in tech",
-                    accreditation: "Google Cloud",
-                    description:
-                        "Tailored for IT beginners, this pathway equips candidates with fundamental skills and technical knowledge to thrive in the dynamic tech field. Whether your goal is to become a developer, data analyst, or digital marketing expert, this foundation sets you up for success in the ever-evolving IT industry.",
+                    accreditation: "TalentLabs, Google Cloud",
                     requirements: [
                         "Degree or higher",
                         "CGPA 3.0 or higher",
@@ -68,16 +82,22 @@ const programmes = [
                     ],
                     courses: [
                         {
+                            level: "Foundation certificate in",
                             title: "Data analytics",
                             link: "/courses/1",
+                            logo: "course-badge-fc.png",
                         },
                         {
+                            level: "Foundation certificate in",
                             title: "Digital marketing",
                             link: "/courses/1",
+                            logo: "course-badge-fc.png",
                         },
                         {
+                            level: "Foundation certificate in",
                             title: "Software engineering",
                             link: "/courses/1",
+                            logo: "course-badge-fc.png",
                         },
                     ],
                 },
@@ -86,9 +106,7 @@ const programmes = [
                     img: "prof",
                     level: 3,
                     for: "STEM graduates, tech professionals",
-                    accreditation: "Google Cloud",
-                    description:
-                        "Open to IT or STEM degree holders, this pathway provides advanced skills and expertise. Explore your chosen field, gain practical knowledge, and tackle real-world challenges. With experienced instructors, hands-on projects, and a supportive community, you'll excel in the competitive tech industry.",
+                    accreditation: "TalentLabs, Google Cloud",
                     requirements: [
                         "Degree or higher",
                         "CGPA 3.5 or higher",
@@ -102,26 +120,85 @@ const programmes = [
                     ],
                     courses: [
                         {
+                            level: "Certified associate in",
                             title: "Data analytics",
                             link: "/courses/1",
+                            logo: "course-badge-cada.png",
                         },
                         {
+                            level: "Certified associate in",
                             title: "Business analytics",
                             link: "/courses/1",
+                            logo: "course-badge-cada.png",
                         },
                         {
+                            level: "Certified associate in",
                             title: "Front-end development",
                             link: "/courses/1",
+                            logo: "course-badge-cada.png",
                         },
                         {
+                            level: "Certified associate in",
                             title: "Back-end development",
                             link: "/courses/1",
+                            logo: "course-badge-cada.png",
+                        },
+                    ],
+                },
+                {
+                    title: "Fintech & digital banking",
+                    img: "file",
+                    level: 1,
+                    for: "Open to all backgrounds",
+                    accreditation: "TalentLabs, ACCA",
+                    requirements: [
+                        "Degree or higher",
+                        "CGPA 2.8 or higher",
+                        "English proficiency equivalent to IELTS 6 or MUET 4",
+                    ],
+                    careers: [
+                        "Investment analyst",
+                        "AI and Machine Learning specialist",
+                        "Financial analyst",
+                        "Blockchain developer",
+                        "Digital wealth management advisor",
+                    ],
+                    courses: [
+                        {
+                            level: "Fundamentals of",
+                            title: "Fintech",
+                            link: "/courses/1",
+                            logo: "course-badge-fc.png",
                         },
                     ],
                 },
             ],
-            steps: [""],
-            requirements: [""],
+            courses: {
+                courses: [
+                    "Certified Associate in Data Analytics",
+                    "Certified Associate in Frontend Development",
+                    "Certified Associate in Backend Development",
+                    "PwC Certified Associate in Penetration Testing",
+                ],
+                roles: ["Software Engineer", "Data Analyst", "Cybersecurity"],
+            },
+            requirements: {
+                requirements: [
+                    "Recently unemployed or fresh graduates that are 30-year-old and below.",
+                    "Good academic performance, from IPTA, IPTS and foreign universities.",
+                    "STEM background is preferred but not required.",
+                    "Outstanding interpersonal skills, results-driven, agile, positive attitude towards learning and 'can-do attitude'.",
+                    "Solid computational thinking, problem-solving and analytical skills.",
+                    "A strong passion for technology roles and industry.",
+                ],
+                processes: [
+                    "You are required to complete an online application, detailing your course choice, academic and work exeprience.",
+                    "Please include any relevant documents, such as your resume, identification and academic transcript.",
+                    "Then, you will complete online tests, which consist of an aptitude test and a numerical reasoning test.",
+                    "You will then be called to an online interview, where you will be assessed on criteria such as your communication and soft skills.",
+                    "Then, it's offer time! Check your email for our programme offer.",
+                ],
+            },
             outcomes: {
                 title: "",
             },

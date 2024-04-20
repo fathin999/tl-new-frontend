@@ -31,8 +31,8 @@ defineProps({
     gap: $gap;
     row-gap: 40px;
 
-    .courses-item {
+    /* .courses-item {
         width: calc((100% - $gap * 2) / 3);
-    }
+    } */
 }
 </style>

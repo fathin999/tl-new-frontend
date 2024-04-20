@@ -7,6 +7,7 @@ const props = defineProps({
     level: String,
     provider: String,
     providerLogo: String,
+    href: {type: String, default: "/courses/1"},
 });
 
 // static images
@@ -33,7 +34,7 @@ const getBanner = () => {
 </script>
 
 <template>
-    <a class="courses-item" href="/courses/1">
+    <a class="courses-item" :href="href">
         <div class="courses-item-img">
             <div class="courses-item-banner-container">
                 <img
@@ -70,6 +71,7 @@ const getBanner = () => {
     padding-bottom: 110px;
     transition: boxShadow 0.3s ease-out;
     border-radius: 17px;
+    position: relative;
 
     h4 {
         font-size: 1.1rem;
