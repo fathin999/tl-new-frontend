@@ -81,7 +81,7 @@ const stats = [
                         :active="programme.active"
                         :partner="programme.partner"
                         :description="programme.description"
-                        :img="programme.img"
+                        :slug="programme.slug"
                     />
                 </div>
             </div>

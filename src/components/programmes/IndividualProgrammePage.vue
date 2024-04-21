@@ -6,9 +6,9 @@ import PgmSectOverview from "./PgmSectOverview.vue";
 import PgmSectTimeline from "./PgmSectTimeline.vue";
 import PgmSectPathways from "./PgmSectPathways.vue";
 import PgmSectCourses from "./PgmSectCourses.vue";
-import CourseCheckpoint from "../courses/CourseCheckpoint.vue";
+import PgmSectRequirements from "./PgmSectRequirements.vue";
+import PgmSectOutcomes from "./PgmSectOutcomes.vue";
 import {getProgramme} from "@/composable/programmes/programmes";
-import IconArrow from "../icons/IconArrow.vue";
 import {onMounted, onUnmounted, ref} from "vue";
 
 const programme = getProgramme();
@@ -119,7 +119,7 @@ onUnmounted(() => {
         <ProgrammeHeader
             :logo="programme.logo"
             :title="programme.title"
-            :img="programme.img"
+            :slug="programme.slug"
             :tagline="programme.details.tagline"
             :subtext="programme.details.subtext"
             @scrollToRef="scrollToPathways"
@@ -148,7 +148,7 @@ onUnmounted(() => {
         <div id="programme-content">
             <div ref="overview">
                 <PgmSectOverview
-                    :img="programme.img"
+                    :slug="programme.slug"
                     :paragraph="programme.details.overview.paragraph"
                     @scrollToPathways="scrollToPathways"
                 />
@@ -170,41 +170,17 @@ onUnmounted(() => {
             </div>
 
             <div ref="requirements" v-if="checkEmpty('requirements')">
-                <div class="section blue" id="programme-requirements">
-                    <div class="container">
-                        <div class="section-title">
-                            <h3><u>Who</u> we are looking for?</h3>
-                        </div>
-
-                        <div id="programme-requirements-list">
-                            <CourseCheckpoint
-                                v-for="req in programme.details.requirements
-                                    .requirements"
-                                :key="req"
-                                :title="req"
-                            />
-                        </div>
-
-                        <div class="section-title">
-                            <h3>Our assessment process</h3>
-                        </div>
-
-                        <div id="programme-requirements-process">
-                            <CourseCheckpoint
-                                v-for="pro in programme.details.requirements
-                                    .processes"
-                                :key="pro"
-                                :title="pro"
-                            />
-                        </div>
-                    </div>
-                </div>
+                <PgmSectRequirements
+                    :requirements="programme.details.requirements.requirements"
+                    :processes="programme.details.requirements.processes"
+                />
             </div>
 
-            <div class="section" ref="outcomes" id="programme-outcomes">
-                <div class="container">
-                    <h1>Outcomes</h1>
-                </div>
+            <div ref="outcomes" v-if="checkEmpty('outcomes')">
+                <PgmSectOutcomes
+                    :offers="programme.details.outcomes.offers"
+                    :slug="programme.slug"
+                />
             </div>
         </div>
     </main>
@@ -280,20 +256,6 @@ onUnmounted(() => {
                 font-size: 1.1rem;
                 line-height: 1.7rem;
             }
-        }
-    }
-
-    &-requirements {
-        .container {
-            width: 900px;
-        }
-
-        &-list {
-            margin: 30px 0 70px;
-        }
-
-        &-process {
-            margin-top: 30px;
         }
     }
 }

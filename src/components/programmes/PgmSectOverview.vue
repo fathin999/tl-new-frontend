@@ -2,7 +2,7 @@
 import IconArrow from "../icons/IconArrow.vue";
 
 const props = defineProps({
-    img: String,
+    slug: String,
     paragraph: String,
 });
 
@@ -10,7 +10,14 @@ defineEmits(["scrollToPathways"]);
 
 const getPartners = () => {
     return new URL(
-        `/src/assets/programmes/programme-partner-logos-${props.img}.png`,
+        `/src/assets/programmes/programme-partner-logos-${props.slug}.png`,
+        import.meta.url
+    );
+};
+
+const getImg = () => {
+    return new URL(
+        `/src/assets/programmes/programme-overview-${props.slug}.png`,
         import.meta.url
     );
 };
@@ -42,53 +49,48 @@ const getPartners = () => {
             </div>
 
             <div id="programme-overview-img">
-                <img
-                    src="/src/assets/programmes/programme-overview.png"
-                    alt=""
-                />
+                <img :src="getImg()" alt="" />
             </div>
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
-#programme {
-    &-overview {
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            justify-content: space-between;
-            gap: 200px;
+#programme-overview {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        justify-content: space-between;
+        gap: 200px;
+    }
+
+    .section-title {
+        img {
+            width: 100%;
+            height: 35px;
+            object-fit: contain;
+            object-position: center left;
+            margin-bottom: 40px;
         }
 
-        .section-title {
-            img {
-                width: 100%;
-                height: 35px;
-                object-fit: contain;
-                object-position: center left;
-                margin-bottom: 40px;
-            }
-
-            p {
-                width: 100%;
-                margin: 40px 0 65px;
-                color: var(--black);
-                font-size: 1.1rem;
-                line-height: 1.7rem;
-            }
-
-            a {
-                position: relative;
-            }
+        p {
+            width: 100%;
+            margin: 40px 0 60px;
+            color: var(--black);
+            font-size: 1.1rem;
+            line-height: 1.7rem;
         }
 
-        &-img {
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
+        a {
+            position: relative;
+        }
+    }
+
+    &-img {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
     }
 }

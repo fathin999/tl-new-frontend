@@ -1,0 +1,105 @@
+<script setup>
+defineProps({
+    duration: String,
+    gap: String,
+    style: {type: Object, default: {}},
+    gradient: {type: Boolean, default: true},
+    blue: {type: Boolean, default: false},
+});
+</script>
+
+<template>
+    <div
+        :class="`slider-outer ${gradient ? 'gradient' : 'border-radius'} ${
+            blue ? 'blue' : 'white'
+        }`"
+    >
+        <div
+            class="slider-inner"
+            v-for="index in 2"
+            :key="`slider-list${index}`"
+            :style="{
+                animationDuration: duration + 's',
+                gap: gap + 'px',
+                paddingLeft: gap + 'px',
+                ...style,
+            }"
+        >
+            <slot />
+        </div>
+    </div>
+</template>
+
+<style scoped lang="scss">
+.slider {
+    &-outer {
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        width: 100%;
+    }
+
+    &-inner {
+        display: flex;
+        animation: slide 50s linear infinite;
+        gap: 0;
+    }
+
+    &-outer:hover .slider-inner {
+        animation-play-state: paused;
+    }
+}
+
+.border-radius {
+    border-radius: 30px;
+}
+
+@mixin gradient() {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100px;
+    z-index: 2;
+    top: 0;
+}
+
+.gradient::before {
+    @include gradient();
+    left: 0;
+}
+
+.gradient::after {
+    @include gradient();
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.blue::before,
+.blue::after {
+    background: rgb(243, 246, 251);
+    background: linear-gradient(
+        90deg,
+        rgba(243, 246, 251, 1) 0%,
+        rgba(243, 246, 251, 0) 100%
+    );
+}
+
+.white::before,
+.white::after {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+</style>

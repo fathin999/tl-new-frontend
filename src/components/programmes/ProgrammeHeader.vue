@@ -6,14 +6,21 @@ defineProps({
     title: String,
     tagline: String,
     subtext: String,
-    img: String,
+    slug: String,
 });
 
 defineEmits(["scrollToRef"]);
 
-const getImg = (img) => {
+const getImg = (slug) => {
     return new URL(
-        `/src/assets/programmes/programme-img-${img}.png`,
+        `/src/assets/programmes/programme-img-${slug}.png`,
+        import.meta.url
+    );
+};
+
+const getHeaderImg = (slug) => {
+    return new URL(
+        `/src/assets/programmes/programme-header-${slug}.svg`,
         import.meta.url
     );
 };
@@ -80,12 +87,12 @@ const getLogo = (logo) => {
 
                 <div id="programme-header-img">
                     <img
-                        :src="getImg(img)"
+                        :src="getImg(slug)"
                         alt=""
                         id="programme-header-img-img"
                     />
                     <img
-                        src="/src/assets/programmes/programme-header-circle.svg"
+                        :src="getHeaderImg(slug)"
                         alt=""
                         id="programme-header-img-circle"
                     />

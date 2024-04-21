@@ -4,7 +4,7 @@ import IconArrow from "../icons/IconArrow.vue";
 defineProps({
     title: String,
     logo: String,
-    img: String,
+    slug: String,
     partner: String,
     description: String,
     active: Boolean,
@@ -17,9 +17,9 @@ const getLogo = (logo) => {
     );
 };
 
-const getImg = (img) => {
+const getImg = (slug) => {
     return new URL(
-        `/src/assets/programmes/programme-img-${img}.png`,
+        `/src/assets/programmes/programme-img-${slug}.png`,
         import.meta.url
     );
 };
@@ -28,7 +28,7 @@ const getImg = (img) => {
 <template>
     <a class="pgm-item clickable" href="/special-programmes/1">
         <div class="pgm-item-img">
-            <img :src="getImg(img)" :alt="title" />
+            <img :src="getImg(slug)" :alt="title" />
         </div>
 
         <div class="pgm-item-title">

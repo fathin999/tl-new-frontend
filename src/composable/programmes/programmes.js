@@ -2,7 +2,7 @@ const programmes = [
     {
         title: "K-Youth Development Programme 2023",
         logo: "khazanah",
-        img: "kyouth",
+        slug: "kyouth",
         partner: "Khazanah",
         description:
             "K-Youth is a youth employability initiative by Khazanah Nasional Berhad (Khazanah) which aims to develop Malaysia's future talents.",
@@ -14,7 +14,6 @@ const programmes = [
             overview: {
                 paragraph:
                     "With a shared dedication to tackling unemployment, enhancing career prospects, and driving domestic economic recovery, Khazanah Nasional, in collaboration with TalentLabs and GKK Consultants, wholeheartedly commits to training and placing participants as part of the K-Youth Development Programme 2023, an initiative by the Ministry of Finance (MoF). Leveraging our vertical career platform, we are resolute in advancing your career aspirations and offering a robust trajectory towards a thriving technology career.",
-                offer: [""],
             },
             timeline: [
                 {
@@ -173,15 +172,15 @@ const programmes = [
                     ],
                 },
             ],
-            courses: {
-                courses: [
-                    "Certified Associate in Data Analytics",
-                    "Certified Associate in Frontend Development",
-                    "Certified Associate in Backend Development",
-                    "PwC Certified Associate in Penetration Testing",
-                ],
-                roles: ["Software Engineer", "Data Analyst", "Cybersecurity"],
-            },
+            // courses: {
+            //     courses: [
+            //         "Certified Associate in Data Analytics",
+            //         "Certified Associate in Frontend Development",
+            //         "Certified Associate in Backend Development",
+            //         "PwC Certified Associate in Penetration Testing",
+            //     ],
+            //     roles: ["Software Engineer", "Data Analyst", "Cybersecurity"],
+            // },
             requirements: {
                 requirements: [
                     "Recently unemployed or fresh graduates that are 30-year-old and below.",
@@ -200,14 +199,39 @@ const programmes = [
                 ],
             },
             outcomes: {
-                title: "",
+                offers: [
+                    {
+                        title: "Learn on-demand",
+                        description:
+                            "Equip yourself with the essential digital skills and knowledge needed to excel in today's workplace, all at your own pace.",
+                        img: "learn",
+                    },
+                    {
+                        title: "Employability support",
+                        description:
+                            "Provide personalized support and guidance to help you navigate the job market and match you with your dream career.",
+                        img: "support",
+                    },
+                    {
+                        title: "Industry-standard skills",
+                        description:
+                            "Stay relevant and competitive in the workforce by upskilling and staying current with all the in-demand digital technology skills and trends.",
+                        img: "skills",
+                    },
+                    {
+                        title: "Network opportunities",
+                        description:
+                            "Grow your career and seize global opportunities within TalentLabs' vast network of students, mentors, and hiring partners from all around the world.",
+                        img: "network",
+                    },
+                ],
             },
         },
     },
     {
         title: "Career Accelerator Programme 2023",
         logo: "mohe",
-        img: "cap",
+        slug: "cap",
         partner: "Ministry of Higher Education (Malaysia)",
         description:
             "GCAP is a collaborative initiative between the Ministry of Higher Education, TalentCorp and My Partners together with leading employers to enhance the employability of graduates.",
@@ -216,7 +240,7 @@ const programmes = [
     {
         title: "Google Career Certificates",
         logo: "google",
-        img: "google",
+        slug: "google",
         partner: "Google",
         description:
             "The Google Career Certificate program is an online training program that offers professional certificates in fast-growing, high-demand technology fields.",
@@ -225,7 +249,7 @@ const programmes = [
     {
         title: "IVE x TalentLabs Train-To-Hire Programme",
         logo: "ive",
-        img: "ive",
+        slug: "ive",
         partner: "IVE",
         description:
             "This programme provides exclusive accessive to hundreds of new tech job opportunities across the region. ",
@@ -234,7 +258,7 @@ const programmes = [
     {
         title: "Deep Tech & Future Skills Programme",
         logo: "mosti",
-        img: "dtfs",
+        slug: "dtfs",
         partner: "Ministry of Science, Technology and Innovation (Malaysia)",
         description:
             "Deeptech and Futureskills Upskilling and Reskilling is a strategic initiative by MOSTI under the National Employment Council (NEC). The main goals are job creation and placement programme that targets 5,000 Malaysians especially those affected by Covid-19 pandemic.",
@@ -243,7 +267,7 @@ const programmes = [
     {
         title: "MySTEP 2022",
         logo: "mof",
-        img: "mystep",
+        slug: "mystep",
         partner: "Ministry of Finance (Malaysia)",
         description:
             "MySTEP, or Malaysia Short-term Employment Programme, is a Government initiative that provides short-term employment (contracts) opportunities in various fields such as technology and finance.",
