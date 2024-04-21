@@ -3,6 +3,7 @@ defineProps({
     duration: String,
     gap: String,
     style: {type: Object, default: {}},
+    outerStyle: {type: Object, default: {}},
     gradient: {type: Boolean, default: true},
     blue: {type: Boolean, default: false},
 });
@@ -10,9 +11,10 @@ defineProps({
 
 <template>
     <div
-        :class="`slider-outer clickable ${
-            gradient ? 'gradient' : 'border-radius'
-        } ${blue ? 'blue' : 'white'}`"
+        :class="`slider-outer clickable ${gradient ? 'gradient' : ''} ${
+            blue ? 'blue' : 'white'
+        }`"
+        :style="outerStyle"
     >
         <div
             class="slider-inner"
@@ -51,15 +53,11 @@ defineProps({
     }
 }
 
-.border-radius {
-    border-radius: 25px;
-}
-
 @mixin gradient() {
     position: absolute;
     content: "";
     height: 100%;
-    width: 100px;
+    width: 80px;
     z-index: 2;
     top: 0;
 }

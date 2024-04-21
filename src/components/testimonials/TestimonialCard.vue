@@ -43,38 +43,48 @@ const getStudentCompany = (logo) => {
 </template>
 
 <style scoped lang="scss">
+$padding: 35px;
+
 .testimonial-card {
     border-radius: 20px;
-    width: 350px;
     flex-shrink: 0;
     flex-grow: 0;
-    padding: 35px;
+    padding: $padding;
+    padding-bottom: 50px;
     border: 1px solid gainsboro;
     background-color: white;
+    position: relative;
+    width: 100%;
+    height: 100%;
 
     &-photo {
-        $size: 70px;
+        $size: 45px;
         height: $size;
         width: $size;
     }
 
     h3 {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         line-height: 1.4rem;
         margin-top: 15px;
     }
 
     p {
+        font-size: 0.92rem;
+        line-height: 1.3rem;
         display: block;
-        margin: 20px 0 50px;
+        margin: 7px 0 50px;
+        color: var(--textMedium);
     }
 
     &-logo {
-        width: 120px;
-        margin-top: 10px;
+        width: 100px;
         height: 30px;
         object-fit: contain;
         object-position: bottom left;
+        position: absolute;
+        bottom: $padding;
+        left: $padding;
     }
 }
 </style>

@@ -8,7 +8,12 @@ const stats = getLandingHeroStats();
 </script>
 
 <template>
-    <Slider duration="45" gap="20" :gradient="false">
+    <Slider
+        duration="45"
+        gap="20"
+        :gradient="false"
+        :outerStyle="{borderRadius: '20px'}"
+    >
         <img
             src="/src/assets/landing-page/img-1.png"
             alt="People smiling"

@@ -144,7 +144,7 @@ const getScreen = (img) => {
         &-unclicked {
             svg,
             span {
-                opacity: 0.4;
+                opacity: 0.45;
             }
 
             svg {
@@ -153,17 +153,11 @@ const getScreen = (img) => {
         }
 
         &-clicked {
-            /* background-color: rgba(255, 255, 255, 0.1); */
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
 
+            span,
             svg {
                 opacity: 1;
-                fill: var(--purple);
-            }
-
-            span {
-                opacity: 1;
-                color: var(--purple);
             }
         }
 

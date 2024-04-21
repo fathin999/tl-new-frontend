@@ -1,5 +1,14 @@
 const testimonials = [
     {
+        name: "Evans Lam",
+        logo: "tvb",
+        comment:
+            "The upskilling and job placement experience at TalentLabs were some of the happiest moments in my life.",
+        slug: "el",
+        programme: "",
+        course: "",
+    },
+    {
         name: "Goh Jia Ean",
         logo: "nielsen",
         comment:
@@ -45,12 +54,57 @@ const testimonials = [
         course: "",
     },
     {
+        name: "Hussain Nisaar",
+        logo: "l2",
+        comment:
+            "Opting for TalentLabs Data Analytics Certificate was one of the best decisions I have made, I was impressed with the curriculum design.",
+        slug: "hn",
+        programme: "",
+        course: "",
+    },
+    {
         name: "Fuzeymi Sobri",
         logo: "pos",
         comment:
             "This course is great for beginners like me. I would like to thank the Talentlabs team for providing excellent guidance throughout.",
         slug: "fs",
         programme: "kyouth",
+        course: "",
+    },
+    {
+        name: "Azam Khalid",
+        logo: "harigaji",
+        comment:
+            "With the help of my mentors at TalentLabs, classmates, and instructors, I was able to gain a globally recognised certificate!",
+        slug: "ak",
+        programme: "",
+        course: "",
+    },
+    {
+        name: "Firdaus Jamaludin",
+        logo: "recruitopia",
+        comment:
+            "The guidance from the experienced team of instructors boosted my confidence and skills as a developer.",
+        slug: "fj",
+        programme: "",
+        course: "",
+    },
+    {
+        name: "Noor Aisyah",
+        logo: "telus",
+        comment:
+            "Coming from a biochemistry background, I had limited knowledge in tech. This programme is invaluable in helping me venture into a new field.",
+        slug: "na",
+        programme: "",
+        course: "",
+    },
+    {
+        name: "Eiman Salleh",
+        logo: "proximax",
+        comment:
+            "The TalentLabs' career support and CV workshop are truly incredible for my overall career journey.",
+        slug: "es",
+        programme: "",
         course: "",
     },
 ];
@@ -60,7 +114,26 @@ export const getTestimonialsFromProgramme = (pgm) => {
 };
 
 export const getLandingTestimonials = () => {
-    return testimonials;
+    let first = [];
+    let second = [];
+
+    testimonials.forEach((test) => {
+        if (
+            test.slug == "gje" ||
+            test.slug == "lwh" ||
+            test.slug == "keak" ||
+            test.slug == "el" ||
+            test.slug == "es" ||
+            test.slug == "na"
+        ) {
+            first.push(test);
+        } else second.push(test);
+    });
+
+    return {
+        first: first,
+        second: second,
+    };
 };
 
 export const getTestimonialsFromSlugs = (slugs) => {

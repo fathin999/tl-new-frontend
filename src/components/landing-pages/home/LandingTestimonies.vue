@@ -44,14 +44,23 @@ const testimonials = getLandingTestimonials();
                 </div>
             </div>
 
-            <div class="section-title-center" id="testimonies-list">
+            <div class="section-title-center" id="testimonies-title">
                 <h2>
                     Listen to our many <br />
                     <u>success</u> stories
                 </h2>
             </div>
 
-            <TestimonialList :testimonials="testimonials" :blue="true" />
+            <TestimonialList
+                :testimonials="testimonials.first"
+                :blue="true"
+                :outerStyle="{marginBottom: '20px'}"
+            />
+            <TestimonialList
+                :testimonials="testimonials.second"
+                :blue="true"
+                :style="{animationDelay: '2s'}"
+            />
         </div>
     </div>
 </template>
@@ -83,7 +92,7 @@ const testimonials = getLandingTestimonials();
         }
     }
 
-    &-list {
+    &-title {
         margin: 120px 0 60px;
     }
 }
