@@ -8,6 +8,7 @@ import IconFees from "../icons/courses/IconFees.vue";
 import IconOutcomes from "../icons/courses/IconOutcomes.vue";
 import {onMounted, onUnmounted, ref} from "vue";
 import {getCourseWithId, getTestimonials} from "@/composable/courses/courses";
+import {getTestimonialsFromSlugs} from "@/composable/testimonials/testimonials";
 import IconLevel from "../icons/courses/IconLevel.vue";
 import IconOnline from "../icons/courses/IconOnline.vue";
 import IconCertificate from "../icons/courses/IconCertificate.vue";
@@ -19,7 +20,7 @@ import CourseCheckpoint from "./CourseCheckpoint.vue";
 import CourseInstructor from "./CourseInstructor.vue";
 import CourseIconDescription from "./CourseIconDescription.vue";
 import CourseFinancing from "./CourseFinancing.vue";
-import CourseStudentCard from "./CourseStudentCard.vue";
+import TestimonialCard from "../testimonials/TestimonialCard.vue";
 
 // refs
 let active = ref(0);
@@ -54,7 +55,7 @@ const sections = [
 
 // fetch course through Id
 const course = getCourseWithId(1);
-const testimonials = getTestimonials();
+const testimonials = getTestimonialsFromSlugs(course.details.graduates);
 
 // static images
 const getLogo = () => {
@@ -335,14 +336,13 @@ onUnmounted(() => {
                     <h2>Hear from our graduates</h2>
 
                     <div id="course-section-testimonials">
-                        <CourseStudentCard
+                        <TestimonialCard
                             v-for="testimony in testimonials"
                             :key="testimony.name"
                             :name="testimony.name"
+                            :slug="testimony.slug"
+                            :comment="testimony.comment"
                             :logo="testimony.logo"
-                            :position="testimony.position"
-                            :img="testimony.img"
-                            :quote="testimony.quote"
                         />
                     </div>
 
@@ -527,7 +527,7 @@ onUnmounted(() => {
         display: flex;
         flex-direction: column;
         gap: 5px;
-        width: 250px;
+        width: 220px;
 
         .course-btn {
             padding: 15px 25px;

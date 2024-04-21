@@ -116,6 +116,7 @@ export const getCourseWithId = (id) => {
                 },
             ],
             instructors: ["darren", "anthony", "peter", "alvin"],
+            graduates: ["gje", "lwh"],
         },
     };
 };

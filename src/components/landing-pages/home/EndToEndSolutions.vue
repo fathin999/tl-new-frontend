@@ -153,22 +153,26 @@ const getScreen = (img) => {
         }
 
         &-clicked {
-            background-color: rgba(255, 255, 255, 0.1);
+            /* background-color: rgba(255, 255, 255, 0.1); */
+            background-color: rgba(0, 0, 0, 0.3);
 
-            span,
             svg {
                 opacity: 1;
+                fill: var(--purple);
+            }
+
+            span {
+                opacity: 1;
+                color: var(--purple);
             }
         }
 
         &-unclicked:hover {
             span {
                 opacity: 1;
-                color: var(--purple);
             }
 
             svg {
-                fill: var(--purple);
                 opacity: 1;
             }
         }

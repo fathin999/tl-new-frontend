@@ -56,7 +56,7 @@ import IconArrow from "@/components/icons/IconArrow.vue";
     }
 
     &-btns {
-        margin-top: 50px;
+        margin: 50px 0 60px;
         display: inline-flex;
         gap: 10px;
 

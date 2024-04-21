@@ -62,3 +62,14 @@ export const getTestimonialsFromProgramme = (pgm) => {
 export const getLandingTestimonials = () => {
     return testimonials;
 };
+
+export const getTestimonialsFromSlugs = (slugs) => {
+    let newTestimonials = [];
+
+    slugs.forEach((slug) => {
+        let test = testimonials.find((test) => test.slug === slug);
+        if (test) newTestimonials.push(test);
+    });
+
+    return newTestimonials;
+};

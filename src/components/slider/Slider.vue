@@ -10,9 +10,9 @@ defineProps({
 
 <template>
     <div
-        :class="`slider-outer ${gradient ? 'gradient' : 'border-radius'} ${
-            blue ? 'blue' : 'white'
-        }`"
+        :class="`slider-outer clickable ${
+            gradient ? 'gradient' : 'border-radius'
+        } ${blue ? 'blue' : 'white'}`"
     >
         <div
             class="slider-inner"
@@ -37,6 +37,7 @@ defineProps({
         position: relative;
         display: flex;
         width: 100%;
+        isolation: isolate;
     }
 
     &-inner {
@@ -51,7 +52,7 @@ defineProps({
 }
 
 .border-radius {
-    border-radius: 30px;
+    border-radius: 25px;
 }
 
 @mixin gradient() {

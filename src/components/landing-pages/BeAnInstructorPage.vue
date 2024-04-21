@@ -87,12 +87,12 @@ const getDutyImg = (i) => {
                         :key="duty.title"
                         class="instructor-duties-item"
                     >
+                        <img :src="getDutyImg(index)" :alt="duty.title" />
+
                         <div>
                             <h3>{{ duty.title }}</h3>
                             <p>{{ duty.description }}</p>
                         </div>
-
-                        <img :src="getDutyImg(index)" :alt="duty.title" />
                     </div>
                 </div>
             </div>
@@ -274,17 +274,17 @@ const getDutyImg = (i) => {
         }
 
         &-list {
-            margin-top: 50px;
+            margin-top: 60px;
 
             .instructor-duties-item {
                 background-color: var(--bgLight);
                 border-radius: 25px;
-                padding: 60px;
+                padding: 35px 90px 35px 30px;
                 margin-bottom: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 100px;
+                gap: 50px;
 
                 img {
                     flex-shrink: 0;

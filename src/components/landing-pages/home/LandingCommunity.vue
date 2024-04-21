@@ -44,7 +44,7 @@ const getClass = (i) => {
                     </p>
 
                     <a class="btn-black btn-arrow" href="/signup/choose-role">
-                        Join us now
+                        Join our family
                         <IconArrow />
                     </a>
                 </div>

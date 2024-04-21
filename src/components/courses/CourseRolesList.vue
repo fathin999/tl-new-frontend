@@ -68,12 +68,12 @@ const changeRole = (index) => {
 #courses {
     &-roles-list {
         display: grid;
-        grid-template-columns: 310px 1fr;
+        grid-template-columns: 220px 1fr;
+        gap: 80px;
     }
 
     &-btns {
-        padding-right: 80px;
-        $paddingLeft: 27px;
+        $paddingLeft: 25px;
 
         .courses-btn {
             padding: 18px $paddingLeft;

@@ -23,7 +23,7 @@ const solutions = [
         link: "Start now",
         href: "/signup/choose-role",
         icon: IconSolPortfolio,
-        slug: "portfolio",
+        slug: "projects",
     },
     {
         title: "Explore careers",
@@ -53,7 +53,7 @@ const solutions = [
         link: "Join us now",
         href: "/signup/choose-role",
         icon: IconSolNetwork,
-        slug: "network",
+        slug: "community",
     },
 ];
 

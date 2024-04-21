@@ -10,11 +10,11 @@ const programmes = getProgrammes();
 
 const stats = [
     {
-        title: "1,300+",
+        title: "10k +",
         subtext: "total students",
     },
     {
-        title: "90%",
+        title: "92%",
         subtext: "placement rate",
     },
     {

@@ -60,7 +60,7 @@ const testimonials = getLandingTestimonials();
 #testimonies {
     &-top {
         display: grid;
-        grid-template-columns: 1fr 550px;
+        grid-template-columns: 1fr 570px;
         align-items: center;
         gap: 120px;
     }
@@ -72,7 +72,7 @@ const testimonials = getLandingTestimonials();
     }
 
     &-images {
-        height: 420px;
+        height: 400px;
         position: relative;
 
         img {
