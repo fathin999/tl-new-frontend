@@ -1,56 +1,23 @@
 <script setup>
-import ArrowLink from "@/components/button/ArrowLink.vue";
+import IconArrow from "@/components/icons/IconArrow.vue";
+import {getSolutions} from "@/composable/view-models/platform-solutions";
 import {ref} from "vue";
 
 let active = ref(0);
 
-const solutions = [
-    {
-        title: "Learn skills",
-        screen: 0,
-        description:
-            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
-        link: "View courses",
-        href: "/courses",
-    },
-    {
-        title: "Build portfolio",
-        screen: 0,
-        description:
-            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
-        link: "View courses",
-        href: "/courses",
-    },
-    {
-        title: "Explore careers",
-        screen: 0,
-        description:
-            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
-        link: "See career paths",
-        href: "/courses",
-    },
-    {
-        title: "Get hired",
-        screen: 0,
-        description:
-            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
-        link: "Explore jobs",
-        href: "/jobs",
-    },
-    {
-        title: "Network",
-        screen: 0,
-        description:
-            "Learn in-demand digital skills and future-proof your career. Learn in-demand digital skills and future-proof your career.",
-        link: "Join us now",
-        href: "/signup/choose-role",
-    },
-];
+const solutions = getSolutions();
 
 const getBtnClass = (index) => {
     return index === active.value
         ? "about-btn active clickable"
         : "about-btn clickable";
+};
+
+const getScreen = (img) => {
+    return new URL(
+        `/src/assets/landing-page/platform/landing-platform-${img}.png`,
+        import.meta.url
+    );
 };
 </script>
 
@@ -58,10 +25,10 @@ const getBtnClass = (index) => {
     <div id="about-content">
         <div id="about-content-btns">
             <div
-                v-for="(solution, index) in solutions"
+                v-for="(solution, i) in solutions"
                 :key="solution.title"
-                :class="getBtnClass(index)"
-                @click="active = index"
+                :class="getBtnClass(i)"
+                @click="active = i"
             >
                 {{ solution.title }}
             </div>
@@ -69,19 +36,28 @@ const getBtnClass = (index) => {
 
         <div id="about-content-screen">
             <div id="about-content-screen-bg-container">
-                <img
-                    src="/src/assets/landing-page/solutions/solutions-screen.svg"
-                    alt="Solutions screen"
-                    id="about-content-screen-background"
-                />
+                <div id="about-content-screen-sidebar">
+                    <div
+                        v-for="(solution, i) in solutions"
+                        @click="active = i"
+                        :key="`sidebar-${solution.title}`"
+                        :class="`sidebar-icon clickable ${
+                            i === active
+                                ? 'sidebar-clicked'
+                                : 'sidebar-unclicked'
+                        }`"
+                    >
+                        <component :is="solution.icon" />
+                        <span>{{ solution.slug }}</span>
+                    </div>
+                </div>
 
-                <img
-                    src="/src/assets/landing-page/solutions/solutions-learn.png"
-                    alt="Solutions - Learn"
-                    id="about-content-screen-specific"
-                />
-
-                <div id="about-content-screen-select-bg" />
+                <div id="about-content-screen-item">
+                    <img
+                        :src="getScreen(solutions[active].slug)"
+                        alt="Solutions - Learn"
+                    />
+                </div>
             </div>
 
             <div id="about-content-screen-description">
@@ -92,10 +68,10 @@ const getBtnClass = (index) => {
                     </p>
                 </div>
 
-                <ArrowLink
-                    :title="solutions[active].link"
-                    :href="solutions[active].href"
-                />
+                <a :href="solutions[active].href" class="btn-arrow btn-primary">
+                    {{ solutions[active].link }}
+                    <IconArrow />
+                </a>
             </div>
         </div>
     </div>
@@ -108,7 +84,7 @@ const getBtnClass = (index) => {
 
     &-btns {
         display: inline-flex;
-        gap: 10px;
+        gap: 5px;
         margin: auto;
         padding: 7px;
         border: 1px solid rgba(0, 0, 0, 0.4);
@@ -116,7 +92,6 @@ const getBtnClass = (index) => {
     }
 
     .about-btn {
-        transition: background 0.4s ease-out;
         background-color: white;
         padding: 15px 20px;
         border-radius: 230px;
@@ -139,49 +114,134 @@ const getBtnClass = (index) => {
         background-color: var(--black);
     }
 
+    .sidebar {
+        &-icon {
+            $iconSize: 55px;
+            height: $iconSize;
+            width: $iconSize;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 17px;
+            transition: background 0.3s ease-out;
+
+            svg {
+                $svgSize: 17px;
+                height: $svgSize;
+                width: $svgSize;
+                fill: white;
+            }
+
+            span {
+                font-size: 0.55rem;
+                text-transform: capitalize;
+                margin-top: 5px;
+                color: white;
+            }
+        }
+
+        &-unclicked {
+            svg,
+            span {
+                opacity: 0.4;
+            }
+
+            svg {
+                fill: white;
+            }
+        }
+
+        &-clicked {
+            background-color: rgba(255, 255, 255, 0.1);
+
+            span,
+            svg {
+                opacity: 1;
+            }
+        }
+
+        &-unclicked:hover {
+            span {
+                opacity: 1;
+                color: var(--purple);
+            }
+
+            svg {
+                fill: var(--purple);
+                opacity: 1;
+            }
+        }
+    }
+
     &-screen {
         $padding: 60px;
         $borderRadius: 20px;
 
         margin-top: 30px;
         position: relative;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        flex-direction: column;
+        display: flex;
         align-items: center;
         background: var(--bgMedium);
-        border-radius: $borderRadius;
+        border-radius: 20px;
         text-align: left;
+        padding: 60px 70px;
+        gap: 80px;
 
-        img {
+        $height: 340px;
+        $margin: 8px;
+        $width: 73px;
+        $screenHeight: calc($height - $margin * 2);
+        $screenRatio: calc(534 / 326);
+        $scaleRatio: calc($height / $screenHeight);
+
+        &-sidebar {
+            $largeRadius: 27px;
+            $smallRadius: 15px;
+            height: $height;
+            width: $width;
+            border-top-left-radius: $largeRadius;
+            border-bottom-left-radius: $largeRadius;
+            border-top-right-radius: $smallRadius;
+            border-bottom-right-radius: $smallRadius;
+            background-color: var(--darkBlue);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            z-index: 5;
+        }
+
+        &-item {
             object-fit: contain;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            height: $screenHeight;
+            width: calc($screenRatio * $screenHeight);
+            margin-top: $margin;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+            transition: transform 0.3s ease-out;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        &-item:hover {
+            transform: scale($scaleRatio);
         }
 
         &-bg-container {
-            position: relative;
             width: 100%;
-            padding: $padding;
-        }
-
-        &-background {
-            border-radius: $borderRadius;
-            width: 100%;
-        }
-
-        &-specific {
-            position: absolute;
-            height: calc(100% - ($padding * 2) - 40px);
-            width: calc(100% - ($padding * 2));
-            bottom: $padding;
-            left: $padding;
-            border-radius: $borderRadius;
+            display: flex;
+            justify-content: center;
         }
 
         &-description {
-            padding-right: calc($padding * 1.5);
-            padding-left: calc($padding / 2);
-            width: 100%;
-
             h4 {
                 font-size: 1.3rem;
             }
@@ -190,14 +250,6 @@ const getBtnClass = (index) => {
                 color: var(--textMedium);
                 margin: 15px 0 35px;
             }
-        }
-
-        &-select-bg {
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
     }
 }
