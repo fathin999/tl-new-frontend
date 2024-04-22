@@ -10,7 +10,7 @@ import Slider from "../../slider/Slider.vue";
             </div>
 
             <div id="trusted-slider">
-                <Slider duration="50" :blue="true">
+                <Slider duration="45" :blue="true">
                     <img
                         alt="logo"
                         src="/src/assets/landing-page/trusted/logo-set-all.png"

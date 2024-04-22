@@ -1,7 +1,7 @@
 <script setup>
 defineProps({
     duration: String,
-    gap: String,
+    gap: {type: String, default: "0"},
     style: {type: Object, default: {}},
     outerStyle: {type: Object, default: {}},
     gradient: {type: Boolean, default: true},
