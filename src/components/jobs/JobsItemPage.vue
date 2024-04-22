@@ -11,100 +11,25 @@ import SimilarJobCard from "./SimilarJobCard.vue";
 import IconPeople from "../icons/jobs/IconPeople.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import JobsList from "./JobsList.vue";
+import {
+    getJob,
+    getOtherJobsFromEmployer,
+    getOtherSimilarJobs,
+    getTime,
+} from "../../composable/jobs/jobs";
+import {getEmployerFromSlug} from "@/composable/employers/employers";
 
-const job = {
-    title: "Network Infrastructure Engineer",
-    employer: {
-        title: "Fave",
-        logo: "fave",
-        industry: "Retail",
-        size: "1000+ employees",
-        location: "Eastern, Hong Kong",
-    },
-    location: "Eastern, Hong Kong",
-    type: "Full-time",
-    role: "Networking and Database",
-    createdAt: "Wed Mar 27 2024 01:06:25 GMT+0800 (Malaysia Time)",
-    level: "Associate",
-    remote: "Remote",
-};
+const job = getJob();
+const employer = getEmployerFromSlug(job.employer);
 
-const similarJobs = [
-    {
-        id: 1,
-        logo: "wristcheck",
-        title: "Junior Software Engineer (Frontend)",
-        location: "Hong Kong",
-        employer: "WRISTCHECK",
-    },
-    {
-        id: 2,
-        logo: "dolphin",
-        title: "eCommerce Data Operations Specialist",
-        location: "Central, Hong Kong",
-        employer: "Dolphin Pharmaceuticals",
-    },
-    {
-        id: 3,
-        logo: "fave",
-        title: "Software Engineer (Backend)",
-        location: "Kuala Lumpur, Malaysia",
-        employer: "Fave",
-    },
-    {
-        id: 4,
-        logo: "dolphin",
-        title: "eCommerce Data Operations Specialist",
-        location: "Central, Hong Kong",
-        employer: "Dolphin Pharmaceuticals",
-    },
-];
+const similarJobs = getOtherSimilarJobs(job.role, job.title);
 
-const otherJobs = [
-    {
-        id: 1,
-        logo: "fave",
-        title: "Junior Software Engineer (Frontend)",
-        location: "Hong Kong",
-        type: "Full-time",
-        remote: "Onsite",
-        featured: false,
-        employer: "Fave",
-    },
-    {
-        id: 2,
-        logo: "fave",
-        title: "eCommerce Data Operations Specialist",
-        location: "Central, Hong Kong",
-        type: "Part-time",
-        remote: "Onsite",
-        featured: false,
-        employer: "Fave",
-    },
-    {
-        id: 3,
-        logo: "fave",
-        title: "Software Engineer (Backend)",
-        location: "Kuala Lumpur, Malaysia",
-        type: "Contract",
-        remote: "Remote",
-        featured: false,
-        employer: "Fave",
-    },
-];
-
-const getTime = () => {
-    const today = new Date();
-    const created = new Date(job.createdAt);
-    const ms = Math.abs(today - created); // difference in milliseconds
-    const days = Math.floor(ms / (3600000 * 24)); // milliseconds to days
-    return `${days} days ago`;
-};
+const otherJobs = getOtherJobsFromEmployer(job.employer, job.title);
 
 // static images
-const getLogo = () => {
+const getLogo = (slug) => {
     return new URL(
-        `/src/assets/jobs/employer-logo-${job.employer.logo}.png`,
+        `/src/assets/employers/employer-square-${slug}.png`,
         import.meta.url
     );
 };
@@ -126,11 +51,18 @@ const getLogo = () => {
             <div id="job-overview">
                 <h1>{{ job.title }}</h1>
 
-                <div id="job-overview-employer" class="clickable">
-                    <img :src="getLogo()" :alt="job.employer.title" />
+                <a
+                    id="job-overview-employer"
+                    class="clickable"
+                    href="/employers"
+                >
+                    <img
+                        :src="getLogo(employer.slug)"
+                        :alt="employer.shortTitle"
+                    />
 
-                    <span>{{ job.employer.title }}</span>
-                </div>
+                    <span>{{ employer.shortTitle }}</span>
+                </a>
 
                 <div id="job-overview-summary">
                     <div
@@ -158,7 +90,7 @@ const getLogo = () => {
 
                     <div class="job-summary-item">
                         <IconTime />
-                        <span>{{ getTime() }}</span>
+                        <span>{{ getTime(job.createdAt) }}</span>
                     </div>
                 </div>
             </div>
@@ -290,7 +222,7 @@ const getLogo = () => {
                 </div>
             </div>
 
-            <div id="job-content-similar">
+            <div id="job-content-similar" v-if="similarJobs.length !== 0">
                 <h2>Similar jobs</h2>
 
                 <SimilarJobCard
@@ -305,28 +237,30 @@ const getLogo = () => {
         </div>
 
         <div id="job-company">
-            <h2>More about {{ job.employer.title }}</h2>
+            <h2>More about {{ employer.shortTitle }}</h2>
 
             <a id="job-company-card" href="/employers">
                 <div id="job-company-card-title">
-                    <img :src="getLogo()" :alt="job.employer.title" />
-
-                    <h1>{{ job.employer.title }}</h1>
+                    <img
+                        :src="getLogo(employer.slug)"
+                        :alt="employer.shortTitle"
+                    />
+                    <h1>{{ employer.title }}</h1>
                 </div>
 
-                <div class="job-company-detail">
+                <div class="job-company-detail one-line">
                     <IconLocationOutline />
-                    {{ job.employer.location }}
-                </div>
-
-                <div class="job-company-detail">
-                    <IconPeople />
-                    {{ job.employer.size }}
+                    {{ employer.location }}
                 </div>
 
                 <div class="job-company-detail">
                     <IconBuilding />
-                    {{ job.employer.industry }}
+                    {{ employer.industry }}
+                </div>
+
+                <div class="job-company-detail">
+                    <IconPeople />
+                    {{ employer.size }}
                 </div>
 
                 <div id="job-company-card-btn">
@@ -335,9 +269,11 @@ const getLogo = () => {
                 </div>
             </a>
 
-            <h2>Other jobs from {{ job.employer.title }}</h2>
+            <div v-if="otherJobs.length !== 0">
+                <h2>Other jobs from {{ employer.shortTitle }}</h2>
 
-            <JobsList :card="true" :jobs="otherJobs" />
+                <JobsList :jobs="otherJobs" />
+            </div>
         </div>
     </main>
 
@@ -411,12 +347,12 @@ const getLogo = () => {
             align-items: center;
 
             img {
-                $size: 40px;
+                $size: 45px;
                 height: $size;
                 width: $size;
                 border-radius: 50%;
                 margin-right: 10px;
-                border: 1px solid whitesmoke;
+                border: 1px solid gainsboro;
             }
 
             span {
@@ -506,7 +442,6 @@ const getLogo = () => {
             display: flex;
             flex-wrap: wrap;
             column-gap: 50px;
-            row-gap: 30px;
             transition: border 0.3s ease-out;
             position: relative;
 
@@ -514,31 +449,40 @@ const getLogo = () => {
                 display: flex;
                 align-items: center;
                 width: 100%;
+                margin-bottom: 25px;
 
                 img {
-                    $size: 60px;
+                    $size: 65px;
                     height: $size;
                     width: $size;
                     border-radius: 50%;
+                    border: 1px solid gainsboro;
                 }
 
                 h1 {
                     margin-left: 20px;
-                    font-size: 1.5rem;
+                    font-size: 1.3rem;
+                    line-height: 1.9rem;
+                    padding-right: 200px;
                 }
             }
 
             .job-company-detail {
                 display: flex;
                 align-items: center;
+                margin-top: 15px;
 
                 svg {
-                    $size: 18px;
+                    $size: 16px;
                     height: $size;
                     width: $size;
                     fill: var(--textMedium);
-                    margin-right: 10px;
+                    margin-right: 15px;
                 }
+            }
+
+            .one-line {
+                width: 100%;
             }
 
             &-btn {

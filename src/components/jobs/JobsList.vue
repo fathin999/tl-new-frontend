@@ -16,14 +16,15 @@ const getId = () => {
         <VerticalJobCard
             v-for="job in jobs"
             :key="job.id"
-            :logo="job.logo"
             :title="job.title"
             :employer="job.employer"
             :location="job.location"
             :type="job.type"
             :remote="job.remote"
+            :role="job.role"
             :featured="false"
             :card="card"
+            :createdAt="job.createdAt"
         />
     </div>
 </template>

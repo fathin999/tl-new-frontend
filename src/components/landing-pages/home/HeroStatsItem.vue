@@ -24,7 +24,7 @@ const getClass = () => {
 <template>
     <div :class="getClass()">
         <div class="slider-icon">
-            <IconHeroChart />
+            <slot />
         </div>
 
         <h2>{{ title }}</h2>
@@ -34,7 +34,7 @@ const getClass = () => {
 
 <style scoped lang="scss">
 .stats {
-    padding: 40px;
+    padding: 37px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -52,14 +52,6 @@ const getClass = () => {
 
     .slider-icon {
         flex: 1;
-
-        svg {
-            $iconSize: 45px;
-
-            height: $iconSize;
-            width: $iconSize;
-            fill: var(--black);
-        }
     }
 }
 

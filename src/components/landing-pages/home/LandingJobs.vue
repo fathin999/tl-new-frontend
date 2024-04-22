@@ -2,36 +2,9 @@
 import IconArrow from "@/components/icons/IconArrow.vue";
 import IconChevron from "@/components/icons/IconChevron.vue";
 import LandingJobCard from "@/components/jobs/LandingJobCard.vue";
+import {getFeaturedJobs} from "@/composable/jobs/jobs";
 
-const jobs = [
-    {
-        id: 1,
-        logo: "wristcheck",
-        title: "Junior Software Engineer (Frontend)",
-        location: "Hong Kong",
-        type: "Full-time",
-        remote: "Onsite",
-        employer: "WRISTCHECK",
-    },
-    {
-        id: 2,
-        logo: "dolphin",
-        title: "eCommerce Data Operations Specialist",
-        location: "Central, Hong Kong",
-        type: "Part-time",
-        remote: "Hybrid",
-        employer: "Dolphin Pharmaceuticals",
-    },
-    {
-        id: 3,
-        logo: "fave",
-        title: "Software Engineer (Backend)",
-        location: "Kuala Lumpur, Malaysia",
-        type: "Contract",
-        remote: "Remote",
-        employer: "Fave",
-    },
-];
+const jobs = getFeaturedJobs();
 </script>
 
 <template>
@@ -61,7 +34,6 @@ const jobs = [
                         <LandingJobCard
                             v-for="job in jobs"
                             :key="job.id"
-                            :logo="job.logo"
                             :title="job.title"
                             :employer="job.employer"
                             :location="job.location"

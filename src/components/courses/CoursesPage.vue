@@ -234,7 +234,7 @@ const selectOption = (index, option, type) => {
             <SearchBar />
 
             <div class="container">
-                <div>
+                <div id="courses-filter">
                     <h1>Filter by:</h1>
 
                     <FiltersList
@@ -265,12 +265,19 @@ const selectOption = (index, option, type) => {
         gap: 100px;
         justify-content: space-between;
         padding-top: 40px;
+        align-items: flex-start;
 
         h1 {
             font-size: 0.95rem;
             color: var(--textLight);
             padding-bottom: 25px;
         }
+    }
+
+    &-filter {
+        position: sticky;
+        top: 120px;
+        left: 0;
     }
 }
 </style>

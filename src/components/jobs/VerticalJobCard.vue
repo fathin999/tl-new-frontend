@@ -1,9 +1,16 @@
 <script setup>
+import {getEmployerName} from "@/composable/employers/employers";
 import IconStar from "../icons/IconStar.vue";
 import IconBookmark from "../icons/jobs/IconBookmark.vue";
+import IconLocationOutline from "@/components/icons/jobs/IconLocationOutline.vue";
+import IconPeople from "@/components/icons/jobs/IconPeople.vue";
+import IconBriefcase from "@/components/icons/jobs/IconBriefcase.vue";
+import IconBuilding from "@/components/icons/jobs/IconBuilding.vue";
+import IconSpanner from "@/components/icons/jobs/IconSpanner.vue";
+import IconTime from "@/components/icons/jobs/IconTime.vue";
+import {getTime} from "../../composable/jobs/jobs";
 
 const props = defineProps({
-    logo: String,
     title: String,
     employer: String,
     location: String,
@@ -11,12 +18,14 @@ const props = defineProps({
     remote: String,
     featured: Boolean,
     card: Boolean,
+    role: String,
+    createdAt: String,
 });
 
 // static images
 const getLogo = () => {
     return new URL(
-        `/src/assets/jobs/employer-logo-${props.logo}.png`,
+        `/src/assets/employers/employer-square-${props.employer}.png`,
         import.meta.url
     );
 };
@@ -49,16 +58,35 @@ const getRemoteClass = () => {
             </a>
         </div>
 
-        <a href="/employers">
-            <p>{{ employer }}</p>
+        <a href="/employers" class="job-item-employer">
+            <p>{{ getEmployerName(employer) }}</p>
         </a>
 
         <div class="job-item-details">
-            <span> {{ location }} <b>·</b> {{ type }} </span>
+            <IconLocationOutline />
+            <span> {{ location }}</span>
+        </div>
 
-            <div :class="getRemoteClass()">{{ remote }}</div>
+        <div class="job-item-details-two">
+            <div class="job-item-details">
+                <IconBriefcase />
+                <span> {{ type }}</span>
+            </div>
 
-            <br />
+            <div class="job-item-details">
+                <IconBuilding />
+                <span> {{ remote }} </span>
+            </div>
+
+            <div class="job-item-details">
+                <IconTime />
+                <span>{{ getTime(createdAt) }}</span>
+            </div>
+        </div>
+
+        <div class="job-item-details">
+            <IconSpanner />
+            <span>{{ role }}</span>
         </div>
 
         <div v-if="featured" class="job-item-featured">
@@ -77,11 +105,11 @@ const getRemoteClass = () => {
 </template>
 
 <style scoped lang="scss">
-$padding: 25px;
+$padding: 27px;
 $btnsWidth: 160px;
 
 .job-item {
-    $imgSize: 60px;
+    $imgSize: 55px;
     $leftPadding: calc($imgSize + 30px);
     $btnsWidth: 160px;
 
@@ -111,19 +139,48 @@ $btnsWidth: 160px;
     }
 
     p {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        margin: 0 0 7px;
+        color: var(--textLight);
+    }
+
+    &-employer:hover {
+        p {
+            color: var(--purple);
+            text-decoration: underline;
+        }
     }
 
     &-details {
         position: static;
         margin: 5px 0 0;
+        display: flex;
+        align-items: center;
+
+        svg {
+            $size: 14px;
+            fill: var(--textMedium);
+            height: $size;
+            width: $size;
+            margin-right: 15px;
+        }
 
         span {
-            font-size: 0.9rem;
+            font-size: 0.93rem;
+            color: var(--black);
+
+            b {
+                padding: 0 7px;
+            }
         }
 
         &-style {
             display: inline-block;
+        }
+
+        &-two {
+            display: flex;
+            gap: 50px;
         }
     }
 

@@ -7,69 +7,9 @@ import JobsList from "./JobsList.vue";
 import IconSearch from "../icons/IconSearch.vue";
 import SearchBar from "../browse/SearchBar.vue";
 import {reactive} from "vue";
+import {getAllJobs} from "../../composable/jobs/jobs";
 
-const jobs = [
-    {
-        id: 1,
-        logo: "wristcheck",
-        title: "Junior Software Engineer (Frontend)",
-        location: "Hong Kong",
-        type: "Full-time",
-        remote: "Onsite",
-        featured: true,
-        employer: "WRISTCHECK",
-    },
-    {
-        id: 2,
-        logo: "dolphin",
-        title: "eCommerce Data Operations Specialist",
-        location: "Central, Hong Kong",
-        type: "Part-time",
-        remote: "Hybrid",
-        featured: true,
-        employer: "Dolphin Pharmaceuticals",
-    },
-    {
-        id: 3,
-        logo: "fave",
-        title: "Software Engineer (Backend)",
-        location: "Kuala Lumpur, Malaysia",
-        type: "Contract",
-        remote: "Remote",
-        featured: false,
-        employer: "Fave",
-    },
-    {
-        id: 4,
-        logo: "wristcheck",
-        title: "Junior Software Engineer (Frontend)",
-        location: "Hong Kong",
-        type: "Full-time",
-        remote: "Onsite",
-        featured: false,
-        employer: "WRISTCHECK",
-    },
-    {
-        id: 5,
-        logo: "dolphin",
-        title: "eCommerce Data Operations Specialist",
-        location: "Central, Hong Kong",
-        type: "Part-time",
-        remote: "Hybrid",
-        featured: false,
-        employer: "Dolphin Pharmaceuticals",
-    },
-    {
-        id: 6,
-        logo: "fave",
-        title: "Software Engineer (Backend)",
-        location: "Kuala Lumpur, Malaysia",
-        type: "Contract",
-        remote: "Remote",
-        featured: false,
-        employer: "Fave",
-    },
-];
+const jobs = getAllJobs();
 
 const filters = reactive([
     {
@@ -82,14 +22,6 @@ const filters = reactive([
                 selected: true,
             },
             {
-                title: "Frontend developer",
-                selected: false,
-            },
-            {
-                title: "Backend developer",
-                selected: false,
-            },
-            {
                 title: "UI / UX designer",
                 selected: false,
             },
@@ -98,15 +30,7 @@ const filters = reactive([
                 selected: false,
             },
             {
-                title: "Data analyst",
-                selected: false,
-            },
-            {
-                title: "Database engineer",
-                selected: false,
-            },
-            {
-                title: "Network & systems administrator",
+                title: "Data science",
                 selected: false,
             },
             {
@@ -114,15 +38,19 @@ const filters = reactive([
                 selected: false,
             },
             {
+                title: "Consulting & systems integration",
+                selected: false,
+            },
+            {
                 title: "IT Support",
                 selected: false,
             },
             {
-                title: "Digital marketer",
+                title: "Network & systems administrator",
                 selected: false,
             },
             {
-                title: "Social media manager",
+                title: "Digital marketing",
                 selected: false,
             },
             {
@@ -130,7 +58,7 @@ const filters = reactive([
                 selected: false,
             },
             {
-                title: "Content & multimedia",
+                title: "Multimedia",
                 selected: false,
             },
             {
@@ -138,11 +66,11 @@ const filters = reactive([
                 selected: false,
             },
             {
-                title: "Business & finance",
+                title: "Business & management",
                 selected: false,
             },
             {
-                title: "Sales",
+                title: "Sales & accounts",
                 selected: false,
             },
             {
@@ -268,7 +196,7 @@ const selectOption = (index, option, type) => {
             <SearchBar />
 
             <div id="jobs-content" class="container">
-                <div>
+                <div id="jobs-content-filter">
                     <h1>Filter by:</h1>
 
                     <FiltersList
@@ -299,11 +227,19 @@ const selectOption = (index, option, type) => {
         gap: 120px;
         justify-content: space-between;
         padding-top: 40px;
+        align-items: flex-start;
+        position: relative;
 
         h1 {
             font-size: 0.95rem;
             color: var(--textLight);
             padding-bottom: 25px;
+        }
+
+        &-filter {
+            position: sticky;
+            top: 120px;
+            left: 0;
         }
     }
 }

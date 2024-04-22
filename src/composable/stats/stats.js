@@ -1,3 +1,8 @@
+import IconHeroJob from "@/components/icons/landingPage/hero/IconHeroJob.vue";
+import IconHeroMatch from "@/components/icons/landingPage/hero/IconHeroMatch.vue";
+import IconHeroSeeker from "@/components/icons/landingPage/hero/IconHeroSeeker.vue";
+import IconHeroPlacement from "@/components/icons/landingPage/hero/IconHeroPlacement.vue";
+
 const stats = [
     {
         title: "10k +",
@@ -8,6 +13,7 @@ const stats = [
         title: "92%",
         subtext: "placement rate",
         slug: "placement",
+        icon: IconHeroPlacement,
     },
     {
         title: "60+",
@@ -18,16 +24,19 @@ const stats = [
         title: "5k +",
         subtext: "matches made",
         slug: "matches",
+        icon: IconHeroMatch,
     },
     {
         title: "10k +",
         subtext: "tech jobs available",
         slug: "jobs",
+        icon: IconHeroJob,
     },
     {
         title: "8k +",
         subtext: "job seekers",
         slug: "seekers",
+        icon: IconHeroSeeker,
     },
 ];
 

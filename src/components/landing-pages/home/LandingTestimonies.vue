@@ -47,7 +47,7 @@ const testimonials = getLandingTestimonials();
             <div class="section-title-center" id="testimonies-title">
                 <h2>
                     Listen to our many <br />
-                    <u>success</u> stories
+                    <u>success stories</u>
                 </h2>
             </div>
 

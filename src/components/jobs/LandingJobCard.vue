@@ -2,9 +2,9 @@
 import IconLocation from "@/components/icons/jobs/IconLocation.vue";
 import IconWork from "@/components/icons/jobs/IconWork.vue";
 import IconStar from "@/components/icons/IconStar.vue";
+import {getEmployerName} from "@/composable/employers/employers";
 
 const props = defineProps({
-    logo: String,
     title: String,
     employer: String,
     location: String,
@@ -16,9 +16,19 @@ const props = defineProps({
 
 const getLogo = () => {
     return new URL(
-        `/src/assets/jobs/employer-logo-${props.logo}.png`,
+        `/src/assets/employers/employer-square-${props.employer}.png`,
         import.meta.url
     );
+};
+
+const getRemoteClass = () => {
+    const cls = "job-item-details-style style-";
+
+    return props.remote === "Remote"
+        ? cls + "red"
+        : props.remote === "Onsite"
+        ? cls + "blue"
+        : cls + "orange";
 };
 </script>
 
@@ -33,7 +43,7 @@ const getLogo = () => {
         </div>
 
         <a href="/employers">
-            <p>{{ employer }}</p>
+            <p>{{ getEmployerName(employer) }}</p>
         </a>
 
         <div class="job-item-details">
@@ -45,7 +55,7 @@ const getLogo = () => {
             <div class="job-item-details-item">
                 <IconWork />
                 <span> {{ type }} </span>
-                <div class="job-item-details-style style-blue">
+                <div :class="getRemoteClass()">
                     {{ remote }}
                 </div>
             </div>

@@ -31,7 +31,9 @@ const stats = getLandingHeroStats();
                 :title="stats[0].title"
                 :subtext="stats[0].subtext"
                 :green="true"
-            />
+            >
+                <component :is="stats[0].icon" />
+            </HeroStatsItem>
         </div>
 
         <img
@@ -45,7 +47,9 @@ const stats = getLandingHeroStats();
                 :title="stats[1].title"
                 :subtext="stats[1].subtext"
                 :purple="true"
-            />
+            >
+                <component :is="stats[1].icon" />
+            </HeroStatsItem>
         </div>
 
         <img
@@ -59,14 +63,15 @@ const stats = getLandingHeroStats();
                 :title="stats[2].title"
                 :subtext="stats[2].subtext"
                 :blue="true"
-            />
+            >
+                <component :is="stats[2].icon" />
+            </HeroStatsItem>
         </div>
 
         <div class="slider-item-s">
-            <HeroStatsItem
-                :title="stats[3].title"
-                :subtext="stats[3].subtext"
-            />
+            <HeroStatsItem :title="stats[3].title" :subtext="stats[3].subtext">
+                <component :is="stats[3].icon" class="dark" />
+            </HeroStatsItem>
         </div>
     </Slider>
 </template>
@@ -92,6 +97,17 @@ const stats = getLandingHeroStats();
 
         &-s {
             @include item(250px);
+
+            svg {
+                height: 43px;
+                width: 47px;
+                fill: var(--black);
+                margin-top: 10px;
+            }
+
+            .dark {
+                fill: rgba(255, 255, 255, 0.9);
+            }
         }
     }
 }

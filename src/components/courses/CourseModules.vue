@@ -14,6 +14,11 @@ const getClass = (index) => {
     let cls = "module-item ";
     return opened[index] ? cls + "module-open" : cls;
 };
+
+const getModuleNumber = (index) => {
+    if (index < 9) return `0${index + 1}`;
+    else return index + 1;
+};
 </script>
 
 <template>
@@ -33,8 +38,11 @@ const getClass = (index) => {
                     {{ mod.title }}
                 </span>
 
-                <IconChevron />
+                <div class="module-item-icon">
+                    <IconChevron />
+                </div>
             </div>
+
             <div class="module-item-outcomes">
                 <CourseCheckpoint
                     v-for="outcome in mod.outcomes"
@@ -47,42 +55,62 @@ const getClass = (index) => {
 </template>
 
 <style scoped lang="scss">
-$padding: 40px;
-$border: 1px solid var(--borderMedium);
-
 #modules {
     margin-top: 40px;
+    position: relative;
+    border-bottom: 1px solid gainsboro;
 }
 
 .module-item {
-    border: $border;
     overflow: hidden;
-    border-radius: 15px;
-    margin-bottom: 10px;
+    padding: 7px 0;
+    border-top: 1px solid gainsboro;
+    position: relative;
+
+    &-icon {
+    }
 
     &-header {
-        padding: 22px $padding;
-        font-weight: 500;
-        font-size: 1.15rem;
         display: flex;
         align-items: center;
+        border-radius: 10px;
+        padding: 20px 10px;
 
         h6 {
             color: var(--purple);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-right: 10px;
+            width: 90px;
         }
 
         span {
+            margin-right: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
             flex: 1;
         }
+    }
+
+    &-icon {
+        $size: 22px;
+        height: $size;
+        width: $size;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--purple);
+        background-color: var(--purple);
 
         svg {
-            $size: 17px;
-            height: $size;
-            width: $size;
+            $iconSize: 12px;
+            height: $iconSize;
+            width: $iconSize;
             transform: rotate(90deg);
             transition: transform 0.3s ease-out;
+            margin-top: 2px;
+            fill: var(--purple);
+            fill: white;
         }
     }
 
@@ -92,7 +120,8 @@ $border: 1px solid var(--borderMedium);
 
     &-outcomes {
         overflow: hidden;
-        padding: 0 $padding;
+        padding-left: 110px;
+        padding-right: 30px;
         height: 0;
         transition: height 0.3s ease-out, padding 0.3s ease-out;
     }
@@ -105,14 +134,15 @@ $border: 1px solid var(--borderMedium);
 
             svg {
                 transform: rotate(90deg) scaleX(-1);
+                margin-top: 0;
             }
         }
 
         &-outcomes {
             height: auto;
-            padding: $padding;
-            padding-top: 25px;
-            border-top: $border;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            position: relative;
         }
     }
 }

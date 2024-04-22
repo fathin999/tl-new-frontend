@@ -1,5 +1,7 @@
 <script setup>
 import IconLocation from "../icons/jobs/IconLocation.vue";
+import IconLocationOutline from "../icons/jobs/IconLocationOutline.vue";
+import {getEmployerName} from "@/composable/employers/employers";
 
 const props = defineProps({
     title: String,
@@ -12,7 +14,7 @@ const props = defineProps({
 
 const getLogo = () => {
     return new URL(
-        `/src/assets/jobs/employer-logo-${props.logo}.png`,
+        `/src/assets/employers/employer-square-${props.employer}.png`,
         import.meta.url
     );
 };
@@ -29,11 +31,11 @@ const getLogo = () => {
         </div>
 
         <a href="/employers">
-            <p>{{ employer }}</p>
+            <p>{{ getEmployerName(employer) }}</p>
         </a>
 
         <div class="job-item-details">
-            <IconLocation />
+            <IconLocationOutline />
             <span> {{ location }} </span>
         </div>
     </div>
@@ -41,8 +43,8 @@ const getLogo = () => {
 
 <style scoped lang="scss">
 .job-item {
-    $padding: 18px;
-    $logoSize: 60px;
+    $padding: 20px;
+    $logoSize: 50px;
 
     width: 100%;
     margin-bottom: 15px;
@@ -82,11 +84,11 @@ const getLogo = () => {
         display: flex;
 
         svg {
-            $size: 13px;
+            $size: 15px;
             height: $size;
             width: $size;
             fill: var(--textMedium);
-            margin-right: 12px;
+            margin-right: 10px;
             margin-top: 4px;
         }
 
