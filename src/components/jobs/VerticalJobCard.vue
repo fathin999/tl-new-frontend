@@ -294,6 +294,16 @@ $btnsWidth: 160px;
             height: 44px;
         }
     }
+
+    .job-card {
+        img {
+            left: 0;
+        }
+
+        .job-item-btns {
+            right: 0;
+        }
+    }
 }
 
 @media (hover: hover) {

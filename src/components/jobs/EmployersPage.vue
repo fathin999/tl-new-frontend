@@ -128,6 +128,7 @@ const getLogo = () => {
 
     .container {
         width: 850px;
+        margin: auto;
     }
 
     &-header {
@@ -265,6 +266,57 @@ const getLogo = () => {
 
     &-jobs {
         margin: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    #employer {
+        .container {
+            width: 100%;
+            padding: 0 20px;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #employer {
+        &-header {
+            .breadcrumbs {
+                margin: 15px 0 25px;
+            }
+
+            &-banner {
+                height: 110px;
+                margin-left: -20px;
+                width: 100vw;
+                border-radius: 0;
+            }
+
+            &-logo {
+                $size: 90px;
+                height: $size;
+                widows: $size;
+                margin-top: -60px;
+            }
+
+            h1 {
+                font-size: 6vw;
+                line-height: 8vw;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+        }
+
+        &-bar {
+            margin: 50px 0 40px;
+        }
+    }
+}
+
+@media (hover: hover) {
+    #employer {
     }
 }
 </style>

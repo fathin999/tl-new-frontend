@@ -282,13 +282,15 @@ const getLogo = (slug) => {
 
 <style scoped lang="scss">
 #job {
+    overflow-x: hidden;
+    margin: auto;
+    width: 1000px;
+
     h2 {
         font-size: 0.95rem;
         color: var(--textMedium);
         margin-bottom: 20px;
     }
-
-    width: 1000px;
 
     &-header {
         display: flex;
@@ -310,22 +312,6 @@ const getLogo = (slug) => {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            }
-
-            .btn-black-outline:hover {
-                border-color: var(--purple);
-                background-color: transparent;
-                color: var(--purple);
-
-                svg {
-                    fill: var(--purple);
-                }
-            }
-
-            .btn-black:hover {
-                background-color: var(--purple);
-                color: white;
-                border-color: var(--purple);
             }
 
             svg {
@@ -358,12 +344,6 @@ const getLogo = (slug) => {
             span {
                 font-size: 1.1rem;
                 transition: color 0.3s ease-out;
-            }
-        }
-
-        &-employer:hover {
-            span {
-                color: var(--purple);
             }
         }
 
@@ -506,16 +486,126 @@ const getLogo = (slug) => {
                 }
             }
         }
+    }
+}
 
-        &-card:hover {
-            border-color: var(--purple);
+@media (max-width: 1100px) {
+    #job {
+        width: auto;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+}
 
-            #job-company-card-btn {
-                color: var(--black);
+@media (max-width: 900px) {
+    #job {
+        padding-right: 20px;
+        padding-left: 20px;
 
-                svg {
-                    fill: var(--black);
-                    transform: translateX(5px);
+        &-header {
+            display: block;
+
+            &-btns {
+                margin-top: 40px;
+            }
+        }
+
+        &-content {
+            display: block;
+
+            &-description {
+                font-size: 1.1rem;
+                line-height: 1.7rem;
+                padding-bottom: 50px;
+                margin-bottom: 30px;
+                border-bottom: 1px solid gainsboro;
+
+                &-btn {
+                    margin: 30px auto 0;
+                }
+            }
+        }
+
+        &-company {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #job {
+        &-company {
+            &-card {
+                padding: 20px;
+
+                &-title {
+                    img {
+                        $size: 55px;
+                        height: $size;
+                        width: $size;
+                    }
+
+                    h1 {
+                        padding-right: 0;
+                        font-size: 5vw;
+                        line-height: 7vw;
+                    }
+                }
+
+                &-btn {
+                    position: relative;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    margin-top: 30px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #job {
+        &-header {
+            &-btns {
+                .btn-black-outline:hover {
+                    border-color: var(--purple);
+                    background-color: transparent;
+                    color: var(--purple);
+
+                    svg {
+                        fill: var(--purple);
+                    }
+                }
+
+                .btn-black:hover {
+                    background-color: var(--purple);
+                    color: white;
+                    border-color: var(--purple);
+                }
+            }
+        }
+
+        &-overview {
+            &-employer:hover {
+                span {
+                    color: var(--purple);
+                }
+            }
+        }
+
+        &-company {
+            &-card:hover {
+                border-color: var(--purple);
+
+                #job-company-card-btn {
+                    color: var(--black);
+
+                    svg {
+                        fill: var(--black);
+                        transform: translateX(5px);
+                    }
                 }
             }
         }
