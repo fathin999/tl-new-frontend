@@ -317,24 +317,24 @@ const fees = [
             "Enjoy 25% discount by paying the tuition fee upfront in a 12 months instalment.",
             "If you don't secure a job within a year, you will get a 100% tuition refund.",
         ],
-        mostPicked: false,
-    },
-    {
-        title: "Income Sharing Agreement (ISA)",
-        description:
-            "Learn without any upfront cost, and start paying only when you get a job.",
-        price: {
-            old: "",
-            new: "0",
-            currency: "MYR",
-            frequency: "upfront cost",
-        },
-        points: [
-            "Pay 15% of your monthly salary until you reach a cap of MYR15,000.",
-            "If you don't secure a job within a year, your ISA will be waived.",
-        ],
         mostPicked: true,
     },
+    // {
+    //     title: "Income Sharing Agreement (ISA)",
+    //     description:
+    //         "Learn without any upfront cost, and start paying only when you get a job.",
+    //     price: {
+    //         old: "",
+    //         new: "0",
+    //         currency: "MYR",
+    //         frequency: "upfront cost",
+    //     },
+    //     points: [
+    //         "Pay 15% of your monthly salary until you reach a cap of MYR15,000.",
+    //         "If you don't secure a job within a year, your ISA will be waived.",
+    //     ],
+    //     mostPicked: true,
+    // },
 ];
 
 export const getCourseFees = () => {

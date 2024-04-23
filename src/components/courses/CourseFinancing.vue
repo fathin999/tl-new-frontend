@@ -290,4 +290,32 @@ const chooseCountry = (index) => {
         border: 1px solid var(--purple);
     }
 }
+
+@media (max-width: 600px) {
+    #course-fees-list {
+        flex-direction: column-reverse;
+    }
+
+    .course-fees {
+        &-item {
+            h2 {
+                height: auto;
+                font-size: 6vw;
+                line-height: 8vw;
+            }
+
+            p {
+                height: auto;
+            }
+
+            &-price {
+                margin: 40px 0 20px;
+            }
+
+            &-points {
+                margin-top: 10px;
+            }
+        }
+    }
+}
 </style>

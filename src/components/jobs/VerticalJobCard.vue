@@ -144,13 +144,6 @@ $btnsWidth: 160px;
         color: var(--textLight);
     }
 
-    &-employer:hover {
-        p {
-            color: var(--purple);
-            text-decoration: underline;
-        }
-    }
-
     &-details {
         position: static;
         margin: 5px 0 0;
@@ -243,6 +236,74 @@ $btnsWidth: 160px;
 
     .job-item-btns {
         right: $padding;
+    }
+}
+
+@media (max-width: 700px) {
+    .job-card,
+    .job-item {
+        border: 1px solid gainsboro;
+        border-radius: 20px;
+        padding: 25px;
+        display: block;
+        margin-bottom: 20px;
+
+        img {
+            position: relative;
+            top: 0;
+        }
+
+        &-title {
+            margin: 20px 0 10px;
+
+            h4 {
+                height: auto;
+                min-height: 0;
+                max-height: none;
+                font-size: 5.5vw;
+                line-height: 7.5vw;
+                overflow: visible;
+            }
+        }
+
+        p {
+            margin-bottom: 25px;
+        }
+
+        &-details {
+            svg {
+                flex-shrink: 0;
+            }
+
+            &-two {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0;
+                column-gap: 50px;
+            }
+        }
+
+        &-btns {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 60px 1fr;
+        }
+
+        .btn-s {
+            height: 44px;
+        }
+    }
+}
+
+@media (hover: hover) {
+    .job-item {
+        &-employer:hover {
+            p {
+                color: var(--purple);
+                text-decoration: underline;
+            }
+        }
     }
 }
 </style>

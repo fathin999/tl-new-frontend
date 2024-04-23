@@ -5,9 +5,13 @@ import FiltersList from "../browse/FiltersList.vue";
 import IconChevron from "../icons/IconChevron.vue";
 import JobsList from "./JobsList.vue";
 import IconSearch from "../icons/IconSearch.vue";
+import IconClose from "../icons/IconClose.vue";
+import IconFilter from "../icons/IconFilter.vue";
 import SearchBar from "../browse/SearchBar.vue";
-import {reactive} from "vue";
+import {reactive, ref} from "vue";
 import {getAllJobs} from "../../composable/jobs/jobs";
+
+let showFilter = ref(false);
 
 const jobs = getAllJobs();
 
@@ -186,17 +190,34 @@ const selectOption = (index, option, type) => {
         }
     }
 };
+
+const showFilterMenu = () => {
+    showFilter.value = !showFilter.value;
+    const body = document.getElementsByTagName("body")[0];
+
+    if (showFilter.value) body.classList.add("disable-scroll");
+    else body.classList.remove("disable-scroll");
+};
 </script>
 
 <template>
     <Navbar />
 
     <main>
-        <div id="jobs">
+        <div
+            id="jobs"
+            :class="`${showFilter ? 'jobs-filter-open' : 'jobs-filter-close'}`"
+        >
             <SearchBar />
 
             <div id="jobs-content" class="container">
+                <div id="filter-bg" @click="showFilterMenu" />
+
                 <div id="jobs-content-filter">
+                    <div class="clickable close-btn" @click="showFilterMenu">
+                        <IconClose />
+                    </div>
+
                     <h1>Filter by:</h1>
 
                     <FiltersList
@@ -206,8 +227,20 @@ const selectOption = (index, option, type) => {
                     />
                 </div>
 
-                <div>
-                    <h1>All jobs</h1>
+                <div id="list-container">
+                    <div id="list-title">
+                        <h1>All jobs</h1>
+
+                        <div
+                            class="clickable"
+                            id="show-filter-btn"
+                            @click="showFilterMenu"
+                        >
+                            Filter
+
+                            <IconFilter />
+                        </div>
+                    </div>
 
                     <JobsList :card="false" :jobs="jobs" />
                 </div>
@@ -240,6 +273,184 @@ const selectOption = (index, option, type) => {
             position: sticky;
             top: 120px;
             left: 0;
+        }
+    }
+
+    #filter-bg,
+    .close-btn,
+    #show-filter-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 1300px) {
+    #jobs {
+        .container {
+            gap: 6vw;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    #jobs {
+        .container {
+            display: block;
+        }
+
+        &-content-filter {
+            position: fixed;
+            background: white;
+            z-index: 10;
+            top: var(--navbarwidth);
+            bottom: 0;
+            height: calc(100dvh - var(--navbarHeight));
+            overflow-x: hidden;
+            width: 500px;
+            padding: 20px 20px 30px;
+            border-top: 1px solid gainsboro;
+            border-right: 1px solid gainsboro;
+            overflow-y: scroll;
+            transition: right 0.3s ease-out;
+            left: auto;
+
+            h1 {
+                margin-bottom: 10px;
+            }
+
+            .close-btn {
+                $size: 30px;
+
+                height: $size;
+                width: $size;
+                border: 1px solid var(--purple);
+                background-color: var(--purple);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                margin-right: 0;
+                margin-left: auto;
+
+                svg {
+                    height: 40%;
+                    width: 40%;
+                    fill: white;
+                }
+            }
+        }
+
+        #list-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        #filter-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease-out, width 0.3s ease-out;
+            height: 100dvh;
+            display: block;
+        }
+
+        #list-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            align-items: center;
+
+            h1 {
+                height: 1rem;
+            }
+
+            #show-filter-btn {
+                display: inline-flex;
+                align-items: center;
+                border: 1px solid var(--purple);
+                padding: 12px 25px;
+                border-radius: 30px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--purple);
+
+                svg {
+                    $size: 17px;
+                    height: $size;
+                    width: $size;
+                    margin-left: 15px;
+                    fill: var(--purple);
+                }
+            }
+        }
+    }
+
+    .jobs-filter {
+        &-open {
+            #jobs-content-filter {
+                right: 0;
+            }
+
+            #filter-bg {
+                width: calc(100vw - 500px);
+                opacity: 1;
+                touch-action: auto;
+                pointer-events: auto;
+            }
+        }
+
+        &-close {
+            #jobs-content-filter {
+                right: -500px;
+            }
+
+            #filter-bg {
+                width: 100vw;
+                touch-action: none;
+                pointer-events: none;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #jobs {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 700px) {
+    #jobs {
+        &-content-filter {
+            width: 90vw;
+
+            .close-btn {
+                $size: 35px;
+                height: $size;
+                width: $size;
+            }
+        }
+
+        #list-title {
+            h1 {
+                margin-top: 4px;
+            }
+        }
+    }
+
+    .jobs-filter {
+        &-open {
+            #filter-bg {
+                width: 100vw;
+            }
+        }
+
+        &-close {
+            #jobs-content-filter {
+                right: -90vw;
+            }
         }
     }
 }

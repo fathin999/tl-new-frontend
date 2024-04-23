@@ -4,10 +4,14 @@ import CourseCard from "./CourseCard.vue";
 defineProps({
     courses: Array,
 });
+
+defineOptions({
+    inheritAttrs: false,
+});
 </script>
 
 <template>
-    <div id="courses-list">
+    <div id="courses-list" v-bind="$attrs">
         <CourseCard
             v-for="course in courses"
             :key="course.id"
@@ -30,12 +34,12 @@ defineProps({
     row-gap: 40px;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
     #courses-list {
         grid-template-columns: 1fr 1fr;
         max-width: 700px;
     }
-}
+} */
 
 @media (max-width: 700px) {
     #courses-list {

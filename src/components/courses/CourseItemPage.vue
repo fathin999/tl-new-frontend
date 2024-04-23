@@ -199,7 +199,7 @@ onUnmounted(() => {
         </div>
 
         <div id="course-item-content" class="container">
-            <aside>
+            <aside class="hide-scrollbar">
                 <div id="course-item-btns">
                     <div
                         v-for="(section, index) in sections"
@@ -360,6 +360,8 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
+$purple: #f6ebff;
+
 #course-item {
     padding-bottom: 90px;
 
@@ -546,8 +548,6 @@ onUnmounted(() => {
             }
         }
 
-        $purple: #f6ebff;
-
         .active {
             background-color: $purple;
             color: var(--darkPurple);
@@ -555,14 +555,6 @@ onUnmounted(() => {
             svg {
                 fill: var(--darkPurple);
             }
-        }
-
-        .course-btn:hover {
-            background-color: #fbf6ff;
-        }
-
-        .active:hover {
-            background-color: $purple;
         }
     }
 
@@ -660,5 +652,189 @@ onUnmounted(() => {
 
 .course-section:last-of-type {
     margin-bottom: 0;
+}
+
+@media (max-width: 1000px) {
+    #course-item {
+        &-header {
+            padding: 30px 0 60px;
+
+            .breadcrumbs {
+                margin-bottom: 40px;
+            }
+
+            &-texts {
+                padding-right: 50px;
+            }
+
+            &-card {
+                width: 100%;
+                margin-top: 50px;
+
+                .course-item-summary {
+                    width: 33%;
+                    display: inline-flex;
+                }
+            }
+        }
+    }
+
+    #course-section {
+        &-instructors {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #course-item {
+        &-header {
+            padding-bottom: 10px;
+
+            .container {
+                display: block;
+            }
+
+            &-card {
+                margin-top: 60px;
+
+                .course-item-summary {
+                    width: 50%;
+                }
+            }
+        }
+
+        &-content {
+            display: block;
+        }
+
+        aside {
+            display: flex;
+            top: var(--navbarHeight);
+            width: 100vw;
+            margin-left: -20px;
+            background-color: white;
+            z-index: 10;
+            border-top: 1px solid var(--borderLight);
+            border-bottom: 1px solid var(--borderLight);
+            padding: 10px 20px;
+            overflow-x: scroll;
+        }
+
+        &-btns {
+            padding: 0;
+            flex: 1;
+            border-top: 0;
+            flex-direction: row;
+            width: auto;
+            align-items: center;
+
+            .course-btn {
+                background-color: var(--bgMedium);
+                padding: 15px 22px;
+                height: auto;
+
+                svg {
+                    margin-right: 15px;
+                }
+            }
+
+            .active {
+                background-color: $purple;
+            }
+        }
+
+        &-apply {
+            margin: 0;
+            margin-left: 30px;
+            height: auto;
+            display: flex;
+            position: relative;
+
+            a {
+                padding: 12px 22px 12px 25px;
+                margin: 0;
+                white-space: nowrap;
+                position: relative;
+            }
+
+            a:last-of-type {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #course-item {
+        &-header {
+            &-texts {
+                padding-right: 20px;
+
+                h1 {
+                    font-size: 9vw;
+                    line-height: 11vw;
+                    margin-bottom: 25px;
+                }
+
+                p {
+                    width: 90%;
+                }
+
+                &-provider {
+                    margin: 30px 0 50px;
+
+                    img {
+                        $size: 55px;
+                        height: $size;
+                        width: $size;
+                        border-radius: 50%;
+                        margin-right: 17px;
+                    }
+                }
+            }
+
+            &-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            &-card {
+                .course-item-summary {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    #course-section {
+        &-approach {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        &-instructors {
+            gap: 10px;
+        }
+
+        &-testimonials {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+}
+
+@media (hover: hover) {
+    #course-item {
+        &-btns {
+            .course-btn:hover {
+                background-color: #fbf6ff;
+            }
+
+            .active:hover {
+                background-color: $purple;
+            }
+        }
+    }
 }
 </style>

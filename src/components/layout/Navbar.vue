@@ -35,8 +35,10 @@ const toggleMenu = () => {
                     <a href="/courses">Courses</a>
                     <a href="/special-programmes">Programmes</a>
                     <a href="/jobs">Jobs</a>
-                    <a href="/for-enterprise">For Enterprise</a>
-                    <a href="/for-government">For Government</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <!-- <a href="/for-enterprise">For Enterprise</a> -->
+                    <!-- <a href="/for-government">For Government</a> -->
                 </nav>
 
                 <div id="authLinks">

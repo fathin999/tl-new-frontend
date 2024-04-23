@@ -63,7 +63,7 @@ const checkKeyword = () => {
 <style scoped lang="scss">
 #header {
     background-color: white;
-    padding: 55px 0 65px;
+    padding: 60px 0 50px;
 
     #search {
         $height: 65px;
@@ -162,6 +162,16 @@ const checkKeyword = () => {
             svg {
                 fill: white;
             }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #header {
+        padding: 40px 20px 10px;
+
+        #search {
+            width: auto;
         }
     }
 }

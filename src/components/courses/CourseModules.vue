@@ -67,9 +67,6 @@ const getModuleNumber = (index) => {
     border-top: 1px solid gainsboro;
     position: relative;
 
-    &-icon {
-    }
-
     &-header {
         display: flex;
         align-items: center;
@@ -114,10 +111,6 @@ const getModuleNumber = (index) => {
         }
     }
 
-    &-header:hover {
-        background-color: var(--lightPurple);
-    }
-
     &-outcomes {
         overflow: hidden;
         padding-left: 110px;
@@ -143,6 +136,57 @@ const getModuleNumber = (index) => {
             padding-top: 20px;
             padding-bottom: 40px;
             position: relative;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .module-item {
+        &-header {
+            align-items: flex-start;
+            position: relative;
+
+            h6 {
+                width: 80px;
+            }
+
+            span {
+                margin-right: 40px;
+            }
+        }
+
+        &-icon {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            right: 7px;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .module-item {
+        &-header {
+            padding: 15px 10px;
+            display: block;
+
+            h6 {
+                width: auto;
+                font-size: 0.9rem;
+            }
+        }
+
+        &-outcomes {
+            padding-left: 10px;
+        }
+    }
+}
+
+@media (hover: hover) {
+    .module-item {
+        &-header:hover {
+            background-color: var(--lightPurple);
         }
     }
 }

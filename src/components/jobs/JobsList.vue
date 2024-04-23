@@ -33,4 +33,10 @@ const getId = () => {
 #jobs-list {
     border-top: 1px solid var(--borderMedium);
 }
+
+@media (max-width: 700px) {
+    #jobs-list {
+        border-top: 0;
+    }
+}
 </style>
