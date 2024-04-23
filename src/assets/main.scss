@@ -52,6 +52,65 @@ main {
 }
 
 // -------------------
+// SECONDARY BAR
+// -------------------
+
+.secondary-bar {
+    $border: 1px solid var(--borderLight);
+    background-color: white;
+    border-top: $border;
+    border-bottom: $border;
+    padding: 5px 0;
+    position: sticky;
+    top: var(--navbarHeight);
+    left: 0;
+    z-index: 10;
+    right: 0;
+
+    .container {
+        display: flex;
+    }
+
+    .bar-item {
+        padding: 20px 20px;
+        border-radius: 10px;
+        margin-right: 10px;
+        font-size: 0.95rem;
+        color: var(--darkBlue);
+        position: relative;
+    }
+
+    .bar-item::before {
+        $height: 3px;
+        position: absolute;
+        content: "";
+        bottom: -5px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 0;
+        height: $height;
+        border-radius: calc($height / 2);
+        background-color: var(--purple);
+        transition: width 0.4s ease-out;
+    }
+
+    .bar-item-active {
+        color: var(--purple);
+        font-weight: 500;
+        position: relative;
+    }
+
+    .bar-item-active::before {
+        width: 40%;
+    }
+
+    .bar-item:hover {
+        background-color: var(--lightPurple);
+    }
+}
+
+// -------------------
 // BUTTONS
 // -------------------
 

@@ -1,6 +1,8 @@
 <script setup>
 import IconLocation from "@/components/icons/jobs/IconLocation.vue";
-import IconWork from "@/components/icons/jobs/IconWork.vue";
+import IconLocationOutline from "@/components/icons/jobs/IconLocationOutline.vue";
+import IconBriefcase from "@/components/icons/jobs/IconBriefcase.vue";
+import IconBuilding from "@/components/icons/jobs/IconBuilding.vue";
 import IconStar from "@/components/icons/IconStar.vue";
 import {getEmployerName} from "@/composable/employers/employers";
 
@@ -48,15 +50,19 @@ const getRemoteClass = () => {
 
         <div class="job-item-details">
             <div class="job-item-details-item">
-                <IconLocation />
+                <IconLocationOutline />
                 <span> {{ location }} </span>
             </div>
 
-            <div class="job-item-details-item">
-                <IconWork />
-                <span> {{ type }} </span>
-                <div :class="getRemoteClass()">
-                    {{ remote }}
+            <div class="pair">
+                <div class="job-item-details-item">
+                    <IconBriefcase />
+                    <span> {{ type }} </span>
+                </div>
+
+                <div class="job-item-details-item">
+                    <IconBuilding />
+                    <span> {{ remote }} </span>
                 </div>
             </div>
         </div>
@@ -69,6 +75,21 @@ const getRemoteClass = () => {
 </template>
 
 <style scoped lang="scss">
+.job-item {
+    width: auto;
+
+    .pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &-details-item {
+        svg {
+            margin-right: 15px;
+        }
+    }
+}
+
 .job-item-featured {
     $padding: 30px;
     position: absolute;

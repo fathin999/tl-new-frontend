@@ -1,5 +1,10 @@
 <script setup>
 import IconNavbarLogin from "../icons/IconNavbarLogin.vue";
+import IconMenu from "../icons/IconMenu.vue";
+import IconClose from "../icons/IconClose.vue";
+import {ref} from "vue";
+
+let open = ref(false);
 </script>
 
 <template>
@@ -13,7 +18,10 @@ import IconNavbarLogin from "../icons/IconNavbarLogin.vue";
                 />
             </a>
 
-            <div id="navContainer">
+            <div
+                id="navContainer"
+                :class="`${open ? 'nav-open' : 'nav-close'}`"
+            >
                 <nav>
                     <a href="/">Home</a>
                     <a href="/courses">Courses</a>
@@ -36,7 +44,14 @@ import IconNavbarLogin from "../icons/IconNavbarLogin.vue";
                 </div>
             </div>
 
-            <div id="navMenuButton">menu button</div>
+            <div
+                :id="`${open ? 'nav-menu-btn-open' : 'nav-menu-btn-close'}`"
+                class="clickable"
+                @click="open = !open"
+            >
+                <IconMenu v-if="!open" />
+                <IconClose v-if="open" id="close" />
+            </div>
         </div>
     </header>
 </template>
@@ -60,10 +75,6 @@ header {
     #navbarLogo {
         width: 115px;
         transition: opacity 0.2s ease-out;
-    }
-
-    #navbarLogo:hover {
-        opacity: 0.5;
     }
 
     #navContainer {
@@ -129,19 +140,181 @@ header {
         }
     }
 
-    #loginButton:hover {
-        color: black;
-
-        svg {
-            fill: black;
-        }
-    }
-
-    #navMenuButton {
+    #nav-menu-btn-open,
+    #nav-menu-btn-close {
         display: none;
+        transition: border 0.3s ease-out, background 0.3s ease-out;
     }
 }
 
-@media (max-width: 900px) {
+@media only screen and (max-width: 1100px) {
+    .container {
+        #navbarLogo {
+            width: 100px;
+        }
+
+        nav,
+        #authLinks {
+            gap: 30px;
+        }
+
+        $margin: 25px;
+
+        nav {
+            padding-right: $margin;
+            margin-right: $margin;
+        }
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .container {
+        #navbarLogo {
+            width: 115px;
+        }
+
+        @mixin menuBtn($border, $bg, $fill) {
+            $size: 40px;
+            height: $size;
+            width: $size;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $bg;
+            border: 1px solid $border;
+
+            svg {
+                $iconSize: 45%;
+
+                height: $iconSize;
+                width: $iconSize;
+                fill: $fill;
+            }
+
+            #close {
+                $iconSize: 38%;
+
+                height: $iconSize;
+                width: $iconSize;
+            }
+        }
+
+        #nav-menu-btn-close {
+            @include menuBtn(transparent, var(--lightPurple), var(--purple));
+        }
+
+        #nav-menu-btn-open {
+            @include menuBtn(white, var(--purple), white);
+        }
+
+        #navContainer {
+            width: 100vw;
+            top: var(--navbarHeight);
+            left: 0;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            padding: 0 50px;
+            background-color: white;
+            transition: height 0.3s ease-out;
+            overflow: hidden;
+
+            nav a::after {
+                background: transparent;
+            }
+        }
+
+        .nav-open {
+            height: calc(100dvh - var(--navbarHeight));
+        }
+
+        .nav-close {
+            height: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        #navbarLogo {
+            width: 110px;
+        }
+
+        #navContainer {
+            padding: 0;
+            border-top: 1px solid gainsboro;
+            display: flex;
+            flex-direction: column;
+
+            nav {
+                flex-direction: column;
+                margin: 0;
+                padding: 0;
+                gap: 0;
+                flex: 1;
+                border-right: 0;
+
+                a {
+                    padding: 0;
+                    font-size: 1.2rem;
+                    flex: 1;
+                    display: inline-flex;
+                    align-items: center;
+                    width: 100%;
+                    justify-content: center;
+                    text-align: center;
+                    border-bottom: 1px solid gainsboro;
+                }
+            }
+
+            #authLinks {
+                #loginButton {
+                    padding: 40px 0;
+                    width: 100%;
+                    font-size: 1.2rem;
+                    justify-content: center;
+                    text-align: center;
+                    display: inline-flex;
+                    align-items: center;
+
+                    svg {
+                        $size: 17px;
+                        height: $size;
+                        width: $size;
+                        margin-right: 7px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (hover: hover) {
+    .container {
+        #navbarLogo:hover {
+            opacity: 0.5;
+        }
+
+        a:hover::after {
+            width: 70%;
+        }
+
+        #loginButton:hover {
+            color: black;
+
+            svg {
+                fill: black;
+            }
+        }
+
+        #nav-menu-btn-open:hover {
+            background-color: var(--black);
+        }
+
+        #nav-menu-btn-close:hover {
+            border-color: var(--purple);
+        }
+    }
 }
 </style>

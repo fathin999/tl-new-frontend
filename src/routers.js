@@ -4,7 +4,8 @@ import Signup from "./components/auth/Signup.vue";
 import ResetPassword from "./components/auth/ResetPassword.vue";
 import ChooseRole from "./components/auth/ChooseRole.vue";
 import CoursesPage from "./components/courses/CoursesPage.vue";
-import CareerRolesPage from "./components/courses/CareerRolesPage.vue";
+import CareerRolesPage from "./components/roles/CareerRolesPage.vue";
+import RoleItemPage from "./components/roles/RoleItemPage.vue";
 import CourseItemPage from "./components/courses/CourseItemPage.vue";
 import CourseFAQPage from "./components/courses/CourseFAQPage.vue";
 import JobsPage from "./components/jobs/JobsPage.vue";
@@ -70,6 +71,11 @@ const routes = [
         name: "Career Roles",
         component: CareerRolesPage,
         path: "/career-roles",
+    },
+    {
+        name: "Role Item Page",
+        component: RoleItemPage,
+        path: "/career-roles/1",
     },
     {
         name: "Jobs",

@@ -125,16 +125,12 @@ onUnmounted(() => {
             @scrollToRef="scrollToPathways"
         />
 
-        <div id="programme-bar">
+        <div class="secondary-bar">
             <div class="container">
-                <div
-                    v-for="section in sections"
-                    class="bar-item"
-                    :key="section"
-                >
+                <div v-for="section in sections" :key="section">
                     <div
-                        :class="`bar-item-inner clickable ${
-                            section.key === active ? 'active' : ''
+                        :class="`bar-item clickable ${
+                            section.key === active ? 'bar-item-active' : ''
                         }`"
                         v-if="checkEmpty(section.key)"
                         @click="scrollTo(section.ref.value)"
@@ -191,61 +187,6 @@ onUnmounted(() => {
 <style scoped lang="scss">
 #programme {
     position: relative;
-
-    &-bar {
-        $border: 1px solid var(--borderLight);
-        background-color: white;
-        border-top: $border;
-        border-bottom: $border;
-        padding: 5px 0;
-        position: sticky;
-        top: var(--navbarHeight);
-        left: 0;
-        z-index: 10;
-
-        .container {
-            display: flex;
-        }
-
-        .bar-item-inner {
-            padding: 20px 20px;
-            border-radius: 10px;
-            /* background-color: var(--bgLight); */
-            margin-right: 10px;
-            font-size: 0.95rem;
-            color: var(--darkBlue);
-            position: relative;
-        }
-
-        .bar-item-inner::before {
-            $height: 3px;
-            position: absolute;
-            content: "";
-            bottom: -5px;
-            right: 0;
-            left: 0;
-            margin: auto;
-            width: 0;
-            height: $height;
-            border-radius: calc($height / 2);
-            background-color: var(--purple);
-            transition: width 0.4s ease-out;
-        }
-
-        .active {
-            color: var(--purple);
-            font-weight: 500;
-            position: relative;
-        }
-
-        .active::before {
-            width: 40%;
-        }
-
-        .bar-item-inner:hover {
-            background-color: var(--lightPurple);
-        }
-    }
 
     &-content {
         .section {

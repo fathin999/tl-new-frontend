@@ -20,7 +20,7 @@ const getImg = (slug) => {
 
 const getHeaderImg = (slug) => {
     return new URL(
-        `/src/assets/programmes/programme-header-${slug}.svg`,
+        `/src/assets/programmes/programme-header-${slug}.png`,
         import.meta.url
     );
 };
@@ -92,9 +92,14 @@ const getLogo = (logo) => {
                         id="programme-header-img-img"
                     />
                     <img
-                        :src="getHeaderImg(slug)"
+                        src="/src/assets/programmes/programme-header-circle.svg"
                         alt=""
                         id="programme-header-img-circle"
+                    />
+                    <img
+                        :src="getHeaderImg(slug)"
+                        alt=""
+                        id="programme-header-img-stats"
                     />
                 </div>
             </div>
@@ -224,6 +229,13 @@ const getLogo = (logo) => {
                 top: 0;
                 right: 0;
                 height: 100%;
+            }
+
+            &-stats {
+                position: absolute;
+                top: -20px;
+                right: 0;
+                height: calc(100% + 70px);
             }
         }
     }

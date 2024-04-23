@@ -111,7 +111,7 @@ const roles = [
         icon: IconRoleDeveloper,
     },
     {
-        title: "Data Analyst",
+        title: "Data Science",
         icon: IconRoleData,
     },
     {

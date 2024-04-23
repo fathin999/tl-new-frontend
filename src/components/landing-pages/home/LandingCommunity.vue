@@ -75,7 +75,7 @@ const getClass = (i) => {
 #community {
     $sectionWidth: 1100px;
     $width: 500px;
-    padding-top: 50px;
+    padding-top: 80px;
 
     .container {
         display: grid;
