@@ -72,33 +72,70 @@ const getBanner = () => {
     transition: boxShadow 0.3s ease-out;
     border-radius: 17px;
     position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid var(--borderMedium);
+    user-select: none;
+    cursor: pointer;
 
     h4 {
         font-size: 1.1rem;
         line-height: 1.6rem;
         min-height: 1.2rem;
         max-height: 3.3rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
     }
 
     span {
         font-size: 0.9rem;
+        line-height: 1.4rem;
+        color: var(--textLight);
 
         b {
+            display: inline-block;
             padding: 0 7px;
         }
     }
 
     &-img {
         margin: $imgMargin $imgMargin 0;
+        position: relative;
+        isolation: isolate;
+
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease-out;
+        }
     }
 
     &-banner-container {
         height: 80px;
+        overflow: hidden;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        isolation: isolate;
     }
 
     &-badge {
+        $size: 80px;
+
+        position: absolute;
+        height: $size;
+        width: $size;
         left: $padding;
         bottom: -30px;
+        border: 1px solid rgb(229, 229, 229);
+        border-radius: 10px;
+        z-index: 5;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
     }
 
     &-title {
@@ -112,11 +149,16 @@ const getBanner = () => {
         bottom: $padding;
         right: $padding;
         font-size: 0.9rem;
+        position: absolute;
+        display: flex;
+        align-items: center;
 
         img {
             height: $size;
             width: $size;
             border-radius: 7px;
+            margin-right: 12px;
+            border: 1px solid var(--borderMedium);
         }
     }
 }

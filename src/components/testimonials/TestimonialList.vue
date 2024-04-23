@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-    <Slider duration="35" gap="15" :blue="blue">
+    <Slider duration="45" gap="15" :blue="blue">
         <div
             class="card-container"
             v-for="test in testimonials"
@@ -28,5 +28,11 @@ defineProps({
 <style scoped lang="scss">
 .card-container {
     width: 310px;
+}
+
+@media (max-width: 700px) {
+    .card-container {
+        width: 270px;
+    }
 }
 </style>

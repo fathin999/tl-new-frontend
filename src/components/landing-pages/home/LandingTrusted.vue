@@ -39,4 +39,27 @@ import Slider from "../../slider/Slider.vue";
         }
     }
 }
+
+@media (max-width: 700px) {
+    #trusted {
+        padding: 60px 0;
+
+        h3 {
+            font-size: 6vw;
+            line-height: 8vw;
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        &-slider {
+            margin-top: 30px;
+            width: 100%;
+
+            img {
+                height: 60px;
+            }
+        }
+    }
+}
 </style>

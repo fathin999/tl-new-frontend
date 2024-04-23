@@ -206,7 +206,7 @@ footer {
         img {
             width: 100%;
             object-position: center;
-            height: 25px;
+            height: 22px;
         }
 
         #footer {
@@ -219,9 +219,12 @@ footer {
                 display: flex;
                 justify-content: center;
                 gap: 10px;
-                margin: 30px 0 40px;
+                margin: 22px 0 40px;
 
                 svg {
+                    $size: 35px;
+                    height: $size;
+                    width: $size;
                     margin: 0;
                 }
             }

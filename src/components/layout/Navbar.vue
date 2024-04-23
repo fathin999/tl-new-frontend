@@ -250,7 +250,7 @@ header {
                     width: 100%;
                     justify-content: center;
                     text-align: center;
-                    border-bottom: 1px solid gainsboro;
+                    border-bottom: 1px solid rgb(229, 229, 229);
                 }
             }
 
@@ -283,7 +283,7 @@ header {
 
         .nav-open {
             height: calc(100dvh - var(--navbarHeight));
-            border-top: 1px solid gainsboro;
+            border-top: 1px solid rgb(229, 229, 229);
 
             nav,
             #authLinks {

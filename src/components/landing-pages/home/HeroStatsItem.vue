@@ -75,4 +75,19 @@ const getClass = () => {
         fill: white;
     }
 }
+
+@media (max-width: 700px) {
+    .stats {
+        padding: 27px;
+
+        h2 {
+            font-size: 11vw;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+    }
+}
 </style>

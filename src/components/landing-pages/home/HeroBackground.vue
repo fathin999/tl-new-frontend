@@ -129,13 +129,16 @@
 </template>
 
 <style scoped lang="scss">
-#hero-bg {
+#hero-background {
     position: absolute;
-    height: 400px;
+    height: calc(100% + 100px);
     top: 0;
     right: 0;
     width: 100vw;
+    opacity: 0.9;
+}
 
+#hero-bg {
     @mixin img($size, $top, $left, $delay) {
         position: absolute;
         height: $size;
@@ -249,6 +252,20 @@
     }
 }
 
+@media (max-width: 700px) {
+    #hero-background {
+        width: 150vw;
+        z-index: -5;
+        opacity: 1;
+        right: -10vw;
+        height: calc(100% + 210px);
+
+        img {
+            isolation: isolate;
+        }
+    }
+}
+
 @keyframes blink {
     0% {
         opacity: 0;
@@ -256,7 +273,7 @@
     }
 
     50% {
-        opacity: 0.9;
+        opacity: 1;
     }
     100% {
         opacity: 0;

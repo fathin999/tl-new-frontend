@@ -8,6 +8,10 @@ body,
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
+}
+
+main {
+    // later delete
     overflow-x: hidden;
 }
 
@@ -53,7 +57,7 @@ main {
 }
 
 .disable-scroll {
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 // -------------------
@@ -376,73 +380,6 @@ $itemPadding: 30px;
         b {
             display: inline-block;
             padding: 0 10px;
-        }
-    }
-}
-
-.courses-item {
-    @include item(140px);
-    overflow: hidden;
-    isolation: isolate;
-
-    &-img {
-        $margin: calc(-1 * $itemPadding);
-        position: relative;
-        isolation: isolate;
-        margin: $margin $margin 0;
-
-        img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease-out;
-        }
-    }
-
-    &-banner-container {
-        height: 90px;
-        overflow: hidden;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        isolation: isolate;
-    }
-
-    &-badge {
-        $size: 80px;
-        $margin: 10px;
-        border: 1px solid rgb(229, 229, 229);
-        border-radius: 10px;
-        position: absolute;
-        z-index: 5;
-        height: $size;
-        width: $size;
-        bottom: calc(-0.4 * $size);
-        left: $itemPadding;
-        background-color: rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-    }
-
-    &-title {
-        margin: 50px 0 10px;
-    }
-
-    &-provider {
-        $size: 40px;
-        position: absolute;
-        bottom: $itemPadding;
-        left: $itemPadding;
-        right: $itemPadding;
-        height: $size;
-        display: flex;
-        align-items: center;
-
-        img {
-            height: $size;
-            width: $size;
-            border: 1px solid var(--borderMedium);
-            border-radius: 5px;
-            margin-right: 15px;
         }
     }
 }
@@ -783,6 +720,10 @@ input:-webkit-autofill:focus {
         margin-left: $margin;
         width: auto;
     }
+
+    .section {
+        padding: 100px 0;
+    }
 }
 
 @media (max-width: 900px) {
@@ -791,5 +732,30 @@ input:-webkit-autofill:focus {
         margin-right: $margin;
         margin-left: $margin;
         width: auto;
+    }
+
+    .section {
+        padding: 90px 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .section {
+        &-title-center,
+        &-title {
+            h2 {
+                font-size: 7vw;
+                line-height: 9vw;
+            }
+
+            h3 {
+                font-size: 6vw;
+                line-height: 8vw;
+            }
+
+            p {
+                margin-top: 15px;
+            }
+        }
     }
 }

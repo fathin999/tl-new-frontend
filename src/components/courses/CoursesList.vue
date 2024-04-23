@@ -24,11 +24,9 @@ defineProps({
 
 <style scoped lang="scss">
 #courses-list {
-    $gap: 20px;
-
-    display: flex;
-    flex-wrap: wrap;
-    gap: $gap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
     row-gap: 40px;
 
     /* .courses-item {

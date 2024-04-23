@@ -111,4 +111,37 @@ const stats = getLandingHeroStats();
         }
     }
 }
+
+@media (max-width: 700px) {
+    .slider {
+        &-outer {
+            border-radius: 0 !important;
+        }
+
+        @mixin item($w) {
+            width: $w;
+            height: 250px;
+        }
+
+        &-item {
+            &-l {
+                @include item(350px);
+            }
+
+            &-m {
+                @include item(280px);
+            }
+
+            &-s {
+                @include item(200px);
+
+                svg {
+                    height: 35px;
+                    width: 40px;
+                    margin-top: 7px;
+                }
+            }
+        }
+    }
+}
 </style>

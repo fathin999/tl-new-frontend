@@ -93,6 +93,28 @@ defineProps({
     );
 }
 
+@media (max-width: 1300px) {
+    .slider {
+        &-outer {
+            width: 100vw;
+            margin-left: -50px;
+        }
+    }
+
+    .gradient::after,
+    .gradient::before {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .slider {
+        &-outer {
+            margin-left: -20px;
+        }
+    }
+}
+
 @keyframes slide {
     0% {
         transform: translateX(0);

@@ -87,4 +87,64 @@ $padding: 35px;
         left: $padding;
     }
 }
+
+@media (max-width: 1300px) {
+    $padding: 30px;
+
+    .testimonial-card {
+        padding: $padding;
+        padding-bottom: 45px;
+
+        &-photo {
+            $size: 35px;
+            height: $size;
+            width: $size;
+        }
+
+        h3 {
+            font-size: 0.95rem;
+            margin-top: 7px;
+            margin-left: 15px;
+            line-height: 1.3rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.35rem;
+        }
+
+        &-title {
+            display: flex;
+            margin-bottom: 17px;
+        }
+
+        &-logo {
+            height: 25px;
+            width: 90px;
+            bottom: $padding;
+            left: $padding;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    $padding: 27px;
+
+    .testimonial-card {
+        padding: $padding;
+        padding-bottom: 35px;
+
+        h3 {
+            max-height: 1.3rem;
+            overflow: hidden;
+            margin-right: 15px;
+            width: 100%;
+        }
+
+        &-logo {
+            bottom: 30px;
+            left: $padding;
+        }
+    }
+}
 </style>
