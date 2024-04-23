@@ -5,6 +5,14 @@ import IconClose from "../icons/IconClose.vue";
 import {ref} from "vue";
 
 let open = ref(false);
+
+const toggleMenu = () => {
+    open.value = !open.value;
+    const body = document.getElementsByTagName("body")[0];
+
+    if (open.value) body.classList.add("disable-scroll");
+    else body.classList.remove("disable-scroll");
+};
 </script>
 
 <template>
@@ -47,7 +55,7 @@ let open = ref(false);
             <div
                 :id="`${open ? 'nav-menu-btn-open' : 'nav-menu-btn-close'}`"
                 class="clickable"
-                @click="open = !open"
+                @click="toggleMenu"
             >
                 <IconMenu v-if="!open" />
                 <IconClose v-if="open" id="close" />
@@ -215,7 +223,7 @@ header {
             position: fixed;
             display: flex;
             flex-direction: column;
-            padding: 0 50px;
+            padding: 0;
             background-color: white;
             transition: height 0.3s ease-out;
             overflow: hidden;
@@ -223,29 +231,6 @@ header {
             nav a::after {
                 background: transparent;
             }
-        }
-
-        .nav-open {
-            height: calc(100dvh - var(--navbarHeight));
-        }
-
-        .nav-close {
-            height: 0;
-        }
-    }
-}
-
-@media only screen and (max-width: 900px) {
-    .container {
-        #navbarLogo {
-            width: 110px;
-        }
-
-        #navContainer {
-            padding: 0;
-            border-top: 1px solid gainsboro;
-            display: flex;
-            flex-direction: column;
 
             nav {
                 flex-direction: column;
@@ -254,6 +239,7 @@ header {
                 gap: 0;
                 flex: 1;
                 border-right: 0;
+                transition: opacity 0.3s ease-out;
 
                 a {
                     padding: 0;
@@ -270,22 +256,74 @@ header {
 
             #authLinks {
                 #loginButton {
-                    padding: 40px 0;
-                    width: 100%;
-                    font-size: 1.2rem;
+                    margin: 30px auto 40px;
+                    padding: 15px 15px 15px 10px;
+                    width: 180px;
+                    border-radius: 30px;
+                    font-size: 1rem;
                     justify-content: center;
                     text-align: center;
                     display: inline-flex;
                     align-items: center;
+                    background-color: var(--purple);
+                    color: white;
+                    border: 1px solid transparent;
+                    transition: border 0.3s ease-out, background 0.3s ease-out;
 
                     svg {
-                        $size: 17px;
+                        $size: 16px;
                         height: $size;
                         width: $size;
                         margin-right: 7px;
+                        fill: white;
                     }
                 }
             }
+        }
+
+        .nav-open {
+            height: calc(100dvh - var(--navbarHeight));
+            border-top: 1px solid gainsboro;
+
+            nav,
+            #authLinks {
+                opacity: 1;
+            }
+        }
+
+        .nav-close {
+            height: 0;
+
+            nav,
+            #authLinks {
+                opacity: 0;
+            }
+        }
+    }
+
+    @media only screen and (hover: hover) {
+        .container #navContainer {
+            nav a:hover {
+                color: var(--purple);
+            }
+
+            #authLinks #loginButton:hover {
+                border-color: var(--purple);
+                color: var(--purple);
+                background-color: white;
+
+                svg {
+                    fill: var(--purple);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        #navbarLogo {
+            width: 110px;
         }
     }
 }
