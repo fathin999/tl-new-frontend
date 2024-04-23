@@ -157,22 +157,34 @@ const getImg = (slug) => {
     }
 }
 
-.pgm-item:hover {
-    border-color: var(--purple);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+@media (hover: hover) {
+    .pgm-item:hover {
+        border-color: var(--purple);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
 
-    .pgm-item-arrow {
-        color: var(--black);
+        .pgm-item-arrow {
+            color: var(--black);
 
-        svg {
-            fill: var(--black);
-            transform: translateX(5px);
+            svg {
+                fill: var(--black);
+                transform: translateX(5px);
+            }
+        }
+
+        .pgm-item-img {
+            img {
+                transform: scale(1.1);
+            }
         }
     }
+}
 
-    .pgm-item-img {
-        img {
-            transform: scale(1.1);
+@media (max-width: 700px) {
+    .pgm-item {
+        padding: 25px;
+
+        &-img {
+            height: 150px;
         }
     }
 }

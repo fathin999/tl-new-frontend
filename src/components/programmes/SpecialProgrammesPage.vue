@@ -165,4 +165,83 @@ const stats = [
         }
     }
 }
+
+@media (max-width: 1100px) {
+    #programmes {
+        &-header {
+            padding: 50px 0 70px;
+
+            .container {
+                grid-template-columns: 65% 1fr;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #programmes {
+        &-header {
+            padding-bottom: 80px;
+
+            .container {
+                display: block;
+            }
+
+            &-img {
+                display: none;
+            }
+        }
+
+        &-list {
+            &-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #programmes {
+        &-header {
+            padding-bottom: 90px;
+
+            &-stats {
+                display: flex;
+                justify-content: space-between;
+                gap: 0;
+
+                .programmes-stats {
+                    span {
+                        font-size: 0.85rem;
+                    }
+
+                    h3 {
+                        margin: 0;
+                        font-size: 8vw;
+                        line-height: 10vw;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #programmes {
+        &-list {
+            margin-top: 140px;
+
+            h2 {
+                font-size: 6vw;
+                line-height: 8vw;
+            }
+
+            &-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-top: 50px;
+            }
+        }
+    }
+}
 </style>

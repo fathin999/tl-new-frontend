@@ -1,5 +1,23 @@
 <script setup>
 import Slider from "../../slider/Slider.vue";
+
+const logos = [
+    "gitlab",
+    "tencent",
+    "google",
+    "aws",
+    "cyberbay",
+    "khazanah",
+    "accenture",
+    "pwc",
+];
+
+const getImage = (slug) => {
+    return new URL(
+        `/src/assets/employers/employer-${slug}.png`,
+        import.meta.url
+    );
+};
 </script>
 
 <template>
@@ -10,11 +28,15 @@ import Slider from "../../slider/Slider.vue";
             </div>
 
             <div id="trusted-slider">
-                <Slider duration="45" :blue="true">
-                    <img
-                        alt="logo"
-                        src="/src/assets/landing-page/trusted/logo-set-all.png"
-                    />
+                <Slider duration="35" :blue="true">
+                    <div class="trusted-slider-inner">
+                        <img
+                            v-for="logo in logos"
+                            :alt="logo"
+                            :key="logo"
+                            :src="getImage(logo)"
+                        />
+                    </div>
                 </Slider>
             </div>
         </div>
@@ -31,12 +53,22 @@ import Slider from "../../slider/Slider.vue";
     }
 
     &-slider {
-        margin: 40px auto 0;
+        margin: 50px auto 0;
         width: 900px;
+    }
+}
 
-        img {
-            height: 70px;
-        }
+.trusted-slider-inner {
+    $gap: 100px;
+    display: flex;
+    align-items: center;
+    column-gap: $gap;
+    padding-left: $gap;
+
+    img {
+        max-height: 40px;
+        max-width: 120px;
+        object-fit: contain;
     }
 }
 
@@ -46,11 +78,17 @@ import Slider from "../../slider/Slider.vue";
             width: 100%;
         }
     }
+
+    .trusted-slider-inner {
+        $gap: 120px;
+        column-gap: $gap;
+        padding-left: $gap;
+    }
 }
 
 @media (max-width: 700px) {
     #trusted {
-        padding: 60px 0;
+        padding: 60px 0 70px;
 
         h3 {
             font-size: 6vw;
@@ -61,12 +99,20 @@ import Slider from "../../slider/Slider.vue";
         }
 
         &-slider {
-            margin-top: 30px;
+            margin-top: 40px;
             width: 100%;
+        }
+    }
 
-            img {
-                height: 60px;
-            }
+    .trusted-slider-inner {
+        $gap: 55px;
+        column-gap: $gap;
+        padding-left: $gap;
+        /* border: 1px solid red; */
+
+        img {
+            max-height: 50px;
+            max-width: 100px;
         }
     }
 }
