@@ -72,6 +72,23 @@ const getClass = (i) => {
 </template>
 
 <style scoped lang="scss">
+@mixin ring($color, $border: 4px) {
+    $margin: calc(($border + 2px) * -1);
+    content: "";
+    position: absolute;
+    top: $margin;
+    bottom: $margin;
+    left: $margin;
+    right: $margin;
+    border-radius: 50%;
+    border: $border solid $color;
+}
+
+@mixin animatedRing($color) {
+    @include ring($color, 5px);
+    animation: popup 2s ease-out infinite;
+}
+
 #community {
     $sectionWidth: 1100px;
     $width: 500px;
@@ -81,6 +98,7 @@ const getClass = (i) => {
         display: grid;
         grid-template-columns: 1fr $width;
         width: $sectionWidth;
+        position: relative;
     }
 
     .section-title {
@@ -105,9 +123,10 @@ const getClass = (i) => {
     }
 
     &-list {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
         user-select: none;
+        gap: 25px;
 
         .community-img {
             $gap: 25px;
@@ -115,25 +134,6 @@ const getClass = (i) => {
             width: $size;
             height: $size;
             position: relative;
-            margin-left: $gap;
-            margin-bottom: $gap;
-
-            @mixin ring($color, $border: 4px) {
-                $margin: calc(($border + 2px) * -1);
-                content: "";
-                position: absolute;
-                top: $margin;
-                bottom: $margin;
-                left: $margin;
-                right: $margin;
-                border-radius: 50%;
-                border: $border solid $color;
-            }
-
-            @mixin animatedRing($color) {
-                @include ring($color, 5px);
-                animation: popup 2s ease-out infinite;
-            }
 
             &-yellow::before {
                 @include ring(var(--yellow));
@@ -160,10 +160,6 @@ const getClass = (i) => {
                 opacity: 0;
                 transition: opacity 0.4s ease-out;
             }
-
-            &-hover:hover::before {
-                opacity: 1;
-            }
         }
 
         img {
@@ -176,6 +172,7 @@ const getClass = (i) => {
         position: relative;
 
         img {
+            border: blue;
             position: absolute;
             top: 0;
             left: -20%;
@@ -183,6 +180,179 @@ const getClass = (i) => {
             width: 105%;
             z-index: -1;
             opacity: 0.5;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    #community {
+        $width: 500px;
+
+        .container {
+            width: 100%;
+            padding: 50px;
+            margin: auto;
+            grid-template-columns: 1fr $width;
+        }
+
+        .section-title {
+            width: 70%;
+            left: 7%;
+        }
+
+        &-title {
+            img {
+                left: 0;
+                width: 97%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    $width: 450px;
+
+    #community {
+        .container {
+            grid-template-columns: 1fr $width;
+        }
+
+        .section-title {
+            width: 75%;
+            left: 0;
+        }
+
+        &-list {
+            $gap: 20px;
+
+            gap: $gap;
+
+            .community-img {
+                $size: calc(($width - 7 * $gap) / 7);
+                width: $size;
+                height: $size;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #community {
+        .container {
+            width: 100%;
+            display: block;
+        }
+
+        &-title {
+            padding-bottom: 80px;
+
+            img {
+                width: 70%;
+                left: 30%;
+                top: 7%;
+                height: 93%;
+            }
+        }
+
+        .section-title {
+            width: 60%;
+        }
+
+        &-list {
+            $gap: 4vw;
+
+            grid-template-columns: repeat(10, 1fr);
+            column-gap: $gap;
+            row-gap: 30px;
+
+            .community-img {
+                $size: calc(((100vw - 100px) - ($gap * 9)) / 10);
+                width: $size;
+                height: $size;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #community {
+        .container {
+            padding: 0 20px;
+        }
+
+        .section-title {
+            left: 0;
+            width: 75vw;
+            padding: 32px 25px;
+        }
+
+        &-title {
+            padding-bottom: 90px;
+
+            img {
+                $margin: 30px;
+                height: calc(100% + $margin);
+                top: -$margin;
+                width: 100vw;
+                left: auto;
+                right: -20px;
+                object-fit: cover;
+                object-fit: center right;
+            }
+        }
+
+        &-list {
+            $gap: 6vw;
+
+            gap: $gap;
+            grid-template-columns: repeat(7, 1fr);
+
+            .community-img {
+                $size: calc(((100vw - 40px) - ($gap * 6)) / 7);
+                width: $size;
+                height: $size;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    #community {
+        &-list {
+            $gap: 4.2vw;
+
+            gap: $gap;
+            grid-template-columns: repeat(7, 1fr);
+
+            .community-img {
+                $size: calc(((100vw - 40px) - ($gap * 6)) / 7);
+                width: $size;
+                height: $size;
+
+                &-blue::before {
+                    @include animatedRing(var(--blue));
+                }
+
+                &-yellow::before {
+                    @include animatedRing(var(--yellow));
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 370px) {
+    #community {
+        .section-title {
+            width: calc(100vw - 50px);
+        }
+    }
+}
+
+@media (hover: hover) {
+    #community-list {
+        .community-img-hover:hover::before {
+            opacity: 1;
         }
     }
 }

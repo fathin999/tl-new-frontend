@@ -10,11 +10,6 @@ html {
     scroll-padding-top: 120px;
 }
 
-main {
-    // later delete
-    overflow-x: hidden;
-}
-
 #app {
     min-height: 100dvh;
 }
@@ -783,12 +778,12 @@ input:-webkit-autofill:focus {
         top: 0;
         bottom: 0;
         margin: auto;
-        right: 15px;
+        right: 10px;
         height: $size !important;
         width: $size !important;
         border-radius: 50%;
-        background-color: white;
-        box-shadow: 0 10px 30px rgba(85, 34, 149, 0.5);
+        background-color: white !important;
+        box-shadow: 0 15px 30px rgba(125, 87, 171, 0.5);
 
         svg {
             $iconSize: 29%;

@@ -37,6 +37,7 @@ import IconArrow from "../../icons/IconArrow.vue";
 #instructor {
     padding: 100px 0 80px;
     position: relative;
+    overflow-x: hidden;
 
     $width: 500px;
 
@@ -72,6 +73,59 @@ import IconArrow from "../../icons/IconArrow.vue";
 
         .btn-arrow {
             position: relative;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    #instructor {
+        .container {
+            grid-template-columns: 1fr 1fr;
+
+            img {
+                width: auto;
+                right: 0;
+                height: 90%;
+                top: auto;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #instructor {
+        padding-bottom: 0;
+
+        .container {
+            display: block;
+            height: auto;
+
+            img {
+                position: relative;
+                width: 100%;
+                height: 450px;
+            }
+        }
+
+        .section-title {
+            margin: 0 auto 30px;
+            width: 600px;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #instructor {
+        .container {
+            img {
+                height: auto;
+                max-height: 320px;
+            }
+        }
+
+        .section-title {
+            width: 100%;
         }
     }
 }

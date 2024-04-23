@@ -40,6 +40,14 @@ import Slider from "../../slider/Slider.vue";
     }
 }
 
+@media (max-width: 1300px) {
+    #trusted {
+        &-slider {
+            width: 100%;
+        }
+    }
+}
+
 @media (max-width: 700px) {
     #trusted {
         padding: 60px 0;
