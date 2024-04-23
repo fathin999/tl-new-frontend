@@ -106,14 +106,6 @@ const getScreen = (img) => {
         color: white;
     }
 
-    .about-btn:hover {
-        background-color: var(--bgMedium);
-    }
-
-    .active:hover {
-        background-color: var(--black);
-    }
-
     .sidebar {
         &-icon {
             $iconSize: 55px;
@@ -156,16 +148,6 @@ const getScreen = (img) => {
             background-color: rgba(255, 255, 255, 0.1);
 
             span,
-            svg {
-                opacity: 1;
-            }
-        }
-
-        &-unclicked:hover {
-            span {
-                opacity: 1;
-            }
-
             svg {
                 opacity: 1;
             }
@@ -229,8 +211,10 @@ const getScreen = (img) => {
             }
         }
 
-        &-item:hover {
-            transform: scale($scaleRatio);
+        @media (hover: hover) {
+            &-item:hover {
+                transform: scale($scaleRatio);
+            }
         }
 
         &-bg-container {
@@ -247,6 +231,246 @@ const getScreen = (img) => {
             p {
                 color: var(--textMedium);
                 margin: 15px 0 35px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    #about-content {
+        &-screen {
+            padding: 45px 55px;
+            gap: 60px;
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    #about-content {
+        margin-top: 35px;
+
+        &-screen {
+            padding: 50px 35px;
+            gap: 55px;
+
+            $height: 280px;
+            $margin: 5px;
+            $screenRatio: calc(534 / 326);
+            $screenHeight: calc($height - $margin * 2);
+
+            &-sidebar {
+                $largeRadius: 22px;
+                $smallRadius: 10px;
+                $width: 65px;
+
+                height: $height;
+                width: $width;
+                border-top-left-radius: $largeRadius;
+                border-bottom-left-radius: $largeRadius;
+                border-top-right-radius: $smallRadius;
+                border-bottom-right-radius: $smallRadius;
+            }
+
+            &-item {
+                height: $screenHeight;
+                width: calc($screenRatio * $screenHeight);
+                margin-top: $margin;
+            }
+        }
+
+        .sidebar {
+            &-icon {
+                $iconSize: 47px;
+                height: $iconSize;
+                border-radius: 12px;
+                width: $iconSize;
+
+                svg {
+                    $svgSize: 15px;
+                    height: $svgSize;
+                    width: $svgSize;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #about-content {
+        &-screen {
+            display: block;
+            padding: 40px;
+
+            $barWidth: 65px;
+            $width: 500px;
+            $screenRatio: calc(534 / 326);
+            $screenHeight: calc($width / $screenRatio);
+
+            &-item {
+                width: $width;
+                height: $screenHeight;
+                margin: 0;
+                background: white;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    object-fit: contain;
+                }
+            }
+
+            &-sidebar {
+                $smallRadius: 10px;
+                width: $barWidth;
+                height: $screenHeight;
+                border-top-right-radius: $smallRadius;
+                border-bottom-right-radius: $smallRadius;
+                gap: 8px;
+            }
+
+            @media (hover: hover) {
+                &-item:hover {
+                    transform: scale(1.03);
+                }
+            }
+
+            &-description {
+                margin-top: 50px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                p {
+                    width: 60%;
+                    margin: 15px auto 30px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    #about-content {
+        padding-bottom: 0;
+
+        &-btns {
+            gap: 12px;
+            padding: 0 20px;
+            border-radius: 0;
+            overflow: scroll;
+            width: 100vw;
+            margin-left: -20px;
+            border: none;
+
+            .about-btn {
+                flex-shrink: 0;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                white-space: nowrap;
+                overflow: hidden;
+                border: 1px solid rgb(171, 171, 171);
+                /* background-color: var(--bgLight); */
+            }
+
+            .active {
+                background-color: var(--black);
+            }
+        }
+
+        &-btns::-webkit-scrollbar {
+            display: none;
+        }
+
+        &-btns {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        &-screen {
+            $padding: 10px;
+
+            padding: 30px $padding 90px;
+            margin: 30px -20px 0;
+            border-radius: 0;
+
+            $barWidth: 12vw;
+            $width: calc(100vw - ($padding * 2) - $barWidth);
+            $screenRatio: calc(534 / 326);
+            $screenHeight: calc($width / $screenRatio);
+            $largeRadius: 3vw;
+
+            &-sidebar {
+                height: $screenHeight;
+                width: $barWidth;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-top-left-radius: $largeRadius;
+                border-bottom-left-radius: $largeRadius;
+                display: grid;
+                grid-template-rows: repeat(5, 1fr);
+                padding: 2vw;
+                gap: 1vw;
+
+                .sidebar-icon {
+                    width: auto;
+                    height: auto;
+                    border-radius: 25%;
+                    font-size: 2vw;
+                    margin: 0;
+                    padding: 1vw 0;
+
+                    svg {
+                        $size: 3vw;
+                        height: $size;
+                        width: $size;
+                    }
+
+                    span {
+                        line-height: 2vw;
+                        font-size: 2vw;
+                        margin-top: 1vw;
+                    }
+                }
+            }
+
+            &-item {
+                width: $width;
+                height: $screenHeight;
+                border-top-right-radius: $largeRadius;
+                border-bottom-right-radius: $largeRadius;
+            }
+
+            &-description {
+                p {
+                    width: 85%;
+                    margin: 10px auto 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    #about-content {
+        .about-btn:hover {
+            background-color: var(--bgMedium);
+        }
+
+        .active:hover {
+            background-color: var(--black);
+        }
+
+        .sidebar {
+            &-unclicked:hover {
+                span {
+                    opacity: 1;
+                }
+
+                svg {
+                    opacity: 1;
+                }
             }
         }
     }

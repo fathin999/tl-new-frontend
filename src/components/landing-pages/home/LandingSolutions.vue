@@ -3,7 +3,7 @@ import EndToEndSolutions from "./EndToEndSolutions.vue";
 </script>
 
 <template>
-    <div id="about" class="section">
+    <div id="landing-solutions" class="section">
         <div class="container">
             <div class="section-title-center">
                 <h2>Explore our <u>all-in-one</u> platform</h2>
@@ -15,3 +15,11 @@ import EndToEndSolutions from "./EndToEndSolutions.vue";
         </div>
     </div>
 </template>
+
+<style scoped lang="scss">
+@media (max-width: 750px) {
+    #landing-solutions {
+        padding-bottom: 0;
+    }
+}
+</style>
