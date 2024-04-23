@@ -155,7 +155,7 @@ header {
     }
 }
 
-@media only screen and (max-width: 1100px) {
+@media (max-width: 1100px) {
     .container {
         #navbarLogo {
             width: 100px;
@@ -175,7 +175,7 @@ header {
     }
 }
 
-@media only screen and (max-width: 950px) {
+@media (max-width: 950px) {
     .container {
         #navbarLogo {
             width: 115px;
@@ -301,7 +301,7 @@ header {
         }
     }
 
-    @media only screen and (hover: hover) {
+    @media (hover: hover) {
         .container #navContainer {
             nav a:hover {
                 color: var(--purple);
@@ -320,7 +320,7 @@ header {
     }
 }
 
-@media only screen and (max-width: 900px) {
+@media (max-width: 900px) {
     .container {
         #navbarLogo {
             width: 110px;
@@ -328,7 +328,7 @@ header {
     }
 }
 
-@media only screen and (hover: hover) {
+@media (hover: hover) {
     .container {
         #navbarLogo:hover {
             opacity: 0.5;
