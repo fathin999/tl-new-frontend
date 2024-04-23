@@ -1,7 +1,8 @@
 <script setup>
 import ArrowLink from "@/components/button/ArrowLink.vue";
-import CoursesList from "@/components/courses/CoursesList.vue";
+import CoursesListSlider from "@/components/courses/CoursesListSlider.vue";
 import IconChevron from "@/components/icons/IconChevron.vue";
+import IconArrow from "@/components/icons/IconArrow.vue";
 import {filterCoursesUsingRole} from "@/composable/courses/course-roles";
 import {ref, reactive} from "vue";
 
@@ -35,7 +36,7 @@ const changeRole = (index) => {
 
 <template>
     <div id="courses-roles-list">
-        <div id="courses-btns">
+        <div id="courses-btns" class="hide-scrollbar">
             <div
                 v-for="(role, index) in roles"
                 :class="getBtnClass(index)"
@@ -49,13 +50,14 @@ const changeRole = (index) => {
             <div id="courses-btns-link" v-if="showLinks">
                 <a href="/career-roles" class="clickable">
                     Explore more roles
-                    <IconChevron />
+                    <IconChevron id="course-icon-chevron" />
+                    <IconArrow id="course-icon-arrow" />
                 </a>
             </div>
         </div>
 
         <div id="courses-list">
-            <CoursesList :courses="renderedCourses" />
+            <CoursesListSlider :courses="renderedCourses" />
 
             <div id="courses-list-more" v-if="showLinks">
                 <ArrowLink title="More courses" href="/courses" />
@@ -97,10 +99,6 @@ const changeRole = (index) => {
             }
         }
 
-        .courses-btn:hover {
-            background-color: var(--bgMedium);
-        }
-
         .btn-active {
             background-color: var(--black);
             color: white;
@@ -108,10 +106,6 @@ const changeRole = (index) => {
             svg {
                 fill: var(--purple);
             }
-        }
-
-        .btn-active:hover {
-            background-color: var(--black);
         }
 
         &-link {
@@ -140,12 +134,8 @@ const changeRole = (index) => {
                 }
             }
 
-            a:hover {
-                color: var(--black);
-
-                svg {
-                    fill: var(--black);
-                }
+            #course-icon-arrow {
+                display: none;
             }
         }
     }
@@ -154,6 +144,142 @@ const changeRole = (index) => {
         &-more {
             text-align: right;
             margin-top: 30px;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    #courses {
+        &-roles-list {
+            display: block;
+        }
+
+        &-btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 45px;
+
+            .courses-btn {
+                padding: 14px 24px;
+                padding-right: 27px;
+                background-color: var(--bgMedium);
+                margin: 0;
+            }
+
+            .btn-active {
+                background-color: var(--black);
+            }
+
+            &-link {
+                margin: 0;
+                padding-left: 15px;
+
+                a {
+                    font-size: 0.85rem;
+                    line-height: 1.1rem;
+
+                    svg {
+                        $size: 13px;
+                        height: $size;
+                        width: $size;
+                        transform: rotate(0deg);
+                        flex-shrink: 0;
+                        margin-top: 0;
+                        margin-left: 10px;
+                    }
+                }
+
+                #course-icon-chevron {
+                    display: none;
+                }
+
+                #course-icon-arrow {
+                    display: block;
+                }
+            }
+        }
+
+        &-list {
+            margin: 0 auto;
+            width: 900px;
+
+            &-more {
+                display: block;
+                margin: 50px auto 0;
+                text-align: center;
+                border: 1px solid var(--purple);
+                width: 180px;
+                padding: 10px;
+                padding-left: 14px;
+                border-radius: 30px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #courses {
+        &-btns {
+            overflow-x: scroll;
+            justify-content: flex-start;
+            width: 100vw;
+            margin: 0 -20px 40px;
+            padding: 0 20px;
+            gap: 15px;
+
+            .courses-btn {
+                flex-shrink: 0;
+            }
+
+            &-link {
+                padding: 0 20px;
+                a {
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        &-list {
+            width: 100%;
+
+            &-more {
+                margin-top: 35px;
+                padding: 15px 15px 15px 20px;
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    #courses-btns {
+        .courses-btn:hover {
+            background-color: var(--bgMedium);
+        }
+
+        .btn-active:hover {
+            background-color: var(--black);
+        }
+
+        &-link a:hover {
+            color: var(--black);
+
+            svg {
+                fill: var(--black);
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        #courses-btns {
+            .courses-btn:hover {
+                background-color: var(--lightBlue);
+            }
+
+            .btn-active:hover {
+                background-color: var(--black);
+            }
         }
     }
 }

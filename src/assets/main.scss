@@ -60,6 +60,15 @@ main {
     overflow: hidden !important;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 // -------------------
 // SECONDARY BAR
 // -------------------
@@ -434,6 +443,9 @@ $itemPadding: 30px;
 
             span {
                 color: var(--textMedium);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             svg {
@@ -442,6 +454,7 @@ $itemPadding: 30px;
                 height: $size;
                 width: $size;
                 margin-right: 25px;
+                flex-shrink: 0;
             }
         }
 
@@ -757,6 +770,31 @@ input:-webkit-autofill:focus {
                 margin-top: 15px;
                 width: 90%;
             }
+        }
+    }
+
+    .small-screen-slider-btn {
+        $size: 60px;
+
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        right: 15px;
+        height: $size !important;
+        width: $size !important;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 10px 30px rgba(85, 34, 149, 0.5);
+
+        svg {
+            $iconSize: 29%;
+            height: $iconSize !important;
+            width: $iconSize !important;
+            fill: var(--black);
         }
     }
 }

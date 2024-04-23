@@ -366,12 +366,11 @@ const getScreen = (img) => {
 
             .about-btn {
                 flex-shrink: 0;
-                padding: 12px 20px;
+                padding: 14px 22px;
                 font-size: 0.9rem;
                 white-space: nowrap;
                 overflow: hidden;
-                border: 1px solid rgb(171, 171, 171);
-                /* background-color: var(--bgLight); */
+                background-color: var(--bgMedium);
             }
 
             .active {
@@ -471,6 +470,18 @@ const getScreen = (img) => {
                 svg {
                     opacity: 1;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 750px) {
+        #about-content {
+            .about-btn:hover {
+                background-color: var(--lightBlue);
+            }
+
+            .active:hover {
+                background-color: var(--black);
             }
         }
     }

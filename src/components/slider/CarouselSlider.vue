@@ -15,18 +15,22 @@ let startScrollLeft = ref(0);
 const btnClick = (dir) => {
     const width = carousel.value.children[0].getBoundingClientRect().width;
     const carouselWidth = carousel.value.getBoundingClientRect().width;
-    const maxScroll = carouselWidth - width;
-
-    console.log(carousel.value.scrollLeft, maxScroll);
+    const total = carousel.value.children.length;
+    const allWidth = width * total;
+    const maxScroll = allWidth - carouselWidth;
 
     if (dir === "prev") {
-        if (carousel.value.scrollLeft == 0)
-            carousel.value.scrollLeft += carouselWidth;
-        else carousel.value.scrollLeft -= width;
+        if (carousel.value.scrollLeft == 0) {
+            carousel.value.scrollLeft += allWidth;
+        } else {
+            carousel.value.scrollLeft -= width;
+        }
     } else {
-        if (carousel.value.scrollLeft + 5 > maxScroll)
+        if (carousel.value.scrollLeft > maxScroll) {
             carousel.value.scrollLeft = 0;
-        else carousel.value.scrollLeft += width;
+        } else {
+            carousel.value.scrollLeft += width;
+        }
     }
 };
 
@@ -61,7 +65,10 @@ onUnmounted(() => {
 
 <template>
     <div id="carousel" :class="`${isDragging ? 'dragging' : ''}`">
-        <div class="carousel-btn clickable" @click="btnClick('prev')">
+        <div
+            class="carousel-btn small-screen-slider-btn clickable"
+            @click="btnClick('prev')"
+        >
             <IconArrow />
         </div>
 
@@ -69,7 +76,10 @@ onUnmounted(() => {
             <slot />
         </div>
 
-        <div class="carousel-btn clickable" @click="btnClick('next')">
+        <div
+            class="carousel-btn small-screen-slider-btn clickable"
+            @click="btnClick('next')"
+        >
             <IconArrow />
         </div>
     </div>
@@ -87,7 +97,7 @@ onUnmounted(() => {
     .carousel-btn {
         height: $btnHeight;
         width: $btnHeight;
-        background-color: var(--lightPurple);
+        background-color: var(--bgMedium);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -104,14 +114,6 @@ onUnmounted(() => {
 
     .carousel-btn:first-of-type {
         transform: scaleX(-1);
-    }
-
-    .carousel-btn:hover {
-        background-color: var(--purple);
-
-        svg {
-            fill: var(--black);
-        }
     }
 
     .carousel-list {
@@ -138,10 +140,68 @@ onUnmounted(() => {
         scroll-snap-type: none;
     }
 }
+
+@media (max-width: 900px) {
+    #carousel {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    #carousel {
+        width: 100vw;
+        margin-left: -20px;
+        display: block;
+        position: relative;
+        overflow: hidden;
+
+        $margin: 10px;
+
+        .carousel-btn:first-of-type {
+            display: none;
+        }
+
+        .disable {
+            opacity: 0;
+        }
+    }
+}
+
+@media (hover: hover) {
+    #carousel {
+        .carousel-btn:hover {
+            background-color: var(--lightBlue);
+
+            svg {
+                fill: var(--black);
+            }
+        }
+    }
+}
 </style>
 
 <style lang="scss">
-.carousel-list > * {
-    scroll-snap-align: start;
+#carousel {
+    .carousel-list > * {
+        scroll-snap-align: start;
+    }
+}
+
+@media (max-width: 700px) {
+    #carousel {
+        .carousel-list {
+            $gap: 20px;
+            $items: 1.2;
+
+            grid-auto-columns: calc(((100% - ($items - 1) * $gap) / $items));
+            gap: $gap;
+            width: 100vw;
+            padding: 0 20px;
+        }
+
+        .carousel-list > * {
+            scroll-snap-align: center;
+        }
+    }
 }
 </style>

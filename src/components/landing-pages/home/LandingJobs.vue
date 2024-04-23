@@ -59,24 +59,39 @@ const jobs = getFeaturedJobs();
         text-align: center;
     }
 }
+
+@media only screen and (max-width: 900px) {
+    #jobs {
+        &-btns {
+            margin-top: 50px;
+        }
+    }
+}
 </style>
 
 <style lang="scss">
 #landing-jobs-carousel {
     $gap: 20px;
-    grid-auto-columns: calc(((100% - 2 * $gap) / 3));
+    $items: 3;
+    grid-auto-columns: calc(((100% - ($items - 1) * $gap) / $items));
     gap: $gap;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
     #landing-jobs-carousel {
-        grid-auto-columns: calc((100% / 3) - 14px);
+        $gap: 20px;
+        $items: 2;
+        grid-auto-columns: calc(((100% - ($items - 1) * $gap) / $items));
+        gap: $gap;
     }
 }
 
-@media only screen and (max-width: 850px) {
+/* @media only screen and (max-width: 900px) {
     #landing-jobs-carousel {
-        grid-auto-columns: calc((100% / 2) - 10px);
+        $gap: 20px;
+        $items: 2;
+        grid-auto-columns: calc(((100% - ($items - 1) * $gap) / $items));
+        gap: $gap;
     }
-}
+} */
 </style>

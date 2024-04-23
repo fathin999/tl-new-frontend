@@ -107,4 +107,36 @@ const getRemoteClass = () => {
         margin-right: 10px;
     }
 }
+
+@media (max-width: 900px) {
+    .job-item {
+        $padding: 22px;
+        padding: $padding;
+        padding-bottom: 160px;
+
+        &-details {
+            bottom: $padding;
+            left: $padding;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .job-item {
+        &-title {
+            margin-bottom: 10px;
+
+            h4 {
+                font-size: 5.5vw;
+                line-height: 7.5vw;
+                min-height: 7.5vw;
+                max-height: 15vw;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+}
 </style>

@@ -28,9 +28,19 @@ defineProps({
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     row-gap: 40px;
+}
 
-    /* .courses-item {
-        width: calc((100% - $gap * 2) / 3);
-    } */
+@media (max-width: 900px) {
+    #courses-list {
+        grid-template-columns: 1fr 1fr;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 700px) {
+    #courses-list {
+        gap: 20px;
+        grid-template-columns: 1fr;
+    }
 }
 </style>

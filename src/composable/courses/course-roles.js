@@ -13,7 +13,7 @@ const courses = [
         level: "Intermediate",
         provider: "TalentLabs",
         providerLogo: "tl",
-        role: "Data analyst",
+        role: "Data science",
     },
     {
         id: 4,
@@ -24,7 +24,7 @@ const courses = [
         level: "Beginner",
         provider: "TalentLabs",
         providerLogo: "tl",
-        role: "Data analyst",
+        role: "Data science",
     },
     {
         id: 5,
@@ -57,7 +57,7 @@ const courses = [
         level: "Intermediate",
         provider: "TalentLabs",
         providerLogo: "tl",
-        role: "Data analyst",
+        role: "Data science",
     },
     {
         id: 2,

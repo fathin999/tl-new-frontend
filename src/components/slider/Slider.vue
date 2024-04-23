@@ -47,10 +47,6 @@ defineProps({
         animation: slide 50s linear infinite;
         gap: 0;
     }
-
-    &-outer:hover .slider-inner {
-        animation-play-state: paused;
-    }
 }
 
 @mixin gradient() {
@@ -111,6 +107,14 @@ defineProps({
     .slider {
         &-outer {
             margin-left: -20px;
+        }
+    }
+}
+
+@media (hover: hover) {
+    .slider {
+        &-outer:hover .slider-inner {
+            animation-play-state: paused;
         }
     }
 }

@@ -93,7 +93,7 @@ const getBanner = () => {
     span {
         font-size: 0.9rem;
         line-height: 1.4rem;
-        color: var(--textLight);
+        color: var(--textMedium);
 
         b {
             display: inline-block;
@@ -139,7 +139,7 @@ const getBanner = () => {
     }
 
     &-title {
-        margin: 45px 0 10px;
+        margin: 45px 0 20px;
     }
 
     &-provider {
@@ -163,7 +163,47 @@ const getBanner = () => {
     }
 }
 
-.courses-item:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+@media (max-width: 700px) {
+    .courses-item {
+        padding-bottom: 120px;
+
+        &-banner-container {
+            height: 90px;
+        }
+
+        &-title {
+            margin: 45px 0 20px;
+        }
+
+        h4 {
+            font-size: 5.5vw;
+            line-height: 7.5vw;
+            min-height: 7.5vw;
+            max-height: 15vw;
+        }
+
+        span {
+            font-size: 0.95rem;
+        }
+
+        &-provider {
+            $size: 45px;
+            height: $size;
+            font-size: 0.95rem;
+            color: var(--textMedium);
+
+            img {
+                height: $size;
+                width: $size;
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .courses-item:hover {
+        border-color: var(--purple);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
 }
 </style>

@@ -96,4 +96,78 @@ const testimonials = getLandingTestimonials();
         margin: 120px 0 60px;
     }
 }
+
+@media (max-width: 1300px) {
+    #testimonies {
+        &-top {
+            grid-template-columns: 1fr 50%;
+            gap: 80px;
+        }
+
+        &-images {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    #testimonies {
+        $width: 450px;
+
+        &-top {
+            grid-template-columns: 1fr $width;
+            gap: 50px;
+        }
+
+        &-images {
+            width: $width;
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    #testimonies {
+        &-top {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        &-images {
+            width: 70%;
+            height: auto;
+            margin-bottom: 20px;
+
+            img {
+                object-position: center;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+
+            p {
+                width: 90%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #testimonies {
+        &-images {
+            width: 100%;
+        }
+
+        .section-title {
+            p {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+}
 </style>
