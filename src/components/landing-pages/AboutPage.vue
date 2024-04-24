@@ -379,4 +379,142 @@ const values = [
         }
     }
 }
+
+@media (max-width: 1300px) {
+    #about {
+        &-values {
+            .container {
+                margin: auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    #about {
+        &-story {
+            &-header {
+                display: block;
+            }
+
+            &-images {
+                margin: 50px auto 60px;
+                height: 35vw;
+                width: 50vw;
+            }
+
+            &-list {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #about {
+        &-story {
+            &-images {
+                margin: 50px auto 60px;
+                height: 35vw;
+                width: 60vw;
+            }
+        }
+
+        &-teams {
+            .container {
+                position: relative;
+                padding-bottom: 90px;
+            }
+
+            .section-title {
+                position: static;
+            }
+
+            .btn-arrow {
+                right: 0;
+                left: 0;
+                margin: auto;
+                bottom: 0;
+                width: 190px;
+            }
+
+            &-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        &-values {
+            .container {
+                margin: 0 20px;
+                width: auto;
+            }
+
+            &-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    #about {
+        &-teams {
+            &-list {
+                gap: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #about {
+        &-story {
+            &-images {
+                margin: 50px auto 30px;
+                height: 80vw;
+                width: 90vw;
+            }
+
+            &-list {
+                border-color: transparent;
+
+                .about-story-mission {
+                    display: block;
+                    padding: 0;
+                    margin-top: 40px;
+                    border-bottom: none;
+
+                    h2 {
+                        font-size: 4.5vw;
+                        line-height: 6.5vw;
+                        margin-bottom: 8px;
+                        color: var(--purple);
+                    }
+                }
+            }
+        }
+
+        &-values {
+            &-list {
+                gap: 15px;
+
+                .about-values-item {
+                    padding: 27px;
+
+                    svg {
+                        $size: 40px;
+                        height: $size;
+                        width: $size;
+                    }
+
+                    h3 {
+                        font-size: 4.7vw;
+                        line-height: 6.7vw;
+                        margin: 25px 0 15px;
+                    }
+                }
+            }
+        }
+    }
+}
 </style>

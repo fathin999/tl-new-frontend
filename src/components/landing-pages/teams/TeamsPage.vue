@@ -44,4 +44,29 @@ const teams = getAllTeams();
         padding-bottom: 90px;
     }
 }
+
+@media (max-width: 1200px) {
+    #teams-list {
+        .container {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #teams-list {
+        .container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    #teams-list {
+        .container {
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+    }
+}
 </style>

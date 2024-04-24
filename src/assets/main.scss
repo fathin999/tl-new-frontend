@@ -698,10 +698,6 @@ input:-webkit-autofill:focus {
         font-weight: 500;
         color: var(--purple);
     }
-
-    a:hover {
-        text-decoration: underline;
-    }
 }
 
 // ---------------
@@ -734,6 +730,12 @@ input:-webkit-autofill:focus {
             color: var(--purple);
         }
     }
+
+    .article {
+        a:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 // ---------------
@@ -750,6 +752,12 @@ input:-webkit-autofill:focus {
 
     .section {
         padding: 100px 0;
+    }
+
+    .article {
+        width: 750px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -783,6 +791,24 @@ input:-webkit-autofill:focus {
             p {
                 margin-top: 15px;
                 width: 90%;
+            }
+        }
+    }
+
+    .article {
+        h2 {
+            font-size: 6vw;
+            line-height: 8vw;
+            margin: 3.5rem 0 2rem;
+        }
+
+        ul,
+        ol {
+            padding-left: 25px;
+
+            li {
+                padding-left: 10px;
+                margin-bottom: 10px;
             }
         }
     }

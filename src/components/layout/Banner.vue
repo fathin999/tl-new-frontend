@@ -39,4 +39,23 @@ defineProps({
         }
     }
 }
+
+@media (max-width: 700px) {
+    #banner {
+        .container {
+            padding: 60px 0 80px;
+
+            h1 {
+                font-size: 8vw;
+                line-height: 10vw;
+            }
+
+            p {
+                font-size: 1rem;
+                width: 80%;
+                margin-top: 10px;
+            }
+        }
+    }
+}
 </style>

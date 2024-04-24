@@ -29,9 +29,17 @@ const getImgBw = (img) => {
         <h2>{{ name }}</h2>
 
         <div class="team-item-socials">
-            <IconTeamFa />
-            <IconTeamLi />
-            <IconTeamX />
+            <a>
+                <IconTeamFa />
+            </a>
+
+            <a>
+                <IconTeamLi />
+            </a>
+
+            <a>
+                <IconTeamX />
+            </a>
         </div>
     </a>
 </template>
@@ -101,12 +109,57 @@ const getImgBw = (img) => {
     }
 }
 
-.team-item:hover {
-    border-color: var(--purple);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+@media (max-width: 800px) {
+    .team-item {
+        border: 0;
+        border-top: 1px solid gainsboro;
+        border-radius: 0;
+        padding: 37px;
 
-    .team-item-img {
-        opacity: 1;
+        &-img-container {
+            $size: 80px;
+            width: $size;
+            height: $size;
+        }
+
+        &-img {
+            opacity: 1;
+        }
+
+        h6 {
+            margin-top: 12px;
+        }
+
+        h2 {
+            font-size: 5vw;
+            margin: 3px 0 15px;
+        }
+
+        &-socials {
+            gap: 7px;
+
+            $size: 27px;
+
+            svg {
+                height: $size;
+                width: $size;
+            }
+        }
+    }
+
+    .team-item:last-of-type {
+        border-bottom: 1px solid gainsboro;
+    }
+}
+
+@media (hover: hover) {
+    .team-item:hover {
+        border-color: var(--purple);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+
+        .team-item-img {
+            opacity: 1;
+        }
     }
 }
 </style>

@@ -186,7 +186,6 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 #programme {
-    overflow-x: hidden;
     position: relative;
 
     &-content {
