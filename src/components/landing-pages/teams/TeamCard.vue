@@ -19,7 +19,7 @@ const getImgBw = (img) => {
 </script>
 
 <template>
-    <a class="team-item clickable" href="/teams/1">
+    <a class="team-item clickable" :href="`/teams/${img}`">
         <div class="team-item-img-container">
             <img :src="getImgBw(img)" :alt="name" class="team-item-img-bw" />
             <img :src="getImg(img)" :alt="name" class="team-item-img" />

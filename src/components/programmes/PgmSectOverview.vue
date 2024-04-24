@@ -9,15 +9,17 @@ const props = defineProps({
 defineEmits(["scrollToPathways"]);
 
 const getPartners = () => {
+    let slug = "kyouth";
     return new URL(
-        `/src/assets/programmes/programme-partner-logos-${props.slug}.png`,
+        `/src/assets/programmes/programme-partner-logos-${slug}.png`,
         import.meta.url
     );
 };
 
 const getImg = () => {
+    let slug = "kyouth";
     return new URL(
-        `/src/assets/programmes/programme-overview-${props.slug}.png`,
+        `/src/assets/programmes/programme-overview-${slug}.png`,
         import.meta.url
     );
 };

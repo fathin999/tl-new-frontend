@@ -166,7 +166,9 @@ const getDutyImg = (i) => {
                     <h2>Frequently asked questions</h2>
                 </div>
 
-                <FaqList :faqs="faqs" />
+                <div id="instructor-faq-list">
+                    <FaqList :faqs="faqs" />
+                </div>
             </div>
         </div>
 
@@ -339,6 +341,10 @@ const getDutyImg = (i) => {
 
     &-faq {
         padding-top: 50px;
+
+        &-list {
+            margin-top: 50px;
+        }
     }
 
     &-contact {

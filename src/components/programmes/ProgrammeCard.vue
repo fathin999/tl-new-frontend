@@ -26,7 +26,7 @@ const getImg = (slug) => {
 </script>
 
 <template>
-    <a class="pgm-item clickable" href="/special-programmes/1">
+    <a class="pgm-item clickable" :href="`/special-programmes/${slug}`">
         <div class="pgm-item-img">
             <img :src="getImg(slug)" :alt="title" />
         </div>

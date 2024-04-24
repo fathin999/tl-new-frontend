@@ -9,7 +9,11 @@ import LandingJobCard from "../jobs/LandingJobCard.vue";
 import JobsList from "../jobs/JobsList.vue";
 import ArrowLink from "../button/ArrowLink.vue";
 import IconArrow from "../icons/IconArrow.vue";
-import {getGenericRoleItemData, getRole} from "../../composable/roles/roles";
+import {
+    getFirstRole,
+    getGenericRoleItemData,
+    getRole,
+} from "../../composable/roles/roles";
 import {getRoleTabs} from "../../composable/view-models/roles";
 import {ref} from "vue";
 import {
@@ -21,9 +25,14 @@ import {
     getMaxThreeJobsWithRoles,
     getOneJobFromRole,
 } from "@/composable/jobs/jobs";
+import {useRoute} from "vue-router";
+
+// params
+const params = useRoute().params;
 
 const content = ref();
-const role = getRole();
+const role = getFirstRole();
+const paramRole = getRole(params.slug);
 const active = ref(0);
 const tabs = getRoleTabs();
 const data = getGenericRoleItemData();
@@ -64,12 +73,12 @@ const changeTab = (i) => {
                 <b> > </b>
                 <a href="/career-roles">Career roles</a>
                 <b> > </b>
-                <a>{{ role.title }}</a>
+                <a>{{ paramRole.title }}</a>
             </div>
 
-            <img :src="getImg(role.slug)" alt="" />
+            <img :src="getImg(paramRole.slug)" alt="" />
 
-            <h1>{{ role.title }}</h1>
+            <h1>{{ paramRole.title }}</h1>
         </div>
 
         <div class="secondary-bar">
@@ -89,7 +98,7 @@ const changeTab = (i) => {
 
         <div id="role-content" ref="content">
             <div class="container section-small" v-if="active === 0">
-                <h1 class="first">Who are {{ role.paraTitle }}s?</h1>
+                <h1 class="first">Who are {{ paramRole.paraTitle }}s?</h1>
 
                 <p>
                     Software engineers create web applications, mobile apps,
@@ -122,7 +131,7 @@ const changeTab = (i) => {
                     </div>
                 </div>
 
-                <h1>How to be a {{ role.paraTitle }}</h1>
+                <h1>How to be a {{ paramRole.paraTitle }}</h1>
 
                 <div id="role-content-how">
                     <div
@@ -218,7 +227,7 @@ const changeTab = (i) => {
                 v-if="active === 1"
                 id="role-content-pathway"
             >
-                <h2>Beginner {{ role.paraTitle }} courses</h2>
+                <h2>Beginner {{ paramRole.paraTitle }} courses</h2>
 
                 <div v-if="m1courses.length > 0">
                     <CoursesList
@@ -227,7 +236,9 @@ const changeTab = (i) => {
                     />
                 </div>
 
-                <h2>Intermediate to advanced {{ role.paraTitle }} courses</h2>
+                <h2>
+                    Intermediate to advanced {{ paramRole.paraTitle }} courses
+                </h2>
 
                 <div v-if="courses.length > 0">
                     <CoursesList

@@ -60,7 +60,7 @@ const routes = [
     {
         name: "Course Item Page",
         component: CourseItemPage,
-        path: "/courses/1",
+        path: "/courses/:slug",
     },
     {
         name: "Course FAQ Page",
@@ -75,7 +75,7 @@ const routes = [
     {
         name: "Role Item Page",
         component: RoleItemPage,
-        path: "/career-roles/1",
+        path: "/career-roles/:slug",
     },
     {
         name: "Jobs",
@@ -85,12 +85,12 @@ const routes = [
     {
         name: "Jobs Item Page",
         component: JobsItemPage,
-        path: "/jobs/1",
+        path: "/jobs/:title",
     },
     {
         name: "Employers",
         component: EmployersPage,
-        path: "/employers",
+        path: "/employers/:slug",
     },
     {
         name: "About",
@@ -120,7 +120,7 @@ const routes = [
     {
         name: "Individual Programme",
         component: IndividualProgrammePage,
-        path: "/special-programmes/1",
+        path: "/special-programmes/:slug",
     },
     {
         name: "Be an Instructor",
@@ -150,7 +150,7 @@ const routes = [
     {
         name: "Individual Team",
         component: IndividualTeamPage,
-        path: "/teams/1",
+        path: "/teams/:slug",
     },
 ];
 

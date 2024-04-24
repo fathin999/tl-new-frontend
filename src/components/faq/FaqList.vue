@@ -42,6 +42,13 @@ const toggleFaq = (i) => {
 <style scoped lang="scss">
 #faq-list {
     width: 800px;
-    margin: 50px auto;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    #faq-list {
+        width: auto;
+        margin: 0 20px;
+    }
 }
 </style>

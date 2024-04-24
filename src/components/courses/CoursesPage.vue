@@ -7,71 +7,11 @@ import SearchBar from "../browse/SearchBar.vue";
 import IconClose from "../icons/IconClose.vue";
 import IconFilter from "../icons/IconFilter.vue";
 import {reactive, ref} from "vue";
+import {getAllCourses} from "@/composable/courses/course-roles";
 
 let showFilter = ref(false);
 
-const courses = [
-    {
-        id: 1,
-        badge: "cada",
-        banner: "cada",
-        title: "Certified Associate in Data Analytics",
-        type: "Certified Associate",
-        level: "Intermediate",
-        provider: "TalentLabs",
-        providerLogo: "tl",
-    },
-    {
-        id: 2,
-        badge: "cada",
-        banner: "cabed",
-        title: "Certified Associate in Backend Development",
-        type: "Certified Associate",
-        level: "Intermediate",
-        provider: "TalentLabs",
-        providerLogo: "tl",
-    },
-    {
-        id: 3,
-        badge: "devops",
-        banner: "devops",
-        title: "AWS DevOps Engineer",
-        type: "AWS Professional",
-        level: "Advanced",
-        provider: "Amazon Web Services (AWS)",
-        providerLogo: "aws",
-    },
-    {
-        id: 4,
-        badge: "cada",
-        banner: "cada",
-        title: "Certified Associate in Data Analytics",
-        type: "Certified Associate",
-        level: "Intermediate",
-        provider: "TalentLabs",
-        providerLogo: "tl",
-    },
-    {
-        id: 5,
-        badge: "cada",
-        banner: "cabed",
-        title: "Certified Associate in Backend Development",
-        type: "Certified Associate",
-        level: "Intermediate",
-        provider: "TalentLabs",
-        providerLogo: "tl",
-    },
-    {
-        id: 6,
-        badge: "devops",
-        banner: "devops",
-        title: "AWS DevOps Engineer",
-        type: "AWS Professional",
-        level: "Advanced",
-        provider: "Amazon Web Services (AWS)",
-        providerLogo: "aws",
-    },
-];
+const courses = getAllCourses();
 
 const filters = reactive([
     {

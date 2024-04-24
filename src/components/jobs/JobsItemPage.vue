@@ -13,18 +13,27 @@ import IconArrow from "../icons/IconArrow.vue";
 import JobsList from "./JobsList.vue";
 import {
     getJob,
+    getJobFromTitle,
     getOtherJobsFromEmployer,
     getOtherSimilarJobs,
     getTime,
+    getJobTitleFromUrl,
 } from "../../composable/jobs/jobs";
 import {getEmployerFromSlug} from "@/composable/employers/employers";
+import {useRoute} from "vue-router";
+
+// params
+const params = useRoute().params;
+const paramJob = getJobFromTitle(getJobTitleFromUrl(params.title));
+
+console.log(paramJob);
 
 const job = getJob();
-const employer = getEmployerFromSlug(job.employer);
+const employer = getEmployerFromSlug(paramJob.employer);
 
-const similarJobs = getOtherSimilarJobs(job.role, job.title);
+const similarJobs = getOtherSimilarJobs(paramJob.role, paramJob.title);
 
-const otherJobs = getOtherJobsFromEmployer(job.employer, job.title);
+const otherJobs = getOtherJobsFromEmployer(paramJob.employer, paramJob.title);
 
 // static images
 const getLogo = (slug) => {
@@ -49,12 +58,12 @@ const getLogo = (slug) => {
             </div>
 
             <div id="job-overview">
-                <h1>{{ job.title }}</h1>
+                <h1>{{ paramJob.title }}</h1>
 
                 <a
                     id="job-overview-employer"
                     class="clickable"
-                    href="/employers"
+                    :href="`/employers/${employer.slug}`"
                 >
                     <img
                         :src="getLogo(employer.slug)"
@@ -70,27 +79,27 @@ const getLogo = (slug) => {
                         id="job-overview-summary-location"
                     >
                         <IconLocationOutline />
-                        <span>{{ job.location }}</span>
+                        <span>{{ paramJob.location }}</span>
                     </div>
 
                     <div class="job-summary-item">
                         <IconBriefcase />
-                        <span>{{ job.type }}</span>
+                        <span>{{ paramJob.type }}</span>
                     </div>
 
                     <div class="job-summary-item">
                         <IconBuilding />
-                        <span>{{ job.remote }}</span>
+                        <span>{{ paramJob.remote }}</span>
                     </div>
 
                     <div class="job-summary-item">
                         <IconSpanner />
-                        <span>{{ job.role }}</span>
+                        <span>{{ paramJob.role }}</span>
                     </div>
 
                     <div class="job-summary-item">
                         <IconTime />
-                        <span>{{ getTime(job.createdAt) }}</span>
+                        <span>{{ getTime(paramJob.createdAt) }}</span>
                     </div>
                 </div>
             </div>
@@ -239,7 +248,7 @@ const getLogo = (slug) => {
         <div id="job-company">
             <h2>More about {{ employer.shortTitle }}</h2>
 
-            <a id="job-company-card" href="/employers">
+            <a id="job-company-card" :href="`/employers/${employer.slug}`">
                 <div id="job-company-card-title">
                     <img
                         :src="getLogo(employer.slug)"

@@ -95,6 +95,10 @@ export const getJob = () => {
     return jobs[0];
 };
 
+export const getJobFromTitle = (title) => {
+    return jobs.find((job) => job.title === title);
+};
+
 export const getAllJobs = () => {
     return jobs;
 };
@@ -160,4 +164,12 @@ export const getOneJobFromRole = (role) => {
 
     if (roleJobs.length > 0) return roleJobs[0];
     else return null;
+};
+
+export const getJobLink = (title) => {
+    return `/jobs/${title.split("/").join("@")}`;
+};
+
+export const getJobTitleFromUrl = (url) => {
+    return url.split("@").join("/");
 };

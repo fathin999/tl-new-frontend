@@ -7,7 +7,7 @@ const props = defineProps({
     slug: String,
 });
 
-const testimonials = getTestimonialsFromProgramme(props.slug);
+const testimonials = getTestimonialsFromProgramme("kyouth");
 
 const getImg = (img) => {
     return new URL(

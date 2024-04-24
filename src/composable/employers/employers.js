@@ -45,8 +45,8 @@ const employers = [
     },
 ];
 
-export const getEmployer = () => {
-    return employers[1];
+export const getEmployer = (slug) => {
+    return employers.find((emp) => emp.slug === slug);
 };
 
 export const getEmployerName = (slug) => {

@@ -2,12 +2,16 @@
 import Navbar from "../../layout/Navbar.vue";
 import Footer from "../../layout/Footer.vue";
 import {useRoute} from "vue-router";
-import {getTeam} from "@/composable/teams/teams";
+import {getTeam, getTeamFromSlug} from "@/composable/teams/teams";
 import IconTeamLi from "@/components/icons/teams/IconTeamLi.vue";
 import IconTeamFa from "@/components/icons/teams/IconTeamFa.vue";
 import IconTeamX from "@/components/icons/teams/IconTeamX.vue";
 
+// params
+const params = useRoute().params;
+
 const team = getTeam();
+const paramTeam = getTeamFromSlug(params.slug);
 
 const getImg = (img) => {
     return new URL(`/src/assets/teams/team-${img}.png`, import.meta.url);
@@ -25,19 +29,19 @@ const getImg = (img) => {
                     <b>></b>
                     <a href="/teams">Teams</a>
                     <b>></b>
-                    <a>{{ team.name }}</a>
+                    <a>{{ paramTeam.name }}</a>
                 </div>
 
                 <img
-                    :src="getImg(team.img)"
-                    :alt="team.name"
+                    :src="getImg(paramTeam.img)"
+                    :alt="paramTeam.name"
                     id="team-header-img"
                 />
 
-                <h1>{{ team.name }}</h1>
+                <h1>{{ paramTeam.name }}</h1>
 
                 <h2>
-                    {{ team.position }}
+                    {{ paramTeam.position }}
                 </h2>
 
                 <div id="team-header-socials">
@@ -61,6 +65,7 @@ const getImg = (img) => {
     .container {
         padding: 20px 0 90px;
         width: 700px;
+        margin: auto;
     }
 
     &-header {
@@ -121,6 +126,15 @@ const getImg = (img) => {
     p {
         font-size: 1.1rem;
         line-height: 1.8rem;
+    }
+}
+
+@media (max-width: 900px) {
+    #team {
+        .container {
+            width: auto;
+            margin: 0 20px;
+        }
     }
 }
 </style>

@@ -35,7 +35,7 @@ const getImg = (slug) => {
                     v-for="(role, index) in roles"
                     :key="`role-item-${index}`"
                     class="role-item clickable"
-                    href="/career-roles/1"
+                    :href="`/career-roles/${role.slug}`"
                 >
                     <div class="role-item-img">
                         <img :src="getImg(role.slug)" alt="" />
@@ -103,17 +103,56 @@ const getImg = (slug) => {
             font-size: 1.1rem;
         }
     }
+}
 
-    .role-item:hover {
-        border-color: var(--purple);
+@media (max-width: 900px) {
+    #roles {
+        &-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
 
-        img {
-            transform: scale(1.15);
+@media (max-width: 700px) {
+    #roles {
+        h1 {
+            font-size: 6vw;
+            line-height: 8vw;
+            margin: 50px 0 15px;
         }
 
-        /* span {
+        p {
+            width: 100%;
+            margin: 0 auto 60px;
+        }
+
+        &-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    #roles {
+        &-list {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media (hover: hover) {
+    #roles {
+        .role-item:hover {
+            border-color: var(--purple);
+
+            img {
+                transform: scale(1.15);
+            }
+
+            /* span {
             color: var(--purple);
         } */
+        }
     }
 }
 </style>

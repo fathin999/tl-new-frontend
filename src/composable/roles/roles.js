@@ -146,6 +146,10 @@ export const getMainRoles = () => {
     return newRoles;
 };
 
-export const getRole = () => {
+export const getRole = (slug) => {
+    return roles.find((role) => role.slug === slug);
+};
+
+export const getFirstRole = () => {
     return roles[0];
 };

@@ -22,6 +22,7 @@ defineOptions({
             :level="course.level"
             :provider="course.provider"
             :providerLogo="course.providerLogo"
+            :href="`/courses/${course.slug}`"
         />
     </div>
 </template>

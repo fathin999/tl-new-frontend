@@ -12,13 +12,15 @@ defineProps({
 defineEmits(["scrollToRef"]);
 
 const getHeaderImg = (slug) => {
+    let temp = "kyouth";
     return new URL(
-        `/src/assets/programmes/programme-banner-${slug}.png`,
+        `/src/assets/programmes/programme-banner-${temp}.png`,
         import.meta.url
     );
 };
 
 const getLogo = (logo) => {
+    let temp = "kyouth";
     return new URL(
         `/src/assets/programmes/programme-logo-${logo}.png`,
         import.meta.url

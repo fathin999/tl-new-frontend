@@ -21,6 +21,11 @@ import CourseInstructor from "./CourseInstructor.vue";
 import CourseIconDescription from "./CourseIconDescription.vue";
 import CourseFinancing from "./CourseFinancing.vue";
 import TestimonialCard from "../testimonials/TestimonialCard.vue";
+import {useRoute} from "vue-router";
+import {getOneCourseUsingSlug} from "@/composable/courses/course-roles";
+
+// get params
+const params = useRoute().params;
 
 // refs
 let active = ref(0);
@@ -55,26 +60,27 @@ const sections = [
 
 // fetch course through Id
 const course = getCourseWithId(1);
+const courseParams = getOneCourseUsingSlug(params.slug);
 const testimonials = getTestimonialsFromSlugs(course.details.graduates);
 
 // static images
 const getLogo = () => {
     return new URL(
-        `/src/assets/courses/course-provider-${course.providerLogo}.png`,
+        `/src/assets/courses/course-provider-${courseParams.providerLogo}.png`,
         import.meta.url
     );
 };
 
 const getBadge = () => {
     return new URL(
-        `/src/assets/courses/course-badge-${course.badge}.png`,
+        `/src/assets/courses/course-badge-${courseParams.badge}.png`,
         import.meta.url
     );
 };
 
 const getBanner = () => {
     return new URL(
-        `/src/assets/courses/course-banner-${course.banner}.png`,
+        `/src/assets/courses/course-banner-${courseParams.banner}.png`,
         import.meta.url
     );
 };
@@ -133,20 +139,20 @@ onUnmounted(() => {
                     <b> > </b>
                     <a href="/courses">Courses</a>
                     <b> > </b>
-                    <a>{{ course.topic }}</a>
+                    <a>{{ courseParams.topic }}</a>
                 </div>
 
                 <div id="course-item-header-texts">
-                    <h1>{{ course.title }}</h1>
+                    <h1>{{ courseParams.title }}</h1>
 
                     <p>{{ course.description }}</p>
 
                     <div id="course-item-header-texts-provider">
                         <img :src="getLogo()" :alt="course.provider" />
                         <span>
-                            <b> {{ course.provider }} </b>
+                            <b> {{ courseParams.provider }} </b>
                             <br />
-                            {{ course.type }}
+                            {{ courseParams.type }}
                         </span>
                     </div>
 
@@ -187,7 +193,7 @@ onUnmounted(() => {
 
                     <div class="course-item-summary">
                         <IconLevel />
-                        <span>{{ course.level }} level</span>
+                        <span>{{ courseParams.level }} level</span>
                     </div>
 
                     <div class="course-item-summary">

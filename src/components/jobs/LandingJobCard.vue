@@ -5,6 +5,7 @@ import IconBriefcase from "@/components/icons/jobs/IconBriefcase.vue";
 import IconBuilding from "@/components/icons/jobs/IconBuilding.vue";
 import IconStar from "@/components/icons/IconStar.vue";
 import {getEmployerName} from "@/composable/employers/employers";
+import {getJobLink} from "@/composable/jobs/jobs";
 
 const props = defineProps({
     title: String,
@@ -39,12 +40,12 @@ const getRemoteClass = () => {
         <img :src="getLogo()" :alt="employer" class="job-item-logo" />
 
         <div class="job-item-title">
-            <a href="/jobs/1">
+            <a :href="getJobLink(title)">
                 <h4>{{ title }}</h4>
             </a>
         </div>
 
-        <a href="/employers">
+        <a :href="`/employers/${employer}`">
             <p>{{ getEmployerName(employer) }}</p>
         </a>
 

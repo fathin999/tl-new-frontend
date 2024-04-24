@@ -8,13 +8,21 @@ import PgmSectPathways from "./PgmSectPathways.vue";
 import PgmSectCourses from "./PgmSectCourses.vue";
 import PgmSectRequirements from "./PgmSectRequirements.vue";
 import PgmSectOutcomes from "./PgmSectOutcomes.vue";
-import {getProgramme} from "@/composable/programmes/programmes";
+import {
+    getProgramme,
+    getProgrammeGenericData,
+} from "@/composable/programmes/programmes";
 import {onMounted, onUnmounted, ref} from "vue";
+import {useRoute} from "vue-router";
 
-const programme = getProgramme();
+// params
+const params = useRoute().params;
+const programme = getProgramme(params.slug);
+const data = getProgrammeGenericData();
+
+// GENERIC DATA
 
 // REFS LIST
-
 let active = ref("overview");
 const overview = ref();
 const timeline = ref();
@@ -57,14 +65,13 @@ const sections = [
 ];
 
 const checkEmpty = (key) => {
-    if (programme.details.hasOwnProperty(key)) {
-        const section = programme.details[key];
+    if (data.hasOwnProperty(key)) {
+        const section = data[key];
         const length =
             section instanceof Array
                 ? section.length
                 : Object.keys(section).length;
         return length !== 0;
-        å;
     }
 
     return false;
@@ -120,8 +127,8 @@ onUnmounted(() => {
             :logo="programme.logo"
             :title="programme.title"
             :slug="programme.slug"
-            :tagline="programme.details.tagline"
-            :subtext="programme.details.subtext"
+            :tagline="data.tagline"
+            :subtext="data.subtext"
             @scrollToRef="scrollToPathways"
         />
 
@@ -145,36 +152,36 @@ onUnmounted(() => {
             <div ref="overview">
                 <PgmSectOverview
                     :slug="programme.slug"
-                    :paragraph="programme.details.overview.paragraph"
+                    :paragraph="data.overview.paragraph"
                     @scrollToPathways="scrollToPathways"
                 />
             </div>
 
             <div ref="timeline" v-if="checkEmpty('timeline')">
-                <PgmSectTimeline :timeline="programme.details.timeline" />
+                <PgmSectTimeline :timeline="data.timeline" />
             </div>
 
             <div ref="pathways" v-if="checkEmpty('pathways')">
-                <PgmSectPathways :pathways="programme.details.pathways" />
+                <PgmSectPathways :pathways="data.pathways" />
             </div>
 
             <div ref="coursesRef" v-if="checkEmpty('courses')">
                 <PgmSectCourses
-                    :courseTitles="programme.details.courses.courses"
-                    :roles="programme.details.courses.roles"
+                    :courseTitles="data.courses.courses"
+                    :roles="data.courses.roles"
                 />
             </div>
 
             <div ref="requirements" v-if="checkEmpty('requirements')">
                 <PgmSectRequirements
-                    :requirements="programme.details.requirements.requirements"
-                    :processes="programme.details.requirements.processes"
+                    :requirements="data.requirements.requirements"
+                    :processes="data.requirements.processes"
                 />
             </div>
 
             <div ref="outcomes" v-if="checkEmpty('outcomes')">
                 <PgmSectOutcomes
-                    :offers="programme.details.outcomes.offers"
+                    :offers="data.outcomes.offers"
                     :slug="programme.slug"
                 />
             </div>

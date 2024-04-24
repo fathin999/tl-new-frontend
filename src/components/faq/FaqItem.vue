@@ -84,16 +84,6 @@ $padding: 40px;
     }
 }
 
-.faq-item:hover {
-    .faq-item-q {
-        color: var(--purple);
-
-        &-icon svg {
-            stroke: var(--purple);
-        }
-    }
-}
-
 .show {
     margin-bottom: 20px;
     background-color: #f8efff;
@@ -147,6 +137,36 @@ $padding: 40px;
         &-a {
             max-height: 0;
             opacity: 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    $padding: 20px;
+
+    .faq-item {
+        &-q {
+            font-size: 1.1rem;
+        }
+    }
+
+    .show {
+        padding: $padding;
+    }
+
+    .hide {
+        padding: $padding;
+    }
+}
+
+@media (hover: hover) {
+    .faq-item:hover {
+        .faq-item-q {
+            color: var(--purple);
+
+            &-icon svg {
+                stroke: var(--purple);
+            }
         }
     }
 }

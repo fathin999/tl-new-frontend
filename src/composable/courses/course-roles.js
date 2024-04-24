@@ -183,6 +183,10 @@ const roles = [
     },
 ];
 
+export const getAllCourses = () => {
+    return courses;
+};
+
 export const getCoursesWithRoles = (role) => {
     let newCourses = courses.filter(
         (course) => course.role.toLowerCase() === role.toLowerCase()

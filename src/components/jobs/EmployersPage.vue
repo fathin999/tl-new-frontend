@@ -10,8 +10,10 @@ import IconLocationOutline from "../icons/jobs/IconLocationOutline.vue";
 import IconBuilding from "../icons/jobs/IconBuilding.vue";
 import IconPeople from "../icons/jobs/IconPeople.vue";
 import IconWorld from "../icons/jobs/IconWorld.vue";
+import {useRoute} from "vue-router";
 
-const employer = getEmployer();
+const params = useRoute().params;
+const employer = getEmployer(params.slug);
 const jobs = getAllJobsFromEmployer(employer.slug);
 const active = ref(0);
 const tabs = getEmployerTabs();
