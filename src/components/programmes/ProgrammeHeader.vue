@@ -197,7 +197,6 @@ const getLogo = (logo) => {
 
         &-img {
             position: relative;
-            height: 100%;
 
             img {
                 height: 100%;

@@ -45,6 +45,8 @@ import IconArrow from "@/components/icons/IconArrow.vue";
     }
 
     &-text {
+        position: relative;
+
         h1 {
             font-size: 3.7rem;
         }
@@ -61,6 +63,7 @@ import IconArrow from "@/components/icons/IconArrow.vue";
         display: inline-flex;
         gap: 7px;
         z-index: 10;
+        position: relative;
 
         a {
             padding: 20px 32px 20px 37px;
