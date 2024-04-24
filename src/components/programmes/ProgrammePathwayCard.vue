@@ -268,9 +268,110 @@ const getBadgeImg = (img) => {
                 padding: 10px 17px;
             }
         }
+    }
+}
 
-        .course:hover {
-            background-color: var(--lightPurple);
+@media (max-width: 900px) {
+    .pathway-item {
+        padding: 20px;
+        display: block;
+
+        &-img {
+            $imgSize: 70px;
+            height: $imgSize;
+            width: $imgSize;
+            margin-bottom: 20px;
+        }
+
+        &-text {
+            h3 {
+                font-size: 6vw;
+                line-height: 8vw;
+                margin-bottom: 25px;
+            }
+        }
+
+        &-detail {
+            display: block;
+            margin-bottom: 30px;
+
+            span {
+                font-size: 0.85rem;
+                margin-bottom: 5px;
+                color: rgb(158, 158, 158);
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .pill {
+                padding: 8px 14px;
+            }
+
+            .point {
+                font-size: 1.1rem;
+                line-height: 1.7rem;
+                margin: 2px 0 9px;
+            }
+
+            .point::before {
+                top: 9px;
+            }
+
+            .course {
+                $padding: 18px;
+
+                display: block;
+                position: relative;
+                padding: $padding;
+                margin-top: 8px;
+                margin-bottom: 12px;
+
+                &-badge {
+                    $size: 60px;
+                    height: $size;
+                    width: $size;
+                    position: absolute;
+                    top: $padding;
+                    right: $padding;
+                }
+
+                &-title {
+                    padding-right: 90px;
+
+                    span {
+                        font-size: 4vw;
+                        line-height: 5.5vw;
+                        color: var(--black);
+                        display: block;
+                    }
+
+                    p {
+                        font-size: 5vw;
+                        line-height: 7vw;
+                    }
+                }
+
+                .btn-s {
+                    font-size: 0.9rem;
+                    margin-top: 20px;
+                    padding: 10px 15px;
+                    display: block;
+                    width: 110px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    .pathway-item {
+        &-detail {
+            .course:hover {
+                background-color: var(--lightPurple);
+            }
         }
     }
 }

@@ -125,7 +125,7 @@ onUnmounted(() => {
             @scrollToRef="scrollToPathways"
         />
 
-        <div class="secondary-bar">
+        <div class="secondary-bar hide-scrollbar">
             <div class="container">
                 <div v-for="section in sections" :key="section">
                     <div
@@ -186,6 +186,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 #programme {
+    overflow-x: hidden;
     position: relative;
 
     &-content {

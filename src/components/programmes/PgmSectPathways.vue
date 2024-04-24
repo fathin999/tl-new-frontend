@@ -23,7 +23,7 @@ const active = ref(0);
 
         <div id="programme-pathways-content">
             <div class="container">
-                <div id="programme-pathways-btns">
+                <div id="programme-pathways-btns" class="hide-scrollbar">
                     <div
                         v-for="(pathway, i) in pathways"
                         :key="`pathway-btn-${i}`"
@@ -112,13 +112,101 @@ const active = ref(0);
             color: white;
             font-weight: 500;
         }
+    }
+}
 
-        .pathway-btn:hover {
-            background-color: var(--lightPurple);
+@media (max-width: 1200px) {
+    #programme-pathways {
+        &-content {
+            margin-top: 50px;
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
         }
 
-        .active:hover {
-            background-color: var(--black);
+        &-list {
+            width: 850px;
+        }
+
+        &-btns {
+            flex-direction: row;
+            border-color: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            gap: 10px;
+            border-radius: 40px;
+            position: relative;
+            top: 0;
+
+            .pathway-btn {
+                border-radius: 30px;
+                padding: 15px 22px;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #programme-pathways {
+        &-content {
+            margin-top: 40px;
+
+            .container {
+                display: block;
+            }
+        }
+
+        &-list {
+            width: auto;
+            margin-top: 30px;
+        }
+
+        &-btns {
+            overflow-x: scroll;
+            border: none;
+            border-radius: 0;
+            width: 100vw;
+            margin-left: -20px;
+            padding: 0 20px;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+
+            .pathway-btn {
+                scroll-snap-align: center;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #programme-pathways {
+        &-btns {
+            .pathway-btn {
+                background-color: var(--bgMedium);
+            }
+
+            .active {
+                background-color: var(--black);
+            }
+        }
+    }
+}
+
+@media (hover: hover) {
+    #programme-pathways {
+        &-btns {
+            .pathway-btn:hover {
+                background-color: var(--lightPurple);
+            }
+
+            .active:hover {
+                background-color: var(--black);
+            }
         }
     }
 }

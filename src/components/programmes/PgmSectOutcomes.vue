@@ -92,4 +92,33 @@ const getImg = (img) => {
         }
     }
 }
+
+@media (max-width: 1100px) {
+    #programme-outcomes {
+        &-offer {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #programme-outcomes {
+        &-offer {
+            grid-template-columns: 1fr;
+
+            .offer-card {
+                padding: 22px 25px;
+
+                img {
+                    height: 45px;
+                    margin-top: 5px;
+                }
+
+                h3 {
+                    margin: 20px 0 10px;
+                }
+            }
+        }
+    }
+}
 </style>

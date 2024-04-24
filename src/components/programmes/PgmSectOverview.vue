@@ -94,4 +94,48 @@ const getImg = () => {
         }
     }
 }
+
+@media (max-width: 1100px) {
+    #programme-overview {
+        .container {
+            gap: 110px;
+            grid-template-columns: 1fr 350px;
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    #programme-overview {
+        .container {
+            display: block;
+            width: 650px;
+            margin: auto;
+        }
+
+        &-img {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #programme-overview {
+        .container {
+            display: block;
+            width: auto;
+            margin: 0 20px;
+        }
+
+        .section-title {
+            h2 {
+                font-size: 8.5vw;
+                line-height: 10.5vw;
+            }
+
+            p {
+                margin: 30px 0 40px;
+            }
+        }
+    }
+}
 </style>

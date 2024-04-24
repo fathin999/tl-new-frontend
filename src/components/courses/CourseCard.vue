@@ -165,14 +165,18 @@ const getBanner = () => {
 
 @media (max-width: 700px) {
     .courses-item {
-        padding-bottom: 120px;
+        padding-bottom: 90px;
 
         &-banner-container {
-            height: 90px;
+            height: 100px;
+        }
+
+        &-badge {
+            bottom: -40px;
         }
 
         &-title {
-            margin: 45px 0 20px;
+            margin: 50px 0 15px;
         }
 
         h4 {
@@ -187,7 +191,7 @@ const getBanner = () => {
         }
 
         &-provider {
-            $size: 45px;
+            $size: 35px;
             height: $size;
             font-size: 0.95rem;
             color: var(--textMedium);
@@ -195,6 +199,7 @@ const getBanner = () => {
             img {
                 height: $size;
                 width: $size;
+                border-radius: 50%;
             }
         }
     }

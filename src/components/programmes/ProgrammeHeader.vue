@@ -11,16 +11,9 @@ defineProps({
 
 defineEmits(["scrollToRef"]);
 
-const getImg = (slug) => {
-    return new URL(
-        `/src/assets/programmes/programme-img-${slug}.png`,
-        import.meta.url
-    );
-};
-
 const getHeaderImg = (slug) => {
     return new URL(
-        `/src/assets/programmes/programme-header-${slug}.png`,
+        `/src/assets/programmes/programme-banner-${slug}.png`,
         import.meta.url
     );
 };
@@ -86,21 +79,7 @@ const getLogo = (logo) => {
                 </div>
 
                 <div id="programme-header-img">
-                    <img
-                        :src="getImg(slug)"
-                        alt=""
-                        id="programme-header-img-img"
-                    />
-                    <img
-                        src="/src/assets/programmes/programme-header-circle.svg"
-                        alt=""
-                        id="programme-header-img-circle"
-                    />
-                    <img
-                        :src="getHeaderImg(slug)"
-                        alt=""
-                        id="programme-header-img-stats"
-                    />
+                    <img :src="getHeaderImg(slug)" alt="" />
                 </div>
             </div>
         </div>
@@ -109,17 +88,19 @@ const getLogo = (logo) => {
 
 <style scoped lang="scss">
 #programme {
+    overflow: hidden;
+
     &-bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        overflow: hidden;
+        opacity: 0.08;
 
         $imgMargin: 10px;
         $height: 300px;
-        $time: 4s;
+        $time: 3s;
 
         img {
             position: absolute;
@@ -159,9 +140,9 @@ const getLogo = (logo) => {
         &-content {
             flex: 1;
             display: grid;
-            grid-template-columns: 1fr $size;
+            grid-template-columns: 1fr 40%;
             align-items: center;
-            gap: 150px;
+            gap: 100px;
             min-height: 550px;
             padding-bottom: 50px;
         }
@@ -213,42 +194,122 @@ const getLogo = (logo) => {
         }
 
         &-img {
-            height: $size;
-            width: $size;
             position: relative;
+            height: 100%;
 
-            &-img {
-                border-radius: 50%;
+            img {
                 height: 100%;
                 width: 100%;
-                object-fit: cover;
-            }
-
-            &-circle {
-                position: absolute;
-                top: 0;
-                right: 0;
-                height: 100%;
-            }
-
-            &-stats {
-                position: absolute;
-                top: -20px;
-                right: 0;
-                height: calc(100% + 70px);
+                object-fit: contain;
             }
         }
     }
 }
 
-$opacity: 0.08;
+@media (max-width: 1300px) {
+    #programme {
+        &-header {
+            &-content {
+                gap: 50px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    #programme {
+        &-bg {
+            opacity: 0.15;
+            width: 70%;
+            left: auto;
+            right: 0;
+
+            img {
+                height: 250px;
+            }
+
+            &-arrow-btm {
+                top: 300px;
+            }
+        }
+
+        &-header {
+            &-title {
+                h1 {
+                    font-size: 5vw;
+                    margin: 25px 0 10px;
+                }
+            }
+
+            &-content {
+                gap: 30px;
+                min-height: 0;
+                padding-top: 10px;
+                padding-bottom: 70px;
+            }
+
+            &-img {
+                height: auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #programme {
+        &-bg {
+            opacity: 0.2;
+            width: 100%;
+            right: 0;
+            height: 40%;
+            top: 60%;
+
+            img {
+                height: 150px;
+            }
+
+            &-arrow-btm {
+                top: 200px;
+                left: 140px;
+            }
+        }
+
+        &-header {
+            &-content {
+                display: block;
+            }
+
+            &-title {
+                h3 {
+                    font-size: 0.9rem;
+                }
+
+                h1 {
+                    font-size: 9vw;
+                    line-height: 11vw;
+                    margin: 50px 0 20px;
+                }
+
+                p {
+                    width: 85%;
+                }
+            }
+
+            &-img {
+                margin-top: 40px;
+                width: 100%;
+                max-height: 80vw;
+            }
+        }
+    }
+}
 
 @keyframes moveRight {
     0% {
         transform: translateX(-50px);
-        opacity: $opacity;
+        opacity: 1;
     }
-    20% {
+    30% {
         transform: translateX(100px);
         opacity: 0;
     }

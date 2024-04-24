@@ -35,4 +35,17 @@ defineProps({
 .check-point:first-of-type {
     margin-top: 0;
 }
+
+@media (max-width: 600px) {
+    .check-point {
+        span {
+            font-size: 1.1rem;
+            line-height: 1.6rem;
+        }
+
+        svg {
+            margin-top: 4px;
+        }
+    }
+}
 </style>

@@ -178,7 +178,7 @@ const stats = [
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
     #programmes {
         &-header {
             padding-bottom: 80px;
