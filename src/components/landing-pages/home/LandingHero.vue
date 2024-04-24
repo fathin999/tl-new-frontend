@@ -60,6 +60,7 @@ import IconArrow from "@/components/icons/IconArrow.vue";
         margin: 50px 0 80px;
         display: inline-flex;
         gap: 7px;
+        z-index: 10;
 
         a {
             padding: 20px 32px 20px 37px;
