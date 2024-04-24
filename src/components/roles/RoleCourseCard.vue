@@ -21,7 +21,7 @@ const getBadge = () => {
 </script>
 
 <template>
-    <a class="course-card" :href="href">
+    <a class="course-card" :href="`/courses/${course.slug}`">
         <div class="course-card-badge">
             <img :src="getBadge()" :alt="course.title" />
         </div>
