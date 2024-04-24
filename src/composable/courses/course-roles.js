@@ -14,6 +14,9 @@ const courses = [
         provider: "TalentLabs",
         providerLogo: "tl",
         role: "Data science",
+        slug: "cada",
+        featured: true,
+        foundation: [],
     },
     {
         id: 4,
@@ -25,6 +28,9 @@ const courses = [
         provider: "TalentLabs",
         providerLogo: "tl",
         role: "Data science",
+        slug: "fcda",
+        featured: true,
+        foundation: [],
     },
     {
         id: 5,
@@ -36,6 +42,9 @@ const courses = [
         provider: "TalentLabs",
         providerLogo: "tl",
         role: "Digital marketer",
+        slug: "fcdm",
+        featured: true,
+        foundation: [],
     },
     {
         id: 6,
@@ -47,6 +56,9 @@ const courses = [
         provider: "TalentLabs",
         providerLogo: "tl",
         role: "Software engineer",
+        slug: "fcse",
+        featured: true,
+        foundation: [],
     },
     {
         id: 7,
@@ -58,6 +70,9 @@ const courses = [
         provider: "TalentLabs",
         providerLogo: "tl",
         role: "Data science",
+        slug: "caba",
+        featured: true,
+        foundation: [],
     },
     {
         id: 2,
@@ -69,6 +84,9 @@ const courses = [
         provider: "TalentLabs",
         providerLogo: "tl",
         role: "Software engineer",
+        slug: "cabed",
+        featured: true,
+        foundation: [],
     },
     {
         id: 8,
@@ -80,6 +98,9 @@ const courses = [
         provider: "TalentLabs",
         providerLogo: "tl",
         role: "Software engineer",
+        slug: "cafed",
+        featured: true,
+        foundation: [],
     },
     {
         id: 9,
@@ -91,6 +112,9 @@ const courses = [
         provider: "TalentLabs",
         providerLogo: "tl",
         role: "Fintech",
+        slug: "fif",
+        featured: true,
+        foundation: [],
     },
     {
         id: 10,
@@ -102,6 +126,37 @@ const courses = [
         provider: "PwC",
         providerLogo: "pwc",
         role: "Cybersecurity",
+        slug: "capt",
+        featured: true,
+        foundation: [],
+    },
+    {
+        id: 11,
+        badge: "fc",
+        banner: "cabed",
+        title: "M1 in Javascript",
+        type: "M1",
+        level: "Beginner",
+        provider: "TalentLabs",
+        providerLogo: "tl",
+        role: "",
+        foundation: ["se"],
+        slug: "m1j",
+        featured: false,
+    },
+    {
+        id: 12,
+        badge: "fc",
+        banner: "cabed",
+        title: "M1 in Python",
+        type: "M1",
+        level: "Beginner",
+        provider: "TalentLabs",
+        providerLogo: "tl",
+        role: "",
+        foundation: ["se", "data"],
+        slug: "m1p",
+        featured: false,
     },
 ];
 
@@ -137,7 +192,7 @@ export const getCoursesWithRoles = (role) => {
 };
 
 export const getLandingCourses = () => {
-    return courses;
+    return courses.filter((course) => course.featured);
 };
 
 export const getLandingRoles = () => {
@@ -189,7 +244,40 @@ export const getRolesUsingTitles = (titles) => {
         return titleExist;
     });
 
-    console.log(newRoles);
-
     return newRoles;
 };
+
+export const getMaxThreeCoursesWithRoles = (role) => {
+    let newCourses = courses
+        .filter((course) => course.role.toLowerCase() === role.toLowerCase())
+        .sort((a, b) => (b.level === "Beginner" ? 1 : -1));
+
+    if (newCourses.length > 3) return newCourses.slice(0, 3);
+    else return newCourses;
+};
+
+export const getMaxThreeM1CoursesWithRoles = (role) => {
+    let newCourses = [];
+    const m1Courses = courses.filter((course) => course.type === "M1");
+
+    m1Courses.forEach((course) => {
+        const foundations = course.foundation;
+
+        foundations.forEach((foundation) => {
+            if (foundation === role) newCourses.push(course);
+        });
+    });
+
+    if (newCourses.length > 3) return newCourses.slice(0, 3);
+    else return newCourses;
+};
+
+export const getOneCourseUsingSlug = (slug) => {
+    return courses.find((course) => course.slug === slug);
+};
+
+export const getOneM1CourseUsingSlug = (slug) => {
+    return courses.find((course) => course.slug === slug);
+};
+
+// export const get

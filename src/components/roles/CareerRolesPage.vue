@@ -89,6 +89,7 @@ const getImg = (slug) => {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        text-align: center;
 
         img {
             $size: 75px;

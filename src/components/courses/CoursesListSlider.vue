@@ -44,12 +44,10 @@ const btnClick = () => {
             />
         </div>
 
-        <div
-            class="small-screen-slider-btn clickable"
-            @click="btnClick()"
-            v-if="courses.length > 1"
-        >
-            <IconArrow />
+        <div v-if="courses.length > 1">
+            <div class="small-screen-slider-btn clickable" @click="btnClick()">
+                <IconArrow />
+            </div>
         </div>
     </div>
 </template>

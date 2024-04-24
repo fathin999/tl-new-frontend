@@ -5,10 +5,12 @@ defineProps({
     href: String,
     title: String,
 });
+
+defineEmits(["handleClick"]);
 </script>
 
 <template>
-    <a id="arrow-link" :href="href">
+    <a id="arrow-link" :href="href" @click="$emit('handleClick')">
         <span>
             {{ title }}
         </span>

@@ -142,3 +142,22 @@ export const getOtherSimilarJobs = (role, title) => {
     if (similarJobs.length > 3) return similarJobs.slice(0, 3);
     else return similarJobs;
 };
+
+export const getMaxThreeJobsWithRoles = (role) => {
+    let similarJobs = jobs
+        .filter((job) => job.role == role)
+        .sort((a, b) => compareDates(a.createdAt, b.createdAt));
+
+    // return jobs - sorted earliest first, max 3 jobs
+    if (similarJobs.length > 3) return similarJobs.slice(0, 3);
+    else return similarJobs;
+};
+
+export const getOneJobFromRole = (role) => {
+    let roleJobs = jobs
+        .filter((job) => job.role === role)
+        .sort((a, b) => compareDates(a.createdAt, b.createdAt));
+
+    if (roleJobs.length > 0) return roleJobs[0];
+    else return null;
+};
