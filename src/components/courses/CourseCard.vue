@@ -166,7 +166,7 @@ const getBanner = () => {
 
 @media (max-width: 700px) {
     .courses-item {
-        $size: 65px;
+        $size: 60px;
         $padding: 20px;
         padding: $padding;
         padding-bottom: 55px;
@@ -175,19 +175,18 @@ const getBanner = () => {
         border-radius: 15px;
 
         &-banner-container {
-            height: 55px;
+            height: 50px;
         }
 
         &-badge {
             height: $size;
             width: $size;
             bottom: -35px;
-            /* left: auto; */
             left: $padding;
         }
 
         &-title {
-            margin: 45px 0 13px;
+            margin: 47px 0 7px;
         }
 
         h4 {

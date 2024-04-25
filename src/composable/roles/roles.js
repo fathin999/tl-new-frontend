@@ -130,6 +130,10 @@ const mainRoles = [
     "fintech",
 ];
 
+export const getRoles = () => {
+    return roles;
+};
+
 export const getGenericRoleItemData = () => {
     return genericData;
 };

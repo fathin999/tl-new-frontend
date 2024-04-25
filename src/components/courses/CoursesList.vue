@@ -35,16 +35,16 @@ defineOptions({
     row-gap: 40px;
 }
 
-/* @media (max-width: 900px) {
+@media (max-width: 900px) {
     #courses-list {
         grid-template-columns: 1fr 1fr;
         max-width: 700px;
     }
-} */
+}
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     #courses-list {
-        gap: 20px;
+        gap: 25px;
         grid-template-columns: 1fr;
     }
 }

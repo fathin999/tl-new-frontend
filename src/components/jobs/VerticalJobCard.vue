@@ -85,7 +85,7 @@ const getRemoteClass = () => {
             </div>
         </div>
 
-        <div class="job-item-details">
+        <div class="job-item-details" id="job-item-role">
             <IconSpanner />
             <span>{{ role }}</span>
         </div>
@@ -240,38 +240,47 @@ $btnsWidth: 160px;
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     .job-card,
     .job-item {
         border: 1px solid gainsboro;
-        border-radius: 20px;
-        padding: 25px;
+        border-radius: 15px;
+        padding: 20px;
         display: block;
         margin-bottom: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 
         img {
+            $size: 50px;
+            height: $size;
+            width: $size;
             position: relative;
             top: 0;
+            border-radius: 12px;
         }
 
         &-title {
-            margin: 20px 0 10px;
+            margin: 13px 0 5px;
 
             h4 {
                 height: auto;
                 min-height: 0;
                 max-height: none;
-                font-size: 5.5vw;
-                line-height: 7.5vw;
+                font-size: 1.05rem;
+                line-height: 1.55rem;
                 overflow: visible;
             }
         }
 
         p {
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         &-details {
+            span {
+                font-size: 0.9rem;
+            }
+
             svg {
                 flex-shrink: 0;
             }
@@ -284,15 +293,32 @@ $btnsWidth: 160px;
             }
         }
 
+        #job-item-role {
+            display: none;
+        }
+
         &-btns {
+            padding: 0;
+            margin-top: 20px;
             position: relative;
             width: 100%;
-            display: grid;
-            grid-template-columns: 60px 1fr;
+            display: flex;
+            flex-direction: row-reverse;
         }
 
         .btn-s {
-            height: 44px;
+            flex: 1;
+        }
+
+        .btn-s:first-of-type {
+            flex: none;
+            width: 70px;
+            background-color: rgb(225, 250, 250);
+            border: 1px solid transparent;
+
+            svg {
+                fill: rgb(116, 189, 189);
+            }
         }
     }
 

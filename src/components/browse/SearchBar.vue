@@ -2,6 +2,10 @@
 import IconSearch from "../icons/IconSearch.vue";
 import {ref, reactive} from "vue";
 
+defineProps({
+    placeholder: String,
+});
+
 const keyword = ref("");
 const suggestions = reactive([]);
 const specificSuggestions = reactive([]);
@@ -30,7 +34,7 @@ const checkKeyword = () => {
             <input
                 type="text"
                 v-model="keyword"
-                placeholder="Search"
+                :placeholder="placeholder"
                 @input="change"
             />
 
@@ -75,7 +79,7 @@ const checkKeyword = () => {
         border-radius: calc($height / 2);
         padding: 0 $margin 0 35px;
         background-clip: white;
-        border: 1px solid rgba(0, 0, 0, 0.5);
+        border: 1px solid darkgrey;
         height: $height;
         position: relative;
 
@@ -100,14 +104,6 @@ const checkKeyword = () => {
                 display: block;
                 margin: auto;
                 transition: fill 0.2s ease-out;
-            }
-        }
-
-        &-icon:hover {
-            background-color: white;
-
-            svg {
-                fill: var(--purple);
             }
         }
 
@@ -151,27 +147,58 @@ const checkKeyword = () => {
                 fill: var(--black);
             }
         }
+    }
+}
 
-        .suggestion-item:hover {
-            background-color: var(--black);
+@media (max-width: 600px) {
+    #header {
+        padding: 25px 20px 35px;
 
-            span {
-                color: white;
-            }
+        #search {
+            $height: 50px;
+            $margin: 6px;
+            width: auto;
+            height: $height;
+            padding: 0 $margin 0 25px;
 
-            svg {
-                fill: white;
+            &-icon {
+                height: calc($height - ($margin * 2));
+                width: calc($height * 1.3);
+
+                svg {
+                    $size: 20px;
+                    height: $size;
+                    width: $size;
+                }
             }
         }
     }
 }
 
-@media (max-width: 700px) {
+@media (hover: hover) {
     #header {
-        padding: 40px 20px 10px;
-
         #search {
-            width: auto;
+            &-icon:hover {
+                background-color: white;
+
+                svg {
+                    fill: var(--purple);
+                }
+            }
+        }
+
+        #search-suggestions {
+            .suggestion-item:hover {
+                background-color: var(--black);
+
+                span {
+                    color: white;
+                }
+
+                svg {
+                    fill: white;
+                }
+            }
         }
     }
 }
