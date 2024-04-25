@@ -1,9 +1,11 @@
 <script setup>
 import IconArrow from "@/components/icons/IconArrow.vue";
+import {scrollToTab} from "@/composable/utilities/tabs";
 import {getSolutions} from "@/composable/view-models/platform-solutions";
 import {ref} from "vue";
 
 let active = ref(0);
+const btns = ref();
 
 const solutions = getSolutions();
 
@@ -19,16 +21,22 @@ const getScreen = (img) => {
         import.meta.url
     );
 };
+
+const chooseTab = (i) => {
+    active.value = i;
+
+    scrollToTab(btns.value, i);
+};
 </script>
 
 <template>
     <div id="about-content">
-        <div id="about-content-btns">
+        <div id="about-content-btns" class="hide-scrollbar" ref="btns">
             <div
                 v-for="(solution, i) in solutions"
                 :key="solution.title"
                 :class="getBtnClass(i)"
-                @click="active = i"
+                @click="chooseTab(i)"
             >
                 {{ solution.title }}
             </div>
@@ -39,7 +47,7 @@ const getScreen = (img) => {
                 <div id="about-content-screen-sidebar">
                     <div
                         v-for="(solution, i) in solutions"
-                        @click="active = i"
+                        @click="chooseTab(i)"
                         :key="`sidebar-${solution.title}`"
                         :class="`sidebar-icon clickable ${
                             i === active
@@ -354,47 +362,48 @@ const getScreen = (img) => {
 @media (max-width: 750px) {
     #about-content {
         padding-bottom: 0;
+        margin-top: 40px;
 
         &-btns {
-            gap: 12px;
-            padding: 0 20px;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 0 20px 2px;
             border-radius: 0;
             overflow: scroll;
-            width: 100vw;
+            width: auto;
+            max-width: 100vw;
             margin-left: -20px;
             border: none;
+            position: relative;
 
             .about-btn {
+                border: 1px solid darkgrey;
                 flex-shrink: 0;
-                padding: 14px 22px;
-                font-size: 0.9rem;
+                padding: 12px 18px;
+                font-size: 0.85rem;
                 white-space: nowrap;
                 overflow: hidden;
-                background-color: var(--bgMedium);
+                /* background-color: var(--bgMedium); */
             }
 
             .active {
                 background-color: var(--black);
+                color: white;
             }
         }
 
-        &-btns::-webkit-scrollbar {
-            display: none;
-        }
-
-        &-btns {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
         &-screen {
-            $padding: 10px;
+            $padding: 23px;
 
-            padding: 30px $padding 90px;
-            margin: 30px -20px 0;
+            padding: 40px $padding 45px;
+            /* margin: 30px -20px 0; */
+            margin: 0 -20px 0;
+            /* border-radius: 10px; */
             border-radius: 0;
+            border: 1px solid gainsboro;
+            /* background-color: var(--bgLight); */
 
-            $barWidth: 12vw;
+            $barWidth: 13vw;
             $width: calc(100vw - ($padding * 2) - $barWidth);
             $screenRatio: calc(534 / 326);
             $screenHeight: calc($width / $screenRatio);
@@ -439,12 +448,20 @@ const getScreen = (img) => {
                 height: $screenHeight;
                 border-top-right-radius: $largeRadius;
                 border-bottom-right-radius: $largeRadius;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
 
             &-description {
+                margin-top: 45px;
+
+                h4 {
+                    font-size: 5vw;
+                    line-height: 7vw;
+                }
+
                 p {
                     width: 85%;
-                    margin: 10px auto 20px;
+                    margin: 7px auto 25px;
                 }
             }
         }

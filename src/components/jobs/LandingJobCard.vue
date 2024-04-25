@@ -122,22 +122,50 @@ const getRemoteClass = () => {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
+    $padding: 20px;
+
     .job-item {
+        padding: $padding;
+        padding-bottom: 100px;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+        &-logo {
+            $size: 60px;
+            height: $size;
+            width: $size;
+            border-radius: 10px;
+        }
+
         &-title {
-            margin-bottom: 10px;
+            margin: 13px 0 5px;
 
             h4 {
-                font-size: 5.5vw;
-                line-height: 7.5vw;
-                min-height: 7.5vw;
-                max-height: 15vw;
+                font-size: 1.1rem;
+                line-height: 1.6rem;
+                min-height: 0;
+                max-height: none;
+                height: auto;
             }
         }
 
         p {
             font-size: 1rem;
         }
+
+        &-details-item {
+            margin-top: 10px;
+
+            span {
+                color: var(--textLight);
+            }
+        }
+    }
+
+    .job-item-featured {
+        top: $padding;
+        right: $padding;
     }
 }
 </style>

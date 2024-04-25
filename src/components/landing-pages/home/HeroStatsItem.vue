@@ -81,11 +81,12 @@ const getClass = () => {
         padding: 27px;
 
         h2 {
-            font-size: 11vw;
+            font-size: 2.1rem;
+            line-height: 2.6rem;
         }
 
         p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin: 0;
         }
     }

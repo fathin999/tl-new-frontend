@@ -2,8 +2,8 @@
 import IconArrow from "../icons/IconArrow.vue";
 import {onMounted, onUnmounted, ref} from "vue";
 
-defineOptions({
-    inheritAttrs: false,
+defineProps({
+    listStyle: Object,
 });
 
 // carousel methods
@@ -72,7 +72,11 @@ onUnmounted(() => {
             <IconArrow />
         </div>
 
-        <div class="carousel-list" ref="carousel" v-bind="$attrs">
+        <div
+            class="carousel-list hide-scrollbar"
+            ref="carousel"
+            :id="listStyle"
+        >
             <slot />
         </div>
 
@@ -123,15 +127,6 @@ onUnmounted(() => {
         scroll-behavior: smooth;
         scroll-snap-type: x mandatory !important;
     }
-
-    .carousel-list::-webkit-scrollbar {
-        display: none;
-    }
-
-    .carousel-list {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
 }
 
 .dragging {
@@ -147,7 +142,7 @@ onUnmounted(() => {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     #carousel {
         width: 100vw;
         margin-left: -20px;
@@ -187,7 +182,7 @@ onUnmounted(() => {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     #carousel {
         .carousel-list {
             $gap: 20px;

@@ -19,7 +19,7 @@ import EndToEndSolutions from "./EndToEndSolutions.vue";
 <style scoped lang="scss">
 @media (max-width: 750px) {
     #landing-solutions {
-        padding-bottom: 0;
+        padding-bottom: 30px;
     }
 }
 </style>

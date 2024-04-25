@@ -53,7 +53,8 @@ const getBanner = () => {
             <h4>{{ title }}</h4>
         </div>
 
-        <span>{{ level }} <b>·</b> {{ type }}</span>
+        <!-- <span>{{ level }} <b>·</b> {{ type }}</span> -->
+        <span>{{ level }}</span>
 
         <div class="courses-item-provider">
             <img :src="getLogo()" :alt="provider" />
@@ -165,38 +166,52 @@ const getBanner = () => {
 
 @media (max-width: 700px) {
     .courses-item {
-        padding-bottom: 90px;
+        $size: 65px;
+        $padding: 20px;
+        padding: $padding;
+        padding-bottom: 55px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+        border-radius: 15px;
 
         &-banner-container {
-            height: 100px;
+            height: 55px;
         }
 
         &-badge {
-            bottom: -40px;
+            height: $size;
+            width: $size;
+            bottom: -35px;
+            /* left: auto; */
+            left: $padding;
         }
 
         &-title {
-            margin: 50px 0 15px;
+            margin: 45px 0 13px;
         }
 
         h4 {
-            font-size: 5.5vw;
-            line-height: 7.5vw;
-            min-height: 7.5vw;
-            max-height: 15vw;
+            font-size: 1.05rem;
+            line-height: 1.55rem;
+            min-height: 0;
+            max-height: none;
+            margin-right: calc($padding + $size);
+            -webkit-line-clamp: 4;
+            margin: 0;
         }
 
         span {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: var(--textLight);
         }
 
         &-provider {
-            $size: 35px;
+            $size: 25px;
             height: $size;
-            font-size: 0.95rem;
             color: var(--textMedium);
 
             img {
+                margin-right: 10px;
                 height: $size;
                 width: $size;
                 border-radius: 50%;

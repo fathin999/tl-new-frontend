@@ -90,8 +90,6 @@ const getLogo = (logo) => {
 
 <style scoped lang="scss">
 #programme {
-    overflow: hidden;
-
     &-bg {
         position: absolute;
         top: 0;
@@ -125,6 +123,7 @@ const getLogo = (logo) => {
 
     &-header {
         position: relative;
+        overflow: hidden;
 
         .container {
             position: relative;

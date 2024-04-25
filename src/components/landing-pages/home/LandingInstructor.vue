@@ -126,6 +126,7 @@ import IconArrow from "../../icons/IconArrow.vue";
 
         .section-title {
             width: 100%;
+            text-align: center;
         }
     }
 }

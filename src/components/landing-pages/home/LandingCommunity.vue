@@ -282,15 +282,25 @@ const getClass = (i) => {
 
         .section-title {
             left: 0;
-            width: 75vw;
-            padding: 32px 25px;
+            width: 100%;
+            padding: 20px 0 0;
+            box-shadow: none;
+            background-color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+
+            p {
+                margin-right: auto;
+                margin-left: auto;
+            }
         }
 
         &-title {
-            padding-bottom: 90px;
+            padding: 0 0 70px;
+            margin: 0;
+            width: 100%;
 
             img {
-                $margin: 30px;
+                $margin: 80px;
                 height: calc(100% + $margin);
                 top: -$margin;
                 width: 100vw;
@@ -298,6 +308,7 @@ const getClass = (i) => {
                 right: -20px;
                 object-fit: cover;
                 object-fit: center right;
+                opacity: 0.4;
             }
         }
 

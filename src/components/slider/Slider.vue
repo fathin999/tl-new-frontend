@@ -2,8 +2,8 @@
 defineProps({
     duration: String,
     gap: {type: String, default: "0"},
-    style: {type: Object, default: {}},
-    outerStyle: {type: Object, default: {}},
+    borderRadius: {type: String, default: "0"},
+    delay: {type: String, default: "0"},
     gradient: {type: Boolean, default: true},
     blue: {type: Boolean, default: false},
 });
@@ -14,7 +14,9 @@ defineProps({
         :class="`slider-outer clickable ${gradient ? 'gradient' : ''} ${
             blue ? 'blue' : 'white'
         }`"
-        :style="outerStyle"
+        :style="{
+            borderRadius: borderRadius + 'px',
+        }"
     >
         <div
             class="slider-inner"
@@ -24,7 +26,7 @@ defineProps({
                 animationDuration: duration + 's',
                 gap: gap + 'px',
                 paddingLeft: gap + 'px',
-                ...style,
+                animationDelay: delay + 's',
             }"
         >
             <slot />

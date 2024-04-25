@@ -330,6 +330,25 @@ header {
     }
 }
 
+@media (max-width: 600px) {
+    header {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .container {
+        #navbarLogo {
+            width: 95px;
+        }
+
+        #nav-menu-btn-open,
+        #nav-menu-btn-close {
+            $size: 37px;
+            height: $size;
+            width: $size;
+        }
+    }
+}
+
 @media (hover: hover) {
     .container {
         #navbarLogo:hover {

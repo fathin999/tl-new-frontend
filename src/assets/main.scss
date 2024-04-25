@@ -145,6 +145,7 @@ main {
     display: inline-block;
     user-select: none;
     cursor: pointer;
+    flex-shrink: 0;
 
     svg {
         fill: $color;
@@ -313,67 +314,21 @@ main {
 // SLIDER
 // -------------------
 
+.small-screen-slider-btn {
+    display: none;
+}
+
+// -------------------
+// JOB CARD
+// -------------------
+
 $itemGap: 20px;
 $itemWidth: calc((100% - ($itemGap * 2)) / 3);
 $itemScroll: calc($itemWidth + $itemGap);
 $itemPadding: 30px;
 
-.slider {
-    &-list {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    &-inner {
-        display: flex;
-        gap: $itemGap;
-        // margin-left: calc($itemScroll * -1);
-        transition: margin 0.9s ease-in-out;
-    }
-
-    &-btns {
-        margin-top: 30px;
-        display: flex;
-
-        &-btn {
-            $size: 50px;
-
-            height: $size;
-            width: $size;
-            background-color: var(--bgMedium);
-            margin-right: 10px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            user-select: none;
-            cursor: pointer;
-            transition: background 0.4s ease-out;
-
-            svg {
-                $iconSize: 35%;
-
-                height: $iconSize;
-                width: $iconSize;
-                fill: #99a9b9;
-                transition: fill 0.4s ease-out;
-            }
-        }
-
-        .btn-prev {
-            transform: scaleX(-1);
-        }
-    }
-}
-
-// -------------------
-// COURSE CARD
-// -------------------
-
 @mixin item($pb) {
     border: 1px solid var(--borderMedium);
-    width: $itemWidth;
     flex-shrink: 0;
     border-radius: 20px;
     padding: $itemPadding;
@@ -406,10 +361,6 @@ $itemPadding: 30px;
         }
     }
 }
-
-// -------------------
-// JOB CARD
-// -------------------
 
 .job-item {
     @include item(140px);
@@ -774,25 +725,39 @@ input:-webkit-autofill:focus {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     .section {
         &-title-center,
         &-title {
             h2 {
-                font-size: 7vw;
-                line-height: 9vw;
-            }
-
-            h3 {
                 font-size: 6vw;
                 line-height: 8vw;
             }
 
+            h3 {
+                font-size: 5.5vw;
+                line-height: 8vw;
+            }
+
             p {
-                margin-top: 15px;
+                margin-top: 10px;
                 width: 90%;
             }
         }
+    }
+
+    u::before {
+        $margin-h: -5px;
+        $margin-v: -3px;
+
+        top: $margin-v;
+        bottom: $margin-v;
+        right: $margin-h;
+        left: $margin-h;
+    }
+
+    .hide-mobile {
+        display: none;
     }
 
     .article {
@@ -817,7 +782,7 @@ input:-webkit-autofill:focus {
         $size: 60px;
 
         position: absolute;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
         top: 0;
@@ -826,16 +791,16 @@ input:-webkit-autofill:focus {
         right: 10px;
         height: $size !important;
         width: $size !important;
-        border-radius: 50%;
-        background-color: var(--purple) !important;
-        box-shadow: 0 15px 30px rgba(128, 63, 207, 0.5);
-        border: 3px solid white;
+        border-radius: 50% !important;
+        background-color: white !important;
+        box-shadow: 0 10px 30px rgba(141, 166, 182, 0.4);
+        border: 1px solid whitesmoke;
 
         svg {
-            $iconSize: 30%;
+            $iconSize: 29%;
             height: $iconSize !important;
             width: $iconSize !important;
-            fill: white !important;
+            fill: var(--black) !important;
         }
     }
 }

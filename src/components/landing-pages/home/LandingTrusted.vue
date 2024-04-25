@@ -86,13 +86,13 @@ const getImage = (slug) => {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     #trusted {
         padding: 60px 0 70px;
 
         h3 {
-            font-size: 6vw;
-            line-height: 8vw;
+            font-size: 5.5vw;
+            line-height: 7.5vw;
             text-align: center;
             width: 80%;
             margin: 0 auto;
@@ -105,14 +105,13 @@ const getImage = (slug) => {
     }
 
     .trusted-slider-inner {
-        $gap: 55px;
+        $gap: 50px;
         column-gap: $gap;
         padding-left: $gap;
-        /* border: 1px solid red; */
 
         img {
-            max-height: 50px;
-            max-width: 100px;
+            max-height: 30px;
+            max-width: 90px;
         }
     }
 }

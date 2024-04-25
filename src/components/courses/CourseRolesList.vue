@@ -5,6 +5,7 @@ import IconChevron from "@/components/icons/IconChevron.vue";
 import IconArrow from "@/components/icons/IconArrow.vue";
 import {filterCoursesUsingRole} from "@/composable/courses/course-roles";
 import {ref, reactive} from "vue";
+import {scrollToTab} from "@/composable/utilities/tabs";
 
 const props = defineProps({
     roles: Array,
@@ -12,7 +13,8 @@ const props = defineProps({
     showLinks: {type: Boolean, default: true},
 });
 
-const active = ref(0);
+let active = ref(0);
+const btns = ref();
 
 const filterCourses = () => {
     const role = props.roles[active.value].title;
@@ -30,13 +32,16 @@ const getBtnClass = (index) => {
 
 const changeRole = (index) => {
     active.value = index;
+
+    scrollToTab(btns.value, index);
+
     renderedCourses = filterCourses();
 };
 </script>
 
 <template>
     <div id="courses-roles-list">
-        <div id="courses-btns" class="hide-scrollbar">
+        <div id="courses-btns" class="hide-scrollbar" ref="btns">
             <div
                 v-for="(role, index) in roles"
                 :class="getBtnClass(index)"
@@ -247,6 +252,39 @@ const changeRole = (index) => {
             &-more {
                 margin-top: 35px;
                 padding: 15px 15px 15px 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #courses {
+        &-btns {
+            gap: 7px;
+            margin-bottom: 15px;
+
+            .courses-btn {
+                border: 1px solid darkgrey;
+                background-color: white;
+                font-size: 0.85rem;
+                padding: 13px 23px 13px 20px;
+            }
+
+            .btn-active {
+                background-color: var(--black);
+            }
+        }
+
+        &-list {
+            border: 1px solid gainsboro;
+            background-color: var(--bgLight);
+            margin: 0 -20px;
+            padding: 45px 20px 60px;
+            width: 100vw;
+
+            &-more {
+                margin-top: 35px;
+                margin-left: 0;
             }
         }
     }

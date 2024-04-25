@@ -8,75 +8,82 @@ const stats = getLandingHeroStats();
 </script>
 
 <template>
-    <Slider
-        duration="45"
-        gap="20"
-        :gradient="false"
-        :outerStyle="{borderRadius: '20px'}"
-    >
-        <img
-            src="/src/assets/landing-page/img-1.png"
-            alt="People smiling"
-            class="slider-item-m"
-        />
+    <Slider duration="45" :gradient="false" borderRadius="20">
+        <div id="hero-slider-inner-container">
+            <img
+                src="/src/assets/landing-page/img-1.png"
+                alt="People smiling"
+                class="slider-item-m"
+            />
 
-        <img
-            src="/src/assets/landing-page/img-2.png"
-            alt="People smiling"
-            class="slider-item-s"
-        />
+            <img
+                src="/src/assets/landing-page/img-2.png"
+                alt="People smiling"
+                class="slider-item-s"
+            />
 
-        <div class="slider-item-s stats">
-            <HeroStatsItem
-                :title="stats[0].title"
-                :subtext="stats[0].subtext"
-                :green="true"
-            >
-                <component :is="stats[0].icon" />
-            </HeroStatsItem>
-        </div>
+            <div class="slider-item-s stats">
+                <HeroStatsItem
+                    :title="stats[0].title"
+                    :subtext="stats[0].subtext"
+                    :green="true"
+                >
+                    <component :is="stats[0].icon" />
+                </HeroStatsItem>
+            </div>
 
-        <img
-            src="/src/assets/landing-page/img-3.png"
-            alt="People smiling"
-            class="slider-item-l"
-        />
+            <img
+                src="/src/assets/landing-page/img-3.png"
+                alt="People smiling"
+                class="slider-item-l"
+            />
 
-        <div class="slider-item-s stats">
-            <HeroStatsItem
-                :title="stats[1].title"
-                :subtext="stats[1].subtext"
-                :purple="true"
-            >
-                <component :is="stats[1].icon" />
-            </HeroStatsItem>
-        </div>
+            <div class="slider-item-s stats">
+                <HeroStatsItem
+                    :title="stats[1].title"
+                    :subtext="stats[1].subtext"
+                    :purple="true"
+                >
+                    <component :is="stats[1].icon" />
+                </HeroStatsItem>
+            </div>
 
-        <img
-            src="/src/assets/landing-page/img-4.png"
-            alt="People smiling"
-            class="slider-item-m"
-        />
+            <img
+                src="/src/assets/landing-page/img-4.png"
+                alt="People smiling"
+                class="slider-item-m"
+            />
 
-        <div class="slider-item-s">
-            <HeroStatsItem
-                :title="stats[2].title"
-                :subtext="stats[2].subtext"
-                :blue="true"
-            >
-                <component :is="stats[2].icon" />
-            </HeroStatsItem>
-        </div>
+            <div class="slider-item-s">
+                <HeroStatsItem
+                    :title="stats[2].title"
+                    :subtext="stats[2].subtext"
+                    :blue="true"
+                >
+                    <component :is="stats[2].icon" />
+                </HeroStatsItem>
+            </div>
 
-        <div class="slider-item-s">
-            <HeroStatsItem :title="stats[3].title" :subtext="stats[3].subtext">
-                <component :is="stats[3].icon" class="dark" />
-            </HeroStatsItem>
+            <div class="slider-item-s">
+                <HeroStatsItem
+                    :title="stats[3].title"
+                    :subtext="stats[3].subtext"
+                >
+                    <component :is="stats[3].icon" class="dark" />
+                </HeroStatsItem>
+            </div>
         </div>
     </Slider>
 </template>
 
 <style scoped lang="scss">
+#hero-slider-inner-container {
+    $gap: 20px;
+    display: flex;
+    gap: $gap;
+    padding-left: $gap;
+}
+
 .slider {
     @mixin item($w) {
         width: $w;
@@ -113,6 +120,13 @@ const stats = getLandingHeroStats();
 }
 
 @media (max-width: 700px) {
+    #hero-slider-inner-container {
+        $gap: 10px;
+        display: flex;
+        gap: $gap;
+        padding-left: $gap;
+    }
+
     .slider {
         &-outer {
             border-radius: 0 !important;
@@ -120,23 +134,23 @@ const stats = getLandingHeroStats();
 
         @mixin item($w) {
             width: $w;
-            height: 250px;
+            height: 220px;
         }
 
         &-item {
             &-l {
-                @include item(350px);
-            }
-
-            &-m {
                 @include item(280px);
             }
 
+            &-m {
+                @include item(220px);
+            }
+
             &-s {
-                @include item(200px);
+                @include item(180px);
 
                 svg {
-                    height: 35px;
+                    height: 33px;
                     width: 40px;
                     margin-top: 7px;
                 }

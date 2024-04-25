@@ -49,6 +49,14 @@ const btnClick = () => {
             <div class="small-screen-slider-btn clickable" @click="btnClick()">
                 <IconArrow />
             </div>
+
+            <!-- <div
+                class="small-screen-slider-btn clickable"
+                @click="btnClick()"
+                id="prev"
+            >
+                <IconArrow />
+            </div> -->
         </div>
     </div>
 </template>
@@ -72,7 +80,7 @@ const btnClick = () => {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     #courses-list-container {
         position: relative;
     }
@@ -98,12 +106,18 @@ const btnClick = () => {
     }
 
     .small-screen-slider-btn {
-        right: -5px;
+        right: -10px;
+    }
+
+    #prev {
+        right: auto;
+        left: -10px;
+        transform: scaleX(-1);
     }
 
     .courses-slider > * {
-        width: 100%;
-        width: 78vw;
+        width: 80vw;
+        max-width: 320px;
         scroll-snap-align: center;
     }
 }

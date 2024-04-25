@@ -24,7 +24,7 @@ const jobs = getFeaturedJobs();
                 </p>
             </div>
 
-            <CarouselSlider id="landing-jobs-carousel">
+            <CarouselSlider :listStyle="$style['landing-jobs-carousel']">
                 <LandingJobCard
                     v-for="job in jobs"
                     :key="job.id"
@@ -62,18 +62,28 @@ const jobs = getFeaturedJobs();
 
 @media only screen and (max-width: 900px) {
     #jobs {
-        &-btns {
+        &-btn {
             margin-top: 50px;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #jobs {
+        .section-title-center {
+            margin-bottom: 50px;
         }
     }
 }
 </style>
 
-<style lang="scss">
+<style lang="scss" module>
 #landing-jobs-carousel {
     $gap: 20px;
     $items: 3;
+    display: grid;
     grid-auto-columns: calc(((100% - ($items - 1) * $gap) / $items));
+    min-width: 100%;
     gap: $gap;
 }
 
@@ -86,12 +96,12 @@ const jobs = getFeaturedJobs();
     }
 }
 
-/* @media only screen and (max-width: 900px) {
+@media only screen and (max-width: 700px) {
     #landing-jobs-carousel {
         $gap: 20px;
-        $items: 2;
+        $items: 1;
         grid-auto-columns: calc(((100% - ($items - 1) * $gap) / $items));
         gap: $gap;
     }
-} */
+}
 </style>

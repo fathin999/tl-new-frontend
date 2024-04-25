@@ -51,15 +51,17 @@ const testimonials = getLandingTestimonials();
                 </h2>
             </div>
 
-            <TestimonialList
-                :testimonials="testimonials.first"
-                :blue="true"
-                :outerStyle="{marginBottom: '20px'}"
-            />
+            <div id="testimonies-list-top">
+                <TestimonialList
+                    :testimonials="testimonials.first"
+                    :blue="true"
+                />
+            </div>
+
             <TestimonialList
                 :testimonials="testimonials.second"
                 :blue="true"
-                :style="{animationDelay: '2s'}"
+                delay="2"
             />
         </div>
     </div>
@@ -94,6 +96,10 @@ const testimonials = getLandingTestimonials();
 
     &-title {
         margin: 120px 0 60px;
+    }
+
+    &-list-top {
+        margin-bottom: 20px;
     }
 }
 
@@ -162,8 +168,48 @@ const testimonials = getLandingTestimonials();
 
         .section-title {
             p {
-                margin-top: 30px;
+                margin-top: 25px;
             }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #testimonies {
+        padding-top: 0;
+
+        &-top {
+            padding-top: 40px;
+        }
+
+        &-images {
+            img {
+                position: relative;
+                z-index: 2;
+            }
+        }
+
+        &-images::before {
+            content: "";
+            position: absolute;
+            background-color: white;
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 1) 0%,
+                var(--bgMedium) 100%
+            );
+            top: -40px;
+            left: -20px;
+            right: -20px;
+            height: 60%;
+        }
+
+        .section-title-center {
+            margin-bottom: 40px;
+        }
+
+        &-list-top {
+            margin-bottom: 15px;
         }
     }
 }

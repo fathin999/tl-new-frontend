@@ -147,4 +147,28 @@ $padding: 35px;
         }
     }
 }
+
+@media (max-width: 600px) {
+    $padding: 20px;
+
+    .testimonial-card {
+        padding: $padding;
+        padding-bottom: 25px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+        border-radius: 15px;
+
+        &-photo {
+            $size: 32px;
+            height: $size;
+            width: $size;
+        }
+
+        &-logo {
+            height: 22px;
+            width: 85px;
+            bottom: 25px;
+            left: $padding;
+        }
+    }
+}
 </style>

@@ -25,6 +25,13 @@
     --navbarHeight: 90px;
 }
 
+@media (max-width: 600px) {
+    :root {
+        /* DIMENSIONS */
+        --navbarHeight: 60px;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         /* --color-background: var(--vt-c-black); */

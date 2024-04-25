@@ -39,7 +39,13 @@ const courses = getLandingCourses();
 
 @media (max-width: 1200px) {
     #courses-content {
-        margin-top: 50px;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    #courses {
+        padding-bottom: 60px;
     }
 }
 </style>

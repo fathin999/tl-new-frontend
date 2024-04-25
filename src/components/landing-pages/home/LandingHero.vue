@@ -72,7 +72,7 @@ import IconArrow from "@/components/icons/IconArrow.vue";
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
     #hero {
         .container {
             padding-top: 50px;
