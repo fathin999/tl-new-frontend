@@ -541,13 +541,64 @@ const getLogo = (slug) => {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     #job {
+        &-header {
+            padding-top: 20px;
+            padding-bottom: 35px;
+
+            .breadcrumbs {
+                margin: 0;
+            }
+
+            &-btns {
+                padding: 0;
+                margin-top: 30px;
+            }
+        }
+
+        &-overview {
+            margin-top: 40px;
+
+            h1 {
+                font-size: 1.7rem;
+                line-height: 2.2rem;
+            }
+
+            &-employer {
+                margin-top: 20px;
+
+                img {
+                    $size: 35px;
+                    height: $size;
+                    width: $size;
+                }
+            }
+
+            &-summary {
+                margin-top: 15px;
+            }
+        }
+
+        &-content {
+            padding-top: 30px;
+
+            &-description {
+                padding-bottom: 40px;
+            }
+        }
+
         &-company {
             &-card {
-                padding: 20px;
+                padding: 22px;
+                background-color: var(--lightPurple);
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 7px 15px rgba(174, 157, 174, 0.5);
 
                 &-title {
+                    margin-bottom: 10px;
+
                     img {
                         $size: 55px;
                         height: $size;
@@ -556,8 +607,9 @@ const getLogo = (slug) => {
 
                     h1 {
                         padding-right: 0;
-                        font-size: 5vw;
-                        line-height: 7vw;
+                        font-size: 1.1rem;
+                        line-height: 1.6rem;
+                        margin-left: 10px;
                     }
                 }
 
@@ -566,15 +618,20 @@ const getLogo = (slug) => {
                     top: 0;
                     right: 0;
                     width: 100%;
-                    margin-top: 30px;
+                    margin-top: 25px;
                     margin-bottom: 5px;
+                }
+
+                .job-company-detail {
+                    margin-top: 8px;
+                    font-size: 0.95rem;
                 }
             }
         }
     }
 }
 
-@media (max-width: 900px) {
+@media (hover: hover) {
     #job {
         &-header {
             &-btns {

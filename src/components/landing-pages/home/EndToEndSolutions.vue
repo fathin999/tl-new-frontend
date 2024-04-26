@@ -25,7 +25,7 @@ const getScreen = (img) => {
 const chooseTab = (i) => {
     active.value = i;
 
-    scrollToTab(btns.value, i);
+    scrollToTab(btns.value, btns.value, i);
 };
 </script>
 

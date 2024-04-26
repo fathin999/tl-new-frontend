@@ -1,13 +1,10 @@
-import {getRoles} from "../roles/roles";
+import {getRoleFilters} from "./roles";
+import IconOverview from "@/components/icons/courses/IconOverview.vue";
+import IconModules from "@/components/icons/courses/IconModules.vue";
+import IconFees from "@/components/icons/courses/IconFees.vue";
+import IconOutcomes from "@/components/icons/courses/IconOutcomes.vue";
 
-const getRoleFilters = () => {
-    return getRoles().map((role) => {
-        return {
-            title: role.title,
-            selected: false,
-        };
-    });
-};
+// FILTER
 
 const filters = [
     {
@@ -73,4 +70,34 @@ const filters = [
 
 export const getCourseFilters = () => {
     return filters;
+};
+
+// SECTIONS
+
+const sections = [
+    {
+        title: "Overview",
+        icon: IconOverview,
+    },
+    {
+        title: "Modules",
+        icon: IconModules,
+    },
+    {
+        title: "Financing",
+        icon: IconFees,
+    },
+    {
+        title: "Careers",
+        icon: IconOutcomes,
+    },
+];
+
+export const getCourseItemPageSections = (elements) => {
+    return sections.map((sect, i) => {
+        return {
+            ref: elements[i],
+            ...sect,
+        };
+    });
 };

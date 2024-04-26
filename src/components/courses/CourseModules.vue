@@ -167,18 +167,43 @@ const getModuleNumber = (index) => {
 
 @media (max-width: 700px) {
     .module-item {
+        border: 1px solid gainsboro;
+        border-bottom: none;
+        border-radius: 7px;
+        padding: 0;
+
         &-header {
-            padding: 15px 10px;
+            padding: 22px 70px 20px 20px;
             display: block;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
 
             h6 {
                 width: auto;
                 font-size: 0.9rem;
+                line-height: 0.9rem;
+                margin-bottom: 5px;
             }
         }
 
+        &-icon {
+            right: 15px;
+        }
+
         &-outcomes {
-            padding-left: 10px;
+            padding-left: 20px;
+        }
+    }
+
+    .module-open {
+        .module-item {
+            &-header {
+                border-bottom: 1px solid gainsboro;
+            }
+
+            &-outcomes {
+                padding-top: 30px;
+            }
         }
     }
 }

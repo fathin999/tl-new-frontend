@@ -99,4 +99,28 @@ const getLogo = () => {
         }
     }
 }
+
+@media (max-width: 600px) {
+    .job-item {
+        $padding: 17px;
+        $logoSize: 50px;
+
+        padding: $padding;
+        padding-left: calc($padding * 2 + $logoSize);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+        margin-bottom: 17px;
+        border-radius: 15px;
+
+        img {
+            height: $logoSize;
+            width: $logoSize;
+            top: $padding;
+            left: $padding;
+        }
+
+        &-details {
+            margin-top: 9px;
+        }
+    }
+}
 </style>

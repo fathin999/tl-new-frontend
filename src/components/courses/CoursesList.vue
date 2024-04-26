@@ -44,7 +44,7 @@ defineOptions({
 
 @media (max-width: 600px) {
     #courses-list {
-        gap: 25px;
+        gap: 22px;
         grid-template-columns: 1fr;
     }
 }

@@ -240,14 +240,14 @@ $btnsWidth: 160px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .job-card,
     .job-item {
         border: 1px solid gainsboro;
         border-radius: 15px;
         padding: 20px;
         display: block;
-        margin-bottom: 20px;
+        margin-bottom: 22px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
 
         img {
@@ -297,28 +297,38 @@ $btnsWidth: 160px;
             display: none;
         }
 
+        $iconSize: 40px;
+        $svgSize: 20px;
         &-btns {
             padding: 0;
-            margin-top: 20px;
             position: relative;
-            width: 100%;
-            display: flex;
-            flex-direction: row-reverse;
-        }
-
-        .btn-s {
-            flex: 1;
+            height: $iconSize;
+            width: $iconSize;
+            position: absolute;
+            top: 18px;
+            right: 18px;
         }
 
         .btn-s:first-of-type {
+            $green: rgb(116, 189, 189);
+            $lightGreen: rgb(225, 250, 250);
             flex: none;
-            width: 70px;
-            background-color: rgb(225, 250, 250);
+            width: calc($iconSize * 1.2);
+            height: $iconSize;
             border: 1px solid transparent;
+            border-radius: 10px;
+            padding: 0;
 
             svg {
-                fill: rgb(116, 189, 189);
+                fill: $green;
+                fill: var(--purple);
+                height: $svgSize;
+                width: $svgSize;
             }
+        }
+
+        .btn-s:last-of-type {
+            display: none;
         }
     }
 

@@ -116,6 +116,12 @@ const getLogo = () => {
 
                 <div id="employer-jobs" v-if="active === 1 && jobs.length > 0">
                     <JobsList :jobs="jobs" :card="true" />
+
+                    <div id="employer-jobs-btn">
+                        <a href="/jobs" class="btn-l btn-primary"
+                            >See more jobs</a
+                        >
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,6 +133,7 @@ const getLogo = () => {
 <style scoped lang="scss">
 #employer {
     padding-bottom: 90px;
+    position: relative;
 
     .container {
         width: 850px;
@@ -181,7 +188,12 @@ const getLogo = () => {
     }
 
     &-bar {
-        margin: 60px 0 50px;
+        margin: 55px 0 50px;
+        position: sticky;
+        top: var(--navbarHeight);
+        left: 0;
+        background-color: white;
+        z-index: 5;
 
         .container {
             display: flex;
@@ -189,7 +201,7 @@ const getLogo = () => {
         }
 
         .bar-item {
-            padding: 0 20px 13px;
+            padding: 13px 20px;
             font-weight: 500;
             font-size: 0.95rem;
             color: var(--textLight);
@@ -209,14 +221,6 @@ const getLogo = () => {
 
         .active {
             border-color: var(--purple);
-            color: var(--purple);
-
-            svg {
-                fill: var(--purple);
-            }
-        }
-
-        .bar-item:hover {
             color: var(--purple);
 
             svg {
@@ -248,10 +252,6 @@ const getLogo = () => {
                 width: $iconSize;
                 margin-right: 20px;
             }
-
-            a:hover {
-                color: var(--purple);
-            }
         }
 
         h6 {
@@ -268,6 +268,11 @@ const getLogo = () => {
 
     &-jobs {
         margin: auto;
+
+        &-btn {
+            margin: 35px auto 0;
+            text-align: center;
+        }
     }
 }
 
@@ -280,11 +285,11 @@ const getLogo = () => {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
     #employer {
         &-header {
             .breadcrumbs {
-                margin: 15px 0 25px;
+                margin: 20px 0 25px;
             }
 
             &-banner {
@@ -295,30 +300,66 @@ const getLogo = () => {
             }
 
             &-logo {
-                $size: 90px;
+                $size: 80px;
                 height: $size;
                 widows: $size;
                 margin-top: -60px;
             }
 
             h1 {
-                font-size: 6vw;
-                line-height: 8vw;
+                font-size: 1.3rem;
+                line-height: 1.8rem;
             }
 
             h2 {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
         }
 
         &-bar {
-            margin: 50px 0 40px;
+            margin: 25px 0 35px;
+
+            .bar-item {
+                padding: 20px 17px 15px;
+                font-size: 0.9rem;
+                margin-right: 15px;
+
+                svg {
+                    $size: 14px;
+                    height: $size;
+                    width: $size;
+                    margin-right: 7px;
+                }
+            }
+        }
+
+        &-overview {
+            .employer-detail {
+                margin-bottom: 12px;
+            }
         }
     }
 }
 
 @media (hover: hover) {
     #employer {
+        &-bar {
+            .bar-item:hover {
+                color: var(--purple);
+
+                svg {
+                    fill: var(--purple);
+                }
+            }
+        }
+
+        &-overview {
+            .employer-detail {
+                a:hover {
+                    color: var(--purple);
+                }
+            }
+        }
     }
 }
 </style>

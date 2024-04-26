@@ -44,10 +44,9 @@ const getImg = () => {
 
 <style scoped lang="scss">
 .course-instructor {
-    $padding: 25px;
     border: 1px solid var(--borderMedium);
     border-radius: 15px;
-    padding: $padding;
+    padding: 25px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -83,7 +82,44 @@ const getImg = () => {
     }
 }
 
-.course-instructor:hover {
-    border-color: var(--purple);
+@media (max-width: 600px) {
+    .course-instructor {
+        $size: 50px;
+        $padding: 20px;
+
+        padding: $padding;
+        position: relative;
+        padding-left: calc($size + $padding * 2);
+        border-radius: 10px;
+
+        &-img {
+            height: $size;
+            width: $size;
+            position: absolute;
+            top: $padding;
+            left: $padding;
+        }
+
+        h4 {
+            margin-top: 3px;
+            font-size: 1.1rem;
+            line-height: 1.6rem;
+        }
+
+        p {
+            margin: 5px 0 20px;
+        }
+
+        &-logo {
+            width: 200px;
+            height: 21px;
+        }
+    }
+}
+
+@media (hover: hover) {
+    .course-instructor:hover {
+        border-color: var(--purple);
+    }
 }
 </style>

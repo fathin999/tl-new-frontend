@@ -778,6 +778,18 @@ input:-webkit-autofill:focus {
         }
     }
 
+    .btn-m,
+    .btn-l,
+    .btn-arrow {
+        width: auto;
+    }
+
+    .btn-l {
+        min-width: 0;
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
     .small-screen-slider-btn {
         $size: 60px;
 

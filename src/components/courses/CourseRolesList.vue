@@ -33,7 +33,7 @@ const getBtnClass = (index) => {
 const changeRole = (index) => {
     active.value = index;
 
-    scrollToTab(btns.value, index);
+    scrollToTab(btns.value, btns.value, index);
 
     renderedCourses = filterCourses();
 };
