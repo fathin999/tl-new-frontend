@@ -129,13 +129,19 @@ const getImg = () => {
         }
 
         .section-title {
+            img {
+                height: auto;
+                width: 90%;
+                margin-bottom: 35px;
+            }
+
             h2 {
-                font-size: 8.5vw;
-                line-height: 10.5vw;
+                font-size: 1.7rem;
+                line-height: 2.2rem;
             }
 
             p {
-                margin: 30px 0 40px;
+                margin: 20px 0 40px;
             }
         }
     }

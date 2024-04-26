@@ -5,23 +5,11 @@ import ProgrammeCard from "./ProgrammeCard.vue";
 import ProgrammePartnersSlider from "./ProgrammePartnersSlider.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import {getProgrammes} from "../../composable/programmes/programmes";
+import {getProgrammeStats} from "@/composable/stats/stats";
 
 const programmes = getProgrammes();
 
-const stats = [
-    {
-        title: "10k +",
-        subtext: "total students",
-    },
-    {
-        title: "92%",
-        subtext: "placement rate",
-    },
-    {
-        title: "60+",
-        subtext: "hiring partners",
-    },
-];
+const stats = getProgrammeStats();
 </script>
 
 <template>
@@ -33,11 +21,11 @@ const stats = [
                 <div>
                     <h1>Get skilled. Get <u>hired.</u></h1>
 
-                    <h2>
+                    <p>
                         Join our career development initiatives. Grab the
                         opportunity to learn in-demand skills, future-proof your
                         portfolio and get hired by our top hiring partners.
-                    </h2>
+                    </p>
 
                     <a href="#programmes-list" class="btn-arrow btn-primary">
                         Explore programmes
@@ -110,11 +98,8 @@ const stats = [
             line-height: 3.2rem;
         }
 
-        h2 {
+        p {
             margin-top: 15px;
-            font-weight: 400;
-            line-height: 1.5rem;
-            font-size: 1rem;
             color: var(--textMedium);
             width: 80%;
         }
@@ -175,10 +160,16 @@ const stats = [
                 grid-template-columns: 65% 1fr;
             }
         }
+
+        &-list {
+            &-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
     }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
     #programmes {
         &-header {
             padding-bottom: 80px;
@@ -228,8 +219,24 @@ const stats = [
 
 @media (max-width: 600px) {
     #programmes {
+        &-header {
+            padding-bottom: 70px;
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                margin-top: 10px;
+            }
+
+            a {
+                margin: 30px 0 55px;
+            }
+        }
+
         &-list {
-            margin-top: 140px;
+            margin-top: 130px;
 
             h2 {
                 font-size: 6vw;
@@ -239,7 +246,7 @@ const stats = [
             &-container {
                 grid-template-columns: 1fr;
                 gap: 25px;
-                margin-top: 50px;
+                margin-top: 40px;
             }
         }
     }

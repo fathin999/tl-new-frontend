@@ -246,7 +246,7 @@ const getTimelineIcon = (icon) => {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
     #programme {
         &-timeline {
             .section-title-center {
@@ -260,9 +260,9 @@ const getTimelineIcon = (icon) => {
             &-list {
                 margin-top: 50px;
 
-                $margin: 50px;
+                $margin: 40px;
                 $padding: 9vw;
-                $iconSize: 50px;
+                $iconSize: 45px;
 
                 .programme-timeline-item {
                     flex-direction: row-reverse;
@@ -288,13 +288,13 @@ const getTimelineIcon = (icon) => {
                         text-align: left;
 
                         h4 {
-                            margin-top: 5px;
-                            font-size: 0.9rem;
+                            margin-top: 3px;
+                            font-size: 0.85rem;
                         }
 
                         h3 {
-                            margin: 12px 0;
-                            font-size: 1.4rem;
+                            margin: 10px 0 5px;
+                            font-size: 1.3rem;
                             line-height: 1.9rem;
                         }
 

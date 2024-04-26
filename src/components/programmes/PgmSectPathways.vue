@@ -1,12 +1,19 @@
 <script setup>
 import ProgrammePathwayCard from "./ProgrammePathwayCard.vue";
 import {ref} from "vue";
+import {scrollToTab} from "@/composable/utilities/tabs";
 
 defineProps({
     pathways: Array,
 });
 
 const active = ref(0);
+const btns = ref(0);
+
+const changeTab = (i) => {
+    active.value = i;
+    scrollToTab(btns.value, btns.value, i);
+};
 </script>
 
 <template>
@@ -23,14 +30,18 @@ const active = ref(0);
 
         <div id="programme-pathways-content">
             <div class="container">
-                <div id="programme-pathways-btns" class="hide-scrollbar">
+                <div
+                    id="programme-pathways-btns"
+                    class="hide-scrollbar"
+                    ref="btns"
+                >
                     <div
                         v-for="(pathway, i) in pathways"
                         :key="`pathway-btn-${i}`"
                         :class="`pathway-btn clickable ${
                             active === i ? 'active' : ''
                         }`"
-                        @click="active = i"
+                        @click="changeTab(i)"
                     >
                         {{ pathway.title }}
                     </div>
@@ -156,7 +167,7 @@ const active = ref(0);
             margin-top: 40px;
 
             .container {
-                display: block;
+                gap: 0;
             }
         }
 
@@ -164,6 +175,12 @@ const active = ref(0);
             width: auto;
             margin-top: 30px;
         }
+    }
+}
+
+@media (max-width: 650px) {
+    #programme-pathways {
+        padding-bottom: 30px;
 
         &-btns {
             overflow-x: scroll;
@@ -176,23 +193,19 @@ const active = ref(0);
             scroll-behavior: smooth;
 
             .pathway-btn {
+                border: 1px solid darkgrey;
+                padding: 12px 22px;
                 scroll-snap-align: center;
                 white-space: nowrap;
             }
         }
-    }
-}
 
-@media (max-width: 700px) {
-    #programme-pathways {
-        &-btns {
-            .pathway-btn {
-                background-color: var(--bgMedium);
-            }
-
-            .active {
-                background-color: var(--black);
-            }
+        &-list {
+            border-top: 1px solid gainsboro;
+            border-bottom: 1px solid gainsboro;
+            width: 100vw;
+            background-color: var(--bgLight);
+            margin-top: 20px;
         }
     }
 }

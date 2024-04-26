@@ -234,6 +234,21 @@ export const getCoursesUsingTitles = (titles) => {
     });
 };
 
+export const getCoursesUsingSlugs = (slugs) => {
+    return courses.filter((course) => {
+        let exist = false;
+
+        slugs.forEach((slug) => {
+            if (course.slug === slug) {
+                exist = true;
+                return;
+            }
+        });
+
+        return exist;
+    });
+};
+
 export const getRolesUsingTitles = (titles) => {
     let newRoles = roles.filter((role) => {
         let titleExist = false;

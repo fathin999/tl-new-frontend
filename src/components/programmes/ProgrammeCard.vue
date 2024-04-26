@@ -33,7 +33,12 @@ const getImg = (slug) => {
 
         <div class="pgm-item-title">
             <h2>{{ title }}</h2>
-            <img :src="getLogo(logo)" :alt="title" />
+
+            <div class="pgm-item-partner">
+                <img :src="getLogo(logo)" :alt="title" />
+
+                <span>{{ partner }}</span>
+            </div>
         </div>
 
         <div class="pgm-item-description">
@@ -60,22 +65,30 @@ const getImg = (slug) => {
     flex-direction: column;
     position: relative;
 
+    $size: 85px;
+
     &-title {
-        $size: 85px;
         $margin: 7px;
         $total: calc($size + $margin);
 
         display: grid;
         grid-template-columns: 1fr $total;
+    }
+
+    &-partner {
+        z-index: 2;
 
         img {
             border: 8px solid white;
             height: $size;
             width: $size;
             border-radius: 50%;
-            margin-top: -60px;
-            z-index: 2;
+            margin-top: -40px;
             background-color: white;
+        }
+
+        span {
+            display: none;
         }
     }
 
@@ -125,25 +138,6 @@ const getImg = (slug) => {
         padding-left: 0;
     }
 
-    &-arrow {
-        font-weight: 500;
-        font-size: 0.95rem;
-        color: var(--purple);
-        display: flex;
-        align-items: center;
-        transition: color 0.3s ease-out;
-        margin-bottom: 10px;
-
-        svg {
-            $size: 12px;
-            height: $size;
-            width: $size;
-            margin-left: 10px;
-            fill: var(--purple);
-            transition: transform 0.3s ease-out, fill 0.3s ease-out;
-        }
-    }
-
     &-open {
         $margin: 20px;
         position: absolute;
@@ -154,6 +148,88 @@ const getImg = (slug) => {
         font-size: 0.93rem;
         font-weight: 500;
         background-color: var(--yellow);
+    }
+}
+
+@media (max-width: 1200px) {
+    .pgm-item {
+        padding: 30px;
+
+        $size: 70px;
+
+        &-title {
+            $margin: 7px;
+            $total: calc($size + $margin);
+            grid-template-columns: 1fr $total;
+        }
+
+        &-img {
+            height: 150px;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .pgm-item {
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+        padding: 18px;
+
+        &-img {
+            height: 100px;
+        }
+
+        &-title {
+            display: block;
+            margin: 20px 0 15px;
+
+            img {
+                $size: 30px;
+                height: $size;
+                width: $size;
+                margin: 0;
+                border: 1px solid gainsboro;
+            }
+
+            h2 {
+                flex: 1;
+                margin: 0;
+                font-size: 1.2rem;
+                line-height: 1.7rem;
+            }
+        }
+
+        &-partner {
+            display: flex;
+            align-items: center;
+            margin-top: 7px;
+
+            img {
+                $size: 27px;
+                height: $size;
+                width: $size;
+            }
+
+            span {
+                display: block;
+                font-size: 0.9rem;
+                margin-left: 10px;
+                line-height: 1.3rem;
+                white-space: nowrap;
+                overflow: hidden;
+                width: calc(100vw - 150px);
+                text-overflow: ellipsis;
+            }
+        }
+
+        &-description {
+            margin-bottom: 20px;
+        }
+
+        a {
+            font-size: 0.95rem;
+            padding: 12px;
+        }
     }
 }
 
@@ -175,16 +251,6 @@ const getImg = (slug) => {
             img {
                 transform: scale(1.1);
             }
-        }
-    }
-}
-
-@media (max-width: 700px) {
-    .pgm-item {
-        padding: 25px;
-
-        &-img {
-            height: 150px;
         }
     }
 }

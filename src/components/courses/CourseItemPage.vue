@@ -16,7 +16,7 @@ import TestimonialCard from "../testimonials/TestimonialCard.vue";
 import {getCourseWithId, getTestimonials} from "@/composable/courses/courses";
 import {getTestimonialsFromSlugs} from "@/composable/testimonials/testimonials";
 import {getOneCourseUsingSlug} from "@/composable/courses/course-roles";
-import {scrollToTab} from "@/composable/utilities/tabs";
+import {scrollToSection, scrollToTab} from "@/composable/utilities/tabs";
 import {getCourseItemPageSections} from "@/composable/view-models/course";
 
 // get params
@@ -46,13 +46,7 @@ const testimonials = getTestimonialsFromSlugs(course.details.graduates);
 
 // methods
 const scrollTo = (i) => {
-    const el = sections[i].ref.value;
-
-    // window scrolling to section
-    window.scrollTo({
-        top: el.offsetTop - 110,
-        behavior: "smooth",
-    });
+    scrollToSection(sections[i].ref.value);
 };
 
 const getOffset = (el) => {
@@ -368,6 +362,7 @@ onUnmounted(() => {
 
         &-instructors {
             gap: 10px;
+            grid-template-columns: 1fr;
         }
 
         &-testimonials {
@@ -397,15 +392,6 @@ onUnmounted(() => {
         h3 {
             font-size: 1.3rem;
             line-height: 1.8rem;
-        }
-    }
-}
-
-@media (max-width: 700px) {
-    #course-section {
-        &-instructors {
-            gap: 10px;
-            grid-template-columns: 1fr;
         }
     }
 }

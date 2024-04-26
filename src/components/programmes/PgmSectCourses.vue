@@ -3,20 +3,22 @@ import CourseCard from "../courses/CourseCard.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import {
     filterCoursesUsingRole,
-    getCoursesUsingTitles,
+    getCoursesUsingSlugs,
 } from "@/composable/courses/course-roles";
 import {ref, reactive} from "vue";
+import {scrollToTab} from "@/composable/utilities/tabs";
 
 let active = ref(0);
+const btns = ref();
 
 const props = defineProps({
-    courseTitles: Array,
+    courseSlugs: Array,
     roles: Array,
 });
 
 const filterCourses = () => {
     const role = props.roles[active.value];
-    const courses = getCoursesUsingTitles(props.courseTitles);
+    const courses = getCoursesUsingSlugs(props.courseSlugs);
 
     return filterCoursesUsingRole(courses, role);
 };
@@ -26,6 +28,7 @@ let filteredCourses = reactive(filterCourses());
 const updateRole = (index) => {
     active.value = index;
     filteredCourses = filterCourses();
+    scrollToTab(btns.value, btns.value, index);
 };
 </script>
 
@@ -42,7 +45,11 @@ const updateRole = (index) => {
             </div>
 
             <div id="programme-courses-content">
-                <div id="programme-courses-roles">
+                <div
+                    id="programme-courses-roles"
+                    class="hide-scrollbar"
+                    ref="btns"
+                >
                     <div
                         v-for="(role, i) in roles"
                         :class="`programme-role clickable ${
@@ -127,7 +134,8 @@ const updateRole = (index) => {
 
     &-list {
         display: flex;
-        gap: 30px;
+        column-gap: 30px;
+        row-gap: 50px;
         justify-content: center;
         flex-wrap: wrap;
     }
@@ -136,7 +144,7 @@ const updateRole = (index) => {
         flex-shrink: 0;
         flex-grow: 0;
         position: relative;
-        width: 25%;
+        width: 300px;
         display: flex;
         flex-direction: column;
 
@@ -150,6 +158,58 @@ const updateRole = (index) => {
             display: inline-block;
             width: auto;
             margin: 20px auto 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #programme-courses {
+        &-roles {
+            border: none;
+            margin: 40px -20px 0;
+            padding: 0 20px;
+            gap: 10px;
+            overflow-x: scroll;
+            border-radius: 0;
+
+            .programme-role {
+                white-space: nowrap;
+                border: 1px solid darkgray;
+            }
+        }
+
+        &-list {
+            margin: 20px -20px 0;
+            border-top: 1px solid gainsboro;
+            border-bottom: 1px solid gainsboro;
+            padding: 35px 20px 60px;
+            background-color: var(--bgMedium);
+            display: block;
+        }
+
+        .course-card-apply {
+            margin: 0 auto 35px;
+            width: auto;
+            border-bottom: 1px solid gainsboro;
+            padding-bottom: 30px;
+            max-width: 320px;
+
+            .btn-arrow {
+                width: 90%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 10px 10px 15px;
+                margin-top: 17px;
+                font-size: 0.95rem;
+                width: 170px;
+            }
+        }
+
+        .course-card-apply:last-of-type {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border: none;
         }
     }
 }

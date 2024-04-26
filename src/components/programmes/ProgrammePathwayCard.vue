@@ -366,6 +366,63 @@ const getBadgeImg = (img) => {
     }
 }
 
+@media (max-width: 650px) {
+    .pathway-item {
+        padding: 25px;
+        border: none;
+        border-radius: 0;
+
+        &-img {
+            $size: 50px;
+            height: $size;
+            width: $size;
+        }
+
+        &-text {
+            h3 {
+                font-size: 1.3rem;
+                line-height: 1.8rem;
+                margin: 0 0 17px;
+            }
+        }
+
+        &-detail {
+            margin-bottom: 22px;
+        }
+
+        .pill {
+            margin: 3px 0;
+            margin-right: 5px;
+        }
+
+        .course {
+            width: 100%;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+
+            &-title {
+                span {
+                    line-height: 1rem;
+                    font-size: 0.95rem;
+                    color: var(--textMedium);
+                }
+
+                p {
+                    line-height: 1.5rem;
+                    font-size: 1.1rem;
+                }
+            }
+
+            .btn-s {
+                margin-top: 15px;
+                padding: 8px 17px;
+            }
+        }
+    }
+}
+
 @media (hover: hover) {
     .pathway-item {
         &-detail {

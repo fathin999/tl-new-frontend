@@ -277,6 +277,15 @@ const getLogo = (logo) => {
         &-header {
             &-content {
                 display: block;
+                padding-bottom: 50px;
+            }
+
+            &-logo {
+                img {
+                    $size: 30px;
+                    height: $size;
+                    width: $size;
+                }
             }
 
             &-title {
@@ -285,18 +294,23 @@ const getLogo = (logo) => {
                 }
 
                 h1 {
-                    font-size: 9vw;
-                    line-height: 11vw;
-                    margin: 50px 0 20px;
+                    font-size: 2rem;
+                    line-height: 2.5rem;
+                    margin: 30px 0 10px;
                 }
 
                 p {
                     width: 85%;
+                    color: var(--textMedium);
                 }
             }
 
+            &-btns {
+                margin-top: 30px;
+            }
+
             &-img {
-                margin-top: 40px;
+                margin-top: 50px;
                 width: 100%;
                 max-height: 80vw;
             }

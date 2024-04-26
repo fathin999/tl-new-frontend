@@ -70,14 +70,35 @@ defineProps({
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 650px) {
     #programme-requirements {
+        position: relative;
+
         .section-title {
             h3 {
-                font-size: 6vw;
-                line-height: 8vw;
+                font-size: 1.3rem;
+                line-height: 1.8rem;
             }
         }
+
+        &-list {
+            margin-bottom: 55px;
+        }
+    }
+
+    #programme-requirements::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 40px;
+        width: 100%;
+        background: var(--bgMedium);
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 1) 0%,
+            var(--bgMedium) 100%
+        );
     }
 }
 </style>

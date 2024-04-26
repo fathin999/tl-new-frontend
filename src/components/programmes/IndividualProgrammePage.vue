@@ -14,6 +14,7 @@ import {
 } from "@/composable/programmes/programmes";
 import {onMounted, onUnmounted, ref} from "vue";
 import {useRoute} from "vue-router";
+import {scrollToSection, scrollToTab} from "@/composable/utilities/tabs";
 
 // params
 const params = useRoute().params;
@@ -23,7 +24,8 @@ const data = getProgrammeGenericData();
 // GENERIC DATA
 
 // REFS LIST
-let active = ref("overview");
+let active = ref(0);
+const btns = ref();
 const overview = ref();
 const timeline = ref();
 const pathways = ref();
@@ -79,16 +81,14 @@ const checkEmpty = (key) => {
 
 // SCROLLING METHODS
 
-const scrollTo = (el) => {
-    window.scrollTo({
-        top: el.offsetTop - 150,
-        behavior: "smooth",
-    });
+const scrollTo = (i) => {
+    scrollToTab(btns.value, btns.value.children[0], i);
+    scrollToSection(sections[i].ref.value);
 };
 
 const scrollToPathways = () => {
-    if (checkEmpty("pathways")) scrollTo(pathways.value);
-    else scrollTo(coursesRef.value);
+    if (checkEmpty("pathways")) scrollTo(2);
+    else scrollTo(3);
 };
 
 const checkOffset = (y, el) => {
@@ -102,12 +102,12 @@ const checkOffset = (y, el) => {
 const handleScroll = () => {
     const y = window.scrollY;
 
-    if (checkOffset(y, outcomes.value)) active.value = "outcomes";
-    else if (checkOffset(y, requirements.value)) active.value = "requirements";
-    else if (checkOffset(y, coursesRef.value)) active.value = "courses";
-    else if (checkOffset(y, pathways.value)) active.value = "pathways";
-    else if (checkOffset(y, timeline.value)) active.value = "timeline";
-    else active.value = "overview";
+    if (checkOffset(y, outcomes.value)) active.value = 5;
+    else if (checkOffset(y, requirements.value)) active.value = 4;
+    else if (checkOffset(y, coursesRef.value)) active.value = 3;
+    else if (checkOffset(y, pathways.value)) active.value = 2;
+    else if (checkOffset(y, timeline.value)) active.value = 1;
+    else active.value = 0;
 };
 
 onMounted(() => {
@@ -132,15 +132,15 @@ onUnmounted(() => {
             @scrollToRef="scrollToPathways"
         />
 
-        <div class="secondary-bar hide-scrollbar">
+        <div class="secondary-bar hide-scrollbar" ref="btns">
             <div class="container">
-                <div v-for="section in sections" :key="section">
+                <div v-for="(section, i) in sections" :key="section">
                     <div
                         :class="`bar-item clickable ${
-                            section.key === active ? 'bar-item-active' : ''
+                            i === active ? 'bar-item-active' : ''
                         }`"
                         v-if="checkEmpty(section.key)"
-                        @click="scrollTo(section.ref.value)"
+                        @click="scrollTo(i)"
                     >
                         {{ section.title }}
                     </div>
@@ -167,7 +167,7 @@ onUnmounted(() => {
 
             <div ref="coursesRef" v-if="checkEmpty('courses')">
                 <PgmSectCourses
-                    :courseTitles="data.courses.courses"
+                    :courseSlugs="data.courses.courses"
                     :roles="data.courses.roles"
                 />
             </div>
@@ -197,8 +197,6 @@ onUnmounted(() => {
 
     &-content {
         .section {
-            min-height: 500px;
-
             span,
             p {
                 font-size: 1.1rem;

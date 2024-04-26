@@ -8,3 +8,10 @@ export const scrollToTab = (scroll, container, i) => {
         behavior: "smooth",
     });
 };
+
+export const scrollToSection = (el) => {
+    window.scrollTo({
+        top: el.offsetTop - 110,
+        behavior: "smooth",
+    });
+};

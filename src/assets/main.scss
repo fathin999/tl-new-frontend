@@ -815,4 +815,27 @@ input:-webkit-autofill:focus {
             fill: var(--black) !important;
         }
     }
+
+    .secondary-bar {
+        padding: 0;
+        border-top: none;
+
+        .bar-item {
+            padding: 22px 17px 15px;
+            border-bottom: 3px solid transparent;
+            border-radius: 0;
+            font-size: 0.9rem;
+            color: var(--textLight);
+            font-weight: 500;
+        }
+
+        .bar-item-active {
+            border-color: var(--purple);
+            color: var(--purple);
+        }
+
+        .bar-item-active::before {
+            width: 0;
+        }
+    }
 }
