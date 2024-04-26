@@ -1,82 +1,90 @@
 <script setup>
-import Navbar from "../layout/Navbar.vue";
-import Footer from "../layout/Footer.vue";
+import LandingLayout from "../layout/LandingLayout.vue";
+import Button from "../button/Button.vue";
 import ProgrammeCard from "./ProgrammeCard.vue";
 import ProgrammePartnersSlider from "./ProgrammePartnersSlider.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import {getProgrammes} from "../../composable/programmes/programmes";
 import {getProgrammeStats} from "@/composable/stats/stats";
+import {ref} from "vue";
 
 const programmes = getProgrammes();
-
 const stats = getProgrammeStats();
+
+// REF
+const list = ref();
+
+// METHODS - scroll
+const handleClick = () => {
+    window.scrollTo({
+        top: list.value.offsetTop - 120,
+        behavior: "smooth",
+    });
+};
 </script>
 
 <template>
-    <Navbar />
+    <LandingLayout>
+        <div id="programmes">
+            <div id="programmes-header">
+                <div class="container">
+                    <div>
+                        <h1>Get skilled. Get <u>hired.</u></h1>
 
-    <main id="programmes">
-        <div id="programmes-header">
-            <div class="container">
-                <div>
-                    <h1>Get skilled. Get <u>hired.</u></h1>
+                        <p>
+                            Join our career development initiatives. Grab the
+                            opportunity to learn in-demand skills, future-proof
+                            your portfolio and get hired by our top hiring
+                            partners.
+                        </p>
 
-                    <p>
-                        Join our career development initiatives. Grab the
-                        opportunity to learn in-demand skills, future-proof your
-                        portfolio and get hired by our top hiring partners.
-                    </p>
+                        <Button :arrow="true" @click="handleClick">
+                            Explore programmes
+                        </Button>
 
-                    <a href="#programmes-list" class="btn-arrow btn-primary">
-                        Explore programmes
-
-                        <IconArrow />
-                    </a>
-
-                    <div id="programmes-header-stats">
-                        <div
-                            class="programmes-stats"
-                            v-for="stat in stats"
-                            :key="stat.subtext"
-                        >
-                            <h3>{{ stat.title }}</h3>
-                            <span>{{ stat.subtext }}</span>
+                        <div id="programmes-header-stats">
+                            <div
+                                class="programmes-stats"
+                                v-for="stat in stats"
+                                :key="stat.subtext"
+                            >
+                                <h3>{{ stat.title }}</h3>
+                                <span>{{ stat.subtext }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div id="programmes-header-img">
-                    <img
-                        src="/src/assets/programmes/programmes-hero.png"
-                        alt=""
-                    />
+                    <div id="programmes-header-img">
+                        <img
+                            src="/src/assets/programmes/programmes-hero.png"
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <ProgrammePartnersSlider />
+
+            <div id="programmes-list" ref="list">
+                <div class="container">
+                    <h2>Explore our career development <br />programmes</h2>
+
+                    <div id="programmes-list-container">
+                        <ProgrammeCard
+                            v-for="programme in programmes"
+                            :key="programme.title"
+                            :title="programme.title"
+                            :logo="programme.logo"
+                            :active="programme.active"
+                            :partner="programme.partner"
+                            :description="programme.description"
+                            :slug="programme.slug"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
-
-        <ProgrammePartnersSlider />
-
-        <div id="programmes-list">
-            <div class="container">
-                <h2>Explore our career development <br />programmes</h2>
-
-                <div id="programmes-list-container">
-                    <ProgrammeCard
-                        v-for="programme in programmes"
-                        :key="programme.title"
-                        :title="programme.title"
-                        :logo="programme.logo"
-                        :active="programme.active"
-                        :partner="programme.partner"
-                        :description="programme.description"
-                        :slug="programme.slug"
-                    />
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">
@@ -212,6 +220,12 @@ const stats = getProgrammeStats();
                         line-height: 10vw;
                     }
                 }
+            }
+        }
+
+        &-list {
+            &-container {
+                grid-template-columns: 1fr;
             }
         }
     }

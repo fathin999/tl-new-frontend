@@ -43,15 +43,16 @@ defineProps({
 @media (max-width: 700px) {
     #banner {
         .container {
-            padding: 60px 0 80px;
+            padding: 50px 0 55px;
 
             h1 {
-                font-size: 8vw;
-                line-height: 10vw;
+                font-size: 7vw;
+                line-height: 9vw;
             }
 
             p {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.4rem;
                 width: 80%;
                 margin-top: 10px;
             }

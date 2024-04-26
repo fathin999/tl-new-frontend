@@ -1,12 +1,16 @@
 <script setup>
-import IconArrow from "../icons/IconArrow.vue";
+import Button from "@/components/button/Button.vue";
 
 const props = defineProps({
     slug: String,
     paragraph: String,
 });
 
-defineEmits(["scrollToPathways"]);
+const emit = defineEmits(["scrollToPathways"]);
+
+const handleClick = () => {
+    emit("scrollToPathways");
+};
 
 const getPartners = () => {
     let slug = "kyouth";
@@ -41,13 +45,9 @@ const getImg = () => {
                     {{ paragraph }}
                 </p>
 
-                <a
-                    class="btn-arrow btn-primary"
-                    @click="$emit('scrollToPathways')"
-                >
+                <Button :arrow="true" @click="handleClick">
                     Explore career pathways
-                    <IconArrow />
-                </a>
+                </Button>
             </div>
 
             <div id="programme-overview-img">

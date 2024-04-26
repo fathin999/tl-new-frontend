@@ -1,6 +1,6 @@
 <script setup>
 import CourseCard from "../courses/CourseCard.vue";
-import IconArrow from "../icons/IconArrow.vue";
+import Button from "@/components/button/Button.vue";
 import {
     filterCoursesUsingRole,
     getCoursesUsingSlugs,
@@ -79,10 +79,7 @@ const updateRole = (index) => {
                             :href="''"
                         />
 
-                        <a class="btn-arrow btn-primary" href="">
-                            Apply now
-                            <IconArrow />
-                        </a>
+                        <Button :arrow="true"> Apply now </Button>
                     </div>
                 </div>
             </div>

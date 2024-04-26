@@ -21,7 +21,7 @@ const solutions = [
         description:
             "Our guided projects help you build a compelling portfolio that demonstrates your expertise, problem-solving ability, and creativity.",
         link: "Start now",
-        href: "/signup/choose-role",
+        href: "/signup/select-role",
         icon: IconSolPortfolio,
         slug: "projects",
     },
@@ -51,7 +51,7 @@ const solutions = [
         description:
             "Connect with our global alumni network that spans across continents and industries, providing you with invaluable insights and opportunities.",
         link: "Join us now",
-        href: "/signup/choose-role",
+        href: "/signup/select-role",
         icon: IconSolNetwork,
         slug: "community",
     },

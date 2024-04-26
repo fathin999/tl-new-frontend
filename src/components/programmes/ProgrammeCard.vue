@@ -1,5 +1,5 @@
 <script setup>
-import IconArrow from "../icons/IconArrow.vue";
+import Button from "@/components/button/Button.vue";
 
 defineProps({
     title: String,
@@ -47,10 +47,7 @@ const getImg = (slug) => {
             </p>
         </div>
 
-        <a class="btn-primary-outline btn-arrow">
-            Apply now
-            <IconArrow />
-        </a>
+        <Button :arrow="true" :outline="true"> Apply now </Button>
 
         <div class="pgm-item-open" v-if="active">Application open</div>
     </a>

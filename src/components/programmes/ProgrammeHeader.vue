@@ -1,5 +1,5 @@
 <script setup>
-import IconArrow from "../icons/IconArrow.vue";
+import Button from "@/components/button/Button.vue";
 
 defineProps({
     logo: String,
@@ -9,7 +9,9 @@ defineProps({
     slug: String,
 });
 
-defineEmits(["scrollToRef"]);
+const emit = defineEmits(["scrollToRef"]);
+
+const handleClick = () => emit("scrollToRef");
 
 const getHeaderImg = (slug) => {
     let temp = "kyouth";
@@ -63,20 +65,17 @@ const getLogo = (logo) => {
                     <p>{{ subtext }}</p>
 
                     <div id="programme-header-btns">
-                        <div
-                            class="btn-black btn-arrow"
-                            @click="$emit('scrollToRef')"
+                        <Button
+                            :arrow="true"
+                            @click="handleClick"
+                            :black="true"
                         >
                             Explore career pathways
-                            <IconArrow />
-                        </div>
-                        <a
-                            class="btn-primary btn-arrow"
-                            @click="$emit('scrollToRef')"
-                        >
+                        </Button>
+
+                        <Button :arrow="true" @click="handleClick">
                             Apply now
-                            <IconArrow />
-                        </a>
+                        </Button>
                     </div>
                 </div>
 

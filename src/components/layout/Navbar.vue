@@ -47,10 +47,6 @@ const toggleMenu = () => {
 
                         Sign In
                     </a>
-
-                    <!-- <a href="/" id="signupButton" class="btn-primary btn-small"
-                        >Sign Up</a
-                    > -->
                 </div>
             </div>
 

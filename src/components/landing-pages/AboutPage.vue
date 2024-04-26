@@ -1,6 +1,4 @@
 <script setup>
-import Navbar from "../layout/Navbar.vue";
-import Footer from "../layout/Footer.vue";
 import Banner from "../layout/Banner.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import {getFounders} from "@/composable/teams/teams";
@@ -10,6 +8,8 @@ import IconAboutCollab from "../icons/about/IconAboutCollab.vue";
 import IconAboutContinuous from "../icons/about/IconAboutContinuous.vue";
 import IconAboutPractical from "../icons/about/IconAboutPractical.vue";
 import IconQuote from "../icons/IconQuote.vue";
+import LandingLayout from "../layout/LandingLayout.vue";
+import Button from "../button/Button.vue";
 
 const founders = getFounders();
 
@@ -42,184 +42,182 @@ const values = [
 </script>
 
 <template>
-    <Navbar />
+    <LandingLayout>
+        <div id="about">
+            <Banner
+                title="About us"
+                subtext="TalentLabs is a full-stack career & professional development platform that helps you build a fulfilling career in technology."
+            />
 
-    <main id="about">
-        <Banner
-            title="About us"
-            subtext="TalentLabs is a full-stack career & professional development platform that helps you build a fulfilling career in technology."
-        />
+            <div class="section blue" id="about-story">
+                <div class="container">
+                    <div id="about-story-header">
+                        <div class="section-title">
+                            <h2>
+                                We want to create
+                                <br />
+                                a <u> better future </u>
+                            </h2>
+                            <p>
+                                TalentLabs is a full-stack career platform
+                                focusing on technology careers. We are committed
+                                to help people across all backgrounds to develop
+                                the skills required to thrive in today's digital
+                                economy and meet the demands of the future
+                                workforce.
+                                <br />
+                                <br />
+                                Working with leading corporations &
+                                universities, our platform offers a wide range
+                                of tech courses, access to global tech
+                                community, networking events and tech job
+                                opportunities across the region.
+                                <br />
+                                <br />
+                                Whether you're looking to make a career change,
+                                level up at work, or learn a new skill, our
+                                learning pathways will help you achieve your
+                                goals. We aim to help our users discover the
+                                true career paths and match them with the right
+                                job opportunities.
+                            </p>
+                        </div>
 
-        <div class="section blue" id="about-story">
-            <div class="container">
-                <div id="about-story-header">
+                        <div id="about-story-images">
+                            <img
+                                src="/src/assets/about/about-story-long.png"
+                                alt=""
+                                id="about-story-images-long"
+                            />
+
+                            <img
+                                src="/src/assets/about/about-story-tall.png"
+                                alt=""
+                                id="about-story-images-tall"
+                            />
+
+                            <img
+                                src="/src/assets/about/about-story-square-1.png"
+                                alt=""
+                                id="about-story-images-square-1"
+                            />
+
+                            <img
+                                src="/src/assets/about/about-story-square-2.png"
+                                alt=""
+                                id="about-story-images-square-2"
+                            />
+                        </div>
+                    </div>
+
+                    <div id="about-story-list">
+                        <div class="about-story-mission">
+                            <h2>Our mission</h2>
+
+                            <p>
+                                To empower individuals with the skills required
+                                to transform their lives through our real-world
+                                learning experience, best-in-class programmes,
+                                affordable education financing, high-value job
+                                opportunities and collaborative community
+                                network in the technology sector.
+                            </p>
+                        </div>
+
+                        <div class="about-story-mission">
+                            <h2>Our vision</h2>
+
+                            <p>
+                                Providing high-quality, accessible and
+                                outcome-driven technology workforce solutions to
+                                create economic opportunities for everyone.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="about-teams">
+                <div class="container">
                     <div class="section-title">
-                        <h2>
-                            We want to create
-                            <br />
-                            a <u> better future </u>
-                        </h2>
+                        <h2>Meet our <u>founders</u></h2>
+
                         <p>
-                            TalentLabs is a full-stack career platform focusing
-                            on technology careers. We are committed to help
-                            people across all backgrounds to develop the skills
-                            required to thrive in today's digital economy and
-                            meet the demands of the future workforce.
-                            <br />
-                            <br />
-                            Working with leading corporations & universities,
-                            our platform offers a wide range of tech courses,
-                            access to global tech community, networking events
-                            and tech job opportunities across the region.
-                            <br />
-                            <br />
-                            Whether you're looking to make a career change,
-                            level up at work, or learn a new skill, our learning
-                            pathways will help you achieve your goals. We aim to
-                            help our users discover the true career paths and
-                            match them with the right job opportunities.
+                            Our team consists of highly-accomplished
+                            individuals, bringing together our individual
+                            expertise and knowledge based on our real-world
+                            experience to help accelerate your career.
                         </p>
+
+                        <Button href="/teams" :arrow="true" :black="true">
+                            View all team
+                        </Button>
                     </div>
 
-                    <div id="about-story-images">
-                        <img
-                            src="/src/assets/about/about-story-long.png"
-                            alt=""
-                            id="about-story-images-long"
-                        />
-
-                        <img
-                            src="/src/assets/about/about-story-tall.png"
-                            alt=""
-                            id="about-story-images-tall"
-                        />
-
-                        <img
-                            src="/src/assets/about/about-story-square-1.png"
-                            alt=""
-                            id="about-story-images-square-1"
-                        />
-
-                        <img
-                            src="/src/assets/about/about-story-square-2.png"
-                            alt=""
-                            id="about-story-images-square-2"
+                    <div id="about-teams-list">
+                        <TeamCard
+                            v-for="founder in founders"
+                            :key="founder.name"
+                            :name="founder.name"
+                            :job="founder.job"
+                            :position="founder.position"
+                            :img="founder.img"
+                            :logo="founder.logo"
                         />
                     </div>
                 </div>
+            </div>
 
-                <div id="about-story-list">
-                    <div class="about-story-mission">
-                        <h2>Our mission</h2>
-
+            <div class="section blue" id="about-values">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Our <u>core values</u></h2>
                         <p>
-                            To empower individuals with the skills required to
-                            transform their lives through our real-world
-                            learning experience, best-in-class programmes,
-                            affordable education financing, high-value job
-                            opportunities and collaborative community network in
-                            the technology sector.
+                            We are committed to building a legacy of quality,
+                            innovation and inclusivity in everything we do.
                         </p>
                     </div>
 
-                    <div class="about-story-mission">
-                        <h2>Our vision</h2>
+                    <div id="about-values-list">
+                        <div
+                            class="about-values-item"
+                            v-for="value in values"
+                            :key="value.title"
+                        >
+                            <component :is="value.icon" />
 
-                        <p>
-                            Providing high-quality, accessible and
-                            outcome-driven technology workforce solutions to
-                            create economic opportunities for everyone.
-                        </p>
+                            <h3>{{ value.title }}</h3>
+
+                            <p>{{ value.description }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="section" id="about-teams">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Meet our <u>founders</u></h2>
+            <div class="section" id="about-join">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Ready to <u> change your life?</u></h2>
 
-                    <p>
-                        Our team consists of highly-accomplished individuals,
-                        bringing together our individual expertise and knowledge
-                        based on our real-world experience to help accelerate
-                        your career.
-                    </p>
+                        <div class="quote">
+                            <p>
+                                Even the greatest was once a beginner.
+                                <br />
+                                Don't be afraid to take that first step.
+                                <br />
+                                <br />
+                                - Muhammad Ali
+                            </p>
 
-                    <a href="/teams" class="btn-arrow btn-black">
-                        View all team
-                        <IconArrow />
-                    </a>
-                </div>
-
-                <div id="about-teams-list">
-                    <TeamCard
-                        v-for="founder in founders"
-                        :key="founder.name"
-                        :name="founder.name"
-                        :job="founder.job"
-                        :position="founder.position"
-                        :img="founder.img"
-                        :logo="founder.logo"
-                    />
-                </div>
-            </div>
-        </div>
-
-        <div class="section blue" id="about-values">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Our <u>core values</u></h2>
-                    <p>
-                        We are committed to building a legacy of quality,
-                        innovation and inclusivity in everything we do.
-                    </p>
-                </div>
-
-                <div id="about-values-list">
-                    <div
-                        class="about-values-item"
-                        v-for="value in values"
-                        :key="value.title"
-                    >
-                        <component :is="value.icon" />
-
-                        <h3>{{ value.title }}</h3>
-
-                        <p>{{ value.description }}</p>
+                            <IconQuote />
+                        </div>
                     </div>
+
+                    <Button href="/signup/select-role"> Join us now </Button>
                 </div>
             </div>
         </div>
-
-        <div class="section" id="about-join">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Ready to <u> change your life?</u></h2>
-
-                    <div class="quote">
-                        <p>
-                            Even the greatest was once a beginner.
-                            <br />
-                            Don't be afraid to take that first step.
-                            <br />
-                            <br />
-                            - Muhammad Ali
-                        </p>
-
-                        <IconQuote />
-                    </div>
-                </div>
-
-                <a class="btn-m btn-primary" href="/signup/choose-role">
-                    Join us now
-                </a>
-            </div>
-        </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">
@@ -439,7 +437,8 @@ const values = [
             }
 
             &-list {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
             }
         }
 
@@ -456,16 +455,6 @@ const values = [
     }
 }
 
-@media (max-width: 800px) {
-    #about {
-        &-teams {
-            &-list {
-                gap: 0;
-            }
-        }
-    }
-}
-
 @media (max-width: 600px) {
     #about {
         &-story {
@@ -473,6 +462,47 @@ const values = [
                 margin: 50px auto 30px;
                 height: 80vw;
                 width: 90vw;
+
+                img {
+                    border-radius: 17px;
+                }
+
+                $gap: 10px;
+                $height: calc((100% - $gap) / 2);
+                $width: calc((100% - $gap * 2) / 3);
+
+                &-tall {
+                    top: 0;
+                    left: 0;
+                    height: calc(100% - $gap * 2);
+                    width: $width;
+                }
+
+                &-long {
+                    $offset: calc($gap * 2);
+                    top: $offset;
+                    height: calc($height - $offset);
+                    width: calc($width * 2 + $gap);
+                }
+
+                &-square {
+                    @mixin squareImg($right) {
+                        width: $width;
+                        right: $right;
+                    }
+
+                    &-2 {
+                        $offset: calc($gap * 3);
+                        @include squareImg(0);
+                        height: calc($height - $offset);
+                        bottom: $offset;
+                    }
+
+                    &-1 {
+                        @include squareImg(calc($width + $gap));
+                        height: $height;
+                    }
+                }
             }
 
             &-list {
@@ -513,6 +543,12 @@ const values = [
                         margin: 25px 0 15px;
                     }
                 }
+            }
+        }
+
+        &-teams {
+            &-list {
+                grid-template-columns: 1fr;
             }
         }
     }

@@ -1,6 +1,6 @@
 <script setup>
-import Navbar from "../layout/Navbar.vue";
-import Footer from "../layout/Footer.vue";
+import LandingLayout from "../layout/LandingLayout.vue";
+import Button from "../button/Button.vue";
 import {getEmployer} from "@/composable/employers/employers";
 import {getAllJobsFromEmployer} from "@/composable/jobs/jobs";
 import {getEmployerTabs} from "@/composable/view-models/employer";
@@ -34,100 +34,101 @@ const getLogo = () => {
 </script>
 
 <template>
-    <Navbar />
+    <LandingLayout>
+        <div id="employer">
+            <div id="employer-header">
+                <div class="container">
+                    <div class="breadcrumbs">
+                        <a href="/">Home</a>
+                        <b>></b>
+                        <a href="/jobs">Jobs</a>
+                        <b>></b>
+                        <a>{{ employer.title }} </a>
+                    </div>
 
-    <main id="employer">
-        <div id="employer-header">
-            <div class="container">
-                <div class="breadcrumbs">
-                    <a href="/">Home</a>
-                    <b>></b>
-                    <a href="/jobs">Jobs</a>
-                    <b>></b>
-                    <a>{{ employer.title }} </a>
-                </div>
+                    <div id="employer-header-banner">
+                        <img :src="getBanner()" :alt="employer.title" />
+                    </div>
 
-                <div id="employer-header-banner">
-                    <img :src="getBanner()" :alt="employer.title" />
-                </div>
+                    <img
+                        :src="getLogo()"
+                        :alt="employer.title"
+                        id="employer-header-logo"
+                    />
 
-                <img
-                    :src="getLogo()"
-                    :alt="employer.title"
-                    id="employer-header-logo"
-                />
-
-                <h1>{{ employer.shortTitle }}</h1>
-                <h2 v-if="employer.shortTitle !== employer.title">
-                    {{ employer.title }}
-                </h2>
-            </div>
-        </div>
-
-        <div id="employer-bar">
-            <div class="container">
-                <div
-                    v-for="(tab, i) in tabs"
-                    :key="tab.title"
-                    :class="`bar-item clickable ${
-                        active === i ? 'active' : ''
-                    }`"
-                    @click="active = i"
-                >
-                    <component :is="tab.icon" />
-                    {{ tab.title }}
+                    <h1>{{ employer.shortTitle }}</h1>
+                    <h2 v-if="employer.shortTitle !== employer.title">
+                        {{ employer.title }}
+                    </h2>
                 </div>
             </div>
-        </div>
 
-        <div id="employer-content">
-            <div class="container">
-                <div id="employer-overview" v-if="active === 0">
-                    <div class="employer-detail">
-                        <IconLocationOutline />
-                        <span>{{ employer.location }}</span>
-                    </div>
-
-                    <div class="employer-detail">
-                        <IconBuilding />
-                        <span>{{ employer.industry }}</span>
-                    </div>
-
-                    <div class="employer-detail">
-                        <IconPeople />
-                        <span>{{ employer.size }}</span>
-                    </div>
-
-                    <div class="employer-detail">
-                        <IconWorld />
-
-                        <a :href="employer.website" target="_blank">
-                            {{ employer.website }}
-                        </a>
-                    </div>
-
-                    <div>
-                        <h6>About {{ employer.shortTitle }}</h6>
-                        <p>
-                            {{ employer.profile }}
-                        </p>
-                    </div>
-                </div>
-
-                <div id="employer-jobs" v-if="active === 1 && jobs.length > 0">
-                    <JobsList :jobs="jobs" :card="true" />
-
-                    <div id="employer-jobs-btn">
-                        <a href="/jobs" class="btn-l btn-primary"
-                            >See more jobs</a
-                        >
+            <div id="employer-bar">
+                <div class="container">
+                    <div
+                        v-for="(tab, i) in tabs"
+                        :key="tab.title"
+                        :class="`bar-item clickable ${
+                            active === i ? 'active' : ''
+                        }`"
+                        @click="active = i"
+                    >
+                        <component :is="tab.icon" />
+                        {{ tab.title }}
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
 
-    <Footer />
+            <div id="employer-content">
+                <div class="container">
+                    <div id="employer-overview" v-if="active === 0">
+                        <div class="employer-detail">
+                            <IconLocationOutline />
+                            <span>{{ employer.location }}</span>
+                        </div>
+
+                        <div class="employer-detail">
+                            <IconBuilding />
+                            <span>{{ employer.industry }}</span>
+                        </div>
+
+                        <div class="employer-detail">
+                            <IconPeople />
+                            <span>{{ employer.size }}</span>
+                        </div>
+
+                        <div class="employer-detail">
+                            <IconWorld />
+
+                            <a :href="employer.website" target="_blank">
+                                {{ employer.website }}
+                            </a>
+                        </div>
+
+                        <div>
+                            <h6>About {{ employer.shortTitle }}</h6>
+                            <p>
+                                {{ employer.profile }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        id="employer-jobs"
+                        v-if="active === 1 && jobs.length > 0"
+                    >
+                        <JobsList :jobs="jobs" :card="true" />
+
+                        <div id="employer-jobs-btn">
+                            <Button :large="true" href="/jobs">
+                                See more jobs
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">

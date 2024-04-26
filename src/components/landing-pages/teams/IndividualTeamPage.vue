@@ -1,6 +1,5 @@
 <script setup>
-import Navbar from "../../layout/Navbar.vue";
-import Footer from "../../layout/Footer.vue";
+import LandingLayout from "../../layout/LandingLayout.vue";
 import {useRoute} from "vue-router";
 import {getTeam, getTeamFromSlug} from "@/composable/teams/teams";
 import IconTeamLi from "@/components/icons/teams/IconTeamLi.vue";
@@ -19,9 +18,7 @@ const getImg = (img) => {
 </script>
 
 <template>
-    <Navbar />
-
-    <main id="team">
+    <LandingLayout id="team">
         <div class="container">
             <div id="team-header">
                 <div class="breadcrumbs">
@@ -55,9 +52,7 @@ const getImg = (img) => {
                 {{ team.description }}
             </p>
         </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">
@@ -134,6 +129,34 @@ const getImg = (img) => {
         .container {
             width: auto;
             margin: 0 20px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    #team {
+        &-header {
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+
+            &-img {
+                $size: 90px;
+                height: $size;
+                width: $size;
+                margin-bottom: 17px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+                line-height: 1.9rem;
+            }
+
+            h2 {
+                font-size: 0.95rem;
+                line-height: 1.4rem;
+                color: var(--textLight);
+                margin: 5px 0 17px;
+            }
         }
     }
 }

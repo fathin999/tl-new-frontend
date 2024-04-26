@@ -109,17 +109,25 @@ const getImgBw = (img) => {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
+    $padding: 22px;
+    $size: 60px;
+
     .team-item {
-        border: 0;
-        border-top: 1px solid gainsboro;
-        border-radius: 0;
-        padding: 37px;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+        padding: $padding;
+        position: relative;
+        text-align: left;
+        display: block;
+        padding-left: calc($size + $padding + 25px);
 
         &-img-container {
-            $size: 80px;
             width: $size;
             height: $size;
+            position: absolute;
+            top: $padding;
+            left: $padding;
         }
 
         &-img {
@@ -127,18 +135,21 @@ const getImgBw = (img) => {
         }
 
         h6 {
-            margin-top: 12px;
+            margin-top: 2px;
+            font-size: 0.85rem;
+            color: var(--textLight);
         }
 
         h2 {
-            font-size: 5vw;
-            margin: 3px 0 15px;
+            font-size: 1.2rem;
+            line-height: 1.6rem;
+            margin: 7px 0 30px;
         }
 
         &-socials {
-            gap: 7px;
+            gap: 5px;
 
-            $size: 27px;
+            $size: 26px;
 
             svg {
                 height: $size;

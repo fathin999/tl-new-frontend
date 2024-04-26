@@ -1,6 +1,5 @@
 <script setup>
-import Navbar from "../layout/Navbar.vue";
-import Footer from "../layout/Footer.vue";
+import LandingLayout from "../layout/LandingLayout.vue";
 import SearchBar from "../browse/SearchBar.vue";
 import FiltersList from "../browse/FiltersList.vue";
 import IconClose from "../icons/IconClose.vue";
@@ -43,9 +42,7 @@ const showFilterMenu = () => {
 </script>
 
 <template>
-    <Navbar />
-
-    <main>
+    <LandingLayout>
         <div
             id="browse"
             :class="`${
@@ -90,9 +87,7 @@ const showFilterMenu = () => {
                 </div>
             </div>
         </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">

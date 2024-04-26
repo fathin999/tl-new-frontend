@@ -4,6 +4,7 @@ import IconInstructor from "@/components/icons/courses/IconInstructor.vue";
 import IconCalendar from "@/components/icons/courses/IconCalendar.vue";
 import IconLevel from "@/components/icons/courses/IconLevel.vue";
 import IconCertificate from "@/components/icons/courses/IconCertificate.vue";
+import Button from "../button/Button.vue";
 
 defineProps({
     topic: String,
@@ -74,11 +75,9 @@ const getLogo = (logo) => {
                 </div>
 
                 <div id="course-item-header-btns">
-                    <a class="btn-primary btn-l">Get brochure</a>
-                    <a class="btn-black btn-arrow">
-                        Apply now
-                        <IconArrow />
-                    </a>
+                    <Button :large="true"> Get brochure </Button>
+
+                    <Button :arrow="true" :black="true"> Apply now </Button>
                 </div>
             </div>
 

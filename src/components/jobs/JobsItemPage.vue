@@ -1,6 +1,4 @@
 <script setup>
-import Navbar from "../layout/Navbar.vue";
-import Footer from "../layout/Footer.vue";
 import IconBookmark from "../icons/jobs/IconBookmark.vue";
 import IconLocationOutline from "../icons/jobs/IconLocationOutline.vue";
 import IconBriefcase from "../icons/jobs/IconBriefcase.vue";
@@ -21,12 +19,12 @@ import {
 } from "../../composable/jobs/jobs";
 import {getEmployerFromSlug} from "@/composable/employers/employers";
 import {useRoute} from "vue-router";
+import Button from "../button/Button.vue";
+import LandingLayout from "../layout/LandingLayout.vue";
 
 // params
 const params = useRoute().params;
 const paramJob = getJobFromTitle(getJobTitleFromUrl(params.title));
-
-console.log(paramJob);
 
 const job = getJob();
 const employer = getEmployerFromSlug(paramJob.employer);
@@ -45,248 +43,248 @@ const getLogo = (slug) => {
 </script>
 
 <template>
-    <Navbar />
+    <LandingLayout>
+        <div class="container" id="job">
+            <div id="job-header">
+                <div class="breadcrumbs">
+                    <a href="/">Home</a>
+                    <b>></b>
+                    <a href="/jobs">Jobs</a>
+                    <b>></b>
+                    <a>Software engineering </a>
+                </div>
 
-    <main class="container" id="job">
-        <div id="job-header">
-            <div class="breadcrumbs">
-                <a href="/">Home</a>
-                <b>></b>
-                <a href="/jobs">Jobs</a>
-                <b>></b>
-                <a>Software engineering </a>
-            </div>
+                <div id="job-overview">
+                    <h1>{{ paramJob.title }}</h1>
 
-            <div id="job-overview">
-                <h1>{{ paramJob.title }}</h1>
-
-                <a
-                    id="job-overview-employer"
-                    class="clickable"
-                    :href="`/employers/${employer.slug}`"
-                >
-                    <img
-                        :src="getLogo(employer.slug)"
-                        :alt="employer.shortTitle"
-                    />
-
-                    <span>{{ employer.shortTitle }}</span>
-                </a>
-
-                <div id="job-overview-summary">
-                    <div
-                        class="job-summary-item"
-                        id="job-overview-summary-location"
+                    <a
+                        id="job-overview-employer"
+                        class="clickable"
+                        :href="`/employers/${employer.slug}`"
                     >
-                        <IconLocationOutline />
-                        <span>{{ paramJob.location }}</span>
-                    </div>
+                        <img
+                            :src="getLogo(employer.slug)"
+                            :alt="employer.shortTitle"
+                        />
 
-                    <div class="job-summary-item">
-                        <IconBriefcase />
-                        <span>{{ paramJob.type }}</span>
-                    </div>
+                        <span>{{ employer.shortTitle }}</span>
+                    </a>
 
-                    <div class="job-summary-item">
-                        <IconBuilding />
-                        <span>{{ paramJob.remote }}</span>
-                    </div>
+                    <div id="job-overview-summary">
+                        <div
+                            class="job-summary-item"
+                            id="job-overview-summary-location"
+                        >
+                            <IconLocationOutline />
+                            <span>{{ paramJob.location }}</span>
+                        </div>
 
-                    <div class="job-summary-item">
-                        <IconSpanner />
-                        <span>{{ paramJob.role }}</span>
-                    </div>
+                        <div class="job-summary-item">
+                            <IconBriefcase />
+                            <span>{{ paramJob.type }}</span>
+                        </div>
 
-                    <div class="job-summary-item">
-                        <IconTime />
-                        <span>{{ getTime(paramJob.createdAt) }}</span>
+                        <div class="job-summary-item">
+                            <IconBuilding />
+                            <span>{{ paramJob.remote }}</span>
+                        </div>
+
+                        <div class="job-summary-item">
+                            <IconSpanner />
+                            <span>{{ paramJob.role }}</span>
+                        </div>
+
+                        <div class="job-summary-item">
+                            <IconTime />
+                            <span>{{ getTime(paramJob.createdAt) }}</span>
+                        </div>
                     </div>
+                </div>
+
+                <div id="job-header-btns">
+                    <Button :black="true" :outline="true">
+                        <IconBookmark />
+                        Save
+                    </Button>
+
+                    <Button :black="true"> Apply </Button>
                 </div>
             </div>
 
-            <div id="job-header-btns">
-                <a class="btn-black-outline btn-m">
-                    <IconBookmark />
-                    Save
+            <div id="job-content">
+                <div id="job-content-description">
+                    <div>
+                        <h3>Key Responsibilities:</h3>
+                        <ul>
+                            <li>
+                                Perform technical support, troubleshoot, and
+                                provide Root Cause Analysis on complex issues
+                                effectively and efficiently in line with the SLA
+                                required by the business.
+                            </li>
+
+                            <li>
+                                Provide emergency on-site support and
+                                coordination, and on-call support as required.
+                            </li>
+
+                            <li>
+                                Resolve and manage complex service requests in
+                                adherence with service level agreements.
+                            </li>
+
+                            <li>
+                                Assess and define operating procedures used for
+                                day-to-day support, installation guides,
+                                housekeeping procedures, etc.
+                            </li>
+
+                            <li>Perform complex ad-hoc requests.</li>
+
+                            <li>
+                                Provide expertise in complex database software
+                                installation and configuration.
+                            </li>
+
+                            <li>
+                                Provide expertise in complex database
+                                administration and monitoring.
+                            </li>
+
+                            <li>
+                                Provide expertise in tuning to improve
+                                efficiency and to maximize the availability of
+                                databases and process automation of software
+                                environments and the like.
+                            </li>
+
+                            <li>
+                                Create scripts for monitoring and to automate
+                                administrative tasks.
+                            </li>
+
+                            <li>
+                                Provide data protection and enforce security
+                                standard procedures.
+                            </li>
+
+                            <li>
+                                Ensure that information security policy is
+                                considered and always followed,
+                            </li>
+
+                            <li>
+                                Recommends any changes to policy and approved
+                                policy changes are documented.
+                            </li>
+
+                            <li>
+                                Assist superiors and other engineers on other
+                                tasks and projects as needed.
+                            </li>
+                        </ul>
+
+                        <br />
+
+                        <h3>Requirements:</h3>
+                        <ul>
+                            <li>
+                                Degree in Information Technology, Computer
+                                Science, or other related fields.
+                            </li>
+
+                            <li>Minimum of 2 years' IT experience.</li>
+
+                            <li>
+                                Experience in MS SQL, Oracle, Postgres, NoSQL
+                                and MYSQL
+                            </li>
+
+                            <li>
+                                Highly experienced in Always On Availability
+                                Group, Failover Clustering, Database Mirroring,
+                                Backup and Restore, Optimizing Performance and
+                                T-SQL.
+                            </li>
+
+                            <li>
+                                Experience in Azure Cloud, SQLMI and SQL
+                                Database
+                            </li>
+
+                            <li>
+                                Good Communication and Team skills with the
+                                ability to cooperate, present to and participate
+                                with peers/team members.
+                            </li>
+
+                            <li>
+                                Good problem solving, analytical and critical
+                                thinking skills.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="job-content-description-btn">
+                        <Button :large="true"> Apply Now </Button>
+                    </div>
+                </div>
+
+                <div id="job-content-similar" v-if="similarJobs.length !== 0">
+                    <h2>Similar jobs</h2>
+
+                    <SimilarJobCard
+                        v-for="job in similarJobs"
+                        :key="job.id"
+                        :title="job.title"
+                        :logo="job.logo"
+                        :employer="job.employer"
+                        :location="job.location"
+                    />
+                </div>
+            </div>
+
+            <div id="job-company">
+                <h2>More about {{ employer.shortTitle }}</h2>
+
+                <a id="job-company-card" :href="`/employers/${employer.slug}`">
+                    <div id="job-company-card-title">
+                        <img
+                            :src="getLogo(employer.slug)"
+                            :alt="employer.shortTitle"
+                        />
+                        <h1>{{ employer.title }}</h1>
+                    </div>
+
+                    <div class="job-company-detail one-line">
+                        <IconLocationOutline />
+                        {{ employer.location }}
+                    </div>
+
+                    <div class="job-company-detail">
+                        <IconBuilding />
+                        {{ employer.industry }}
+                    </div>
+
+                    <div class="job-company-detail">
+                        <IconPeople />
+                        {{ employer.size }}
+                    </div>
+
+                    <div id="job-company-card-btn">
+                        More
+                        <IconArrow />
+                    </div>
                 </a>
 
-                <a class="btn-black btn-m"> Apply </a>
+                <div v-if="otherJobs.length !== 0">
+                    <h2>Other jobs from {{ employer.shortTitle }}</h2>
+
+                    <JobsList :jobs="otherJobs" />
+                </div>
             </div>
         </div>
-
-        <div id="job-content">
-            <div id="job-content-description">
-                <div>
-                    <h3>Key Responsibilities:</h3>
-                    <ul>
-                        <li>
-                            Perform technical support, troubleshoot, and provide
-                            Root Cause Analysis on complex issues effectively
-                            and efficiently in line with the SLA required by the
-                            business.
-                        </li>
-
-                        <li>
-                            Provide emergency on-site support and coordination,
-                            and on-call support as required.
-                        </li>
-
-                        <li>
-                            Resolve and manage complex service requests in
-                            adherence with service level agreements.
-                        </li>
-
-                        <li>
-                            Assess and define operating procedures used for
-                            day-to-day support, installation guides,
-                            housekeeping procedures, etc.
-                        </li>
-
-                        <li>Perform complex ad-hoc requests.</li>
-
-                        <li>
-                            Provide expertise in complex database software
-                            installation and configuration.
-                        </li>
-
-                        <li>
-                            Provide expertise in complex database administration
-                            and monitoring.
-                        </li>
-
-                        <li>
-                            Provide expertise in tuning to improve efficiency
-                            and to maximize the availability of databases and
-                            process automation of software environments and the
-                            like.
-                        </li>
-
-                        <li>
-                            Create scripts for monitoring and to automate
-                            administrative tasks.
-                        </li>
-
-                        <li>
-                            Provide data protection and enforce security
-                            standard procedures.
-                        </li>
-
-                        <li>
-                            Ensure that information security policy is
-                            considered and always followed,
-                        </li>
-
-                        <li>
-                            Recommends any changes to policy and approved policy
-                            changes are documented.
-                        </li>
-
-                        <li>
-                            Assist superiors and other engineers on other tasks
-                            and projects as needed.
-                        </li>
-                    </ul>
-
-                    <br />
-
-                    <h3>Requirements:</h3>
-                    <ul>
-                        <li>
-                            Degree in Information Technology, Computer Science,
-                            or other related fields.
-                        </li>
-
-                        <li>Minimum of 2 years' IT experience.</li>
-
-                        <li>
-                            Experience in MS SQL, Oracle, Postgres, NoSQL and
-                            MYSQL
-                        </li>
-
-                        <li>
-                            Highly experienced in Always On Availability Group,
-                            Failover Clustering, Database Mirroring, Backup and
-                            Restore, Optimizing Performance and T-SQL.
-                        </li>
-
-                        <li>
-                            Experience in Azure Cloud, SQLMI and SQL Database
-                        </li>
-
-                        <li>
-                            Good Communication and Team skills with the ability
-                            to cooperate, present to and participate with
-                            peers/team members.
-                        </li>
-
-                        <li>
-                            Good problem solving, analytical and critical
-                            thinking skills.
-                        </li>
-                    </ul>
-                </div>
-
-                <div id="job-content-description-btn">
-                    <a class="btn-primary btn-l">Apply Now</a>
-                </div>
-            </div>
-
-            <div id="job-content-similar" v-if="similarJobs.length !== 0">
-                <h2>Similar jobs</h2>
-
-                <SimilarJobCard
-                    v-for="job in similarJobs"
-                    :key="job.id"
-                    :title="job.title"
-                    :logo="job.logo"
-                    :employer="job.employer"
-                    :location="job.location"
-                />
-            </div>
-        </div>
-
-        <div id="job-company">
-            <h2>More about {{ employer.shortTitle }}</h2>
-
-            <a id="job-company-card" :href="`/employers/${employer.slug}`">
-                <div id="job-company-card-title">
-                    <img
-                        :src="getLogo(employer.slug)"
-                        :alt="employer.shortTitle"
-                    />
-                    <h1>{{ employer.title }}</h1>
-                </div>
-
-                <div class="job-company-detail one-line">
-                    <IconLocationOutline />
-                    {{ employer.location }}
-                </div>
-
-                <div class="job-company-detail">
-                    <IconBuilding />
-                    {{ employer.industry }}
-                </div>
-
-                <div class="job-company-detail">
-                    <IconPeople />
-                    {{ employer.size }}
-                </div>
-
-                <div id="job-company-card-btn">
-                    More
-                    <IconArrow />
-                </div>
-            </a>
-
-            <div v-if="otherJobs.length !== 0">
-                <h2>Other jobs from {{ employer.shortTitle }}</h2>
-
-                <JobsList :jobs="otherJobs" />
-            </div>
-        </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">

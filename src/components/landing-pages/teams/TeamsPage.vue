@@ -1,6 +1,5 @@
 <script setup>
-import Navbar from "../../layout/Navbar.vue";
-import Footer from "../../layout/Footer.vue";
+import LandingLayout from "../../layout/LandingLayout.vue";
 import Banner from "../../layout/Banner.vue";
 import {getAllTeams} from "../../../composable/teams/teams";
 import TeamCard from "./TeamCard.vue";
@@ -9,9 +8,7 @@ const teams = getAllTeams();
 </script>
 
 <template>
-    <Navbar />
-
-    <main>
+    <LandingLayout>
         <Banner
             title="Meet our team"
             subtext="Our team consists of highly-accomplished individuals, bringing together our individual expertise and knowledge based on our real-world experience to help accelerate your career."
@@ -28,9 +25,7 @@ const teams = getAllTeams();
                 />
             </div>
         </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">
@@ -57,15 +52,16 @@ const teams = getAllTeams();
     #teams-list {
         .container {
             grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     #teams-list {
         .container {
             grid-template-columns: 1fr;
-            gap: 0;
+            gap: 20px;
         }
     }
 }

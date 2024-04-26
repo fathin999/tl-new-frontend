@@ -1,5 +1,6 @@
 <script setup>
 import IconArrow from "@/components/icons/IconArrow.vue";
+import Button from "@/components/button/Button.vue";
 import {scrollToTab} from "@/composable/utilities/tabs";
 import {getSolutions} from "@/composable/view-models/platform-solutions";
 import {ref} from "vue";
@@ -76,10 +77,9 @@ const chooseTab = (i) => {
                     </p>
                 </div>
 
-                <a :href="solutions[active].href" class="btn-arrow btn-primary">
+                <Button :href="solutions[active].href" :arrow="true">
                     {{ solutions[active].link }}
-                    <IconArrow />
-                </a>
+                </Button>
             </div>
         </div>
     </div>

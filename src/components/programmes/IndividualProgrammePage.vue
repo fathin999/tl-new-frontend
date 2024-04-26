@@ -1,6 +1,6 @@
 <script setup>
-import Navbar from "../layout/Navbar.vue";
-import Footer from "../layout/Footer.vue";
+import Button from "../button/Button.vue";
+import LandingLayout from "../layout/LandingLayout.vue";
 import ProgrammeHeader from "./ProgrammeHeader.vue";
 import PgmSectOverview from "./PgmSectOverview.vue";
 import PgmSectTimeline from "./PgmSectTimeline.vue";
@@ -120,75 +120,73 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <Navbar />
+    <LandingLayout>
+        <div id="programme">
+            <ProgrammeHeader
+                :logo="programme.logo"
+                :title="programme.title"
+                :slug="programme.slug"
+                :tagline="data.tagline"
+                :subtext="data.subtext"
+                @scrollToRef="scrollToPathways"
+            />
 
-    <main id="programme">
-        <ProgrammeHeader
-            :logo="programme.logo"
-            :title="programme.title"
-            :slug="programme.slug"
-            :tagline="data.tagline"
-            :subtext="data.subtext"
-            @scrollToRef="scrollToPathways"
-        />
-
-        <div class="secondary-bar hide-scrollbar" ref="btns">
-            <div class="container">
-                <div v-for="(section, i) in sections" :key="section">
-                    <div
-                        :class="`bar-item clickable ${
-                            i === active ? 'bar-item-active' : ''
-                        }`"
-                        v-if="checkEmpty(section.key)"
-                        @click="scrollTo(i)"
-                    >
-                        {{ section.title }}
+            <div class="secondary-bar hide-scrollbar" ref="btns">
+                <div class="container">
+                    <div v-for="(section, i) in sections" :key="section">
+                        <div
+                            :class="`bar-item clickable ${
+                                i === active ? 'bar-item-active' : ''
+                            }`"
+                            v-if="checkEmpty(section.key)"
+                            @click="scrollTo(i)"
+                        >
+                            {{ section.title }}
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div id="programme-content">
+                <div ref="overview">
+                    <PgmSectOverview
+                        :slug="programme.slug"
+                        :paragraph="data.overview.paragraph"
+                        @scrollToPathways="scrollToPathways"
+                    />
+                </div>
+
+                <div ref="timeline" v-if="checkEmpty('timeline')">
+                    <PgmSectTimeline :timeline="data.timeline" />
+                </div>
+
+                <div ref="pathways" v-if="checkEmpty('pathways')">
+                    <PgmSectPathways :pathways="data.pathways" />
+                </div>
+
+                <div ref="coursesRef" v-if="checkEmpty('courses')">
+                    <PgmSectCourses
+                        :courseSlugs="data.courses.courses"
+                        :roles="data.courses.roles"
+                    />
+                </div>
+
+                <div ref="requirements" v-if="checkEmpty('requirements')">
+                    <PgmSectRequirements
+                        :requirements="data.requirements.requirements"
+                        :processes="data.requirements.processes"
+                    />
+                </div>
+
+                <div ref="outcomes" v-if="checkEmpty('outcomes')">
+                    <PgmSectOutcomes
+                        :offers="data.outcomes.offers"
+                        :slug="programme.slug"
+                    />
+                </div>
+            </div>
         </div>
-
-        <div id="programme-content">
-            <div ref="overview">
-                <PgmSectOverview
-                    :slug="programme.slug"
-                    :paragraph="data.overview.paragraph"
-                    @scrollToPathways="scrollToPathways"
-                />
-            </div>
-
-            <div ref="timeline" v-if="checkEmpty('timeline')">
-                <PgmSectTimeline :timeline="data.timeline" />
-            </div>
-
-            <div ref="pathways" v-if="checkEmpty('pathways')">
-                <PgmSectPathways :pathways="data.pathways" />
-            </div>
-
-            <div ref="coursesRef" v-if="checkEmpty('courses')">
-                <PgmSectCourses
-                    :courseSlugs="data.courses.courses"
-                    :roles="data.courses.roles"
-                />
-            </div>
-
-            <div ref="requirements" v-if="checkEmpty('requirements')">
-                <PgmSectRequirements
-                    :requirements="data.requirements.requirements"
-                    :processes="data.requirements.processes"
-                />
-            </div>
-
-            <div ref="outcomes" v-if="checkEmpty('outcomes')">
-                <PgmSectOutcomes
-                    :offers="data.outcomes.offers"
-                    :slug="programme.slug"
-                />
-            </div>
-        </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">

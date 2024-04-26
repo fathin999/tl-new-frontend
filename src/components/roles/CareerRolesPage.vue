@@ -1,6 +1,6 @@
 <script setup>
-import Navbar from "@/components/layout/Navbar.vue";
-import Footer from "@/components/layout/Footer.vue";
+import LandingLayout from "@/components/layout/LandingLayout.vue";
+import Button from "@/components/button/Button.vue";
 import CarouselSlider from "@/components/slider/CarouselSlider.vue";
 import {getMainRoles} from "../../composable/roles/roles";
 
@@ -12,10 +12,8 @@ const getImg = (slug) => {
 </script>
 
 <template>
-    <Navbar />
-
-    <main id="roles">
-        <div class="container">
+    <LandingLayout>
+        <div id="roles" class="container">
             <div class="breadcrumbs">
                 <a href="/">Home </a>
                 <b> > </b>
@@ -47,9 +45,7 @@ const getImg = (slug) => {
                 </a>
             </div>
         </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">
@@ -118,21 +114,39 @@ const getImg = (slug) => {
         h1 {
             font-size: 6vw;
             line-height: 8vw;
-            margin: 50px 0 15px;
+            margin: 60px 0 15px;
         }
 
         p {
             width: 100%;
-            margin: 0 auto 60px;
+            margin: 0 auto 50px;
         }
 
         &-list {
             grid-template-columns: repeat(2, 1fr);
+            gap: 7px;
+        }
+
+        .role-item {
+            height: auto;
+            border-radius: 10px;
+            padding: 25px 20px;
+
+            img {
+                $size: 45px;
+                height: $size;
+                width: $size;
+            }
+
+            span {
+                font-size: 1rem;
+                margin-top: 12px;
+            }
         }
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 350px) {
     #roles {
         &-list {
             grid-template-columns: 1fr;

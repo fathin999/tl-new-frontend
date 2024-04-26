@@ -50,7 +50,7 @@ const routes = [
     {
         name: "Choose Role",
         component: ChooseRole,
-        path: "/signup/choose-role",
+        path: "/signup/select-role",
     },
     {
         name: "Courses",

@@ -10,6 +10,7 @@ import IconSpanner from "@/components/icons/jobs/IconSpanner.vue";
 import IconTime from "@/components/icons/jobs/IconTime.vue";
 import {getTime} from "../../composable/jobs/jobs";
 import {getJobLink} from "@/composable/jobs/jobs";
+import Button from "../button/Button.vue";
 
 const props = defineProps({
     title: String,
@@ -96,11 +97,11 @@ const getRemoteClass = () => {
         </div>
 
         <div class="job-item-btns">
-            <a class="btn-primary-outline btn-s">
+            <Button :outline="true" :small="true">
                 <IconBookmark />
-            </a>
+            </Button>
 
-            <a class="btn-primary-outline btn-s"> Apply </a>
+            <Button :small="true" :outline="true"> Apply </Button>
         </div>
     </div>
 </template>
@@ -207,19 +208,20 @@ $btnsWidth: 160px;
         justify-content: flex-end;
         padding-top: 30px;
         gap: 10px;
-    }
 
-    .btn-s {
-        height: 38px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        a {
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-        svg {
-            $size: 16px;
-            height: $size;
-            width: $size;
-            margin: auto;
+            svg {
+                $size: 16px;
+                height: $size;
+                width: $size;
+                margin: auto;
+                fill: var(--purple);
+            }
         }
     }
 }
@@ -349,6 +351,14 @@ $btnsWidth: 160px;
             p {
                 color: var(--purple);
                 text-decoration: underline;
+            }
+        }
+
+        &-btns {
+            a:hover {
+                svg {
+                    fill: white;
+                }
             }
         }
     }

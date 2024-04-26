@@ -1,6 +1,5 @@
 <script setup>
-import Navbar from "../layout/Navbar.vue";
-import Footer from "../layout/Footer.vue";
+import LandingLayout from "../layout/LandingLayout.vue";
 import Banner from "../layout/Banner.vue";
 import FaqList from "../faq/FaqList.vue";
 import {getCourseFaq} from "@/composable/courses/courses";
@@ -9,17 +8,15 @@ const faqs = getCourseFaq();
 </script>
 
 <template>
-    <Navbar />
+    <LandingLayout>
+        <div id="course-faq">
+            <Banner title="FAQ" subtext="Frequently asked questions" />
 
-    <main id="course-faq">
-        <Banner title="FAQ" subtext="Frequently asked questions" />
-
-        <div id="faq-course-list">
-            <FaqList :faqs="faqs" />
+            <div id="faq-course-list">
+                <FaqList :faqs="faqs" />
+            </div>
         </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">

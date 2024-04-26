@@ -79,6 +79,34 @@ const getBadge = () => {
     }
 }
 
+@media (max-width: 600px) {
+    .course-card {
+        padding: 17px;
+        border-radius: 15px;
+
+        &-badge {
+            height: 50px;
+        }
+
+        h4 {
+            font-size: 1rem;
+            line-height: 1.4rem;
+            margin: 10px 0 20px;
+        }
+
+        &-provider {
+            img {
+                height: 27px;
+                margin-right: 10px;
+            }
+
+            span {
+                color: var(--textLight);
+            }
+        }
+    }
+}
+
 @media (hover: hover) {
     .course-card:hover {
         border: 1px solid var(--purple);

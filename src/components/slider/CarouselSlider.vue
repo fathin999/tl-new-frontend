@@ -176,14 +176,14 @@ onUnmounted(() => {
 </style>
 
 <style lang="scss">
-#carousel {
+.landing-layout #carousel {
     .carousel-list > * {
         scroll-snap-align: start;
     }
 }
 
 @media (max-width: 600px) {
-    #carousel {
+    .landing-layout #carousel {
         .carousel-list {
             $gap: 20px;
             $items: 1.2;

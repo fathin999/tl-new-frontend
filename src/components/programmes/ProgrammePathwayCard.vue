@@ -2,6 +2,7 @@
 import IconStarOutline from "../icons/programmes/IconStarOutline.vue";
 import IconStarFill from "../icons/programmes/IconStarFill.vue";
 import ArrowLink from "../button/ArrowLink.vue";
+import Button from "../button/Button.vue";
 
 defineProps({
     img: String,
@@ -106,7 +107,7 @@ const getBadgeImg = (img) => {
                             </p>
                         </div>
 
-                        <a class="btn-s btn-primary">Apply now</a>
+                        <Button :small="true"> Apply now </Button>
                     </a>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <script setup>
-import IconArrow from "@/components/icons/IconArrow.vue";
 import IconChevron from "@/components/icons/IconChevron.vue";
+import Button from "@/components/button/Button.vue";
 </script>
 
 <template>
@@ -16,10 +16,9 @@ import IconChevron from "@/components/icons/IconChevron.vue";
                     and more.
                 </p>
 
-                <a class="btn-black btn-arrow" href="/courses">
+                <Button :arrow="true" href="/courses" :black="true">
                     View all courses
-                    <IconArrow />
-                </a>
+                </Button>
             </div>
 
             <div id="courses-list" class="slider">

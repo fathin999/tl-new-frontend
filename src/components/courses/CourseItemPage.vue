@@ -1,8 +1,7 @@
 <script setup>
 import {onMounted, onUnmounted, ref} from "vue";
 import {useRoute} from "vue-router";
-import Navbar from "@/components/layout/Navbar.vue";
-import Footer from "@/components/layout/Footer.vue";
+import LandingLayout from "@/components/layout/LandingLayout.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import CourseModules from "./CourseModules.vue";
 import CourseTool from "./CourseTool.vue";
@@ -18,6 +17,7 @@ import {getTestimonialsFromSlugs} from "@/composable/testimonials/testimonials";
 import {getOneCourseUsingSlug} from "@/composable/courses/course-roles";
 import {scrollToSection, scrollToTab} from "@/composable/utilities/tabs";
 import {getCourseItemPageSections} from "@/composable/view-models/course";
+import Button from "@/components/button/Button.vue";
 
 // get params
 const params = useRoute().params;
@@ -74,163 +74,161 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <Navbar />
-
-    <main id="course-item">
-        <CourseHeader
-            :topic="courseParams.topic"
-            :title="courseParams.title"
-            :description="course.description"
-            :provider="courseParams.provider"
-            :providerLogo="courseParams.providerLogo"
-            :type="courseParams.type"
-            :medium="course.medium"
-            :delivery="course.delivery"
-            :timeline="course.timeline"
-            :level="courseParams.level"
-            :banner="courseParams.banner"
-            :badge="courseParams.badge"
-        />
-
-        <div id="course-item-content" class="container">
-            <CourseBar
-                :sections="sections"
-                :active="active"
-                @scrollTo="scrollTo"
+    <LandingLayout>
+        <div id="course-item">
+            <CourseHeader
+                :topic="courseParams.topic"
+                :title="courseParams.title"
+                :description="course.description"
+                :provider="courseParams.provider"
+                :providerLogo="courseParams.providerLogo"
+                :type="courseParams.type"
+                :medium="course.medium"
+                :delivery="course.delivery"
+                :timeline="course.timeline"
+                :level="courseParams.level"
+                :banner="courseParams.banner"
+                :badge="courseParams.badge"
             />
 
-            <div id="course-item-sections">
-                <div class="course-section" ref="overview">
-                    <h6>Overview</h6>
+            <div id="course-item-content" class="container">
+                <CourseBar
+                    :sections="sections"
+                    :active="active"
+                    @scrollTo="scrollTo"
+                />
 
-                    <h1>Become a Data Scientist in weeks</h1>
+                <div id="course-item-sections">
+                    <div class="course-section" ref="overview">
+                        <h6>Overview</h6>
 
-                    <p>
-                        Acquire advanced data skills, master Machine Learning &
-                        AI, and launch your career as a Data Scientist, Analyst,
-                        AI Engineer, Data Manager, and more.
-                    </p>
+                        <h1>Become a Data Scientist in weeks</h1>
 
-                    <h2>What you will learn</h2>
-                    <CourseCheckpoint
-                        v-for="outcome in course.details.outcomes"
-                        :key="outcome"
-                        :title="outcome"
-                    />
+                        <p>
+                            Acquire advanced data skills, master Machine
+                            Learning & AI, and launch your career as a Data
+                            Scientist, Analyst, AI Engineer, Data Manager, and
+                            more.
+                        </p>
 
-                    <h2>Languages and tools covered</h2>
-                    <div id="course-section-tools">
-                        <CourseTool
-                            v-for="logo in course.details.tools"
-                            :key="logo"
-                            :logo="logo"
+                        <h2>What you will learn</h2>
+                        <CourseCheckpoint
+                            v-for="outcome in course.details.outcomes"
+                            :key="outcome"
+                            :title="outcome"
                         />
-                    </div>
-                </div>
 
-                <div
-                    class="course-section"
-                    ref="modules"
-                    id="course-section-modules"
-                >
-                    <h6>Modules</h6>
-                    <h3>Explore our world-class curriculum</h3>
-
-                    <CourseModules :modules="course.details.modules" />
-
-                    <h2>Our approach</h2>
-                    <div id="course-section-approach">
-                        <CourseIconDescription
-                            v-for="approach in course.details.approaches"
-                            :key="approach.title"
-                            :title="approach.title"
-                            :icon="approach.icon"
-                        />
+                        <h2>Languages and tools covered</h2>
+                        <div id="course-section-tools">
+                            <CourseTool
+                                v-for="logo in course.details.tools"
+                                :key="logo"
+                                :logo="logo"
+                            />
+                        </div>
                     </div>
 
-                    <h2>Meet our course creators</h2>
+                    <div
+                        class="course-section"
+                        ref="modules"
+                        id="course-section-modules"
+                    >
+                        <h6>Modules</h6>
+                        <h3>Explore our world-class curriculum</h3>
 
-                    <div id="course-section-instructors">
-                        <CourseInstructor
-                            v-for="instructor in course.details.instructors"
-                            :key="instructor"
-                            :id="instructor"
-                        />
-                    </div>
-                </div>
+                        <CourseModules :modules="course.details.modules" />
 
-                <div
-                    class="course-section"
-                    ref="financing"
-                    id="course-section-financing"
-                >
-                    <h6>Financing</h6>
-                    <h3>Study first, pay later</h3>
-                    <p>
-                        pay nothing to join your immersive learning experience
-                        and pursue your career goals. Only after you have
-                        completed our program and are employed as a software
-                        engineer, you will pay 15% of your monthly salary to us
-                        until you reach the minimum payment cap (depending on
-                        country). Learn more about fees and financing from our
-                        FAQ page.
-                    </p>
+                        <h2>Our approach</h2>
+                        <div id="course-section-approach">
+                            <CourseIconDescription
+                                v-for="approach in course.details.approaches"
+                                :key="approach.title"
+                                :title="approach.title"
+                                :icon="approach.icon"
+                            />
+                        </div>
 
-                    <h2>Our fee structure</h2>
-                    <CourseFinancing />
-                </div>
+                        <h2>Meet our course creators</h2>
 
-                <div
-                    class="course-section"
-                    ref="careers"
-                    id="course-section-careers"
-                >
-                    <h6>Careers</h6>
-
-                    <h3>We will help you boost your career</h3>
-
-                    <p>
-                        Navigate tech career opportunities with the help of our
-                        Career Services team. After many years working with
-                        passionate students and helping them land fulfilling
-                        careers in tech, we have got a keen understanding of
-                        what goes into getting that first tech job.
-                        <br />
-                        <br />
-                        Get valuable insights on interview skills, CV
-                        preparation, and building a professional portfolio - we
-                        will be the bridge between you and your future
-                        employers. We have built relationships with hiring
-                        managers at top companies across the region, creating a
-                        robust employer pipeline for TalentLabs grads. Our team
-                        is constantly advocating for our graduates and helping
-                        you to secure your dream job.
-                    </p>
-
-                    <h2>Hear from our graduates</h2>
-
-                    <div id="course-section-testimonials">
-                        <TestimonialCard
-                            v-for="testimony in testimonials"
-                            :key="testimony.name"
-                            :name="testimony.name"
-                            :slug="testimony.slug"
-                            :comment="testimony.comment"
-                            :logo="testimony.logo"
-                        />
+                        <div id="course-section-instructors">
+                            <CourseInstructor
+                                v-for="instructor in course.details.instructors"
+                                :key="instructor"
+                                :id="instructor"
+                            />
+                        </div>
                     </div>
 
-                    <h2>Still have questions?</h2>
+                    <div
+                        class="course-section"
+                        ref="financing"
+                        id="course-section-financing"
+                    >
+                        <h6>Financing</h6>
+                        <h3>Study first, pay later</h3>
+                        <p>
+                            pay nothing to join your immersive learning
+                            experience and pursue your career goals. Only after
+                            you have completed our program and are employed as a
+                            software engineer, you will pay 15% of your monthly
+                            salary to us until you reach the minimum payment cap
+                            (depending on country). Learn more about fees and
+                            financing from our FAQ page.
+                        </p>
 
-                    <a href="/courses-faq" class="btn-primary btn-m">
-                        Go to FAQ
-                    </a>
+                        <h2>Our fee structure</h2>
+                        <CourseFinancing />
+                    </div>
+
+                    <div
+                        class="course-section"
+                        ref="careers"
+                        id="course-section-careers"
+                    >
+                        <h6>Careers</h6>
+
+                        <h3>We will help you boost your career</h3>
+
+                        <p>
+                            Navigate tech career opportunities with the help of
+                            our Career Services team. After many years working
+                            with passionate students and helping them land
+                            fulfilling careers in tech, we have got a keen
+                            understanding of what goes into getting that first
+                            tech job.
+                            <br />
+                            <br />
+                            Get valuable insights on interview skills, CV
+                            preparation, and building a professional portfolio -
+                            we will be the bridge between you and your future
+                            employers. We have built relationships with hiring
+                            managers at top companies across the region,
+                            creating a robust employer pipeline for TalentLabs
+                            grads. Our team is constantly advocating for our
+                            graduates and helping you to secure your dream job.
+                        </p>
+
+                        <h2>Hear from our graduates</h2>
+
+                        <div id="course-section-testimonials">
+                            <TestimonialCard
+                                v-for="testimony in testimonials"
+                                :key="testimony.name"
+                                :name="testimony.name"
+                                :slug="testimony.slug"
+                                :comment="testimony.comment"
+                                :logo="testimony.logo"
+                            />
+                        </div>
+
+                        <h2>Still have questions?</h2>
+
+                        <Button href="/courses-faq">Go to FAQ</Button>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
 
 <style scoped lang="scss">

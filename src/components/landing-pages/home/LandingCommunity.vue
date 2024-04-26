@@ -1,5 +1,5 @@
 <script setup>
-import IconArrow from "@/components/icons/IconArrow.vue";
+import Button from "@/components/button/Button.vue";
 
 const getImg = (index) => {
     return new URL(
@@ -43,10 +43,13 @@ const getClass = (i) => {
                         the technology industry.
                     </p>
 
-                    <a class="btn-black btn-arrow" href="/signup/choose-role">
+                    <Button
+                        :arrow="true"
+                        href="/signup/select-role"
+                        :black="true"
+                    >
                         Join our family
-                        <IconArrow />
-                    </a>
+                    </Button>
                 </div>
 
                 <img

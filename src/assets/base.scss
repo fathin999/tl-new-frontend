@@ -32,12 +32,6 @@
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        /* --color-background: var(--vt-c-black); */
-    }
-}
-
 @font-face {
     font-family: "SFProDisplay";
     font-weight: 400;
@@ -74,36 +68,10 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "SFProDisplay", "Helvetica Neue", sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 600;
-}
-
-p {
-    line-height: 1.5rem;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-    user-select: none;
-    cursor: pointer;
 }
 
 body {
-    min-height: 100vh;
-    /* color: var(--color-text); */
-    /* background: var(--color-background); */
-    /* transition: color 0.5s, background-color 0.5s; */
-    /* line-height: 1.6; */
-
+    min-height: 100dvh;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

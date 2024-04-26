@@ -1,92 +1,44 @@
 <script setup>
-import Navbar from "../layout/Navbar.vue";
-import AuthBackground from "./AuthBackground.vue";
-</script>
+import AuthLayout from "./AuthLayout.vue";
+import {login} from "@/composable/backend/auth";
+import {ref} from "vue";
+import Button from "../button/Button.vue";
 
-<template>
-    <Navbar />
+// V-MODELS
+const email = ref("");
+const password = ref("");
 
-    <main>
-        <div class="auth-page">
-            <div class="container">
-                <div class="auth-page-content">
-                    <h1>Login</h1>
-
-                    <p>Be part of the innovators of tomorrow</p>
-
-                    <form>
-                        <div class="input">
-                            <label>Email address</label>
-                            <input
-                                type="text"
-                                v-model="email"
-                                placeholder="your@email.com"
-                            />
-                        </div>
-
-                        <div class="input">
-                            <label>Password</label>
-                            <input
-                                type="password"
-                                v-model="password"
-                                placeholder="******"
-                            />
-                            <div id="login-forgot">
-                                <a href="/reset-password-request">
-                                    Forgot password?
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="btn-primary btn-l" @click="login">
-                            Login
-                        </div>
-
-                        <div class="auth-link">
-                            <span>Not registered?</span>
-                            <a href="/signup/choose-role">
-                                Create an account
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
-</template>
-
-<script>
-export default {
-    name: "Login",
-    data() {
-        return {
-            email: "",
-            password: "",
-        };
-    },
-    methods: {
-        login() {
-            console.log("Login", this.email, this.password);
-        },
-    },
+// LOGIN
+const handleClick = () => {
+    login(email.value, password.value);
 };
 </script>
 
+<template>
+    <AuthLayout title="Login" subtext="Be part of the innovators of tomorrow">
+        <div class="input">
+            <label>Email address</label>
+            <input type="text" v-model="email" placeholder="your@email.com" />
+        </div>
+
+        <div class="input">
+            <label>Password</label>
+            <input type="password" v-model="password" placeholder="******" />
+            <div id="login-forgot">
+                <a href="/reset-password-request"> Forgot password? </a>
+            </div>
+        </div>
+
+        <Button :large="true" @click="handleClick"> Login </Button>
+
+        <div class="auth-link">
+            <span>Not registered?</span>
+            <a href="/signup/select-role"> Create an account </a>
+        </div>
+    </AuthLayout>
+</template>
+
 <style scoped lang="scss">
-.auth-page {
-    height: auto;
-
-    .container {
-        height: auto;
-    }
-
-    &-content {
-        width: 400px;
-        margin: auto;
-        padding: 50px 0 80px;
-    }
-}
-
 #login-forgot {
     text-align: right;
     padding-top: 10px;

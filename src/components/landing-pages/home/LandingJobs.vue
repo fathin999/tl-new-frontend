@@ -1,8 +1,8 @@
 <script setup>
-import IconArrow from "@/components/icons/IconArrow.vue";
 import IconChevron from "@/components/icons/IconChevron.vue";
 import LandingJobCard from "@/components/jobs/LandingJobCard.vue";
 import CarouselSlider from "@/components/slider/CarouselSlider.vue";
+import Button from "@/components/button/Button.vue";
 import {getFeaturedJobs} from "@/composable/jobs/jobs";
 
 const jobs = getFeaturedJobs();
@@ -37,10 +37,9 @@ const jobs = getFeaturedJobs();
             </CarouselSlider>
 
             <div id="jobs-btn">
-                <a class="btn-black btn-arrow" href="/jobs">
+                <Button :arrow="true" href="/jobs" :black="true">
                     View more jobs
-                    <IconArrow />
-                </a>
+                </Button>
             </div>
         </div>
     </div>

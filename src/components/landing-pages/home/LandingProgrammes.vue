@@ -1,5 +1,6 @@
 <script setup>
 import IconChevron from "../icons/IconChevron.vue";
+import Button from "@/components/button/Button.vue";
 </script>
 
 <template>
@@ -64,14 +65,11 @@ import IconChevron from "../icons/IconChevron.vue";
                 </h3>
 
                 <div id="special-programmes-btns">
-                    <a class="btn-primary btn-arrow">
-                        For enterprise
-                        <IconChevron />
-                    </a>
-                    <a class="btn-black btn-arrow">
+                    <Button :arrow="true"> For enterprise </Button>
+
+                    <Button :arrow="true" :black="true">
                         For governments
-                        <IconChevron />
-                    </a>
+                    </Button>
                 </div>
             </div>
         </div>

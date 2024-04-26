@@ -1,5 +1,5 @@
 <script setup>
-import IconArrow from "../../icons/IconArrow.vue";
+import Button from "@/components/button/Button.vue";
 </script>
 
 <template>
@@ -18,11 +18,9 @@ import IconArrow from "../../icons/IconArrow.vue";
                     dedicated to making a difference.
                 </p>
 
-                <a class="btn-primary btn-arrow" href="/be-an-instructor">
+                <Button :arrow="true" href="/be-an-instructor">
                     Be an instructor
-
-                    <IconArrow />
-                </a>
+                </Button>
             </div>
 
             <img

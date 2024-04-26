@@ -1,7 +1,7 @@
 <script setup>
 import HeroSlider from "./HeroSlider.vue";
 import HeroBackground from "./HeroBackground.vue";
-import IconArrow from "@/components/icons/IconArrow.vue";
+import Button from "@/components/button/Button.vue";
 </script>
 
 <template>
@@ -18,14 +18,10 @@ import IconArrow from "@/components/icons/IconArrow.vue";
             </div>
 
             <div id="hero-btns">
-                <a href="/jobs" class="btn-primary btn-arrow">
-                    Search Jobs
-                    <IconArrow />
-                </a>
-                <a href="/courses" class="btn-black btn-arrow">
-                    Browse Tech Courses
-                    <IconArrow />
-                </a>
+                <Button href="/jobs" :arrow="true" id="btn">Search Jobs</Button>
+                <Button href="/jobs" :arrow="true" :black="true" id="btn"
+                    >Browse Tech Courses</Button
+                >
             </div>
 
             <HeroSlider />
@@ -35,14 +31,14 @@ import IconArrow from "@/components/icons/IconArrow.vue";
 
 <style scoped lang="scss">
 #hero {
+    .container {
+        padding-top: 90px;
+    }
+
     min-height: calc(100dvh - var(--navbarHeight));
     position: relative;
     padding-top: 0;
     overflow: hidden;
-
-    .container {
-        padding-top: 70px;
-    }
 
     &-text {
         position: relative;
@@ -65,7 +61,7 @@ import IconArrow from "@/components/icons/IconArrow.vue";
         z-index: 10;
         position: relative;
 
-        a {
+        #btn {
             padding: 20px 32px 20px 37px;
             border-radius: 30px;
         }
@@ -75,7 +71,7 @@ import IconArrow from "@/components/icons/IconArrow.vue";
 @media (max-width: 600px) {
     #hero {
         .container {
-            padding-top: 50px;
+            padding-top: 70px;
         }
 
         &-text {

@@ -1,5 +1,5 @@
 <script setup>
-import IconArrow from "../icons/IconArrow.vue";
+import Button from "../button/Button.vue";
 import {ref} from "vue";
 import {scrollToTab} from "@/composable/utilities/tabs";
 
@@ -42,15 +42,9 @@ const getBtnClass = (index) => {
         </div>
 
         <div id="course-item-apply">
-            <a class="btn-arrow btn-primary-outline">
-                Apply Now
-                <IconArrow />
-            </a>
+            <Button :arrow="true" :outline="true"> Apply Now </Button>
 
-            <a class="btn-arrow btn-primary-outline">
-                Get brochure
-                <IconArrow />
-            </a>
+            <Button :arrow="true" :outline="true"> Get brochure </Button>
         </div>
     </aside>
 </template>

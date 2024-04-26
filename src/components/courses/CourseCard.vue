@@ -223,6 +223,10 @@ const getBanner = () => {
     .courses-item:hover {
         border-color: var(--purple);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+
+        .courses-item-banner {
+            transform: scale(1.1);
+        }
     }
 }
 </style>

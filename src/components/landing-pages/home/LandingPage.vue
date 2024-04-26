@@ -7,14 +7,11 @@ import LandingJobs from "./LandingJobs.vue";
 import LandingTestimonies from "./LandingTestimonies.vue";
 import LandingInstructor from "./LandingInstructor.vue";
 import LandingCommunity from "./LandingCommunity.vue";
-import Navbar from "@/components/layout/Navbar.vue";
-import Footer from "@/components/layout/Footer.vue";
+import LandingLayout from "@/components/layout/LandingLayout.vue";
 </script>
 
 <template>
-    <Navbar />
-
-    <main>
+    <LandingLayout>
         <LandingHero />
 
         <LandingTrusted />
@@ -30,7 +27,5 @@ import Footer from "@/components/layout/Footer.vue";
         <LandingCommunity />
 
         <LandingInstructor />
-    </main>
-
-    <Footer />
+    </LandingLayout>
 </template>
