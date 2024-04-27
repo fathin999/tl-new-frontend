@@ -125,6 +125,7 @@ $padding: 40px;
 
         &-a:deep(li) {
             padding-left: 10px;
+            margin-bottom: 5px;
         }
     }
 }

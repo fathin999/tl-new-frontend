@@ -3,7 +3,7 @@ import LandingLayout from "../layout/LandingLayout.vue";
 import Button from "../button/Button.vue";
 import CourseCheckpoint from "../courses/CourseCheckpoint.vue";
 import FaqList from "../faq/FaqList.vue";
-import {getCourseFaqs} from "../../composable/database/faqs";
+import {getFaqs} from "../../composable/backend/faqs";
 import {
     getBeInsDuties,
     getBeInsSupports,
@@ -11,12 +11,20 @@ import {
 } from "../../composable/view-models/be-instructor-page";
 import IconMail from "../icons/IconMail.vue";
 
+// -------------------
+// BACKEND - get FAQS, instructor type
+// -------------------
+const faqs = getFaqs("instructor");
+
+// STATIC PAGE DATA
 const whyUs = getBeInsWhyUs();
 const duties = getBeInsDuties();
 const supports = getBeInsSupports();
-const faqs = getCourseFaqs();
+
+// email
 const email = "teach@talentlabs.org";
 
+// STATIC IMAGE
 const getDutyImg = (i) => {
     return new URL(
         `/src/assets/be-instructor/duties-${i}.png`,

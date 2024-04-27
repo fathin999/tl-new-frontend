@@ -22,6 +22,13 @@ import Button from "@/components/button/Button.vue";
 // get params
 const params = useRoute().params;
 
+// ------------------------------
+// BACKEND - fetch course through Id
+// ------------------------------
+const course = getCourseWithId(1);
+const courseParams = getOneCourseUsingSlug(params.slug);
+const testimonials = getTestimonialsFromSlugs(course.details.graduates);
+
 // refs
 let active = ref(0);
 const overview = ref();
@@ -29,7 +36,7 @@ const modules = ref();
 const financing = ref();
 const careers = ref();
 
-// static sections
+// sections
 const sections = getCourseItemPageSections([
     overview,
     modules,
@@ -37,22 +44,28 @@ const sections = getCourseItemPageSections([
     careers,
 ]);
 
-// fetch course through Id
-const course = getCourseWithId(1);
-const courseParams = getOneCourseUsingSlug(params.slug);
-const testimonials = getTestimonialsFromSlugs(course.details.graduates);
+// faq href
+const getHref = (type) => {
+    let href = "/courses-faq?type=";
 
-// static images
+    if (type === "M1") href += "m1";
+    else if (type === "Certified Associate") href += "ca";
+    else href += "fc";
 
-// methods
+    return href;
+};
+
+// methods - scroll
 const scrollTo = (i) => {
     scrollToSection(sections[i].ref.value);
 };
 
+// methods - scroll
 const getOffset = (el) => {
     return el.offsetTop - 150;
 };
 
+// methods - scroll
 const handleScroll = () => {
     const y = window.scrollY;
 
@@ -223,7 +236,7 @@ onUnmounted(() => {
 
                         <h2>Still have questions?</h2>
 
-                        <Button href="/courses-faq">Go to FAQ</Button>
+                        <Button :href="getHref(course.type)">Go to FAQ</Button>
                     </div>
                 </div>
             </div>
