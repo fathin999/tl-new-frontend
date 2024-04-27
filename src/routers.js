@@ -1,28 +1,28 @@
-import LandingPage from "./components/landing-pages/home/LandingPage.vue";
-import Login from "./components/auth/Login.vue";
-import Signup from "./components/auth/Signup.vue";
-import ResetPassword from "./components/auth/ResetPassword.vue";
-import ChooseRole from "./components/auth/ChooseRole.vue";
-import CoursesPage from "./components/courses/CoursesPage.vue";
-import CareerRolesPage from "./components/roles/CareerRolesPage.vue";
-import RoleItemPage from "./components/roles/RoleItemPage.vue";
-import CourseItemPage from "./components/courses/CourseItemPage.vue";
-import CourseFAQPage from "./components/courses/CourseFAQPage.vue";
-import JobsPage from "./components/jobs/JobsPage.vue";
-import AboutPage from "./components/landing-pages/AboutPage.vue";
-import ContactPage from "./components/landing-pages/ContactPage.vue";
-import ForEnterprisePage from "./components/landing-pages/ForEnterprisePage.vue";
-import ForGovernmentPage from "./components/landing-pages/ForGovernmentPage.vue";
-import SpecialProgrammesPage from "./components/programmes/SpecialProgrammesPage.vue";
-import IndividualProgrammePage from "./components/programmes/IndividualProgrammePage.vue";
-import BeAnInstructorPage from "./components/landing-pages/BeAnInstructorPage.vue";
-import ISAFinancingPage from "./components/landing-pages/ISAFinancingPage.vue";
-import PrivacyPolicyPage from "./components/landing-pages/PrivacyPolicyPage.vue";
-import TermsAndConditionsPage from "./components/landing-pages/TermsAndConditionsPage.vue";
-import TeamsPage from "./components/landing-pages/teams/TeamsPage.vue";
-import IndividualTeamPage from "./components/landing-pages/teams/IndividualTeamPage.vue";
-import EmployersPage from "./components/jobs/EmployersPage.vue";
-import JobsItemPage from "./components/jobs/JobsItemPage.vue";
+import LandingPage from "./components/landing/landing-pages/home/LandingPage.vue";
+import Login from "./components/landing/auth/Login.vue";
+import Signup from "./components/landing/auth/Signup.vue";
+import ResetPassword from "./components/landing/auth/ResetPassword.vue";
+import ChooseRole from "./components/landing/auth/ChooseRole.vue";
+import CoursesPage from "./components/landing/courses/CoursesPage.vue";
+import CareerRolesPage from "./components/landing/roles/CareerRolesPage.vue";
+import RoleItemPage from "./components/landing/roles/RoleItemPage.vue";
+import CourseItemPage from "./components/landing/courses/CourseItemPage.vue";
+import CourseFAQPage from "./components/landing/courses/CourseFAQPage.vue";
+import JobsPage from "./components/landing/jobs/JobsPage.vue";
+import AboutPage from "./components/landing/landing-pages/AboutPage.vue";
+import ContactPage from "./components/landing/landing-pages/ContactPage.vue";
+import ForEnterprisePage from "./components/landing/landing-pages/ForEnterprisePage.vue";
+import ForGovernmentPage from "./components/landing/landing-pages/ForGovernmentPage.vue";
+import SpecialProgrammesPage from "./components/landing/programmes/SpecialProgrammesPage.vue";
+import IndividualProgrammePage from "./components/landing/programmes/IndividualProgrammePage.vue";
+import BeAnInstructorPage from "./components/landing/landing-pages/BeAnInstructorPage.vue";
+import ISAFinancingPage from "./components/landing/landing-pages/ISAFinancingPage.vue";
+import PrivacyPolicyPage from "./components/landing/landing-pages/PrivacyPolicyPage.vue";
+import TermsAndConditionsPage from "./components/landing/landing-pages/TermsAndConditionsPage.vue";
+import TeamsPage from "./components/landing/landing-pages/teams/TeamsPage.vue";
+import IndividualTeamPage from "./components/landing/landing-pages/teams/IndividualTeamPage.vue";
+import EmployersPage from "./components/landing/jobs/EmployersPage.vue";
+import JobsItemPage from "./components/landing/jobs/JobsItemPage.vue";
 
 import {createRouter, createWebHistory} from "vue-router";
 
@@ -60,7 +60,7 @@ const routes = [
     {
         name: "Course Item Page",
         component: CourseItemPage,
-        path: "/courses/:slug",
+        path: "/courses/:id",
     },
     {
         name: "Course FAQ Page",
@@ -85,7 +85,7 @@ const routes = [
     {
         name: "Jobs Item Page",
         component: JobsItemPage,
-        path: "/jobs/:title",
+        path: "/jobs/:id",
     },
     {
         name: "Employers",

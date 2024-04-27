@@ -1,4 +1,4 @@
-export const faqs = [
+export const db_faqs = [
     {
         question: "What course topics are in demand?",
         answer: `

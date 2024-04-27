@@ -1,8 +1,8 @@
 import {getRoleFilters} from "./roles";
-import IconOverview from "@/components/icons/courses/IconOverview.vue";
-import IconModules from "@/components/icons/courses/IconModules.vue";
-import IconFees from "@/components/icons/courses/IconFees.vue";
-import IconOutcomes from "@/components/icons/courses/IconOutcomes.vue";
+import IconOverview from "@/components/landing/icons/courses/IconOverview.vue";
+import IconModules from "@/components/landing/icons/courses/IconModules.vue";
+import IconFees from "@/components/landing/icons/courses/IconFees.vue";
+import IconOutcomes from "@/components/landing/icons/courses/IconOutcomes.vue";
 
 // FILTER
 
@@ -17,54 +17,13 @@ const filters = [
         title: "Level",
         open: false,
         type: "checkbox",
-        options: [
-            {
-                title: "Beginner",
-                selected: false,
-            },
-            {
-                title: "Intermediate",
-                selected: false,
-            },
-            {
-                title: "Advanced",
-                selected: false,
-            },
-        ],
-    },
-    {
-        title: "Provider",
-        open: false,
-        type: "radio",
-        options: [
-            {
-                title: "TalentLabs",
-                selected: false,
-            },
-            {
-                title: "AWS",
-                selected: false,
-            },
-            {
-                title: "Google Certificates",
-                selected: false,
-            },
-        ],
+        options: ["Beginner", "Intermediate", "Advanced"],
     },
     {
         title: "Programme",
         open: false,
-        type: "radio",
-        options: [
-            {
-                title: "K-Youth",
-                selected: false,
-            },
-            {
-                title: "MySTEP",
-                selected: false,
-            },
-        ],
+        type: "checkbox",
+        options: ["K-Youth"],
     },
 ];
 
@@ -100,4 +59,41 @@ export const getCourseItemPageSections = (elements) => {
             ...sect,
         };
     });
+};
+
+// COUNTRIES
+
+const countries = [
+    {
+        name: "Malaysia",
+        img: "malaysia",
+    },
+    {
+        name: "Singapore",
+        img: "singapore",
+    },
+    {
+        name: "Hong Kong",
+        img: "hongkong",
+    },
+    {
+        name: "Taiwan",
+        img: "taiwan",
+    },
+    {
+        name: "Thailand",
+        img: "thailand",
+    },
+    {
+        name: "Indonesia",
+        img: "indonesia",
+    },
+    {
+        name: "Philippines",
+        img: "philippines",
+    },
+];
+
+export const getCountries = () => {
+    return countries;
 };

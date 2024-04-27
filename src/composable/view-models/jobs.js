@@ -12,89 +12,29 @@ const filters = [
         open: false,
         type: "checkbox",
         options: [
-            {
-                title: "Hong Kong",
-                selected: true,
-            },
-            {
-                title: "Malaysia",
-                selected: false,
-            },
-            {
-                title: "Central, Hong Kong",
-                selected: false,
-            },
-            {
-                title: "Eastern, Hong Kong",
-                selected: false,
-            },
-            {
-                title: "Western, Hong Kong",
-                selected: false,
-            },
-            {
-                title: "Northern, Hong Kong",
-                selected: false,
-            },
-            {
-                title: "Southern, Hong Kong",
-                selected: false,
-            },
-            {
-                title: "Kuala Lumpur, Malaysia",
-                selected: false,
-            },
-            {
-                title: "Selangor, Malaysia",
-                selected: false,
-            },
-            {
-                title: "Putrajaya, Malaysia",
-                selected: false,
-            },
+            "Hong Kong",
+            "Malaysia",
+            "Central, Hong Kong",
+            "Eastern, Hong Kong",
+            "Western, Hong Kong",
+            "Northern, Hong Kong",
+            "Southern, Hong Kong",
+            "Kuala Lumpur, Malaysia",
+            "Selangor, Malaysia",
+            "Putrajaya, Malaysia",
         ],
     },
     {
         title: "Type",
         open: false,
         type: "checkbox",
-        options: [
-            {
-                title: "Full-time",
-                selected: true,
-            },
-            {
-                title: "Part-time",
-                selected: false,
-            },
-            {
-                title: "Contract",
-                selected: false,
-            },
-            {
-                title: "Internship",
-                selected: false,
-            },
-        ],
+        options: ["Full-time", "Part-time", "Contract", "Internship"],
     },
     {
         title: "Remote",
         open: false,
-        type: "radio",
-        options: [
-            {
-                title: "Remote",
-                selected: true,
-            },
-            {
-                title: "Onsite",
-                selected: false,
-            },
-            {
-                title: "Hybrid",
-                selected: false,
-            },
-        ],
+        type: "checkbox",
+        options: ["Remote", "Onsite", "Hybrid"],
     },
 ];
 

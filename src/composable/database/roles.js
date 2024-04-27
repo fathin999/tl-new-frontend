@@ -1,0 +1,120 @@
+const dummyData = {
+    description:
+        "Software engineers create web applications, mobile apps, robots, operating systems, and network systems. They develop software solutions that meet their companies' needs and expectations. Depending on the type of company they work for, software engineers will create original code for software and applications. They also build reusable code for future use.",
+    do: [
+        "Designing and maintaining software systems",
+        "Evaluating and testing new software programs",
+        "Optimizing software for speed and scalability",
+        "Writing and testing code",
+        "Consulting with clients, engineers, security specialists, and other stakeholders",
+        "Presenting new features to stakeholders and internal customers",
+    ],
+    skills: [
+        "Problem-solving skills",
+        "Attention to detail",
+        "Teamwork",
+        "Independent learner",
+        "Work well under pressure",
+    ],
+    how: [
+        {
+            title: "Gain academic qualification or certificates",
+            text: "Acquire formal education or industry-recognized certifications to enhance your technical skills.",
+            icon: "certificate",
+            showCourse: "cafed",
+            showM1Course: "",
+            showJob: false,
+        },
+        {
+            title: "Learn a language, framework or tech stack",
+            text: "Build a strong foundation in your chosen programming languages or technology stacks. ",
+            icon: "skills",
+            showCourse: "",
+            showM1Course: "m1j",
+            showJob: false,
+        },
+        {
+            title: "Grasp data structures and algorithms",
+            text: "Strengthen your problem-solving skills by mastering essential data structures and algorithms.",
+            icon: "database",
+            showCourse: "",
+            showM1Course: "",
+            showJob: false,
+        },
+        {
+            title: "Create projects and grow your portfolio",
+            text: "Build real-world projects to showcase your skills and expand your professional portfolio.",
+            icon: "file",
+            showCourse: "",
+            showM1Course: "",
+            showJob: false,
+        },
+        {
+            title: "Explore internship opportunities",
+            text: "Gain hands-on experience and valuable insights through targeted internship programmes.",
+            icon: "building",
+            showCourse: "",
+            showM1Course: "",
+            showJob: false,
+        },
+        {
+            title: "Start applying for work!",
+            text: "Begin your professional journey by applying for roles that align with your skills and aspirations.",
+            icon: "briefcase",
+            showCourse: "",
+            showM1Course: "",
+            showJob: true,
+        },
+    ],
+};
+
+export const db_roles = [
+    {
+        title: "Software Engineer",
+        slug: "se",
+        paraTitle: "software engineer",
+        details: dummyData,
+    },
+    {
+        title: "Data Science",
+        slug: "data",
+        paraTitle: "data scientist",
+        details: dummyData,
+    },
+    {
+        title: "Digital Marketer",
+        slug: "dm",
+        paraTitle: "digital marketer",
+        details: dummyData,
+    },
+    {
+        title: "Cybersecurity",
+        slug: "cs",
+        paraTitle: "cybersecurity engineer",
+        details: dummyData,
+    },
+    {
+        title: "Product/Project Manager",
+        slug: "pm",
+        paraTitle: "product manager",
+        details: dummyData,
+    },
+    {
+        title: "UI/UX Designer",
+        slug: "uiux",
+        paraTitle: "UI/UX designer",
+        details: dummyData,
+    },
+    {
+        title: "Business & Management",
+        slug: "business",
+        paraTitle: "business manager",
+        details: dummyData,
+    },
+    {
+        title: "Financial Technology",
+        slug: "fintech",
+        paraTitle: "fintech engineer",
+        details: dummyData,
+    },
+];

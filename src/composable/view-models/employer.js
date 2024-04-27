@@ -1,5 +1,5 @@
-import IconEmpOverview from "@/components/icons/employers/IconEmpOverview.vue";
-import IconEmpJobs from "@/components/icons/employers/IconEmpJobs.vue";
+import IconEmpOverview from "@/components/landing/icons/employers/IconEmpOverview.vue";
+import IconEmpJobs from "@/components/landing/icons/employers/IconEmpJobs.vue";
 
 const tabs = [
     {

@@ -1,8 +1,8 @@
-import IconSolHired from "@/components/icons/landingPage/solutions/IconSolHired.vue";
-import IconSolCareers from "@/components/icons/landingPage/solutions/IconSolCareers.vue";
-import IconSolPortfolio from "@/components/icons/landingPage/solutions/IconSolPortfolio.vue";
-import IconSolLearn from "@/components/icons/landingPage/solutions/IconSolLearn.vue";
-import IconSolNetwork from "@/components/icons/landingPage/solutions/IconSolNetwork.vue";
+import IconSolHired from "@/components/landing/icons/landingPage/solutions/IconSolHired.vue";
+import IconSolCareers from "@/components/landing/icons/landingPage/solutions/IconSolCareers.vue";
+import IconSolPortfolio from "@/components/landing/icons/landingPage/solutions/IconSolPortfolio.vue";
+import IconSolLearn from "@/components/landing/icons/landingPage/solutions/IconSolLearn.vue";
+import IconSolNetwork from "@/components/landing/icons/landingPage/solutions/IconSolNetwork.vue";
 
 const solutions = [
     {
@@ -11,7 +11,7 @@ const solutions = [
         description:
             "Enhance your professional toolkit with our expertly designed courses that cater to both beginners and seasoned professionals.",
         link: "View courses",
-        href: "/courses",
+        href: "/courses?page=1",
         icon: IconSolLearn,
         slug: "learn",
     },
@@ -41,7 +41,7 @@ const solutions = [
         description:
             "Access our exclusive job portal featuring opportunities from our top hiring partners, all eager to hire our trained graduates.",
         link: "View jobs",
-        href: "/jobs",
+        href: "/jobs?page=1",
         icon: IconSolHired,
         slug: "jobs",
     },

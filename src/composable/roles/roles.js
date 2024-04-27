@@ -52,6 +52,8 @@ const roles = [
 ];
 
 const genericData = {
+    description:
+        "Software engineers create web applications, mobile apps, robots, operating systems, and network systems. They develop software solutions that meet their companies' needs and expectations. Depending on the type of company they work for, software engineers will create original code for software and applications. They also build reusable code for future use.",
     do: [
         "Designing and maintaining software systems",
         "Evaluating and testing new software programs",

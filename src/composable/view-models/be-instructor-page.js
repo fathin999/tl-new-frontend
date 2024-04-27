@@ -1,9 +1,9 @@
-import IconInsImpact from "../../components/icons/be-instructor/IconInsImpact.vue";
-import IconInsGrow from "../../components/icons/be-instructor/IconInsGrow.vue";
-import IconInsIncome from "../../components/icons/be-instructor/IconInsIncome.vue";
-import IconInsFuture from "../../components/icons/be-instructor/IconInsFuture.vue";
-import IconSupportStudent from "../../components/icons/be-instructor/IconSupportStudent.vue";
-import IconSupportIns from "../../components/icons/be-instructor/IconSupportIns.vue";
+import IconInsImpact from "@/components/landing/icons/be-instructor/IconInsImpact.vue";
+import IconInsGrow from "@/components/landing/icons/be-instructor/IconInsGrow.vue";
+import IconInsIncome from "@/components/landing/icons/be-instructor/IconInsIncome.vue";
+import IconInsFuture from "@/components/landing/icons/be-instructor/IconInsFuture.vue";
+import IconSupportStudent from "@/components/landing/icons/be-instructor/IconSupportStudent.vue";
+import IconSupportIns from "@/components/landing/icons/be-instructor/IconSupportIns.vue";
 
 // ---------------------------
 // WHY US

@@ -1,7 +1,7 @@
-import IconHeroJob from "@/components/icons/landingPage/hero/IconHeroJob.vue";
-import IconHeroMatch from "@/components/icons/landingPage/hero/IconHeroMatch.vue";
-import IconHeroSeeker from "@/components/icons/landingPage/hero/IconHeroSeeker.vue";
-import IconHeroPlacement from "@/components/icons/landingPage/hero/IconHeroPlacement.vue";
+import IconHeroJob from "@/components/landing/icons/landingPage/hero/IconHeroJob.vue";
+import IconHeroMatch from "@/components/landing/icons/landingPage/hero/IconHeroMatch.vue";
+import IconHeroSeeker from "@/components/landing/icons/landingPage/hero/IconHeroSeeker.vue";
+import IconHeroPlacement from "@/components/landing/icons/landingPage/hero/IconHeroPlacement.vue";
 
 const stats = [
     {
