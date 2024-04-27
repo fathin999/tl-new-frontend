@@ -1,8 +1,8 @@
 <script setup>
-import IconLocation from "../icons/jobs/IconLocation.vue";
 import IconLocationOutline from "../icons/jobs/IconLocationOutline.vue";
-import {getEmployerName} from "@/composable/employers/employers";
+import {getOneEmployer} from "@/composable/backend/employers";
 
+// PROPS
 const props = defineProps({
     title: String,
     logo: String,
@@ -34,7 +34,8 @@ const getLogo = () => {
         </div>
 
         <a :href="`/employers/${employer}`">
-            <p>{{ getEmployerName(employer) }}</p>
+            <!-- BACKEND - get employee name -->
+            <p>{{ getOneEmployer(employer).shortTitle }}</p>
         </a>
 
         <div class="job-item-details">

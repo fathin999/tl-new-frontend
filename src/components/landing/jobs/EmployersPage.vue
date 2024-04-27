@@ -1,7 +1,7 @@
 <script setup>
 import LandingLayout from "../layout/LandingLayout.vue";
 import Button from "../button/Button.vue";
-import {getEmployer} from "@/composable/employers/employers";
+import {getOneEmployer} from "@/composable/backend/employers";
 import {getEmployerTabs} from "@/composable/view-models/employer";
 import JobsList from "../jobs/JobsList.vue";
 import {ref} from "vue";
@@ -12,12 +12,28 @@ import IconWorld from "../icons/jobs/IconWorld.vue";
 import {useRoute} from "vue-router";
 import {filterJobs} from "@/composable/backend/jobs";
 
+// PARAMS
 const params = useRoute().params;
-const employer = getEmployer(params.slug);
+
+// -------------------
+// BACKEND
+// -------------------
+// BACKEND - get employer from slug
+const employer = getOneEmployer(params.slug);
+
+// BACKEND - filter jobs from empployer
 const jobs = filterJobs("employer", employer.slug);
+
+// REF
 const active = ref(0);
+
+// VIEW model
 const tabs = getEmployerTabs();
 
+// -------------------
+// TO CHANGE - static image to change to img URL
+// -------------------
+// static images
 const getBanner = () => {
     return new URL(
         `/src/assets/database/employers/employer-banner-${employer.slug}.png`,
@@ -25,6 +41,7 @@ const getBanner = () => {
     );
 };
 
+// static images
 const getLogo = () => {
     return new URL(
         `/src/assets/database/employers/employer-square-${employer.slug}.png`,

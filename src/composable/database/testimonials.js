@@ -1,12 +1,13 @@
-const testimonials = [
+export const db_testimonials = [
     {
         name: "Evans Lam",
         logo: "tvb",
         comment:
             "The upskilling and job placement experience at TalentLabs were some of the happiest moments in my life.",
         slug: "el",
-        programme: "",
+        programme: "mystep",
         course: "",
+        featured: true,
     },
     {
         name: "Goh Jia Ean",
@@ -16,6 +17,7 @@ const testimonials = [
         slug: "gje",
         programme: "kyouth",
         course: "",
+        featured: true,
     },
     {
         name: "Lee Wynn Hann",
@@ -25,6 +27,7 @@ const testimonials = [
         slug: "lwh",
         programme: "kyouth",
         course: "",
+        featured: true,
     },
     {
         name: "Khairul Ezaidi Abu Khalib",
@@ -34,6 +37,7 @@ const testimonials = [
         slug: "keak",
         programme: "kyouth",
         course: "",
+        featured: true,
     },
     {
         name: "Khairunnisa Abu Khair",
@@ -43,6 +47,7 @@ const testimonials = [
         slug: "kak",
         programme: "kyouth",
         course: "",
+        featured: false,
     },
     {
         name: "Afeeq Danial",
@@ -52,6 +57,7 @@ const testimonials = [
         slug: "ad",
         programme: "kyouth",
         course: "",
+        featured: false,
     },
     {
         name: "Hussain Nisaar",
@@ -59,8 +65,9 @@ const testimonials = [
         comment:
             "Opting for TalentLabs Data Analytics Certificate was one of the best decisions I have made, I was impressed with the curriculum design.",
         slug: "hn",
-        programme: "",
+        programme: "mystep",
         course: "",
+        featured: false,
     },
     {
         name: "Fuzeymi Sobri",
@@ -70,6 +77,7 @@ const testimonials = [
         slug: "fs",
         programme: "kyouth",
         course: "",
+        featured: false,
     },
     {
         name: "Azam Khalid",
@@ -77,8 +85,9 @@ const testimonials = [
         comment:
             "With the help of my mentors at TalentLabs, classmates, and instructors, I was able to gain a globally recognised certificate!",
         slug: "ak",
-        programme: "",
+        programme: "mystep",
         course: "",
+        featured: false,
     },
     {
         name: "Firdaus Jamaludin",
@@ -86,8 +95,9 @@ const testimonials = [
         comment:
             "The guidance from the experienced team of instructors boosted my confidence and skills as a developer.",
         slug: "fj",
-        programme: "",
+        programme: "mystep",
         course: "",
+        featured: false,
     },
     {
         name: "Noor Aisyah",
@@ -95,8 +105,9 @@ const testimonials = [
         comment:
             "Coming from a biochemistry background, I had limited knowledge in tech. This programme is invaluable in helping me venture into a new field.",
         slug: "na",
-        programme: "",
+        programme: "mystep",
         course: "",
+        featured: true,
     },
     {
         name: "Eiman Salleh",
@@ -104,45 +115,8 @@ const testimonials = [
         comment:
             "The TalentLabs' career support and CV workshop are truly incredible for my overall career journey.",
         slug: "es",
-        programme: "",
+        programme: "mystep",
         course: "",
+        featured: true,
     },
 ];
-
-export const getTestimonialsFromProgramme = (pgm) => {
-    return testimonials.filter((test) => test.programme === pgm);
-};
-
-export const getLandingTestimonials = () => {
-    let first = [];
-    let second = [];
-
-    testimonials.forEach((test) => {
-        if (
-            test.slug == "gje" ||
-            test.slug == "lwh" ||
-            test.slug == "keak" ||
-            test.slug == "el" ||
-            test.slug == "es" ||
-            test.slug == "na"
-        ) {
-            first.push(test);
-        } else second.push(test);
-    });
-
-    return {
-        first: first,
-        second: second,
-    };
-};
-
-export const getTestimonialsFromSlugs = (slugs) => {
-    let newTestimonials = [];
-
-    slugs.forEach((slug) => {
-        let test = testimonials.find((test) => test.slug === slug);
-        if (test) newTestimonials.push(test);
-    });
-
-    return newTestimonials;
-};

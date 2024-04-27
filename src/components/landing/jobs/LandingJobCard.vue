@@ -3,7 +3,7 @@ import IconLocationOutline from "@/components/landing/icons/jobs/IconLocationOut
 import IconBriefcase from "@/components/landing/icons/jobs/IconBriefcase.vue";
 import IconBuilding from "@/components/landing/icons/jobs/IconBuilding.vue";
 import IconStar from "@/components/landing/icons/IconStar.vue";
-import {getEmployerName} from "@/composable/employers/employers";
+import {getOneEmployer} from "@/composable/backend/employers";
 
 // PROPS
 const props = defineProps({
@@ -25,18 +25,6 @@ const getLogo = () => {
         import.meta.url
     );
 };
-
-// View methods
-
-const getRemoteClass = () => {
-    const cls = "job-item-details-style style-";
-
-    return props.remote === "Remote"
-        ? cls + "red"
-        : props.remote === "Onsite"
-        ? cls + "blue"
-        : cls + "orange";
-};
 </script>
 
 <template>
@@ -50,7 +38,8 @@ const getRemoteClass = () => {
         </div>
 
         <a :href="`/employers/${employer}`">
-            <p>{{ getEmployerName(employer) }}</p>
+            <!-- BACKEND - get employee name -->
+            <p>{{ getOneEmployer(employer).shortTitle }}</p>
         </a>
 
         <div class="job-item-details">
@@ -79,7 +68,7 @@ const getRemoteClass = () => {
     </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .job-item {
     width: auto;
 

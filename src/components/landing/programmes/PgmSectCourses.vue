@@ -4,7 +4,12 @@ import Button from "@/components/landing/button/Button.vue";
 import {ref, reactive} from "vue";
 import {scrollToTab} from "@/composable/utilities/tabs";
 import {filterFromASetOfCourses} from "@/composable/utilities/courses";
-import {applyForCourse, getManyCourses} from "@/composable/backend/courses";
+import {getManyCourses} from "@/composable/backend/courses";
+import {useRoute} from "vue-router";
+import {applyToProgramme} from "@/composable/backend/programmes";
+
+// PARAMS
+const params = useRoute().params;
 
 // PROPS
 const props = defineProps({
@@ -28,7 +33,7 @@ const filterCoursesFromBtn = () => {
 };
 
 // BACKEND - apply to course
-const clickApply = (id) => applyForCourse(id);
+const clickApply = (id) => applyToProgramme(params.slug, id);
 
 // Reactive
 let filteredCourses = reactive(filterCoursesFromBtn());

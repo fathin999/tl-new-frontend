@@ -7,10 +7,14 @@ import {sendMessage} from "@/composable/backend/contact";
 import LandingLayout from "../layout/LandingLayout.vue";
 import Button from "../button/Button.vue";
 
+// REF
 const name = ref("");
 const email = ref("");
 const message = ref("");
 
+// ------------------------------
+// BACKEND
+// ------------------------------
 const handleClick = () => {
     sendMessage(name.value, email.value, message.value);
 };

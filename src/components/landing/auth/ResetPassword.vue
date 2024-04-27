@@ -7,7 +7,9 @@ import Button from "../button/Button.vue";
 // V-MODEL
 const email = ref("");
 
-// RESET PASSWORD
+// -------------------
+// BACKEND
+// -------------------
 const handleClick = () => {
     resetPassword(email.value);
 };

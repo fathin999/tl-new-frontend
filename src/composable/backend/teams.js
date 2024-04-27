@@ -1,145 +1,30 @@
-export const db_teams = [
-    {
-        name: "Terrance Lok",
-        position: "Co-founder & Director",
-        job: "Technical Engineer",
-        img: "terrance",
-        logo: "siemens",
-        description:
-            "Terrance is the Co-founder and CEO of TalentLabs and Managing Partner of Bridgespace Capital, a cross-border platform focusing on educational and healthcare endeavours. Previously, he was a venture capitalist at Horizons Ventures investing into innovative companies such as Impossible Foods, Slack, and Zoom. His previous work experience includes working at ZWC Partners as Partner and Head of Southeast Asia, Barclays Capital as Derivatives Analyst, Citi as Institutional Sales, and Siemens as an engineer. Terrance was the recipient of the AmCham Charitable Foundation Scholar Award and is a member of Beta Gamma Sigma. Terrance was educated at Kellogg School of Management, HKUST and Queen's University.",
-    },
-    {
-        name: "Razin Ryan Rozman",
-        position: "Co-founder & Director",
-        job: "Finance & Strategy",
-        img: "razin",
-        logo: "maxis",
-        description:
-            "Razin (Ryan) Rozman is a Co-founder & Director of TalentLabs, overseeing the company's business, operations & strategy. A TMT specialist, he was previously an Investment Manager at ZWC Partners, a Hong Kong-based Venture Capital & Growth Equity investment fund which has invested in leading technology companies such as Tantan, Zhipin, VIPKid, Wattpad and many more. Prior to ZWC, he was attached to Maxis - Malaysia's largest telecoms service provider in the Treasury & Corporate Finance Department, overseeing the company's key strategic decisions and initiatives in areas of Corporate Development, Mergers & Acquisitions, Capital Fundraising and Business Restructuring. Passionate to fix the issue of digital divide, Ryan established the Digital Society Fund, a non-profit that help create educational pathways for underprivileged students to launch a meaningful career in technology. Ryan holds degrees from King's College London & University of Cambridge.",
-    },
-    {
-        name: "Darren Chiu",
-        position: "Co-founder & Director",
-        job: "Technical Consultant",
-        img: "darren",
-        logo: "google",
-        description:
-            "Darren is a Co-founder & Director of TalentLabs, overseeing its academic & professional programs, student learning, content development and teaching operations. He is also a Technical Solutions Architect and Product Lead at Google, focusing on machine learning and data solutions for digital marketing. Prior to Google, he helped develop trading systems for Morgan Stanley and Credit Suisse. Darren also has accumulated more than 10 years of experience in the education sector. He previously worked as a program leader and part-time lecturer for a technology business course in the Hong Kong University of Science & Technology (HKUST). Darren graduated from HKUST with a BEng. in Computer Engineering and also MA in Psychology from Chinese University of Hong Kong.",
-    },
-    {
-        name: "Anthony Chiu",
-        position: "Instructor",
-        job: "Software Engineer",
-        img: "anthony",
-        logo: "clover",
-        description:
-            "Anthony is a Software Engineer working at Clover Health, a health technology startup invested by Alphabet. Anthony is responsible for Web development and data applications in the company. Previously, he was the founder and CTO of Weava, a research productivity tool which has more than 250K users including from universities such as Yale University, Harvard University, MIT and many more. Outside of his working hours, Anthony is passionate about AI and data science - he is rated as “Kaggle Competitions Master” and ranked as the Top 1% Data Scientist globally. Anthony graduated from the University of Hong Kong with a BEng. in Computer Engineering and MSc. in Big Data Technology at the Hong Kong University of Science & Technology (HKUST).",
-    },
-    {
-        name: "Prof. Betty Lin",
-        position: "Advisor",
-        job: "Professor",
-        img: "betty",
-        logo: "hkust",
-        description:
-            "Professor Betty is a veteran in the technology industry, having accumulated many years of work experiences across major global tech companies such as Agilent Technologies, Hewlett Packard (HP), Hyperion, Sun Microsystems and Akamai Technologies. Currently, she is managing an elite undergraduate program in Hong Kong University of Science and Technology (HKUST) which offers experiential learning courses such as Structured Problem- Solving and Design Thinking.",
-    },
-    {
-        name: "Kevin Lee",
-        position: "Advisor",
-        job: "Investment Partner",
-        img: "kevin",
-        logo: "l2",
-        description:
-            "Kevin is the Co-Founder & Partner of L2 Capital Management. He was previously an Investment Director in the VC arm of Gallant Investment Partners and was also appointed as the CEO of Genesis, a global gaming company. Prior to Gallant, Kevin was attached to Standard Chartered & Citi. Kevin graduated with a BS from the University of British Columbia, MFin with High Distinction from the University of Toronto, and MBA from the Kellogg School of Northwestern University. He is also a CFA and CPA (Canada).",
-    },
-    {
-        name: "Chris Lee",
-        position: "Advisor",
-        job: "Managing Director",
-        img: "chris",
-        logo: "clee",
-        description:
-            "Chris Lee is the Executive Director of Marga, covering North Asian investor relations and real estate operations in Myanmar. He also currently sits on the board of Grand Pagoda Ventures. Prior to joining Marga, he was at Ballingal Investment Advisors, a hedge fund focusing on long-short equity trades and PIPE transactions. He was previously attached to Standard Chartered covering Korean equity market and holds a B.S. in Finance from the University of Notre Dame.",
-    },
-    {
-        name: "Jeffrey Tse",
-        position: "Advisor",
-        job: "Portfolio Manager",
-        img: "jeffrey",
-        logo: "barings",
-        description: `Jeffrey is a Portfolio Manager of Barings' Multi Asset Group, based in Hong Kong. Jeffrey joined Barings in July 2021 and he is responsible for managing a range of Barings' multi-asset strategies in Asia. Prior to joining Barings, Jeffrey was a Portfolio Manager at Morgan Stanley for 5 years where he managed the Global Multi-Asset & Fixed Income discretionary strategies and was part of the Morgan Stanley Discretionary Portfolio Approval Committee. During his time at Morgan Stanley, he was responsible for global equity & credit research, portfolio construction, risk and duration management. Previously, Jeffrey was an analyst at HSBC Investment Banking Division. He was responsible for originating and executing M&A and capital markets (Equity & Debt) transactions in Asia ex-Japan. Jeffrey graduated with a Master in Aeronautical Engineering (1st class honours & Scholar of Aeronautics) from Imperial College London. He also won numerous nationwide awards in the UK, including Gold & Silver awards in the United Kingdom Mathematics & Physics Olympiad and top scorer (full marks) in UK A Level Mathematics. Jeffrey is fluent in Cantonese, English & Mandarin.`,
-    },
-    {
-        name: "Max Lai",
-        position: "Advisor",
-        job: "Cyptocurrency Trader",
-        img: "max",
-        logo: "hashkey",
-        description: `Max currently runs a cryptocurrency fund focused on quantitative strategies and DeFi yield farming. Prior to this, he was a cryptocurrency trader at Hashkey where he managed the firm's proprietary trading books. Before joining the cryptocurrency space, he was an equity derivatives trader at Optiver and Credit Suisse. Max holds a master's degree in Management Science and Engineering from Stanford University and a Bachelor's degree in Mathematics & Economics from UCLA.`,
-    },
-    {
-        name: "Peter Chow",
-        position: "Instructor",
-        job: "Technical Engineer",
-        img: "peter",
-        logo: "google",
-        description: `Peter is a Technical Solution Engineer at Google, specializing on Google Drive for enterprise-level customers. He graduated from the University of Hong Kong in 2017 majoring in Computer Engineering. Before Google, he worked in a number of startups & technology companies across different technical positions such as 9GAG, being the Web Engineer for one of the world's most famous social media & content site. With the experience acquired, he co-founded a startup named Gööp, a social app which became a hit among university students in Hong Kong.`,
-    },
-    {
-        name: "Alvin Wong",
-        position: "Teaching Assistant",
-        job: "BSc. Computer Science",
-        img: "alvin",
-        logo: "hku",
-        description: `Alvin Wong, from the University of Hong Kong (Department of Computer Science), is a passionate software engineer and technology educator. He is experienced not only in developing corporate systems, but also in educating the next generation of technology talents. He was appointed by Chinese University of Hong Kong as instructor for K-12 technology programmes, as well as leading commercial science and technology learning programmes in a government-incubated start-up, Pi Innovation Limited, in Hong Kong. Apart from lecturing, Alvin is also rich in practical technical experiences from developing multiple enterprise level software for education and sports sectors.`,
-    },
-    {
-        name: "Karl Wong",
-        position: "Instructor",
-        job: "Data analytics specialist",
-        img: "karl",
-        logo: "crypto",
-        description: `Karl is a Data Analytics Specialist at Crypto.com, one of the world's leading cryptocurrency wallet and exchange platform. He is responsible for the preparation and visualization of more than 5 million users of cryptocurrency exchange data - providing valuable growth insights and strategy to the company. Prior to Crypto.com, he was a Data Analyst at Nexmo, the Vonage API platform where he worked on various platform service quality improvements by deploying data driven quality measurement and automated test plans. Karl is well-versed in global telecommunication technologies and data - gained through his time at Hong Kong Telecom (HKT), one of Hong Kong's largest and premier telecommunications service provider. Karl graduated from City University of Hong Kong with a major in Information Engineering.`,
-    },
-    {
-        name: "Charlotte Kwan",
-        position: "Instructor",
-        job: "Full stack developer",
-        img: "charlotte",
-        logo: "prudential",
-        description: `Charlotte is currently a Full Stack Developer at Prudential - one of the world's largest insurance and financial services company. She has extensive experiences in developing software applications from scratch using JavaScript, Python and Clojure frameworks and building multiple DevOps pipelines, data pipelines & cloud infrastructure. Charlotte graduated from the University of Michigan with a High Distinction and holds a master's degree in Economics from the Hong Kong University of Science & Technology (HKUST). She is also a Certified Microsoft Azure Solutions Architect Expert.`,
-    },
-    {
-        name: "Shawn Yip",
-        position: "Business Development Manager",
-        job: "Product manager",
-        img: "shawn",
-        logo: "maxis",
-        description: `Shawn is a Product Manager and Academy Lead at Maxis, focusing on eCommerce solutions and upskilling clients on the business and technical aspects of running a successful eCommerce webstore. He has designed over 100 training modules and trained over 1,000 people on various eCommerce topics including campaign management, order management, digital marketing and many more. Shawn also manages Digital Society Fund, a non-profit organisation advocating equal tech education opportunities for underserved communities.`,
-    },
-    {
-        name: "Alifah Arina",
-        position: "Creative lead",
-        job: "Architect",
-        img: "alifah",
-        logo: "riba",
-        description: `Arina is an architecture graduate from the University of Bath. She is currently the Creative Lead for TalentLabs - where she is responsible to oversee the production of various TalentLabs multimedia assets such as film, animation, graphic design and illustration, web interface design and augmented reality. Our in-house expert in Adobe Creative Suites, Arina is highly proficient in Adobe Illustrator, Adobe Photoshop, Adobe Premiere Pro and many more. Her interests include designing for visual learners, AI algorithms, community building, and observing social trends.`,
-    },
-    {
-        name: "Brienne Lee",
-        position: "Business Development Manager",
-        job: "Consultant",
-        img: "brienne",
-        logo: "alchemist",
-        description: `Brienne is the Business Development Manager of TalentLabs, focusing on driving business and revenue growth in the Enterprise segment, while helping our clients attract, retain, upskill and engage talents to meet their business needs. She was an external consultant at The Alchemist Bar & Restaurant Group, a private equity-backed cocktail bar & restaurant chain based in the UK, and was involved in the international expansion project of the F&B establishments. Brienne holds a Master's degree in Business Analysis and Strategic Management from the University of Manchester.`,
-    },
-    {
-        name: "Kevin Loo",
-        position: "Instructor",
-        job: "Director",
-        img: "kevinloo",
-        logo: "ideg",
-        description: `Kevin Loo is the Director of Generation Enterprises Limited (GEL), a blockchain & crypto consultancy group and also the Managing Director, Head of Investment Insights at IDEG - an established international digital asset management leader. He currently oversees the firm's institutional asset management activities. Kevin has over 5 years' experience within the digital asset space, including being an early investor in Bitcoin since 2016. Additionally, he has worked with the largest and most recognized asset management companies, including PIMCO, Fidelity International, BNP Paribas, both in London and Hong Kong. He has experience of asset allocation, debt capital markets, focused on Global Bonds, Emerging Market Debt and Asia Credit. He has an established institutional track record of advising institutional clients, including pension funds, sovereign wealth funds, corporates and private bank asset allocator advisors. Previously, he been a mentor to the Cyberport Incubator Fund and, both personally and through partnerships, helped FinTech start-ups with strategic advisory, route-to-market and technology development reviews.`,
-    },
-];
+import {db_teams} from "../database/teams";
+
+// -----------------------
+// GET ALL TEAMS
+// -----------------------
+// used in: TeamsPage.vue
+
+export const getAllTeams = () => {
+    return db_teams;
+};
+
+// -----------------------
+// GET ONE TEAMS
+// -----------------------
+// used in: IndividualTeamPage.vue, CourseInstructor.vue
+
+export const getOneTeam = (slug) => {
+    return db_teams.find((team) => team.slug === slug);
+};
+
+// -----------------------
+// GET FOUNDERS
+// -----------------------
+// used in: About.vue
+
+export const getFounders = () => {
+    return db_teams.filter((team) =>
+        team.position.toLowerCase().includes("founder")
+    );
+};

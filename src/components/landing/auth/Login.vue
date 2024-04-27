@@ -8,7 +8,9 @@ import Button from "../button/Button.vue";
 const email = ref("");
 const password = ref("");
 
-// LOGIN
+// -------------------
+// BACKEND
+// -------------------
 const handleClick = () => {
     login(email.value, password.value);
 };

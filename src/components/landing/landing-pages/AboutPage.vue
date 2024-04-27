@@ -1,43 +1,19 @@
 <script setup>
 import Banner from "../layout/Banner.vue";
-import {getFounders} from "@/composable/teams/teams";
+import {getFounders} from "@/composable/backend/teams";
+import {getAboutValues} from "@/composable/view-models/about";
 import TeamCard from "./teams/TeamCard.vue";
-import IconAboutOutcome from "../icons/about/IconAboutOutcome.vue";
-import IconAboutCollab from "../icons/about/IconAboutCollab.vue";
-import IconAboutContinuous from "../icons/about/IconAboutContinuous.vue";
-import IconAboutPractical from "../icons/about/IconAboutPractical.vue";
 import IconQuote from "../icons/IconQuote.vue";
 import LandingLayout from "../layout/LandingLayout.vue";
 import Button from "../button/Button.vue";
 
+// ------------------------------
+// BACKEND
+// ------------------------------
 const founders = getFounders();
 
-const values = [
-    {
-        icon: IconAboutContinuous,
-        title: "Continous Innovation Mindest",
-        description:
-            "Through continuous improvement of our platform, we aim to set new standards in education and professional growth.",
-    },
-    {
-        icon: IconAboutPractical,
-        title: "Practical Learning Experience",
-        description:
-            "We bridge the gap between theory and practice, equipping students with actionable knowledge for their careers.",
-    },
-    {
-        icon: IconAboutOutcome,
-        title: "Outcome Focused Approach",
-        description:
-            "Every lesson, assignment, and module is crafted to maximize your employment prospects and career advancement.",
-    },
-    {
-        icon: IconAboutCollab,
-        title: "Collaborative Learning Community",
-        description:
-            "Our community-centric approach ensures that everyone can contribute to and benefit from the collective knowledge.",
-    },
-];
+// VIEW MODEL
+const values = getAboutValues();
 </script>
 
 <template>
@@ -160,7 +136,7 @@ const values = [
                             :name="founder.name"
                             :job="founder.job"
                             :position="founder.position"
-                            :img="founder.img"
+                            :slug="founder.slug"
                             :logo="founder.logo"
                         />
                     </div>

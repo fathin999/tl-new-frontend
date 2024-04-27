@@ -8,7 +8,7 @@ import IconSpanner from "@/components/landing/icons/jobs/IconSpanner.vue";
 import IconTime from "@/components/landing/icons/jobs/IconTime.vue";
 import {getTime} from "@/composable/utilities/jobs";
 import {applyForJob, bookmarkJob} from "@/composable/backend/jobs";
-import {getEmployerName} from "@/composable/employers/employers";
+import {getOneEmployer} from "@/composable/backend/employers";
 import Button from "../button/Button.vue";
 
 const props = defineProps({
@@ -74,7 +74,8 @@ const getRemoteClass = () => {
         </div>
 
         <a :href="`/employers/${employer}`" class="job-item-employer">
-            <p>{{ getEmployerName(employer) }}</p>
+            <!-- BACKEND - get employee name -->
+            <p>{{ getOneEmployer(employer).shortTitle }}</p>
         </a>
 
         <div class="job-item-details">

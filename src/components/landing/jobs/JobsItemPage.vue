@@ -10,7 +10,6 @@ import IconPeople from "../icons/jobs/IconPeople.vue";
 import IconArrow from "../icons/IconArrow.vue";
 import JobsList from "./JobsList.vue";
 import {getTime} from "@/composable/utilities/jobs";
-import {getEmployerFromSlug} from "@/composable/employers/employers";
 import {useRoute} from "vue-router";
 import Button from "../button/Button.vue";
 import LandingLayout from "../layout/LandingLayout.vue";
@@ -20,6 +19,7 @@ import {
     filterJobs,
     getJobFromId,
 } from "@/composable/backend/jobs";
+import {getOneEmployer} from "@/composable/backend/employers";
 
 // params
 const params = useRoute().params;
@@ -32,7 +32,7 @@ const params = useRoute().params;
 const job = getJobFromId(params.id);
 
 // BACKEND - get employer from job
-const employer = getEmployerFromSlug(job.employer);
+const employer = getOneEmployer(job.employer);
 
 // BACKEND - get jobs with similar role
 const similarJobs = filterJobs("role", job.role);

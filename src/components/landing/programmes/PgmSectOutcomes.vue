@@ -1,14 +1,23 @@
 <script setup>
-import {getTestimonialsFromProgramme} from "@/composable/testimonials/testimonials";
+import {filterTestimonials} from "@/composable/backend/testimonials";
 import TestimonialList from "../testimonials/TestimonialList.vue";
 
+// PROPS
 const props = defineProps({
     offers: Array,
     slug: String,
 });
 
-const testimonials = getTestimonialsFromProgramme("kyouth");
+// -------------------
+// BACKEND
+// -------------------
+// BACKEND - get testimonials for programme
+const testimonials = filterTestimonials("programme", props.slug);
 
+/// -------------------
+// TO CHANGE - static image to change to img URL
+// -------------------
+// static images
 const getImg = (img) => {
     return new URL(
         `/src/assets/database/programmes/programme-offer-${img}.svg`,
@@ -38,7 +47,10 @@ const getImg = (img) => {
                 </div>
             </div>
 
-            <div id="programme-outcomes-testimonials">
+            <div
+                id="programme-outcomes-testimonials"
+                v-if="testimonials.length > 0"
+            >
                 <div class="section-title-center">
                     <h2>Hear from our <u>graduates</u></h2>
                 </div>

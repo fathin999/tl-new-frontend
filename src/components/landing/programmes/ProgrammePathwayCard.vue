@@ -1,9 +1,14 @@
 <script setup>
 import IconStarOutline from "../icons/programmes/IconStarOutline.vue";
 import IconStarFill from "../icons/programmes/IconStarFill.vue";
-import ArrowLink from "../button/ArrowLink.vue";
 import Button from "../button/Button.vue";
+import {applyToProgramme} from "@/composable/backend/programmes";
+import {useRoute} from "vue-router";
 
+// PARAMS
+const params = useRoute().params;
+
+// PROPS
 defineProps({
     img: String,
     title: String,
@@ -15,6 +20,17 @@ defineProps({
     courses: Array,
 });
 
+// ------------------------------
+// BACKEND - apply to programme
+// ------------------------------
+const clickApply = (slug) => {
+    applyToProgramme(params.slug, slug);
+};
+
+// -------------------
+// TO CHANGE - static image to change to img URL
+// -------------------
+// static images
 const getPathwayImg = (img) => {
     return new URL(
         `/src/assets/database/programmes/programme-pathway-${img}.png`,
@@ -22,6 +38,7 @@ const getPathwayImg = (img) => {
     );
 };
 
+// static images
 const getBadgeImg = (img) => {
     return new URL(`/src/assets/database/courses/${img}`, import.meta.url);
 };
@@ -107,7 +124,9 @@ const getBadgeImg = (img) => {
                             </p>
                         </div>
 
-                        <Button :small="true"> Apply now </Button>
+                        <Button :small="true" @click="clickApply(course.slug)">
+                            Apply now
+                        </Button>
                     </a>
                 </div>
             </div>

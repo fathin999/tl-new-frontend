@@ -19,7 +19,9 @@ const confirmPassword = ref("");
 const inviteCode = ref("");
 const purpose = ref("");
 
-// SIGN UP
+// -------------------
+// BACKEND
+// -------------------
 const handleClick = () => {
     signup({
         firstName: firstName.value,

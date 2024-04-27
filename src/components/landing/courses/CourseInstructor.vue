@@ -1,11 +1,11 @@
 <script setup>
-import {getTeamFromSlug} from "@/composable/teams/teams";
+import {getOneTeam} from "@/composable/backend/teams";
 
 const props = defineProps({
     id: String,
 });
 
-const instructor = getTeamFromSlug(props.id);
+const instructor = getOneTeam(props.id);
 
 const getLogo = () => {
     return new URL(
@@ -16,7 +16,7 @@ const getLogo = () => {
 
 const getImg = () => {
     return new URL(
-        `/src/assets/database/teams/team-${instructor.img}.png`,
+        `/src/assets/database/teams/team-${instructor.slug}.png`,
         import.meta.url
     );
 };

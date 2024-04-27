@@ -11,8 +11,8 @@ import CourseFinancing from "./CourseFinancing.vue";
 import CourseHeader from "./CourseHeader.vue";
 import CourseBar from "./CourseBar.vue";
 import TestimonialCard from "../testimonials/TestimonialCard.vue";
-import {getTestimonialsFromSlugs} from "@/composable/testimonials/testimonials";
-import {scrollToSection, scrollToTab} from "@/composable/utilities/tabs";
+import {getTestimonialsFromSlugs} from "@/composable/backend/testimonials";
+import {scrollToSection} from "@/composable/utilities/tabs";
 import {getCourseItemPageSections} from "@/composable/view-models/course";
 import {
     applyForCourse,

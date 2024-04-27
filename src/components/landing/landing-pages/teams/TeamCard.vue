@@ -5,30 +5,30 @@ import IconTeamX from "../../icons/teams/IconTeamX.vue";
 
 const props = defineProps({
     name: String,
-    img: String,
+    slug: String,
     position: String,
 });
 
-const getImg = (img) => {
+const getImg = (slug) => {
     return new URL(
-        `/src/assets/database/teams/team-${img}.png`,
+        `/src/assets/database/teams/team-${slug}.png`,
         import.meta.url
     );
 };
 
-const getImgBw = (img) => {
+const getImgBw = (slug) => {
     return new URL(
-        `/src/assets/database/teams/team-${img}-bw.png`,
+        `/src/assets/database/teams/team-${slug}-bw.png`,
         import.meta.url
     );
 };
 </script>
 
 <template>
-    <a class="team-item clickable" :href="`/teams/${img}`">
+    <a class="team-item clickable" :href="`/teams/${slug}`">
         <div class="team-item-img-container">
-            <img :src="getImgBw(img)" :alt="name" class="team-item-img-bw" />
-            <img :src="getImg(img)" :alt="name" class="team-item-img" />
+            <img :src="getImgBw(slug)" :alt="name" class="team-item-img-bw" />
+            <img :src="getImg(slug)" :alt="name" class="team-item-img" />
         </div>
 
         <h6>{{ position }}</h6>

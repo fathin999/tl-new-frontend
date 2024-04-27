@@ -1,4 +1,4 @@
-const employers = [
+export const db_employers = [
     {
         title: "The Hong Kong University of Science and Technology",
         shortTitle: "HKUST",
@@ -44,18 +44,3 @@ const employers = [
         slug: "fave",
     },
 ];
-
-export const getEmployer = (slug) => {
-    return employers.find((emp) => emp.slug === slug);
-};
-
-export const getEmployerName = (slug) => {
-    let employer = employers.find((employer) => employer.slug == slug);
-
-    if (employer) return employer.shortTitle;
-    else return slug.charAt(0).toUpperCase() + slug.slice(1);
-};
-
-export const getEmployerFromSlug = (slug) => {
-    return employers.find((employer) => employer.slug == slug);
-};

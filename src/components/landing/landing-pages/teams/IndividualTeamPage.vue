@@ -1,20 +1,26 @@
 <script setup>
 import LandingLayout from "../../layout/LandingLayout.vue";
 import {useRoute} from "vue-router";
-import {getTeam, getTeamFromSlug} from "@/composable/teams/teams";
 import IconTeamLi from "@/components/landing/icons/teams/IconTeamLi.vue";
 import IconTeamFa from "@/components/landing/icons/teams/IconTeamFa.vue";
 import IconTeamX from "@/components/landing/icons/teams/IconTeamX.vue";
+import {getOneTeam} from "@/composable/backend/teams";
 
 // params
 const params = useRoute().params;
 
-const team = getTeam();
-const paramTeam = getTeamFromSlug(params.slug);
+// ------------------------------
+// BACKEND
+// ------------------------------
+const team = getOneTeam(params.slug);
 
-const getImg = (img) => {
+// -------------------
+// TO CHANGE - static image to change to img URL
+// -------------------
+// static images
+const getImg = (slug) => {
     return new URL(
-        `/src/assets/database/teams/team-${img}.png`,
+        `/src/assets/database/teams/team-${slug}.png`,
         import.meta.url
     );
 };
@@ -29,19 +35,19 @@ const getImg = (img) => {
                     <b>></b>
                     <a href="/teams">Teams</a>
                     <b>></b>
-                    <a>{{ paramTeam.name }}</a>
+                    <a>{{ team.name }}</a>
                 </div>
 
                 <img
-                    :src="getImg(paramTeam.img)"
-                    :alt="paramTeam.name"
+                    :src="getImg(team.slug)"
+                    :alt="team.name"
                     id="team-header-img"
                 />
 
-                <h1>{{ paramTeam.name }}</h1>
+                <h1>{{ team.name }}</h1>
 
                 <h2>
-                    {{ paramTeam.position }}
+                    {{ team.position }}
                 </h2>
 
                 <div id="team-header-socials">

@@ -3,11 +3,16 @@ import LandingLayout from "../layout/LandingLayout.vue";
 import Button from "../button/Button.vue";
 import ProgrammeCard from "./ProgrammeCard.vue";
 import ProgrammePartnersSlider from "./ProgrammePartnersSlider.vue";
-import {getProgrammes} from "@/composable/programmes/programmes";
-import {getProgrammeStats} from "@/composable/stats/stats";
+import {getProgrammeStats} from "@/composable/view-models/stats";
+import {getAllProgrammes} from "@/composable/backend/programmes";
 import {ref} from "vue";
 
-const programmes = getProgrammes();
+// -------------------
+// BACKEND - get programme
+// -------------------
+const programmes = getAllProgrammes();
+
+// VIEW model
 const stats = getProgrammeStats();
 
 // REF
@@ -265,3 +270,4 @@ const handleClick = () => {
     }
 }
 </style>
+@/composable/view-models/stats

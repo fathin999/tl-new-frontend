@@ -1,9 +1,12 @@
 <script setup>
 import LandingLayout from "../../layout/LandingLayout.vue";
 import Banner from "../../layout/Banner.vue";
-import {getAllTeams} from "@/composable/teams/teams";
+import {getAllTeams} from "@/composable/backend/teams";
 import TeamCard from "./TeamCard.vue";
 
+// ------------------------------
+// BACKEND
+// ------------------------------
 const teams = getAllTeams();
 </script>
 
@@ -21,7 +24,7 @@ const teams = getAllTeams();
                     :key="team.name"
                     :name="team.name"
                     :position="team.position"
-                    :img="team.img"
+                    :slug="team.slug"
                 />
             </div>
         </div>

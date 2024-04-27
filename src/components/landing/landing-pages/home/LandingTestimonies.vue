@@ -1,8 +1,13 @@
 <script setup>
-import {getLandingTestimonials} from "@/composable/testimonials/testimonials";
 import TestimonialList from "@/components/landing/testimonials/TestimonialList.vue";
+import {filterTestimonials} from "@/composable/backend/testimonials";
 
-const testimonials = getLandingTestimonials();
+// -------------------
+// BACKEND
+// -------------------
+// BACKEND - get testimonials which are featured
+const firstTestimonials = filterTestimonials("featured", true);
+const secondTestimonials = filterTestimonials("featured", false);
 </script>
 
 <template>
@@ -51,13 +56,13 @@ const testimonials = getLandingTestimonials();
 
             <div id="testimonies-list-top">
                 <TestimonialList
-                    :testimonials="testimonials.first"
+                    :testimonials="firstTestimonials"
                     :blue="true"
                 />
             </div>
 
             <TestimonialList
-                :testimonials="testimonials.second"
+                :testimonials="secondTestimonials"
                 :blue="true"
                 delay="2"
             />

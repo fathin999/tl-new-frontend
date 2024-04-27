@@ -1,5 +1,4 @@
 <script setup>
-import Button from "../button/Button.vue";
 import LandingLayout from "../layout/LandingLayout.vue";
 import ProgrammeHeader from "./ProgrammeHeader.vue";
 import PgmSectOverview from "./PgmSectOverview.vue";
@@ -8,20 +7,18 @@ import PgmSectPathways from "./PgmSectPathways.vue";
 import PgmSectCourses from "./PgmSectCourses.vue";
 import PgmSectRequirements from "./PgmSectRequirements.vue";
 import PgmSectOutcomes from "./PgmSectOutcomes.vue";
-import {
-    getProgramme,
-    getProgrammeGenericData,
-} from "@/composable/programmes/programmes";
+import {getOneProgramme} from "@/composable/backend/programmes";
 import {onMounted, onUnmounted, ref} from "vue";
 import {useRoute} from "vue-router";
 import {scrollToSection, scrollToTab} from "@/composable/utilities/tabs";
 
 // params
 const params = useRoute().params;
-const programme = getProgramme(params.slug);
-const data = getProgrammeGenericData();
 
-// GENERIC DATA
+// -------------------
+// BACKEND - get programme
+// -------------------
+const programme = getOneProgramme(params.slug);
 
 // REFS LIST
 let active = ref(0);
@@ -33,6 +30,7 @@ const coursesRef = ref();
 const requirements = ref();
 const outcomes = ref();
 
+// REF sections
 const sections = [
     {
         title: "Overview",
@@ -66,9 +64,10 @@ const sections = [
     },
 ];
 
+// View methods - Programme object checck
 const checkEmpty = (key) => {
-    if (data.hasOwnProperty(key)) {
-        const section = data[key];
+    if (programme.hasOwnProperty(key)) {
+        const section = programme[key];
         const length =
             section instanceof Array
                 ? section.length
@@ -110,6 +109,8 @@ const handleScroll = () => {
     else active.value = 0;
 };
 
+// MOUNT
+
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);
 });
@@ -126,8 +127,8 @@ onUnmounted(() => {
                 :logo="programme.logo"
                 :title="programme.title"
                 :slug="programme.slug"
-                :tagline="data.tagline"
-                :subtext="data.subtext"
+                :tagline="programme.tagline"
+                :subtext="programme.subtext"
                 @scrollToRef="scrollToPathways"
             />
 
@@ -151,36 +152,36 @@ onUnmounted(() => {
                 <div ref="overview">
                     <PgmSectOverview
                         :slug="programme.slug"
-                        :paragraph="data.overview.paragraph"
+                        :paragraph="programme.overview"
                         @scrollToPathways="scrollToPathways"
                     />
                 </div>
 
                 <div ref="timeline" v-if="checkEmpty('timeline')">
-                    <PgmSectTimeline :timeline="data.timeline" />
+                    <PgmSectTimeline :timeline="programme.timeline" />
                 </div>
 
                 <div ref="pathways" v-if="checkEmpty('pathways')">
-                    <PgmSectPathways :pathways="data.pathways" />
+                    <PgmSectPathways :pathways="programme.pathways" />
                 </div>
 
                 <div ref="coursesRef" v-if="checkEmpty('courses')">
                     <PgmSectCourses
-                        :courseSlugs="data.courses.courses"
-                        :roles="data.courses.roles"
+                        :courseSlugs="programme.courses.courses"
+                        :roles="programme.courses.roles"
                     />
                 </div>
 
                 <div ref="requirements" v-if="checkEmpty('requirements')">
                     <PgmSectRequirements
-                        :requirements="data.requirements.requirements"
-                        :processes="data.requirements.processes"
+                        :requirements="programme.requirements.requirements"
+                        :processes="programme.requirements.processes"
                     />
                 </div>
 
-                <div ref="outcomes" v-if="checkEmpty('outcomes')">
+                <div ref="outcomes" v-if="checkEmpty('offers')">
                     <PgmSectOutcomes
-                        :offers="data.outcomes.offers"
+                        :offers="programme.offers"
                         :slug="programme.slug"
                     />
                 </div>

@@ -1,5 +1,5 @@
 <script setup>
-import {getLandingHeroStats} from "@/composable/stats/stats";
+import {getLandingHeroStats} from "@/composable/view-models/stats";
 import Slider from "../../slider/Slider.vue";
 import HeroStatsItem from "./HeroStatsItem.vue";
 
@@ -158,3 +158,4 @@ const stats = getLandingHeroStats();
     }
 }
 </style>
+@/composable/view-models/stats

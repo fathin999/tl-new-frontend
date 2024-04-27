@@ -14,15 +14,13 @@ const emit = defineEmits(["scrollToRef"]);
 const handleClick = () => emit("scrollToRef");
 
 const getHeaderImg = (slug) => {
-    let temp = "kyouth";
     return new URL(
-        `/src/assets/database/programmes/programme-banner-${temp}.png`,
+        `/src/assets/database/programmes/programme-banner-${slug}.png`,
         import.meta.url
     );
 };
 
 const getLogo = (logo) => {
-    let temp = "kyouth";
     return new URL(
         `/src/assets/database/programmes/programme-logo-${logo}.png`,
         import.meta.url

@@ -12,16 +12,14 @@ const handleClick = () => {
     emit("scrollToPathways");
 };
 
-const getPartners = () => {
-    let slug = "kyouth";
+const getPartners = (slug) => {
     return new URL(
         `/src/assets/database/programmes/programme-partner-logos-${slug}.png`,
         import.meta.url
     );
 };
 
-const getImg = () => {
-    let slug = "kyouth";
+const getImg = (slug) => {
     return new URL(
         `/src/assets/database/programmes/programme-overview-${slug}.png`,
         import.meta.url
@@ -33,7 +31,7 @@ const getImg = () => {
     <div class="section blue" id="programme-overview">
         <div class="container">
             <div class="section-title">
-                <img :src="getPartners()" alt="" />
+                <img :src="getPartners(slug)" alt="" />
 
                 <h2>
                     Embark upon your
@@ -41,9 +39,7 @@ const getImg = () => {
                     <u>tech journey</u>
                 </h2>
 
-                <p>
-                    {{ paragraph }}
-                </p>
+                <p v-html="paragraph"></p>
 
                 <Button :arrow="true" @click="handleClick">
                     Explore career pathways
@@ -51,7 +47,7 @@ const getImg = () => {
             </div>
 
             <div id="programme-overview-img">
-                <img :src="getImg()" alt="" />
+                <img :src="getImg(slug)" alt="" />
             </div>
         </div>
     </div>

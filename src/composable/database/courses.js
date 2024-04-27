@@ -1553,7 +1553,7 @@ export const db_courses = [
         providerLogo: "tl",
         role: "Business & Management",
         foundation: [],
-        slug: "fcuiux",
+        slug: "fctm",
         featured: false,
         description:
             "This programme provides you with the fundamental grasp of various technological concepts and enable you to skillfully lead your organization in the industry of tomorrow.",
