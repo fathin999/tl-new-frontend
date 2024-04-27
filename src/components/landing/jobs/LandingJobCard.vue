@@ -5,6 +5,7 @@ import IconBuilding from "@/components/landing/icons/jobs/IconBuilding.vue";
 import IconStar from "@/components/landing/icons/IconStar.vue";
 import {getEmployerName} from "@/composable/employers/employers";
 
+// PROPS
 const props = defineProps({
     title: String,
     employer: String,

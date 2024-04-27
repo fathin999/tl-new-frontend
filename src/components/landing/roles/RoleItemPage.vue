@@ -7,16 +7,12 @@ import RoleCourseCard from "./RoleCourseCard.vue";
 import LandingJobCard from "../jobs/LandingJobCard.vue";
 import JobsList from "../jobs/JobsList.vue";
 import ArrowLink from "../button/ArrowLink.vue";
-import {
-    getFirstRole,
-    getGenericRoleItemData,
-    getRole,
-} from "@/composable/roles/roles";
-import {getRoleTabs} from "@/composable/view-models/roles";
 import {ref} from "vue";
 import {useRoute} from "vue-router";
+import {getRoleTabs} from "@/composable/view-models/roles";
 import {filterJobs} from "@/composable/backend/jobs";
 import {filterCourses, filterM1Courses} from "@/composable/backend/courses";
+import {getOneRole} from "@/composable/backend/roles";
 
 // params
 const params = useRoute().params;
@@ -25,9 +21,7 @@ const params = useRoute().params;
 // BACKEND
 // -------------------
 // BACKEND - get role from id
-const role = getFirstRole();
-const paramRole = getRole(params.slug);
-const data = getGenericRoleItemData();
+const role = getOneRole(params.slug);
 
 // BACKEND - get courses associated with role
 const courses = filterCourses("role", role.title, 3);
@@ -57,9 +51,9 @@ const getImg = (slug) => {
 };
 
 // static images
-const getSkillsIcon = (i) => {
+const getSkillsIcon = (slug) => {
     return new URL(
-        `/src/assets/database/roles/role-skills-${i}.svg`,
+        `/src/assets/database/roles/role-skills-${slug}.svg`,
         import.meta.url
     );
 };
@@ -93,12 +87,12 @@ const changeTab = (i) => {
                     <b> > </b>
                     <a href="/career-roles">Career roles</a>
                     <b> > </b>
-                    <a>{{ paramRole.title }}</a>
+                    <a>{{ role.title }}</a>
                 </div>
 
-                <img :src="getImg(paramRole.slug)" alt="" />
+                <img :src="getImg(role.slug)" alt="" />
 
-                <h1>{{ paramRole.title }}</h1>
+                <h1>{{ role.title }}</h1>
             </div>
 
             <div class="secondary-bar">
@@ -118,22 +112,16 @@ const changeTab = (i) => {
 
             <div id="role-content" ref="content">
                 <div class="container section-small" v-if="active === 0">
-                    <h1 class="first">Who are {{ paramRole.paraTitle }}s?</h1>
+                    <h1 class="first">Who are {{ role.paraTitle }}s?</h1>
 
                     <p>
-                        Software engineers create web applications, mobile apps,
-                        robots, operating systems, and network systems. They
-                        develop software solutions that meet their companies'
-                        needs and expectations. Depending on the type of company
-                        they work for, software engineers will create original
-                        code for software and applications. They also build
-                        reusable code for future use.
+                        {{ role.description }}
                     </p>
 
                     <h1>What do they do?</h1>
 
                     <CourseCheckpoint
-                        v-for="point in data.do"
+                        v-for="point in role.do"
                         :key="point"
                         :title="point"
                     />
@@ -143,20 +131,20 @@ const changeTab = (i) => {
                     <div id="role-content-skills">
                         <div
                             class="skills-item"
-                            v-for="(skill, i) in data.skills"
+                            v-for="(skill, i) in role.skills"
                             :key="`role-content-do-skill-item-${i}`"
                         >
-                            <img :src="getSkillsIcon(i)" alt="" />
-                            <span> {{ skill }} </span>
+                            <img :src="getSkillsIcon(skill.slug)" alt="" />
+                            <span> {{ skill.title }} </span>
                         </div>
                     </div>
 
-                    <h1>How to be a {{ paramRole.paraTitle }}</h1>
+                    <h1>How to be a {{ role.paraTitle }}</h1>
 
                     <div id="role-content-how">
                         <div
                             class="step-item"
-                            v-for="(step, i) in data.how"
+                            v-for="(step, i) in role.how"
                             :key="step"
                         >
                             <div class="step-item-icon">
@@ -245,7 +233,9 @@ const changeTab = (i) => {
                     v-if="active === 1"
                     id="role-content-pathway"
                 >
-                    <h2>Beginner {{ paramRole.paraTitle }} courses</h2>
+                    <h2 v-if="m1courses.length > 0">
+                        Beginner {{ role.paraTitle }} courses
+                    </h2>
 
                     <div v-if="m1courses.length > 0">
                         <CoursesList
@@ -254,7 +244,9 @@ const changeTab = (i) => {
                         />
                     </div>
 
-                    <h2>Intermediate to advanced courses</h2>
+                    <h2 v-if="courses.length > 0">
+                        Intermediate to advanced courses
+                    </h2>
 
                     <div v-if="courses.length > 0">
                         <CoursesList

@@ -1,9 +1,17 @@
 <script setup>
 import LandingLayout from "@/components/landing/layout/LandingLayout.vue";
-import {getMainRoles} from "@/composable/roles/roles";
+import {filterRoles} from "@/composable/backend/roles";
 
-const roles = getMainRoles();
+// -------------------
+// BACKEND - get featured roles
+// -------------------
+// BACKEND
+const roles = filterRoles("featured", true);
 
+// -------------------
+// TO CHANGE - static image to change to img URL
+// -------------------
+// static images
 const getImg = (slug) => {
     return new URL(
         `/src/assets/database/roles/role-${slug}.svg`,

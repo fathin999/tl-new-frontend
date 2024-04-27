@@ -1,8 +1,8 @@
-import {getRoles} from "../roles/roles";
 import IconRoleCybersecurity from "@/components/landing/icons/landingPage/roles/IconRoleCybersecurity.vue";
 import IconRoleDeveloper from "@/components/landing/icons/landingPage/roles/IconRoleDeveloper.vue";
 import IconRoleMarketing from "@/components/landing/icons/landingPage/roles/IconRoleMarketing.vue";
 import IconRoleData from "@/components/landing/icons/landingPage/roles/IconRoleData.vue";
+import {getAllRoles} from "../backend/roles";
 
 const tabs = ["Overview", "Course pathway", "Jobs"];
 
@@ -34,7 +34,7 @@ export const getRoleTabs = () => {
 };
 
 export const getRoleFilters = () => {
-    return getRoles().map((role) => {
+    return getAllRoles().map((role) => {
         return role.title;
     });
 };
