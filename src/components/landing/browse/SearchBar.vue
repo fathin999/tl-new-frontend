@@ -1,28 +1,54 @@
 <script setup>
+import {getRoleSuggestions} from "@/composable/backend/roles";
 import IconSearch from "../icons/IconSearch.vue";
-import {ref, reactive} from "vue";
+import {ref} from "vue";
+import {useRoute, useRouter} from "vue-router";
 
-defineProps({
+// ROUTE
+const route = useRoute();
+const router = useRouter();
+
+// PROPS
+const props = defineProps({
     placeholder: String,
+    path: String,
 });
 
+// REF
 const keyword = ref("");
-const suggestions = reactive([]);
-const specificSuggestions = reactive([]);
+const suggestions = ref([keyword.value]);
 
-const search = () => {
-    console.log(keyword.value);
-};
-
+// -------------------
+// BACKEND - get Role suggestions
+// -------------------
 const change = () => {
-    if (keyword.value === "") {
-        suggestions.splice(0);
-        specificSuggestions.splice(0);
-    } else {
-        suggestions.push(keyword.value);
+    suggestions.value.splice(0);
+
+    if (keyword.value !== "") {
+        const roles = getRoleSuggestions(keyword.value);
+        suggestions.value = [keyword.value];
+        roles.forEach((role) => suggestions.value.push(role.title));
     }
 };
 
+// METHODS
+
+// Search methods
+const search = (i) => {
+    const query = route.query;
+
+    console.log(suggestions.value);
+
+    router.push({
+        path: props.path,
+        query: {
+            ...query,
+            keyword: suggestions.value[i],
+        },
+    });
+};
+
+// View methods
 const checkKeyword = () => {
     return keyword.value !== "";
 };
@@ -38,21 +64,16 @@ const checkKeyword = () => {
                 @input="change"
             />
 
-            <div id="search-icon" @click="search">
+            <div id="search-icon" @click="search(0)">
                 <IconSearch />
             </div>
 
             <div v-if="checkKeyword()" id="search-suggestions">
-                <div class="suggestion-item clickable">
-                    <IconSearch />
-                    <span>
-                        {{ keyword }}
-                    </span>
-                </div>
                 <div
                     class="suggestion-item clickable"
-                    v-for="suggestion in suggestions"
+                    v-for="(suggestion, i) in suggestions"
                     :key="suggestion"
+                    @click="search(i)"
                 >
                     <IconSearch />
                     <span>

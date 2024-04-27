@@ -29,3 +29,16 @@ export const getAllRoles = () => {
 export const getOneRole = (slug) => {
     return db_roles.find((role) => role.slug === slug);
 };
+
+// -----------------------
+// GET ROLE SUGGESTIONS
+// -----------------------
+// used in: SearchBar.vue
+
+export const getRoleSuggestions = (keyword) => {
+    let roles = db_roles.filter((role) =>
+        role.title.toLowerCase().includes(keyword.toLowerCase())
+    );
+
+    return roles.slice(0, 3);
+};

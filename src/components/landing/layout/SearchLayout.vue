@@ -100,7 +100,7 @@ const pageItems = calculatePageItems(props.currentPage, props.pages);
                 showFilter ? 'browse-filter-open' : 'browse-filter-close'
             }`"
         >
-            <SearchBar :placeholder="placeholder" />
+            <SearchBar :placeholder="placeholder" :path="path" />
 
             <div class="container">
                 <div id="filter-bg" @click="showFilterMenu" />
