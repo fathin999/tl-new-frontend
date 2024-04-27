@@ -1,27 +1,18 @@
 <script setup>
-import {reactive} from "vue";
 import IconPlus from "../icons/IconPlus.vue";
 import IconMinus from "../icons/IconMinus.vue";
 import FaqItem from "./FaqItem.vue";
+import {ref} from "vue";
 
 const props = defineProps({
     faqs: Array,
 });
 
-const createArr = () => {
-    let arr = [];
-
-    for (let i = 0; i < props.faqs.length; i++) {
-        arr.push(false);
-    }
-
-    return arr;
-};
-
-let opened = reactive(createArr());
+let open = ref(-1);
 
 const toggleFaq = (i) => {
-    opened[i] = !opened[i];
+    if (open.value === i) open.value = -1;
+    else open.value = i;
 };
 </script>
 
@@ -33,7 +24,7 @@ const toggleFaq = (i) => {
             :index="i"
             :question="faq.question"
             :answer="faq.answer"
-            :open="opened[i]"
+            :open="open === i"
             @toggleFaq="toggleFaq"
         />
     </div>
@@ -48,7 +39,12 @@ const toggleFaq = (i) => {
 @media (max-width: 900px) {
     #faq-list {
         width: auto;
-        margin: 0 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    #faq-list {
+        border-bottom: 1px solid gainsboro;
     }
 }
 </style>

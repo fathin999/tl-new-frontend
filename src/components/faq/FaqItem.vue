@@ -14,6 +14,10 @@ defineEmits(["toggleFaq"]);
 const getClass = () => {
     return `faq-item clickable ${props.open ? "show" : "hide"}`;
 };
+
+const answerText = () => {
+    return answer.value;
+};
 </script>
 
 <template>
@@ -29,9 +33,7 @@ const getClass = () => {
             </div>
         </div>
 
-        <div class="faq-item-a">
-            {{ answer }}
-        </div>
+        <div class="faq-item-a" v-html="answer"></div>
     </div>
 </template>
 
@@ -114,6 +116,16 @@ $padding: 40px;
             opacity: 1;
             margin-top: 40px;
         }
+
+        &-a:deep(ol),
+        &-a:deep(ul) {
+            margin-left: 25px;
+            margin-top: 5px;
+        }
+
+        &-a:deep(li) {
+            padding-left: 10px;
+        }
     }
 }
 
@@ -142,20 +154,47 @@ $padding: 40px;
 }
 
 @media (max-width: 600px) {
-    $padding: 20px;
+    $padding: 23px;
 
     .faq-item {
+        border-radius: 5px;
+        margin-bottom: 0;
+        border: none;
+        border-top: 1px solid gainsboro;
+
         &-q {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            line-height: 1.5rem;
+        }
+
+        svg {
+            $size: 11px;
+            height: $size;
+            width: $size;
         }
     }
 
     .show {
-        padding: $padding;
+        padding: $padding 0 30px;
+        border: none;
+        border-top: 1px solid gainsboro;
+        background-color: white;
+
+        .faq-item-q span {
+            font-weight: 500;
+        }
+
+        .faq-item-a {
+            margin-top: 25px;
+        }
     }
 
     .hide {
-        padding: $padding;
+        padding: $padding 0;
+
+        .faq-item-q span {
+            font-weight: 400;
+        }
     }
 }
 

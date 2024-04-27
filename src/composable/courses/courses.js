@@ -374,11 +374,12 @@ const faqs = [
     {
         question: "What are the requirements to join TalentLabs?",
         answer: `To join our full-time program, you will need to complete our entire application process. Through your application, we will make sure that you meet all of the following requirements needed to join our full-time program:
-
-        Proficiency: You need to be proficient in spoken and written English (B1 level - Intermediate, at a minimum).
-        Financial Support: You need to be able to support yourself financially throughout the Programme (6 months) and throughout your job search (time varies by student).
-        Internet & Equipment: You need to have access to a high-speed and stable Internet connection. In addition, you also need to own a computer with the right specs with a microphone and webcam.
-        Strong Work Ethic: You must have a strong work ethic and behave respectfully and responsibly. This is one of the most important characteristics we look for in new students. You need to enjoy spending time building, learning, and working with other people. We are looking for exceptional collaborators and communicators.`,
+        <ul>
+            <li><b>Proficiency:</b> You need to be proficient in spoken and written English (B1 level - Intermediate, at a minimum).
+            <li><b>Financial Support:</b> You need to be able to support yourself financially throughout the Programme (6 months) and throughout your job search (time varies by student).</li>
+            <li><b>Internet & Equipment:</b> You need to have access to a high-speed and stable Internet connection. In addition, you also need to own a computer with the right specs with a microphone and webcam.</li>
+            <li><b>Strong Work Ethic:</b> You must have a strong work ethic and behave respectfully and responsibly. This is one of the most important characteristics we look for in new students. You need to enjoy spending time building, learning, and working with other people. We are looking for exceptional collaborators and communicators.</li>
+        </ul>`,
     },
     {
         question: "What is the application process?",
@@ -387,7 +388,7 @@ const faqs = [
     {
         question: "What is the medium of instruction and communications?",
         answer: `Like many global schools and companies, we use English as the default language for all communications. A lot of great jobs out there require a good English level so it is critical that you perfect this language if you want to be a successful global developer.
-
+        <br/><br/>
         You need to be at a B1 English level (Intermediate), at the very least, in order to join us.`,
     },
     {

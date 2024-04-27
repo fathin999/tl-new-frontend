@@ -3,7 +3,7 @@ import LandingLayout from "../layout/LandingLayout.vue";
 import Button from "../button/Button.vue";
 import CourseCheckpoint from "../courses/CourseCheckpoint.vue";
 import FaqList from "../faq/FaqList.vue";
-import {getInstructorFAQs} from "../../composable/faq/faq-instructor";
+import {getCourseFaqs} from "../../composable/database/faqs";
 import {
     getBeInsDuties,
     getBeInsSupports,
@@ -14,7 +14,7 @@ import IconMail from "../icons/IconMail.vue";
 const whyUs = getBeInsWhyUs();
 const duties = getBeInsDuties();
 const supports = getBeInsSupports();
-const faqs = getInstructorFAQs();
+const faqs = getCourseFaqs();
 const email = "teach@talentlabs.org";
 
 const getDutyImg = (i) => {
@@ -370,6 +370,222 @@ const getDutyImg = (i) => {
                 width: $size;
                 margin-right: 15px;
                 fill: white;
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    #instructor {
+        &-header {
+            .container {
+                grid-template-columns: 45% 45%;
+            }
+        }
+
+        &-duties {
+            .container {
+                width: auto;
+                margin: 0 50px;
+            }
+        }
+
+        &-why {
+            &-list {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+
+                .instructor-why-item {
+                    border-radius: 15px;
+
+                    h3 {
+                        margin: 30px 0 10px;
+                    }
+
+                    svg {
+                        $size: 45px;
+                        height: $size;
+                        width: $size;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    #instructor {
+        &-header {
+            .container {
+                display: block;
+            }
+
+            &-img {
+                width: 50vw;
+                margin: 60px auto 0;
+                height: 40vw;
+            }
+        }
+
+        &-duties {
+            .container {
+                margin: 0 20px;
+            }
+
+            &-list {
+                .instructor-duties-item {
+                    padding: 25px 50px 40px 50px;
+                    display: block;
+                    text-align: center;
+
+                    img {
+                        height: 200px;
+                        width: 100%;
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+
+        &-support {
+            &-list {
+                gap: 15px;
+
+                .instructor-support-item {
+                    padding: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #instructor {
+        &-support {
+            &-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+
+                .instructor-support-item {
+                    padding: 22px 22px 25px;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.07);
+
+                    svg {
+                        $size: 60px;
+                        height: $size;
+                        width: $size;
+                    }
+
+                    h2 {
+                        font-size: 1.2rem;
+                        line-height: 1.7rem;
+                        margin-top: 12px;
+                    }
+
+                    p {
+                        margin: 7px 0 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    $shadow: 0 5px 15px rgba(160, 169, 174, 0.5);
+
+    #instructor {
+        overflow-x: hidden;
+
+        &-header {
+            padding-top: 60px;
+
+            &-img {
+                width: 90vw;
+                margin: 40px auto 0;
+                height: 70vw;
+
+                $gap: 10px;
+                $width: calc((100% - $gap) * 0.37);
+                $right: calc($gap + $width);
+                $height: calc((100% - $gap) * 0.4);
+
+                img {
+                    border-radius: 15px;
+                }
+
+                &-s {
+                    width: $width;
+                    right: $right;
+                    height: $height;
+                }
+
+                &-m {
+                    width: calc(100% - $gap - $width);
+                    right: $right;
+                    top: calc($height + $gap);
+                    height: calc(100% - $height - $gap);
+                }
+
+                &-tall {
+                    width: $width;
+                }
+            }
+        }
+
+        &-duties {
+            &-list {
+                margin-top: 50px;
+
+                .instructor-duties-item {
+                    padding: 10px 20px 30px 20px;
+                    box-shadow: $shadow;
+                    border-radius: 15px;
+
+                    img {
+                        height: 180px;
+                        margin-bottom: 10px;
+                    }
+
+                    h3 {
+                        font-size: 1.25rem;
+                        line-height: 1.75rem;
+                        margin-bottom: 10px;
+                    }
+
+                    p {
+                        font-size: 0.95rem;
+                        line-height: 1.4rem;
+                    }
+                }
+            }
+        }
+
+        &-why {
+            &-list {
+                grid-template-columns: 1fr;
+
+                .instructor-why-item {
+                    box-shadow: $shadow;
+                    padding: 25px;
+
+                    svg {
+                        $size: 40px;
+                        height: $size;
+                        width: $size;
+                    }
+
+                    h3 {
+                        font-size: 1.2rem;
+                        line-height: 1.7rem;
+                        margin: 20px 0 5px;
+                    }
+
+                    p {
+                        font-size: 0.95rem;
+                        line-height: 1.4rem;
+                    }
+                }
             }
         }
     }

@@ -9,7 +9,7 @@ const faqs = getCourseFaq();
 
 <template>
     <LandingLayout>
-        <div id="course-faq">
+        <div id="course-faq" class="container">
             <Banner title="FAQ" subtext="Frequently asked questions" />
 
             <div id="faq-course-list">
